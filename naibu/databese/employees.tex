@@ -1,0 +1,20 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\subsection{ユーザ情報テーブル}
+従業員の情報を格納するテーブルを表\ref{fig:data_emp}に示す．
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+    属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+    ユーザ番号   & CHAR(4)       & PRIMARY KEY, NOT NULL  &  - \\ \hline
+    漢字氏名     & CHAR(8)       &   NOT NULL     &   - \\ \hline
+    パスワード     & CHAR(128)      &  NOT NULL           &  ハッシュ化したもの \\ \hline 
+    \end{tabular}
+    \caption{employees}
+    \label{fig:data_emp} 
+\end{center}
+\end{table}
+
+\end{document}

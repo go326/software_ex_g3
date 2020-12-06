@@ -1,0 +1,21 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\subsection{レストラン情報テーブル}
+レストランの情報を格納するテーブルを表\ref{fig:data_rest}に示す．
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+    属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+    テーブル番号   & CHAR(2)       & COMPOSITE PRIMARY KEY, NOT NULL  &  - \\ \hline
+    予約ID     & CHAR(4)       &    COMPOSITE PRIMARY KEY, NOT NULL   &   - \\ \hline
+    人数     & INTEGER     &    NOT NULL   &   - \\ \hline
+    夕食メニュー     & CHAR(16)      &  NOT NULL           & \\ \hline 
+    \end{tabular}
+    \caption{restrant}
+    \label{fig:data_rest} 
+\end{center}
+\end{table}
+
+\end{document}

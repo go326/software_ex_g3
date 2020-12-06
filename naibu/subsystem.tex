@@ -1,0 +1,131 @@
+%% 本文
+\begin{document}
+
+\section{サブシステム詳細}\label{subsys}
+\ref{sec:sys}章で述べたシステムを構成するサブシステムの詳細について述べる．
+
+\subsection{ユーザ認証サブシステム(全ユーザ)}
+ログイン時に，入力されたユーザ名とパスワードから，ユーザの識別と認証を行う．
+ユーザ認証が成功した場合，権限によって本システムの利用可能な機能を制限する．
+
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]:ユーザ名，パスワード
+\item[出力]:なし
+\item[備考]:エラー時はログイン画面にメッセージを表示
+\end{description}
+
+\subsection{ユーザ情報管理サブシステム(管理者)}
+本システムのユーザを，ユーザID，ユーザ名，パスワード，ユーザ権限の情報によって管理を行う．
+ユーザの管理では、ユーザ情報の登録，編集，削除を行う．
+また，1つのユーザに対して複数の権限を与えることができる．
+
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]ユーザ名，パスワード
+\item[出力]ユーザID，ユーザ名，ユーザ権限
+\item[備考]ユーザIDは自動的に決定
+\end{description}
+
+\subsection{ログ参照サブシステム(管理者)}
+本システムの操作のログを記録と参照を行う．
+また，ログ参照時にはログ情報の一覧を表示する．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]日付時間，変更者，変更業務，変更テーブル，変更行，変更属性，変更内容
+\item[備考]システムログ参照ボタン選択時に一覧を要求
+\end{description}
+
+\subsection{質問情報管理サブシステム(管理者)}
+質問情報は，質問No，質問内容，回答内容，備考によって管理を行う．
+質問情報の管理では，質問情報の登録，編集，削除を行う．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]質問内容，回答，備考
+\item[出力]なし
+\item[備考]なし
+\end{description}
+
+\subsection{マニュアル管理サブシステム(管理者)}
+マニュアル情報は，マニュアルNo，ファイル名，マニュアルのURL，備考によって管理を行う．
+マニュアルの情報の管理では，マニュアル情報の登録，編集，削除を行う．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]ファイル名，備考
+\item[出力]なし
+\item[備考]マニュアルのURLはアップロードにより登録\\
+        マニュアルNoは登録時に自動的に割り当てられる．
+\end{description}
+
+\subsection{質問情報確認サブシステム(従業員・アルバイト)}
+質問情報の一覧を表示する．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]質問No，質問内容，回答
+\item[備考]よくある質問閲覧ボタン選択時に一覧を要求
+\end{description}
+
+\subsection{マニュアル確認サブシステム(従業員・アルバイト)}
+マニュアル情報の一覧を表示する．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]マニュアルNo，ファイル名，マニュアルのURL
+\item[備考]マニュアル閲覧ボタン選択時に一覧を要求
+\end{description}
+
+\subsection{予約一覧表示サブシステム(フロント担当)}
+予約一覧画面の一覧を表示する．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]部屋番号，氏名，人数
+\item[備考]フロント業務機能ボタン選択時に一覧を要求
+\end{description}
+
+\subsection{予約情報検索サブシステム(フロント担当)}
+予約情報を氏名または，電話番号によって検索し，結果画面の表示を行う．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]氏名，電話番号
+\item[出力]氏名，宿泊日，予約日，電話番号，部屋番号
+\item[備考]なし
+\end{description}
+
+\subsection{予約管理サブシステム(フロント担当)}
+予約情報は，予約ID，宿泊日，予約日，宿泊数，氏名，住所，電話番号，人数，プラン，食事の有無，食事メニュー，部屋番号，備考によって管理を行う．
+チェックインとチェックアウトは予約登録時には，チェックアウト状態で登録する．
+予約情報の管理では，予約情報の登録，編集，削除を行う．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]氏名，住所，電話番号，プラン，食事メニュー，備考
+\item[出力]宿泊日，予約日，宿泊数，氏名，住所，電話番号，人数，プラン，食事の有無，食事メニュー，部屋番号，備考
+\item[備考]宿泊日，予約日，宿泊数，人数，食事の有無，部屋番号はドロップダウンリストやチェックボックスにより選択
+\end{description}
+
+\subsection{清掃情報管理サブシステム(フロント担当，清掃担当)}
+清掃情報は，清掃状況の内容によって管理を行う．清掃状況の管理では，各部屋毎の清掃状況を編集を行う．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]清掃状況
+\item[備考]清掃状況は部屋の選択により編集
+\end{description}
+
+\subsection{清掃情報一覧表示サブシステム(清掃担当)}
+清掃情報の一覧を表示する．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]部屋番号，人数，次の予約人数，清掃状況
+\item[備考]清掃業務機能ボタン選択時に一覧を要求
+    ロビー，レストラン，大浴場の清掃状況も表示
+\end{description}
+
+\subsection{追加料金管理サブシステム(フロント担当，レストラン担当)}
+追加料金は，宿泊客の情報に，場所，金額，内容，備考によって管理を行う．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]金額，内容，備考
+\item[出力]なし
+\item[備考]場所の選択はドロップダウンリスト
+\end{description}
+
+\subsection{食事情報一覧表示サブシステム(レストラン担当)}
+食事情報の一覧を表示する．
+\begin{description} \setlength{\leftskip}{0.5cm}
+\item[入力]なし
+\item[出力]テーブル，氏名，人数，食事内容
+\item[備考]レストラン担当業務機能ボタン選択時に一覧を要求
+\end{description}
+
+\end{document}

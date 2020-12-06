@@ -1,0 +1,92 @@
+\section{データベース設計}
+
+本章では，本システムで用いるリレーショナルデータベースの構造を示す．
+
+\subsection{顧客情報テーブル}
+まず，お客様の情報を格納するテーブルを表\ref{fig:data_cus}に示す．
+\begin{table}
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+        予約ID     & INTEGER       & PRIMARY KEY  &  - \\ \hline
+        宿泊日     & DATE          &   NOT NULL   &   (yyyy/mm/dd) \\ \hline
+        予約日     & DATE          &   NOT NULL   &   (yyyy/mm/dd) \\ \hline
+        宿泊数     & INTEGER       &   NOT NULL    &  - \\ \hline 
+        氏名       & CHAR(16)      &   NOT NULL    &  -  \\\hline
+        都道府県   & CHAR(5)       &   NOT NULL     & - \\ \hline
+        住所       & CHAR(128)     & NOT NULL      & - \\  \hline
+        電話番号   & INTEGER       & NOT NULL       & - \\   \hline
+        大人       & INTEGER       & NOT NULL       & - \\   \hline
+        子供       & INTEGER       & -             & - \\ \hline      
+        プラン     & CHAR(32)      & NOT NULL      & - \\  \hline 
+        夕食の有無 & CHAR(2)       & NOT NULL       & -  \\ \hline
+        夕食メニュー   & CHAR(32)      & -             & -  \\ \hline
+        朝食の有無 & CHAR(2)       & NOT NULL       & -  \\ \hline
+        朝食メニュー   & CHAR(32)      & -             & -  \\ \hline
+        部屋番号1  & CHAR(4)       & FOREIGN KEY   & references room \\ \hline
+        部屋番号2  & CHAR(4)      & FOREIGN KEY   & references room \\ \hline
+        部屋番号3  & CAHR(4)       & FOREIGN KEY   & references room \\ \hline
+        チェックイン & CHAR(4)    & -             & -  \\ \hline
+        備考 & CHAR(1024)    & -             & -  \\ \hline
+        \end{tabular}
+        \label{fig:data_cus} 
+        \caption{customer}
+    \end{center}
+    \end{table}
+
+    \subsection{ルーム情報テーブル}
+まず，お部屋の情報を格納するテーブルを表\ref{fig:data_room}に示す．
+
+ \begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+    属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+    部屋番号     & CHAR(4)       & PRIMARY KEY  &  - \\ \hline
+    掃除状況     & CHAR(2)          &   -          &   - \\ \hline
+    \end{tabular}
+    \label{fig:data_room} 
+    \caption{room}
+\end{center}
+\end{table}
+ 
+\subsection{社員情報テーブル}
+まず，従業員の情報を格納するテーブルを表\ref{fig:data_emp}に示す．
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+    属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+    社員番号   & CHAR(4)       & PRIMARY KEY  &  - \\ \hline
+    ユーザ名     & CHAR(16)         &   -          &   - \\ \hline
+    漢字氏名     & CHAR(8)       &   -          &   - \\ \hline
+    パスワード     & INTEGER       & -            &  ハッシュ化したもの \\ \hline 
+    \end{tabular}
+    \label{fig:data_emp} 
+    \caption{employees}
+\end{center}
+\end{table}
+
+\subsection{ログ情報テーブル}
+まず，ログの情報を格納するテーブルを表\ref{fig:data_log}に示す．
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+    日時       & DATE          & PRIMARY KEY  &  (YYYY/MM/DD hh:mm:ss) \\ \hline
+    変更者     & CHAR(4)       & PRIMARY KEY, FOREING KEY &  REFERENCES employees \\ \hline
+    変更業務    & CHAR(16)     &   -          &   - \\ \hline
+    変更テーブル    & CHAR(8)      & -            &  - \\ \hline 
+    変更行       & CHAR(16)      & -            &  主キーで管理  \\\hline
+    変更属性   & CHAR(5)       & -             &  - \\ \hline
+    変更前       & CHAR(128)     & -             & - \\  \hline
+    変更後   & INTEGER       & -             & - \\   \hline
+    \end{tabular}
+\label{fig:data_log} 
+\caption{log}
+\end{center}
+\end{table}
+

@@ -1,0 +1,29 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\subsection{過去情報テーブル}
+過去のお客様の情報を格納するテーブルを表\ref{fig:data_kako}に示す．
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        属性       & データ型      &  制約条件     & 備考 \\ \hline \hline
+        予約ID     & CHAR(4)       & PRIMARY KEY, NOT NULL  &  - \\ \hline
+        宿泊日     & DATE          &   NOT NULL   &   (yyyy/mm/dd) \\ \hline
+        予約日     & DATE          &   NOT NULL   &   (yyyy/mm/dd) \\ \hline
+        宿泊数     & INTEGER       &   NOT NULL    &  - \\ \hline 
+        氏名       & CHAR(16)      &   NOT NULL    &  -  \\\hline
+        都道府県   & CHAR(5)       &   NOT NULL     & - \\ \hline
+        住所       & CHAR(128)     & NOT NULL      & - \\  \hline
+        電話番号   & INTEGER       & NOT NULL       & - \\   \hline
+        大人       & INTEGER       & NOT NULL       & - \\   \hline
+        子供       & INTEGER       & -             & - \\ \hline      
+        プラン     & CHAR(32)      & NOT NULL      & - \\  \hline 
+        備考       & CHAR(1024)    & -             & -  \\ \hline
+        \end{tabular}
+        \caption{customer}
+        \label{fig:data_kako} 
+    \end{center}
+    \end{table}
+
+\end{document}
