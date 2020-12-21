@@ -11,6 +11,8 @@ $res = "";
 
 try {
     $pdo = new PDO($dsn, $user, $password);
+    echo ('接続に成功');
+    
 
     #SELECT (costomer)
     $sql = "SELECT customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1";
@@ -24,13 +26,14 @@ try {
             . $row['child'] . "</td><td>"
             . $row['dinner_menu'] . "</td><\tr>";
     }
+
 } catch (PDOException $e) {
     echo $e->getMessage();
     exit;
 }
 ?>
 
-<!DOCTYPE heml>
+<!DOCTYPE html>
 <html>
 
 <head>
