@@ -1,8 +1,7 @@
 <?php
 
-$dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
-$user = 'root';
-$password = 'prac.lampp';
+include ('../db_connect.php');
+
 $k_res = "";
 $ku_id = 0;
 $ku_name = "";
@@ -10,6 +9,7 @@ $ku_pass = "";
 $ku_auth = 1;
 
 try {
+  global $pdo
     // DB接続
     $pdo = new PDO($dsn, $user, $password);
     //echo ('接続に成功');
