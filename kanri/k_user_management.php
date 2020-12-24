@@ -1,6 +1,9 @@
 <?php
 
-include ('../db_connect.php');
+$dsn = 'mysql:dbname=admin;host=localhost';
+$user = 'admin';
+$password = 'software_ex_g3';
+
 
 $k_res = "";
 $ku_id = 0;
@@ -9,7 +12,6 @@ $ku_pass = "";
 $ku_auth = 1;
 
 try {
-  global $pdo
     // DB接続
     $pdo = new PDO($dsn, $user, $password);
     //echo ('接続に成功');
