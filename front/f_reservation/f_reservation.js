@@ -1,16 +1,23 @@
-/*getElementById(id名)では、html内の上から順番に探し、
-*最初のモノだけに適用
-*getElementsByName();なぜか上手くいかない
-*
-*現在の実装方法として冗長な書き方になってしまうが、
-*ドロップダウンリストの年月日の箇所文メソッドが増えてしまう
-*
-*可能であれば、class,nameで取得できれば、一つのメソッドで実装が可能
+/** 
+ * getElementById(id名)では、html内の上から順番に探し、
+ * 最初のモノだけに適用
+ * getElementsByName();なぜか上手くいかない
+ * 現在の実装方法として冗長な書き方になってしまうが、
+ * ドロップダウンリストの年月日の箇所文メソッドが増えてしまう
+ * 可能であれば、class,nameで取得できれば、一つのメソッドで実装が可能
+ * 
+ * 「年」は現在の年から10年間用意
 */
+function getYear(){
+    var dt = new Date();
+    var year = dt.getFullYear();
+    return year;
+}
+
 function getYear1(){
     let year = document.getElementById("year1");
     document.createElement("option")
-    for (let i = 2020; i < 2100; i++){
+    for (let i = getYear(); i < getYear()+10; i++){
         let option = document.createElement("option");
         option.setAttribute("value", i);
         option.innerHTML = i;
@@ -44,7 +51,7 @@ function getDay1(){
 function getYear2(){
     let year = document.getElementById("year2");
     document.createElement("option")
-    for (let i = 2020; i < 2100; i++){
+    for (let i = getYear(); i < getYear()+10; i++){
         let option = document.createElement("option");
         option.setAttribute("value", i);
         option.innerHTML = i;
