@@ -8,8 +8,8 @@ function SCleanManagemantP(){
     while ($row = $stmt -> fetch()){
         $room_number = $row["room_number"];
         $room_clean = $row["room_clean"];
-        echo ('($room_number) $room_clean');
-    }
+        echo ($room_number.','.$room_clean.'<br>');
+    
 
 }
 
