@@ -14,6 +14,7 @@ function SCleanManagemantP(){
 }
 
 list($room_number,$room_clean) = SCleanManagemantP();
+echo $stmt;
 echo $room_number.'<br>';
 echo $room_clean.'<br>';
 
