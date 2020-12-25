@@ -10,6 +10,7 @@ function SCleanManagemantP(){
         $room_clean = $row["room_clean"];
         echo ($room_number.",".$room_clean."<br>");
     }
+    echo $stmt;
     return [$room_number , $room_clean];
 }
 
