@@ -10,10 +10,12 @@ function SCleanManagemantP(){
         $room_clean = $row["room_clean"];
         echo ($room_number.",".$room_clean."<br>");
     }
+    echo $stmt;
     return [$room_number , $room_clean];
 }
 
 list($room_number,$room_clean) = SCleanManagemantP();
+echo $stmt;
 echo $room_number.'<br>';
 echo $room_clean.'<br>';
 
