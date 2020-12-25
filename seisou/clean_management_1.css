@@ -1,0 +1,26 @@
+@charset 'utf-8';
+header{
+    width: 80%;
+    margin: 0 auto;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    display: inline;
+}
+
+table{
+    margin: 0 auto;
+    width: 80%;
+}
+table tr td{
+    width: 2em;
+    height: 4em;
+    margin: 0 auto;
+}
+table tr td span{
+    background: red;
+    border-radius: 50%;
+    position: relative;
+}
