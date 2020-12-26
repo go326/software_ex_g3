@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--文字コードUTF-8-->
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
+        <title>        </title>
+        <link rel="stylesheet" href="restaurant.css" type="text/css">
+        <script type="text/javascript" src="restaurant.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>食事情報閲覧画面</h1>
+            <ul>
+                <!--日付の表示カレンダー-->
+                <!--<li><input type="date" name="calendar" max="9999-12-31"></li>-->
+                <!--日付の表示-->
+                <li id="view_date"></li>
+            </ul>
+            <script type="text/javascript">date();</script>
+        </header>
+
+        <!--メイン-->
+        <div id="main">
+            <!--食事情報を取得する-->
+            <table border="1">
+                <tr valign="top";>
+                    <th>テーブル</th>
+                    <th>氏名</th>
+                    <th>人数</th>
+                    <th>メニュー</th>
+                </tr>
+            </table>
+            <table border="1">
+                <?php KUserMnagementP(); echo $k_res;>
+            </table>
+        </div>
+        <!--フッター-->
+        <footer>
+            <br><br>
+            <center>
+            <input type="button" onclick="location.href='../i_gernal_top.html'"value="戻る">
+           </center>
+        </footer>
+    </body>
+
+</html>

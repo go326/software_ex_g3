@@ -1,0 +1,26 @@
+@charset 'utf-8';
+#main{
+    margin: 0 auto;
+    text-align: center;
+}
+/*ボタンサイズwidth200,height70px*/
+input{
+    margin-top: 30px;
+    width: 200px;
+    height: 70px;
+}
+/*上下左右中央配置*/
+.central-configuration{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.simple-box{
+    margin: 0 auto;
+    width: 60%;
+    padding: 3em 0;
+    border: solid 3px black;
+}
+.simple-box h2{
+    margin: 2em;
+}

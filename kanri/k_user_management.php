@@ -21,7 +21,7 @@ try {
     $stmt = $pdo->prepare($ku_sql);
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $k_res .= "</tr><td>";
+      $k_res .= "<tr><td>";
       //id button('' -> k_user_edit.php or html)
       $k_res .= "<form action='' method='post'>";
       $k_res .= "<button type='submit' name='kue_id' ";
