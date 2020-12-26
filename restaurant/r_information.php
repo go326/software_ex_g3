@@ -1,9 +1,8 @@
-<!-- 食事情報閲覧画面を表示するためのPHP -->
-
 <?php
-// 変数宣言
+
+// var
 // DB
-$dsn = 'mysql:dbname=admin;host=localhost';
+$dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
 $password = 'software_ex_g3';
 // HTML
@@ -17,7 +16,7 @@ try {
 
     // SELECT (costomer)
     $sql = "SELECT customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->query($sql);
     $stmt->execute();
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
