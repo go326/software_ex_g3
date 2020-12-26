@@ -22,26 +22,26 @@
                 <dd>
                     <!--日付の入力フォームの作成(ドロップダウンリスト)-->
 
-                    <select class="year" name="customerInfo" id="year1"></select>年
-                    <select class="month" name="customerInfo" id="month1"></select>月
-                    <select class="day" name="customerInfo" id="day1"></select>日
+                    <select class="year" name="stay_year" id="year1"></select>年
+                    <select class="month" name="stay_manth" id="month1"></select>月
+                    <select class="day" name="stay_day" id="day1"></select>日
                     <script>getYear1();getMonth1();getDay1();</script>
                 </dd>
-                <dt>予約日</dt>
+                <!--日付の入力フォームの作成(ドロップダウンリスト)-->
+                <!-- <dt>予約日</dt>
                 <dd>
-                    <!--日付の入力フォームの作成(ドロップダウンリスト)-->
                     <select class="year" name="customerInfo" id="year2"></select>年
                     <select class="month" name="customerInfo" id="month2"></select>月
                     <select class="day" name="customerInfo" id="day2"></select>日
                     <script>getYear2();getMonth2();getDay2();</script>
-                </dd>
+                </dd> -->
                 <dt>氏名</dt>
                 <dd>
-                    <input type="text" id="name" name="customerInfo" required minlength="1" maxlength = "20" size="20">
+                    <input type="text" id="name" name="name" required minlength="1" maxlength = "20" size="20">
                 </dd>
-                <dt>住所１</dt>
+                <dt>住所</dt>
                 <dd>
-                    <input type="text" id="address1" name="customerInfo" required minlength="1" size="40">
+                    <input type="text" id="address1" name="address" required minlength="1" size="40">
                 </dd>
                 <!-- <dt>住所2</dt>
                 <dd>
@@ -53,19 +53,19 @@
                 </dd>-->
                 <dt>電話番号</dt>
                 <dd>
-                    <input type="tel" name="customerInfo" size="10" maxlength="20" required>
+                    <input type="tel" name="phone" size="10" maxlength="20" required>
                 </dd>
                 <dt>人数</dt>
                 <dd>
 
-                    大人<select name="customerInfo">
+                    大人<select name="adult">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>人
-                    子供<select name="customerInfo">
+                    子供<select name="child">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -75,29 +75,29 @@
                 </dd>
                 <dt>プラン</dt>
                 <dd>
-                    <input type="text" id="plan" name="customerInfo" required minlength="1" size="30">
+                    <input type="text" id="plan" name="plan" required minlength="1" size="30">
                 </dd>
                 <dt>夕食の有無</dt>
                 <dd>
-                    <label><input type="radio" name="customerInfo" value="有">有</label>
-                    <label><input type="radio" name="customerInfo" value="無">無</label>
+                    <label><input type="radio" name="is_dinner" value="有">有</label>
+                    <label><input type="radio" name="is_dinner" value="無">無</label>
                 </dd>
                 <dt>食事のメニュー</dt>
                 <dd>
-                    <input type="text" id="menu" name="customerInfo">
+                    <input type="text" id="menu" name="dinner_nemu">
                 </dd>
                 <dt>朝食の有無</dt>
                 <dd>
-                    <label><input type="radio" name="customerInfo" value="有">有</label>
-                    <label><input type="radio" name="customerInfo" value="無">無</label>
+                    <label><input type="radio" name="is_breakfast" value="有">有</label>
+                    <label><input type="radio" name="is_breakfast" value="無">無</label>
                 </dd>
                 <dt>部屋番号</dt>
                 <dd>
-                    <input type="text" id="room-number" name="customerInfo" required minlength="3" maxlength="3">
+                    <input type="text" id="room-number" name="room_number" required minlength="3" maxlength="3">
                 </dd>
                 <dt>備考</dt>
                 <dd>
-                    <textarea name="customerInfo" rows="5" cols="40"></textarea>
+                    <textarea name="remark" rows="5" cols="40"></textarea>
                 </dd>
             </dl>
             <ul>
