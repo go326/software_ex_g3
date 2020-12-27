@@ -39,5 +39,7 @@ SCleanManagemantP();
 
     <body>
     <h1> 清掃情報管理画面php </h1>
+
+    <input type="button" value="201" name="room_number"　><!--onclick="SCleanManagemantP()">-->
     </body>
 </html>
