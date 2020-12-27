@@ -17,6 +17,7 @@ table tr td{
     width: 5em;
     height: 4em;
     margin: 0 auto;
+    border: solid 1px black;
 }
 table tr td span{
     background: none;/*清掃情報の丸の色*/

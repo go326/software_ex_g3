@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--文字コードUTF-8-->
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="f_top.css" type="text/css">
+        <script type="text/javascript" src="maketable.js"></script>
         <script type="text/javascript" src="f_top.js"></script>
     </head>
     <body>
@@ -13,93 +13,15 @@
             <ul>
                 <li><input type="button" onclick="location.href='f_reservation/f_reservation_input.html'"value="新規入力"></li>
                 <li><input type="button" onclick="location.href='#'"value="予約検索"></li>
-                <!--日付の表示カレンダー-->
-                <!--<li><input type="date" name="calendar" max="9999-12-31"></li>-->
-                <!--日付の表示-->
                 <li id="view_date"></li>
             </ul>
             <script type="text/javascript">date();</script>
         </header>
-
-        <!--メイン-->
         <div id="main">
-            <!--2階-->
-            <!--php側で値を返すときに色の変更を行ってもらう-->
-            <table border="1">
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">201<span>　</span></a></td><td><a href="f_information/f_information_details.html">202<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">203<span>　</span></a></td><td><a href="f_information/f_information_details.html">205<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">206<span>　</span></a></td><td><a href="f_information/f_information_details.html">207<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">208<span>　</span></a></td><td><a href="f_information/f_information_details.html">210<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">211<span>　</span></a></td><td><a href="f_information/f_information_details.html">212<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">213<span>　</span></a></td><td><a href="f_information/f_information_details.html">215<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">216<span>　</span></a></td><td><a href="f_information/f_information_details.html">217<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">218<span>　</span></a></td><td><a href="f_information/f_information_details.html">220<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">221<span>　</span></a></td><td><a href="f_information/f_information_details.html">222<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">223<span>　</span></a></td><td><a href="f_information/f_information_details.html">225<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">226<span>　</span></a></td><td><a href="f_information/f_information_details.html">227<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">228<span>　</span></a></td><td><a href="f_information/f_information_details.html">230<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">231<span>　</span></a></td><td><a href="f_information/f_information_details.html">232<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">233<span>　</span></a></td><td><a href="f_information/f_information_details.html">235<span>　</span></a></td>
-                </tr>
-            </table>
-            <!--3階-->
-            <table border="1">
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">301<span>　</span></a></td><td><a href="f_information/f_information_details.html">302<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">303<span>　</span></a></td><td><a href="f_information/f_information_details.html">305<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">306<span>　</span></a></td><td><a href="f_information/f_information_details.html">307<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">308<span>　</span></a></td><td><a href="f_information/f_information_details.html">310<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">311<span>　</span></a></td><td><a href="f_information/f_information_details.html">312<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">313<span>　</span></a></td><td><a href="f_information/f_information_details.html">315<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">316<span>　</span></a></td><td><a href="f_information/f_information_details.html">317<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">318<span>　</span></a></td><td><a href="f_information/f_information_details.html">320<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">321<span>　</span></a></td><td><a href="f_information/f_information_details.html">322<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">323<span>　</span></a></td><td><a href="f_information/f_information_details.html">325<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">326<span>　</span></a></td><td><a href="f_information/f_information_details.html">327<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">328<span>　</span></a></td><td><a href="f_information/f_information_details.html">330<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">331<span>　</span></a></td><td><a href="f_information/f_information_details.html">332<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">333<span>　</span></a></td><td><a href="f_information/f_information_details.html">335<span>　</span></a></td>
-                </tr>
-            </table>
-            <!--4階-->
-            <table border="1">
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">401<span>　</span></a></td><td><a href="f_information/f_information_details.html">402<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">403<span>　</span></a></td><td><a href="f_information/f_information_details.html">405<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">406<span>　</span></a></td><td><a href="f_information/f_information_details.html">407<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">408<span>　</span></a></td><td><a href="f_information/f_information_details.html">410<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">411<span>　</span></a></td><td><a href="f_information/f_information_details.html">412<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">413<span>　</span></a></td><td><a href="f_information/f_information_details.html">415<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">416<span>　</span></a></td><td><a href="f_information/f_information_details.html">417<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">418<span>　</span></a></td><td><a href="f_information/f_information_details.html">420<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">421<span>　</span></a></td><td><a href="f_information/f_information_details.html">422<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">423<span>　</span></a></td><td><a href="f_information/f_information_details.html">425<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">426<span>　</span></a></td><td><a href="f_information/f_information_details.html">427<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">428<span>　</span></a></td><td><a href="f_information/f_information_details.html">430<span>　</span></a></td>
-                </tr>
-                <tr valign="top";>
-                    <td><a href="f_information/f_information_details.html">431<span>　</span></a></td><td><a href="f_information/f_information_details.html">432<span>　</span></a></td>
-                    <td><a href="f_information/f_information_details.html">433<span>　</span></a></td><td><a href="f_information/f_information_details.html">435<span>　</span></a></td>
-                </tr>
-            </table>
+            <form method="POST">
+                <div id="maintable"></div>
+            </form>
         </div>
-        <!--フッター-->
+        <script>call_makeTable();</script>
     </body>
 </html>
