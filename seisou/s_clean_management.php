@@ -47,7 +47,7 @@ if(isset($_POST['SCEdit'])){
     <body>
         <h1> 清掃情報管理画面php</h1>
 
-        <form action = “./s_clean_management.php” method = “post”>
+        <form method = “POST” action = s_clean_management.php>
             <input type="submit" value="201" name="SCEdit"　>
             <!--onclick="SCleanManagemantP()">-->
         </form>
