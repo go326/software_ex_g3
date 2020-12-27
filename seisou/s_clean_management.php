@@ -18,11 +18,18 @@ function SCleanNumberP(){
     echo 'test';
 }
 
-function SCleanEditP(){
+function SCleanEditP($room_number){
+    
     echo 'test';
 }
 
+
 SCleanManagemantP();
+
+if(isset($_POST['SCEdit'])){
+    $room_number = $_POST[('SCEdit')];
+    SCleanEditP($room_number);
+}
 
 //list($room_number,$room_clean) = SCleanManagemantP();
 //var_dump($room_number);
@@ -38,8 +45,9 @@ SCleanManagemantP();
     </head>
 
     <body>
-    <h1> 清掃情報管理画面php </h1>
+    <h1> 清掃情報管理画面php</h1>
 
-    <input type="button" value="201" name="room_number"　><!--onclick="SCleanManagemantP()">-->
+    <form action = “s_clean_management.php” method = “post”>
+    <input type="submit" value="201" name="SCEdit"　><!--onclick="SCleanManagemantP()">-->
     </body>
 </html>
