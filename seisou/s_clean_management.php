@@ -19,12 +19,11 @@ function SCleanNumberP(){
 }
 
 function SCleanEditP($room_number){
-    
     echo "test";
 }
 
 
-SCleanManagemantP();
+//SCleanManagemantP();
 
 if(isset($_POST['SCEdit'])){
     $room_number = $_POST[('SCEdit')];
