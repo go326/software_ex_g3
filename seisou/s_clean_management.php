@@ -15,11 +15,11 @@ function SCleanManagemantP(){
 }
 
 function SCleanNumberP(){
-    echo "test";
+    echo ("test");
 }
 
 function SCleanEditP($room_number){
-    echo "test";
+    echo ($room_number."test");
 }
 
 
