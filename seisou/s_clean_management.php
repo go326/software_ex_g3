@@ -11,13 +11,33 @@ function SCleanManagemantP(){
         $room_clean = $row["room_clean"];
         echo ($room_number.",".$room_clean."<br>");
     }
-    
-    return [$room_number , $room_clean];
+    //return [$room_number,$room_clean];
 }
 
-list($room_number,$room_clean) = SCleanManagemantP();
-var_dump($room_number);
-var_dump($room_clean);
+function SCleanNumberP(){
+    
+}
 
+function SCleanNumberP(){
+
+}
+
+SCleanManagemantP();
+
+//list($room_number,$room_clean) = SCleanManagemantP();
+//var_dump($room_number);
+//var_dump($room_clean);
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>seisou</title>
+    </head>
+
+    <body>
+    <h1> 清掃情報管理画面php </h1>
+    </body>
+</html>
