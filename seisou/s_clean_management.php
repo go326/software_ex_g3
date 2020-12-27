@@ -15,11 +15,11 @@ function SCleanManagemantP(){
 }
 
 function SCleanNumberP(){
-    
+    echo 'test';
 }
 
-function SCleanNumberP(){
-
+function SCleanEditP(){
+    echo 'test';
 }
 
 SCleanManagemantP();
