@@ -4,7 +4,7 @@
 //変数、定数の宣言
 const NUM_OF_ROOMS = 28;//1フロアの部屋数
 const NUM_OF_FLOOR = 3; //部屋があるフロア数
-const LINE_BREAK = 8;//8個の要素ddで改行
+const LINE_BREAK = 8;//8個の要素tdで改行
 const ID_NAME = "maintable";//取得するID
 const LINK_HTML = "f_information/f_information_details.html";
 
@@ -26,8 +26,9 @@ function makeTable(tabledata){
       var td = document.createElement('td');
       //<a>の追加
       var a = document.createElement('a');
-      //href属性追加～tdへaタグを追加
-      a.setAttribute("href", LINK_HTML);
+      //href属性追加～tdへaタグを追加(?以降がパラメータ)
+      //phpから配列を受け取るように書き換える
+      a.setAttribute("href", LINK_HTML+"?"+tabledata[count]);
       a.textContent = tabledata[count];
       td.appendChild(a);
       //trへtdを追加
