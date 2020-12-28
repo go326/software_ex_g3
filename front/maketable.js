@@ -43,9 +43,10 @@ function makeTable(tabledata) {
 //HTMLからの呼び出し
 function call_makeTable() {
   print(room);
-  makeTable(data201_235);
-  makeTable(data301_335);
-  makeTable(data401_435);
+  makeTable(room);
+  // makeTable(data201_235);
+  // makeTable(data301_335);
+  // makeTable(data401_435);
 }
 
 
