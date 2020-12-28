@@ -7,7 +7,7 @@ $sql = "SELECT * FROM room ";
 echo $sql;
 $smt = $pdo->query($sql);
 $data = $smt->fetch();
-
+var_dump($data);
 ?>
 <script type="text/javascript">
     import Rein from "./maketable.js";
