@@ -16,32 +16,25 @@
             <form method="POST">
             <dl>
                 <dt>部屋番号</dt>
-                <dd>203</dd>
+                <dd>203(仮のテキストです)</dd>
                 <dt>氏名</dt>
-                <dd>山田太郎</dd>
+                <dd>山田太郎(仮のテキストです)</dd>
                 <dt>日付</dt>
-                <dd>2020/12/1</dd>
+                <dd>2020/12/1(仮のテキストです)</dd>
                 <dt>場所</dt>
-                <dd><input type="text" id="place"></dd>
+                <dd><input type="text" id="place" name="place"></dd>
                 <dt>追加料金(円)</dt>
-                <dd><input type="text" id="fee" required></dd>
+                <dd><input type="text" id="fee" name="fee"></dd>
                 <dt>内容</dt>
-                <dd><input type="text" id="content"></dd>
+                <dd><input type="text" id="content" name="content"></dd>
                 <dt>備考</dt>
-                <dd><input type="text"></dd>
+                <dd><input type="text" name="remark"></dd>
             </dl>
             <ul>
-                <li><input type="button" onclick="location.href='#'"value="戻る"></li>
-                <li><input type="submit" onclick="location.href='#'"value="確認"></li>
+                <li><input type="button" onclick="location.href='../f_information/f_information_details.html'"value="戻る"></li>
+                <li><input type="submit" value="確認"></li>
             </ul>
             </form>
         </div>
-        <!--フッター-->
-        <footer>
-            <!--<ul>
-                <li><input type="button" onclick="location.href='#'"value="戻る"></li>
-                <li><input type="button" onclick="location.href='#'"value="確認"></li>
-            </ul>-->
-        </footer>
     </body>
 </html>
