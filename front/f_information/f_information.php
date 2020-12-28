@@ -9,7 +9,7 @@ $sql = "SELECT * FROM customer ";
 $smt = $pdo->query($sql);
 $data = $smt->fetch(PDO::FETCH_NUM);
 
-$dt = new DateTime($data[3]);
+$dt = new DateTime($data[1]);
 $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
 
 
