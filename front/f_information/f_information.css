@@ -27,4 +27,13 @@ input{
 
 dl {
    float: left;
+   font-size: 20px;
+}
+
+dt {
+    float: left;
+    
+}
+dt:after{
+    content: " : "
 }

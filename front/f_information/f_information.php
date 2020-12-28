@@ -8,7 +8,8 @@ $sql = "SELECT * FROM customer ";
 
 $smt = $pdo->query($sql);
 $data = $smt->fetch(PDO::FETCH_NUM);
-var_dump($data);
+
+$stay_day = $data[2]->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
 
 
 ?>
@@ -41,7 +42,7 @@ var_dump($data);
             </dd>
             <dt> 宿泊日 </dt>
             <dd>
-                <?php echo $data[1]; ?>
+                <?php echo $data[1] . "~" . $stay_day; ?>
             </dd>
         </dl>
         <dl id="customer">
