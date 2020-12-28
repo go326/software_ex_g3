@@ -10,7 +10,7 @@ $smt = $pdo->query($sql);
 $data = $smt->fetch(PDO::FETCH_NUM);
 var_dump($data);
 
-$ref = 
+
 ?>
 
 <html>
