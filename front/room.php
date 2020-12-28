@@ -12,5 +12,6 @@ $data = $smt->fetch();
 <script type="text/javascript">
     import Rein from "./maketable.js";
     let room = <?php echo $data; ?>;
-    call_makeTable(room);
 </script>
+<?php
+header("Location:./f_top.html");
