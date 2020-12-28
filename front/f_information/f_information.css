@@ -24,3 +24,7 @@ input{
 .simple-box h2{
     margin: 2em;
 }
+
+dl {
+   float: left;
+}
