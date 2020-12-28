@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--文字コードUTF-8-->
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
+        <link rel="stylesheet" href="../f_base.css" type="text/css">
+    </head>
+    <body>
+        <!--ヘッダー-->
+        <header>
+            <h1>追加料金編集画面</h1>
+        </header>
+
+        <!--メイン-->
+        <div id="main">
+            <form method="POST">
+            <dl>
+                <dt>部屋番号</dt>
+                <dd>203</dd>
+                <dt>氏名</dt>
+                <dd>山田太郎</dd>
+                <dt>日付</dt>
+                <dd>2020/12/1</dd>
+                <dt>場所</dt>
+                <dd><input type="text" id="place"></dd>
+                <dt>追加料金(円)</dt>
+                <dd><input type="text" id="fee" required></dd>
+                <dt>内容</dt>
+                <dd><input type="text" id="content"></dd>
+                <dt>備考</dt>
+                <dd><input type="text"></dd>
+            </dl>
+            <ul>
+                <li><input type="button" onclick="location.href='#'"value="戻る"></li>
+                <li><input type="submit" onclick="location.href='#'"value="確認"></li>
+            </ul>
+            </form>
+        </div>
+        <!--フッター-->
+        <footer>
+            <!--<ul>
+                <li><input type="button" onclick="location.href='#'"value="戻る"></li>
+                <li><input type="button" onclick="location.href='#'"value="確認"></li>
+            </ul>-->
+        </footer>
+    </body>
+</html>
