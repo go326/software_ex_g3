@@ -28,6 +28,7 @@ input{
 dl {
    float: left;
    font-size: 20px;
+   width: 20%;
 }
 
 dt {
