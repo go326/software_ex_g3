@@ -4,14 +4,16 @@
 
 
     //SCleanManagemantP();
-    echo("開始前");
-    if(isset($_GET["room_number"])){
-        $room_number = $_GET["room_number"];
+    //原因不明だが、POST方式に変更する予定
+    //これで選択された部屋番号を受け取ることができる。
+    //部屋情報変更
+    echo("開始前<br>");
+    if(isset($_POST["room_number"])){
+        $room_number = $_POST["room_number"];
         echo ($room_number);
         SCleanEditP($room_number);
     }else{
         echo("失敗");
-        SCleanNumberP();
     }
     echo("開始後");
 
@@ -51,7 +53,7 @@ function SCleanEditP($room_number){
     <body>
         <h1> 清掃情報管理画面php</h1>
 
-        <form method = “get” action = "s_clean_management.php">
+        <form method = “post” action = "s_clean_management.php">
             <input type="submit" value="201" name="room_number">
             <!--onclick="SCleanManagemantP()">-->
         </form>
