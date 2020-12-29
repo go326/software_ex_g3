@@ -6,9 +6,11 @@
     //SCleanManagemantP();
 
     if(isset($_POST['room_number'])){
-        $room_number = $_POST[('room_number')];
+        $room_number = $_POST['room_number'];
         echo ($room_number);
         SCleanEditP($room_number);
+    }else{
+
     }
     
 function SCleanManagemantP(){
@@ -18,7 +20,7 @@ function SCleanManagemantP(){
     while ($row = $stmt -> fetch()){
         $room_number = $row["room_number"];
         $room_clean = $row["room_clean"];
-        echo ($room_number.",".$room_clean."<br>");
+        echo($room_number.",".$room_clean."<br>");
     }
     //return [$room_number,$room_clean];
 }
@@ -48,7 +50,7 @@ function SCleanEditP($room_number){
         <h1> 清掃情報管理画面php</h1>
 
         <form method = “POST” action = s_clean_management.php>
-            <input type="submit" value="201" name="room_number"　>
+            <input type="submit" value="201" name="room_number">
             <!--onclick="SCleanManagemantP()">-->
         </form>
     </body>
