@@ -1,6 +1,14 @@
 <?php
     
     include '../db_connect.php';
+
+
+    //SCleanManagemantP();
+
+    if(isset($_POST['room_number'])){
+        $room_number = $_POST[('room_number')];
+        SCleanEditP($room_number);
+    }
     
 function SCleanManagemantP(){
     global $pdo,$room_number,$room_clean;
@@ -22,14 +30,6 @@ function SCleanEditP($room_number){
     echo ($room_number."test");
 }
 
-
-//SCleanManagemantP();
-
-if(isset($_POST['SCEdit'])){
-    $room_number = $_POST[('SCEdit')];
-    SCleanEditP($room_number);
-}
-
 //list($room_number,$room_clean) = SCleanManagemantP();
 //var_dump($room_number);
 //var_dump($room_clean);
@@ -47,7 +47,7 @@ if(isset($_POST['SCEdit'])){
         <h1> 清掃情報管理画面php</h1>
 
         <form method = “POST” action = s_clean_management.php>
-            <input type="submit" value="201" name="SCEdit"　>
+            <input type="submit" value="201" name="room_number"　>
             <!--onclick="SCleanManagemantP()">-->
         </form>
     </body>
