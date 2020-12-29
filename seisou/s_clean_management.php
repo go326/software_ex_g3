@@ -55,7 +55,7 @@ function SCleanEditP($room_number){
 
     <body>
         <h1> 清掃情報管理画面php</h1>
-
+        <!--ラジオぼたん-->
         <form method = “get” action = "s_clean_management.php">
             <intput type radio value="0" name="room_clean">掃除していない
             <intput type radio value="1" name="room_clean">チェックイン状態
