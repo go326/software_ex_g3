@@ -39,7 +39,7 @@ function SCleanNumberP(){
 function SCleanEditP($room_number,$room_clean){
     global $pdo;
     echo ($room_number."test".$room_clean."test<br>");
-    $sc_sql = "UPDATE room SET room_clean = '$room_clean' WHERE room_number = '$room_number'";
+    $sc_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number;
     $stmt = $pdo -> prepare($sc_sql);
     $stmt = execute();
 }
