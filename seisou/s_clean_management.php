@@ -8,7 +8,7 @@
     //これで選択された部屋番号を受け取ることができる。
     //部屋情報更新
     echo("開始前<br>");
-    if(isset($_GET["room_number"])and isset($_GET["room_clean"])){
+    if(isset($_GET["room_number"]) and isset($_GET["room_clean"])){
         $room_number = $_GET["room_number"];
         $room_clean = $_GET["room_clean"];
         echo ($room_number."号室".$room_clean);
@@ -39,15 +39,9 @@ function SCleanNumberP(){
 function SCleanEditP($room_number,$room_clean){
     global $pdo;
     echo ($room_number."test".$room_clean."test<br>");
-    
-    try{
-        $sc_sql = "UPDATE room SET room_clean = '$room_clean' WHERE room_number = '$room_number'";
-        $stmt = $pdo -> prepare($sc_sql);
-        $stmt = execute();
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
+    $sc_sql = "UPDATE room SET room_clean = '$room_clean' WHERE room_number = '$room_number'";
+    $stmt = $pdo -> prepare($sc_sql);
+    $stmt = execute();
 }
 
 //list($room_number,$room_clean) = SCleanManagemantP();
