@@ -5,8 +5,8 @@
 
     //SCleanManagemantP();
     echo("開始前");
-    if(isset($_POST['room_number'])){
-        $room_number = $_POST['room_number'];
+    if(isset($_POST["room_number"])){
+        $room_number = $_POST["room_number"];
         echo ($room_number);
         SCleanEditP($room_number);
     }else{
