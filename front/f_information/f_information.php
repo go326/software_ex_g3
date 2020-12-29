@@ -12,18 +12,24 @@ $data = $smt->fetch(PDO::FETCH_NUM);
 $dt = new DateTime($data[1]);
 $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
 
-
 ?>
 
+<script>
+    var $info = "<?php echo $_POST; ?>"
+    var $stay_day = "<?php echo $stay_day; ?>"
+</script>
+
+
+<!-- 
 <html>
 
 <head>
-    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
+    <meta http - equiv=”Content - Type” content=”text / html; charset=UTF - 8″>
     <link rel="stylesheet" href="./f_information.css" type="text/css">
-    <!-- <script type="text/javascript" src="maketable.js"></script>
-    <script type="text/javascript" src="f_top.js"></script> -->
-</head>
-
+    <script type="text/javascript" src="maketable.js"></script>
+    <script type="text/javascript" src="f_top.js"></script>
+</head> -->
+<!-- 
 <body>
     <header>
         <h1>予約確認画面</h1>
@@ -106,4 +112,4 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             </dd>
         </dl>
     </div>
-</body>
+</body> -->

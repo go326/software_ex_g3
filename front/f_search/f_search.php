@@ -15,8 +15,10 @@ if (isset($_POST['sarch'])) {
             $sql .= " phone_number =" . $_POST['tel'];
         }
         echo $sql;
+        //バグあり
     } else if ($_POST['reservation']  = 'future') {
         $sql = "SELECT * FROM customer where";
+        echo $sql;
         if (isset($_POST['tel']) && isset($_POST['name'])) {
             $sql .= " phone_number =" . $_POST['tel'] . "and customer_name = " . $_POST['tel'];
         } else if (isset($_POST['name'])) {
