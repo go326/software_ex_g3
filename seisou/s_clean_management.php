@@ -51,7 +51,7 @@ function SCleanEditP($room_number){
     <body>
         <h1> 清掃情報管理画面php</h1>
 
-        <form method = “post” action = s_clean_management.php>
+        <form method = “post” action = "s_clean_management.php">
             <input type="submit" value="201" name="room_number">
             <!--onclick="SCleanManagemantP()">-->
         </form>
