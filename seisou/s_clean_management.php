@@ -4,15 +4,17 @@
 
 
     //SCleanManagemantP();
-
+    echo("開始前");
     if(isset($_POST['room_number'])){
         $room_number = $_POST['room_number'];
         echo ($room_number);
         SCleanEditP($room_number);
     }else{
-
+        echo("失敗");
+        SCleanNumberP();
     }
-    
+    echo("開始後");
+
 function SCleanManagemantP(){
     global $pdo,$room_number,$room_clean;
     $stmt = $pdo -> query("SELECT * FROM room");
