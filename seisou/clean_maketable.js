@@ -24,17 +24,18 @@ function makeTable(tabledata){
       }
       //tdの生成
       var td = document.createElement('td');
+      td.style.background = "red";
       //<a>の追加
       var a = document.createElement('a');
-      //spanの生成
+      /*//spanの生成
       var span = document.createElement('span');
       //documents.getElementById(ID_NAME).classList.add("span1");
-      span.setAttribute("class", span1);
+      span.setAttribute("class", span1);*/
       //href属性追加～tdへaタグを追加(?以降がパラメータ)
       //phpから配列を受け取るように書き換える
       a.setAttribute("href", LINK_HTML+"?room_number="+tabledata[count]);
       a.textContent = tabledata[count];
-      a.appendChild(span);
+      //a.appendChild(span);
       td.appendChild(a);
       //trへtdを追加
       tr.appendChild(td);
