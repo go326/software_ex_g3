@@ -1,11 +1,10 @@
 <?php
 
-# var
-# DB
+# DB var
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
 $password = 'software_ex_g3';
-# PHP
+# PHP var
 $k_res="";
 $ku_sql="";
 $hash = "";
@@ -37,7 +36,7 @@ try {
   // INSERT(user)
   function KUserInputP(){
     global $pdo,$ku_sql,$hash;
-    static $ku_id=0,$ku_name="",$ku_pass="",$ku_auth="";
+    static $ku_id="",$ku_name="",$ku_pass="",$ku_auth="";
     if(isset($_POST['ku_input'])){
       if (isset($_POST['ku_id']) and isset($_POST['ku_name']) and isset($_POST['ku_pass'])) {
 	if(isset($_POST['ku_auth']) and is_array($_POST['ku_auth'])){
@@ -46,12 +45,11 @@ try {
 	  $ku_pass = $_POST['ku_pass'];
 	  $hash = password_hash($ku_pass, PASSWORD_DEFAULT);
 	  $ku_auth = implode($_POST['ku_auth']);
-	
 	  // SQL
-	  $ku_sql = "INSERT INTO user VALUES($ku_id,'$ku_name','$hash','$ku_auth')";
+	  $ku_sql = "INSERT INTO user VALUES('$ku_id','$ku_name','$hash','$ku_auth')";
 	  $stmt = $pdo->prepare($ku_sql);
 	  $stmt->execute();
-	}	
+	}
       }
     }
   }
@@ -59,7 +57,7 @@ try {
   // EDIT($_POST[ku---] -> $POST[kuu--]) 
   function KUserEditP(){
     global $pdo,$ku_sql,$hash;
-    static $kue_id=0,$kuu_id=0,$kuu_name="",$kuu_pass="",$kuu_auth="";
+    static $kue_id="",$kuu_id=0,$kuu_name="",$kuu_pass="",$kuu_auth="";
     if(isset($_POST['ku_edit']) and isset($_POST['kue_id'])){
       if (isset($_POST['ku_id']) and isset($_POST['ku_name']) and isset($_POST['ku_pass'])) {
 	if(isset($_POST['ku_auth']) and is_array($_POST['ku_auth'])){
@@ -70,7 +68,7 @@ try {
 	  $hash = password_hash($kuu_pass, PASSWORD_DEFAULT);
 	  $kuu_auth = implode($_POST['ku_auth']);
 
-	  $ku_sql = "UPDATE user SET user_id = $kuu_id, user_name = '$kuu_name', ";
+	  $ku_sql = "UPDATE user SET user_id = '$kuu_id', user_name = '$kuu_name', ";
 	  $ku_sql .=  "user_pass = '$hash', authority = '$kuu_auth' WHERE user_id = $kue_id";
 	  $stmt = $pdo->prepare($ku_sql);
 	  $stmt->execute();
@@ -82,7 +80,7 @@ try {
   // DELETE
   function KUserDelP(){
     global $pdo,$ku_sql;
-    static $kue_id=0;
+    static $kue_id="";
     if(isset($_POST['ku_del']) and isset($_POST['kue_id'])){
       $kue_id = $_POST['kue_id'];
       $ku_sql = "DELETE FROM user WHERE user_id = '$kue_id'";
