@@ -34,6 +34,7 @@ function makeTable(tabledata){
       //phpから配列を受け取るように書き換える
       a.setAttribute("href", LINK_HTML+"?room_number="+tabledata[count]);
       a.textContent = tabledata[count];
+      a.appendChild(span);
       td.appendChild(a);
       //trへtdを追加
       tr.appendChild(td);
