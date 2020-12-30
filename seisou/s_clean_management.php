@@ -10,8 +10,9 @@
     if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
         $room_number = $_GET["room_number"];
         $room_clean = $_GET["room_clean"];
-        echo ($room_number."号室");
+        echo ($room_number."号室".$room_clean);
         SCleanEditP($room_number,$room_clean);
+    }
 
 function SCleanManagemantP(){
     global $pdo,$room_number,$room_clean;
