@@ -7,16 +7,11 @@
     //原因不明だが、POST方式に変更する予定
     //これで選択された部屋番号を受け取ることができる。
     //部屋情報更新
-    echo("開始前<br>");
     if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
         $room_number = $_GET["room_number"];
         $room_clean = $_GET["room_clean"];
-        echo ($room_number."号室".$room_clean);
+        echo ($room_number."号室");
         SCleanEditP($room_number,$room_clean);
-    }else{
-        echo("失敗");
-    }
-    echo("開始後");
 
 function SCleanManagemantP(){
     global $pdo,$room_number,$room_clean;
