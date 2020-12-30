@@ -26,7 +26,7 @@
                 <input type = "radio" value="1" name="room_clean">チェックイン状態<br>
                 <input type = "radio" value="2" name="room_clean">掃除済み<br>
                 <button onclick="location.href='./clean_management.html'">戻る</button>
-                <button onclick="location.href='./s_clean_management.php?room_number=<?php echo $room_number; ?>'">完了</button>
+                <input type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了
             </form>
         </div>
         <!--フッター-->
