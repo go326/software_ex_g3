@@ -18,7 +18,7 @@ try {
   function KUserManagementP(){
     global $pdo,$ku_sql,$k_res;
     $ku_sql = "SELECT * FROM user";
-    $stmt = $pdo->prepare($ku_sql);
+    $stmt = $pdo->query($ku_sql);
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       $k_res .= "<tr><td>";
@@ -85,7 +85,7 @@ try {
     static $kue_id=0;
     if(isset($_POST['ku_del']) and isset($_POST['kue_id'])){
       $kue_id = $_POST['kue_id'];
-      $ku_sql = "DELETE FROM user WHERE user=id = $kue_id";
+      $ku_sql = "DELETE FROM user WHERE user=id = '$kue_id'";
       $stmt = $pdo->prepare($ku_sql);
       $stmt->execute();
     }
