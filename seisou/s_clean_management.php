@@ -1,7 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>seisou</title>
+    </head>
+
+    <body>
+        <h1> 清掃情報管理画面php</h1>
+    </body>
+</html>
+
 <?php
     
     include '../db_connect.php';
-
 
     //SCleanManagemantP();
     //原因不明だが、POST方式に変更する予定
@@ -30,7 +41,7 @@ function SCleanNumberP(){
     echo ("test");
 }
 
-//掃除状況を変更する
+//掃除状況を変更する,清掃状況管理画面に戻る
 function SCleanEditP($room_number,$room_clean){
     global $pdo;
     try{
@@ -51,6 +62,10 @@ function SCleanEditP($room_number,$room_clean){
         echo $e->getMessage();
         exit;
     }
+    $back_URL = "clean_management.html";
+    echo ("<form action = ".$back_URL.">");
+    echo ("<input type = \" submit \">戻る</button>");
+    echo ("</form>");
 }
 
 //list($room_number,$room_clean) = SCleanManagemantP();
@@ -58,15 +73,3 @@ function SCleanEditP($room_number,$room_clean){
 //var_dump($room_clean);
 
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>seisou</title>
-    </head>
-
-    <body>
-        <h1> 清掃情報管理画面php</h1>
-    </body>
-</html>
