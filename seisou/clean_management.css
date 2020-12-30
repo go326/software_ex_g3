@@ -21,18 +21,18 @@ table tr td{
 }
 .span0{
     background: none;/*清掃情報の丸の色*/
-    /*border-radius: 50%;*/
-    position: relative;
+    /*border-radius: 50%;
+    position: relative;*/
 }
 .span1{
     background: bisque;/*清掃情報の丸の色*/
-    /*border-radius: 50%;*/
-    position: relative;
+    /*border-radius: 50%;
+    position: relative;*/
 }
 .span2{
     background: red;/*清掃情報の丸の色*/
-    /*border-radius: 50%;*/
-    position: relative;
+    /*border-radius: 50%;
+    position: relative;*/
 }
 /*客室のtable全体をリンクとして扱う*/
 a {
