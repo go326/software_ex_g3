@@ -20,20 +20,19 @@ try {
     $stmt->execute();
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $rinfo .= "</tr><td>";
-      $rinfo .= $row['customer_name'] . "</td><td>";
-      //id button('' -> f_information_details.php or html)
-      $rinfo .= "<form action='' method='post'>";
-      $rinfo .= "<button type='submit' name='rf_d' ";
-      $rinfo .= "value='" . $row['customer_id'] . "'>" . $row['costomer_name'] . "</button>";
-      $rinfo .= "</form>";
-      $rinfo .= $row['adult'] . "</td><td>";
-      $rinfo .= $row['child'] . "</td><td>";
-      $rinfo .= $row['dinner_menu'];
-      $rinfo .= "</td></tr>";
+        $rinfo .= "</tr><td>";
+        $rinfo .= $row['customer_name'] . "</td><td>";
+        //id button('' -> f_information_details.html)
+        $rinfo .= "<form action='' method='post'>";
+        $rinfo .= "<button type='submit' name='fid' ";
+        $rinfo .= "value='" . $row['customer_id'] . "'>" . $row['costomer_name'] . "</button>";
+        $rinfo .= "</form>";
+        $rinfo .= $row['adult'] . "</td><td>";
+        $rinfo .= $row['child'] . "</td><td>";
+        $rinfo .= $row['dinner_menu'];
+        $rinfo .= "</td></tr>";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
     exit;
 }
-?>
