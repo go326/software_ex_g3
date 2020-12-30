@@ -10,7 +10,6 @@
     if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
         $room_number = $_GET["room_number"];
         $room_clean = $_GET["room_clean"];
-        echo ($room_number."号室".$room_clean);
         SCleanEditP($room_number,$room_clean);
     }
 
@@ -34,7 +33,6 @@ function SCleanNumberP(){
 //掃除状況を変更する
 function SCleanEditP($room_number,$room_clean){
     global $pdo;
-    echo ($room_number."test".$room_clean."test<br>");
     try{
         $sc_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number;
         $stmt = $pdo -> prepare($sc_sql);
@@ -70,13 +68,5 @@ function SCleanEditP($room_number,$room_clean){
 
     <body>
         <h1> 清掃情報管理画面php</h1>
-        <!--ラジオぼたん-->
-        <form method = “get” action = "s_clean_management.php">
-            <input type = "radio" value="0" name="room_clean">掃除していない
-            <input type = "radio" value="1" name="room_clean">チェックイン状態
-            <input type = "radio" value="2" name="room_clean">掃除済み
-            <input type = "submit" value="201" name="room_number">
-            <!--onclick="SCleanManagemantP()">-->
-        </form>
     </body>
 </html>

@@ -6,7 +6,7 @@ const NUM_OF_ROOMS = 28;//1フロアの部屋数
 const NUM_OF_FLOOR = 3; //部屋があるフロア数
 const LINE_BREAK = 8;//8個の要素tdで改行
 const ID_NAME = "maintable";//取得するID
-const LINK_HTML = "clean_edit.html";
+const LINK_HTML = "s_clean_edit.php";
 
 /**Tableの生成関数 */
 function makeTable(tabledata){
@@ -24,12 +24,18 @@ function makeTable(tabledata){
       }
       //tdの生成
       var td = document.createElement('td');
+      td.style.background = "red";
       //<a>の追加
       var a = document.createElement('a');
+      /*//spanの生成
+      var span = document.createElement('span');
+      //documents.getElementById(ID_NAME).classList.add("span1");
+      span.setAttribute("class", span1);*/
       //href属性追加～tdへaタグを追加(?以降がパラメータ)
       //phpから配列を受け取るように書き換える
-      a.setAttribute("href", LINK_HTML+"?"+tabledata[count]);
+      a.setAttribute("href", LINK_HTML+"?room_number="+tabledata[count]);
       a.textContent = tabledata[count];
+      //a.appendChild(span);
       td.appendChild(a);
       //trへtdを追加
       tr.appendChild(td);
