@@ -26,8 +26,8 @@ function makeTable(tabledata){
       var td = document.createElement('td');
       //spanの生成
       var span = document.createElement('span');
-      documents.getElementById(ID_NAME).classList.add("span1");
-      //span.setAttribute("class", span1);
+      //documents.getElementById(ID_NAME).classList.add("span1");
+      span.setAttribute("class", span1);
       //<a>の追加
       var a = document.createElement('a');
       //href属性追加～tdへaタグを追加(?以降がパラメータ)
