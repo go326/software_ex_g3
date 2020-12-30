@@ -1,4 +1,4 @@
-<?php require ("k_user_management"); ?>
+<?php require ("k_user_management.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
