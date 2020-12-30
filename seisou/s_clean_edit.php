@@ -1,3 +1,7 @@
+<?php
+    $room_number = $_GET['room_number'];
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +14,11 @@
         <header>
             <h1>清掃情報編集画面</h1>
         </header>
-
-        <!--メイン-->
+        <!--確認用の出力文＿-->
+        <?php
+            echo ($room_number."号室の掃除状況を変更します。<br>");
+        ?>
+            <!--メイン-->
         <div class="content">
             <!--i行目-->
             <div class="inner">
