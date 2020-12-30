@@ -85,7 +85,7 @@ try {
     static $kue_id=0;
     if(isset($_POST['ku_del']) and isset($_POST['kue_id'])){
       $kue_id = $_POST['kue_id'];
-      $ku_sql = "DELETE FROM user WHERE user=id = '$kue_id'";
+      $ku_sql = "DELETE FROM user WHERE user_id = '$kue_id'";
       $stmt = $pdo->prepare($ku_sql);
       $stmt->execute();
     }
