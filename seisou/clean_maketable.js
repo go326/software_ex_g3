@@ -6,7 +6,7 @@ const NUM_OF_ROOMS = 28;//1フロアの部屋数
 const NUM_OF_FLOOR = 3; //部屋があるフロア数
 const LINE_BREAK = 8;//8個の要素tdで改行
 const ID_NAME = "maintable";//取得するID
-const LINK_HTML = "s_clean_edit.html";
+const LINK_HTML = "s_clean_edit.php";
 
 /**Tableの生成関数 */
 function makeTable(tabledata){
