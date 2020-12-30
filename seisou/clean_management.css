@@ -19,17 +19,17 @@ table tr td{
     margin: 0 auto;
     border: solid 1px black;
 }
-table tr td span .span0{
+.span0{
     background: none;/*清掃情報の丸の色*/
     /*border-radius: 50%;*/
     position: relative;
 }
-table tr td span .span1{
+.span1{
     background: bisque;/*清掃情報の丸の色*/
     /*border-radius: 50%;*/
     position: relative;
 }
-table tr td span .span2{
+.span2{
     background: red;/*清掃情報の丸の色*/
     /*border-radius: 50%;*/
     position: relative;
