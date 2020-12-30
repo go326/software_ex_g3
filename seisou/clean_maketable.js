@@ -28,7 +28,7 @@ function makeTable(tabledata){
       var a = document.createElement('a');
       //href属性追加～tdへaタグを追加(?以降がパラメータ)
       //phpから配列を受け取るように書き換える
-      a.setAttribute("href", LINK_HTML+"?"+tabledata[count]);
+      a.setAttribute("href", LINK_HTML+"?room_number="+tabledata[count]);
       a.textContent = tabledata[count];
       td.appendChild(a);
       //trへtdを追加
