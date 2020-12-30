@@ -21,13 +21,17 @@
             <!--メイン-->
         <div class="content">
             <!--i行目-->
-            <form method = “get” action = "s_clean_management.php">
+            <form  id = "clean_edit" method = “get” action = "s_clean_management.php">
                 <input type = "radio" value="0" name="room_clean">掃除していない<br>
                 <input type = "radio" value="1" name="room_clean">チェックイン状態<br>
                 <input type = "radio" value="2" name="room_clean">掃除済み<br>
-                <button onclick="location.href='./clean_management.html'">戻る</button>
-                <input type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了
             </form>
+            <!--戻るボタン-->
+            <form  id = "clean_back" action = "clean_management.html">
+                <button onclick="location.href='./clean_management.html'">戻る</button> 
+            </form>
+            <!--完了ボタン-->
+            <input form = "clean_edit" type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了
         </div>
         <!--フッター-->
     </body>
