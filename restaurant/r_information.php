@@ -30,7 +30,7 @@ try {
       $rinfo .= $row['adult'] . "</td><td>";
       $rinfo .= $row['child'] . "</td><td>";
       $rinfo .= $row['dinner_menu'];
-      $rinfo .= "</td><\tr>";
+      $rinfo .= "</td></tr>";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
