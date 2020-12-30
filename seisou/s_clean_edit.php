@@ -21,10 +21,13 @@
             <!--メイン-->
         <div class="content">
             <!--i行目-->
-            <div class="inner">
-                
+            <form method = “get” action = "s_clean_management.php">
+                <input type = "radio" value="0" name="room_clean">掃除していない
+                <input type = "radio" value="1" name="room_clean">チェックイン状態
+                <input type = "radio" value="2" name="room_clean">掃除済み
+                <input type = "submit" value=".$room_number." name="room_number">
+            </form>
                 <button>未清掃</button>
-            </div>
                 <!--2行目-->
             <div class="inner">
                 <button>清掃済み</button>
