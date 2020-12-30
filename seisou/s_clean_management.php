@@ -10,7 +10,6 @@
     if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
         $room_number = $_GET["room_number"];
         $room_clean = $_GET["room_clean"];
-        echo ($room_number."号室".$room_clean);
         SCleanEditP($room_number,$room_clean);
     }
 
@@ -34,7 +33,6 @@ function SCleanNumberP(){
 //掃除状況を変更する
 function SCleanEditP($room_number,$room_clean){
     global $pdo;
-    echo ($room_number."test".$room_clean."test<br>");
     try{
         $sc_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number;
         $stmt = $pdo -> prepare($sc_sql);
