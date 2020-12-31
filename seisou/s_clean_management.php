@@ -72,6 +72,10 @@
                         echo ("<button class = \"room_button\" type = \"submit\" value = \" ".$ROOM_DATA[$table][$room_count]." \" name = \"room_number\" >");
                         //1セルの表示名
                         echo ($ROOM_DATA[$table][$room_count]);
+
+                        echo ("&#13;&#10;");
+
+                        echo ("1人");
                         //echo ("</a>");
                         echo ("</button>");
                         echo ("</td>\n");
