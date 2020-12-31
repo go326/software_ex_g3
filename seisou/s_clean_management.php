@@ -1,24 +1,84 @@
+<?php
+     
+    //DBへ接続
+    include '../db_connect.php';
+
+    //清掃情報確認画面の枠組みの作成のための定数
+    //部屋番号の配列
+    define ("DATA201_235" , [201, 202, 203, 205, 206, 207, 208, 210,
+                             211, 212, 213, 215, 216, 217, 218, 220,
+                             221, 222, 223, 225, 226, 227, 228, 230,
+                             231, 232, 233, 235]);
+    define ("DATA301_335" , [301, 302, 303, 305, 306, 307, 308, 310,
+                             311, 312, 313, 315, 316, 317, 318, 320,
+                             321, 322, 323, 325, 326, 327, 328, 330,
+                             331, 332, 333, 335]);
+    define ("DATA401_435" , [401, 402, 403, 405, 406, 407, 408, 410,
+                             411, 412, 413, 415, 416, 417, 418, 420,
+                             421, 422, 423, 425, 426, 427, 428, 430,
+                             431, 432, 433, 435]);
+    define ("NUM_OF_ROOMS" , 28);//1フロアの部屋数
+    define ("NUM_OF_FLOOR" , 3); //部屋があるフロア数
+    define ("LINE_BREAK" , 8);//8個の要素tdで改行
+    define ("LINK_PHP" , "s_clean_edit.php"); //phpのURL
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
+        <script type="text/javascript" src="seisou.js"></script>
         <title>seisou</title>
+
     </head>
 
     <body>
-        <h1> 清掃情報管理画面php</h1>
+        <header>
+            <h1> 清掃情報管理画面</h1>
+            <ul>
+                <li id="view_date"></li>
+            </ul>
+        </header>
+
+        <!--清掃情報確認画面の枠組みの作成-->
+        
+        <table>
+            <?php
+                //ホテルの１階分だけループする。
+                for ($tr = 0; $tr <= $NUM_OF_FLOR; $tr++){
+                    echo ("<tr>");
+                    $room_count = 0; //1階の部屋数のカウント
+                    //表の１行に表示する部屋数分だけループする
+                    for ($td = 0; $td = $LINE_BLEAK; $td++){
+                        //1階の部屋数表を作成したら終了し、次の階へ
+                        if($room_count == $NUM_OF_ROOMS){
+                            break;
+                        }
+                        //1セルの表示開始
+                        echo ("<td>");
+                        //1部屋のリンク
+                        echo ("<a href = \" ".LINK_PHP."\"?room_number=".DATA201_235[$room_count].">");
+                        //1セルの表示名
+                        echo (DATA201_235[$room_count]);
+                        echo ("</a>");
+                        echo ("</td>");
+                    }
+                    echo ("</tr>");
+                }
+            ?>
+        </table>
+
     </body>
 </html>
 
 <?php
-    
-    include '../db_connect.php';
-
+    //清掃情報確認画面の枠組みに反映
     //SCleanManagemantP();
+
+
     //原因不明だが、POST方式に変更する予定
-    //これで選択された部屋番号の清掃情報を受け取ることができる。
-
-
+    
+    //phpとして別のファイルにするべき?
     //清掃情報更新
     if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
         $room_number = $_GET["room_number"];
@@ -26,6 +86,8 @@
         SCleanEditP($room_number,$room_clean);
     }
 
+
+//清掃情報確認画面の枠組みの清掃状況を反映
 function SCleanManagemantP(){
     global $pdo,$room_number,$room_clean;
     $stmt = $pdo -> query("SELECT * FROM room");
@@ -43,6 +105,10 @@ function SCleanNumberP(){
     echo ("test");
 }
 
+//色についてのphpのfunctionを作成する。
+
+
+//phpとして別のファイルにするべき？
 //掃除状況を変更する,清掃状況管理画面に戻る
 function SCleanEditP($room_number,$room_clean){
     global $pdo;
