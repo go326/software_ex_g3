@@ -31,7 +31,7 @@
                 <button onclick="location.href='./clean_management.html'">戻る</button> 
             </form>
             <!--完了ボタン-->
-            <input form = "clean_edit" type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了</input>
+            <button form = "clean_edit" type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了</input>
         </div>
         <!--フッター-->
     </body>
