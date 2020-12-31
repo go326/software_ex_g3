@@ -1,5 +1,5 @@
 <?php
-     
+    //定数宣言
     //DBへ接続
     include '../db_connect.php';
 
@@ -22,13 +22,18 @@
     $NUM_OF_FLOOR = 3; //部屋があるフロア数
     $LINE_BREAK = 8;//8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
+
+
+    //html開始
 ?>
+
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
-        <script type="text/javascript" src="seisou.js"></script>
+        <link rel="stylesheet" href="clean_management.css" type="text/css">
+        <script type="text/javascript" src="seisou.js"></script>        
         <title>seisou</title>
 
     </head>
