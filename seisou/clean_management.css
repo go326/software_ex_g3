@@ -3,12 +3,6 @@ header{
     width: 80%;
     margin: 0 auto;
 }
-ul{
-    list-style: none;
-}
-ul li{
-    display: inline;
-}
 table{
     margin: 0 auto; /*画面の真ん中にする*/
     width: 80%;     /*  真ん中にしたものを横幅80%*/
@@ -24,17 +18,17 @@ button.room_button{
     height: 100%;
     margin: 0 auto;
 }
-.span0{
+button.bg_color0{
     background: none;/*清掃情報の丸の色*/
     /*border-radius: 50%;
     position: relative;*/
 }
-.span1{
+button.bg_color1{
     background: bisque;/*清掃情報の丸の色*/
     /*border-radius: 50%;
     position: relative;*/
 }
-.span2{
+button.bg_color2{
     background: red;/*清掃情報の丸の色*/
     /*border-radius: 50%;
     position: relative;*/
