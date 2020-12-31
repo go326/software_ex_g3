@@ -18,7 +18,7 @@ try {
     $rinfo .= "<tr><th>";
     $rinfo .= "<form action='f_information_details.php' method='post'>";
     $rinfo .= "<button type='submit' name='fid' ";
-    $rinfo .= "value='" . $row['reseravetion_id'] . "'>" . $row['costomer_name'] . "</button>";
+    $rinfo .= "value='" . $row['reseravetion_id'] . "'>" . $row['customer_name'] . "</button>";
     $rinfo .= "</form>";
     $rinfo .= "</th><th>";
     $rinfo .= $row['adult'] . "</th><th>";
