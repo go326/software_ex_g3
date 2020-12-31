@@ -73,7 +73,7 @@
                         //1セルの表示名
                         echo ($ROOM_DATA[$table][$room_count]);
 
-                        echo ("&#13;&#10;");
+                        echo ("<br>");
 
                         echo ("1人");
                         //echo ("</a>");
