@@ -19,13 +19,11 @@ table tr td{
     margin: 0 auto; 
     border: solid 1px black;
 }
-
-.room_button{
+button.room_button{
     width: 5em;
     height: 4em;
     margin: 0 auto;
 }
-
 .span0{
     background: none;/*清掃情報の丸の色*/
     /*border-radius: 50%;
