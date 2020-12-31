@@ -129,15 +129,11 @@ function SCleanNumberP($day_number, $room_number){
     try{
         $people_sql = "SELECT adult, child FROM customer WHERE stay_date = ".$day_number." AND room_1 = ".$room_number;
         //."OR room_2 = ".$room_number."OR room_3 = ".$room_number
-        echo ($people_sql);
         $stmt = $pdo -> query($people_sql);
-        echo ("start while ");
         while ($row = $stmt -> fetch()){
             $adult = $row["adult"];
             $child = $row["child"];
         }
-
-        echo ("start if");
         if(isset($adult)){
             if(isset($child)){
                 //大人も子供もいる状態
