@@ -15,15 +15,15 @@ try {
   $stmt->execute();
   // 表の作成(基本的にhtml文と同じ)
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $rinfo .= "</tr><td>";
+    $rinfo .= "</tr><th>";
     $rinfo .= "<form action='f_information_details.php' method='post'>";
     $rinfo .= "<button type='submit' name='fid' ";
     $rinfo .= "value='" . $row['reseravetion_id'] . "'>" . $row['costomer_name'] . "</button>";
     $rinfo .= "</form>";
-    $rinfo .= $row['adult'] . "</td><td>";
-    $rinfo .= $row['child'] . "</td><td>";
+    $rinfo .= $row['adult'] . "</th><th>";
+    $rinfo .= $row['child'] . "</th><th>";
     $rinfo .= $row['dinner_menu'];
-    $rinfo .= "</td></tr>";
+    $rinfo .= "</th></tr>";
   }
 } catch (PDOException $e) {
   echo $e->getMessage();
