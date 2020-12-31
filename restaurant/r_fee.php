@@ -2,8 +2,8 @@
 
 # var DB
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
-$user = 'root';
-$password = 'prac.lampp';
+$user = 'admin';
+$password = 'software_ex_g3';
 # var PHP
 $rf_sql = "";
 $rf_res = "";

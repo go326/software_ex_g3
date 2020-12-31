@@ -42,7 +42,7 @@ const NUMBER = 10;
 function getAdult(){
     let adult = document.getElementById("adult");
     document.createElement("option")
-    for(let i = 1; i<= NUMBER; i++){
+    for(let i = 0; i<= NUMBER; i++){
         let option = document.createElement("option");
         option.innerHTML = i;
         adult.appendChild(option);
@@ -54,7 +54,7 @@ function getAdult(){
 function getChild(){
     let child = document.getElementById("child");
     document.createElement("option")
-    for(let i = 1; i <= NUMBER; i++){
+    for(let i = 0; i <= NUMBER; i++){
         let option = document.createElement("option");
         option.innerHTML = i;
         child.appendChild(option);

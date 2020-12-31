@@ -1,0 +1,37 @@
+@charset 'utf-8';
+/*入力フォーム用のCSSです*/
+#main{
+    width: 80%;
+    margin: 0 auto;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    display: inline;
+}
+dl {
+    background: gray;
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+dl dt,
+dl dd {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+dl dt {
+    width: 13em;
+    float: left;
+    clear: both;
+    font-weight: bold;
+}
+dl dd {
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    margin-left: 13em;
+}
+textarea{
+    width: 80%;
+    height: 50px;
+}
