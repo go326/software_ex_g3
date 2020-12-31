@@ -69,7 +69,7 @@
                         echo ("<td>");
                         //1部屋のリンク
                         //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
-                        echo ("<button class = \"room_button \" type = \"submit\" value = \" ".$ROOM_DATA[$table][$room_count]." \" name = \"room_number\" >");
+                        echo ("<button class = \"room_button\" type = \"submit\" value = \" ".$ROOM_DATA[$table][$room_count]." \" name = \"room_number\" >");
                         //1セルの表示名
                         echo ($ROOM_DATA[$table][$room_count]);
                         //echo ("</a>");
