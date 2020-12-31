@@ -16,7 +16,7 @@ try {
   // 表の作成(基本的にhtml文と同じ)
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $rinfo .= "</tr><td>";
-    $rinfo .= $row['customer_name'] . "</td><td>";
+    //$rinfo .= $row['customer_name'] . "</td><td>";
     $rinfo .= "<form action='f_information_details.php' method='post'>";
     $rinfo .= "<button type='submit' name='rf_d' ";
     $rinfo .= "value='" . $row['customer_id'] . "'>" . $row['costomer_name'] . "</button>";
