@@ -35,9 +35,6 @@
     <body>
         <header>
             <h1> 清掃情報管理画面</h1>
-            <ul>
-                <li id="view_date"></li>
-            </ul>
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
