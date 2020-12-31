@@ -17,10 +17,10 @@
                     411, 412, 413, 415, 416, 417, 418, 420,
                     421, 422, 423, 425, 426, 427, 428, 430,
                     431, 432, 433, 435]);
-    $ROOM_DATA = ([$DATA201_235, $DATA301_335, $DATA401_435]);
-    $NUM_OF_ROOMS = 28;//1フロアの部屋数
+    $ROOM_DATA = ([$DATA201_235, $DATA301_335, $DATA401_435]); //2次元配列化
+    $NUM_OF_ROOMS = 28; //1フロアの部屋数
     $NUM_OF_FLOOR = 3; //部屋があるフロア数
-    $LINE_BREAK = 8;//8個の要素tdで改行
+    $LINE_BREAK = 8; //8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
 
 
@@ -40,55 +40,58 @@
     <body>
         <header>
             <h1> 清掃情報管理画面</h1>
+            <!--日付取得-->
             <?php
                 $date = date("Y-m-d");
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
-                //echo ($next_date."<br>");
             ?>
+            <span class = "sample0"> </span>掃除していない、予約なしの状態<br>
+            <span class = "sample1"> </span>お客様がチェックインしている状態<br>
+            <span class = "sample2"> </span>掃除済み状態<br>
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
+        <!--formがget方式だがpostにする予定最悪このまま-->
         <form method="get" action = "s_clean_edit.php">
         <?php
+            //３階分テーブルを作成する
             for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
                 echo ("<table>");
-                //echo ("table-test<br>");
                 //ホテルの１階分だけループする。
                 $room_count = 0; //1階の部屋数のカウント
                 for ($tr = 0; $tr <= $NUM_OF_FLOOR; $tr++){
-                    //echo ("tr-test".$NUM_OF_FLOOR."<br>");
                     echo ("<tr>");
                     //表の１行に表示する部屋数分だけループする
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
-                        //echo ("if-test".$LINE_BREAK."<br>");
-                        //1階の部屋数表を作成したら終了し、次の階へ
+                        //1階の部屋数だけ表を作成したら終了し、次の階へ
                         if($room_count == $NUM_OF_ROOMS){
                             break;
                         }
                         //1セルの表示開始
-                        //echo ("td-test".$NUM_OF_ROOMS."<br>");
                         echo ("<td>");
-                        //1部屋のリンク
+                        //1部屋のリンク現在はボタンで作成
                         //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
                         $SCMroom_clean = SCleanManagemantP($ROOM_DATA[$table][$room_count]);
-
+                        //bg_color0,1,2あるがこれを文字列結合で判断している。
                         echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
+
                         //1セルの表示名
                         //1行目
                         echo ($ROOM_DATA[$table][$room_count]);
                         //改行
                         echo ("<br>");
-                        //現在の宿泊者数
+                        //今日の宿泊者数
                         $number_people = SCleanNumberP($date, $ROOM_DATA[$table][$room_count]);
-                        echo ($number_people."人");
+                        echo ("本日".$number_people."人");
                         echo ("<br>");
-                        //次の日の宿泊者数
+                        //明日の宿泊者数
                         $number_people = SCleanNumberP($next_date, $ROOM_DATA[$table][$room_count]);
-                        echo ($number_people."人");
+                        echo ("明日".$number_people."人");
                         //echo ("</a>");
                         echo ("</button>");
                         echo ("</td>\n");
+                        //１セル終了
                         $room_count++;
                     }
                     echo ("</tr>");
@@ -110,8 +113,10 @@
 
 
 //清掃情報確認画面の枠組みの清掃状況を取り出し
+//ここで参照する色を決めている
 function SCleanManagemantP($room_number){
     global $pdo;
+    $room_clean = 0; //清掃状況、初期値は0で宿泊予定者がいないことを示す。
     $stmt = $pdo -> query("SELECT room_clean FROM room WHERE room_number = ".$room_number);
     //fetch
     while ($row = $stmt -> fetch()){
@@ -125,9 +130,10 @@ function SCleanManagemantP($room_number){
 //宿泊人数を表示
 function SCleanNumberP($day_number, $room_number){
     global $pdo;
-    $number_people = 0;
+    $number_people = 0; //その部屋の人数初期値は0
     try{
         $people_sql = "SELECT adult, child FROM customer WHERE stay_date = ".$day_number." AND room_1 = ".$room_number;
+        //2部屋めが生まれたらこの処理が必要かも知れないそしてAND以降を（）でくくる？
         //."OR room_2 = ".$room_number."OR room_3 = ".$room_number
         $stmt = $pdo -> query($people_sql);
         while ($row = $stmt -> fetch()){
@@ -143,17 +149,10 @@ function SCleanNumberP($day_number, $room_number){
                 $number_people = $adult;
             }
         }
-        return $number_people;
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
     }
+    return $number_people;
 }
-
-//色についてのphpのfunctionを作成する。
-
-//list($room_number,$room_clean) = SCleanManagemantP();
-//var_dump($room_number);
-//var_dump($room_clean);
-
 ?>
