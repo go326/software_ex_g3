@@ -47,7 +47,7 @@
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
-        <form method="GET">
+        <form method="GET"　action = "s_clean_edit.php">
         <?php
             for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
                 echo ("<table>");
