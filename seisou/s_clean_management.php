@@ -1,5 +1,5 @@
 <?php
-     
+    //定数宣言
     //DBへ接続
     include '../db_connect.php';
 
@@ -17,17 +17,23 @@
                     411, 412, 413, 415, 416, 417, 418, 420,
                     421, 422, 423, 425, 426, 427, 428, 430,
                     431, 432, 433, 435]);
+    $ROOM_DATA = ([$DATA201_235, $DATA301_335, $DATA401_435]);
     $NUM_OF_ROOMS = 28;//1フロアの部屋数
     $NUM_OF_FLOOR = 3; //部屋があるフロア数
     $LINE_BREAK = 8;//8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
+
+
+    //html開始
 ?>
+
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
-        <script type="text/javascript" src="seisou.js"></script>
+        <link rel="stylesheet" href="clean_management.css" type="text/css">
+        <script type="text/javascript" src="seisou.js"></script>        
         <title>seisou</title>
 
     </head>
@@ -35,19 +41,22 @@
     <body>
         <header>
             <h1> 清掃情報管理画面</h1>
+            <ul>
+                <li id="view_date"></li>
+            </ul>
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
-        
-        <table>
-            
-            <?php
+        <form method="GET">
+        <?php
+            for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
+                echo ("<table>");
                 //echo ("table-test<br>");
                 //ホテルの１階分だけループする。
+                $room_count = 0; //1階の部屋数のカウント
                 for ($tr = 0; $tr <= $NUM_OF_FLOOR; $tr++){
                     //echo ("tr-test".$NUM_OF_FLOOR."<br>");
                     echo ("<tr>");
-                    $room_count = 0; //1階の部屋数のカウント
                     //表の１行に表示する部屋数分だけループする
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
                         //echo ("if-test".$LINE_BREAK."<br>");
@@ -59,17 +68,20 @@
                         //echo ("td-test".$NUM_OF_ROOMS."<br>");
                         echo ("<td>");
                         //1部屋のリンク
-                        echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$DATA201_235[$room_count].">");
+                        echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
                         //1セルの表示名
-                        echo ($DATA201_235[$room_count]);
+                        echo ($ROOM_DATA[$table][$room_count]);
                         echo ("</a>");
-                        echo ("</td>");
+                        echo ("</td>\n");
+                        $room_count++;
                     }
                     echo ("</tr>");
                 }
-            ?>
-        </table>
-
+                echo ("</table>\n");
+            }
+        ?>
+        </form>
+        
     </body>
 </html>
 
