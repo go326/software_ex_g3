@@ -69,13 +69,16 @@
                         echo ("<td>");
                         //1部屋のリンク
                         //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
-                        echo ("<button class = \"room_button\" type = \"submit\" value = \" ".$ROOM_DATA[$table][$room_count]." \" name = \"room_number\" >");
+                        echo ("<button class = \"room_button\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
                         //1セルの表示名
+                        //1行目
                         echo ($ROOM_DATA[$table][$room_count]);
-
+                        //改行
                         echo ("<br>");
-
+                        //現在の宿泊者数
                         echo ("1人");
+                        //次の日の宿泊者数
+                        echo ("2人");
                         //echo ("</a>");
                         echo ("</button>");
                         echo ("</td>\n");
