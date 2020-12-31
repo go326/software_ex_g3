@@ -19,7 +19,7 @@ function makeTable(tabledata){
     //LINE_BREAK分のdd(部屋)を並べると改行
     for(var j = 0; j < LINE_BREAK; j++){
       //1フロアの部屋数分を作成するとbreak
-      if(count === NUM_OF_ROOMS){
+      if(count == NUM_OF_ROOMS){
         break;
       }
       //tdの生成
