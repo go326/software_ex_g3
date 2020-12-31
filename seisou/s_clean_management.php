@@ -42,7 +42,8 @@
             <h1> 清掃情報管理画面</h1>
             <?php
                 $date = date("Y-m-d");
-                echo ($date);
+                echo ($date."<br>");
+                echo ($date + 1 . "<br>");
             ?>
         </header>
 
