@@ -44,8 +44,8 @@
             <?php
                 echo ("table-test<br>");
                 //ホテルの１階分だけループする。
-                for ($tr = 0; $tr <= $NUM_OF_FLOR; $tr++){
-                    echo ("tr-test".$NUM_OF_FLOR."<br>");
+                for ($tr = 0; $tr <= $NUM_OF_FLOOR; $tr++){
+                    echo ("tr-test".$NUM_OF_FLO0R."<br>");
                     echo ("<tr>");
                     $room_count = 0; //1階の部屋数のカウント
                     //表の１行に表示する部屋数分だけループする
@@ -57,7 +57,7 @@
                         //1セルの表示開始
                         echo ("<td>");
                         //1部屋のリンク
-                        echo ("<a href = \" ".$LINK_PHP."\"?room_number=".DATA201_235[$room_count].">");
+                        echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$DATA201_235[$room_count].">");
                         //1セルの表示名
                         echo ($DATA201_235[$room_count]);
                         echo ("</a>");
