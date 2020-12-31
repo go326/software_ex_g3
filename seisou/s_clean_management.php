@@ -68,7 +68,8 @@
                         //echo ("td-test".$NUM_OF_ROOMS."<br>");
                         echo ("<td>");
                         //1部屋のリンク
-                        echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
+                        //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
+                        echo ("<input type = \"submit\" value = \" ".$ROOM_DATA[$table][$room_count]. " \" name = \"room_number\" >");
                         //1セルの表示名
                         echo ($ROOM_DATA[$table][$room_count]);
                         echo ("</a>");
