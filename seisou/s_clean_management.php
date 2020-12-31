@@ -47,7 +47,7 @@
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
-        <form method="GET">
+        <form method="get" action = "s_clean_edit.php">
         <?php
             for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
                 echo ("<table>");
@@ -68,10 +68,12 @@
                         //echo ("td-test".$NUM_OF_ROOMS."<br>");
                         echo ("<td>");
                         //1部屋のリンク
-                        echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
+                        //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
+                        echo ("<button type = \"submit\" value = \" ".$ROOM_DATA[$table][$room_count]." \" name = \"room_number\" >");
                         //1セルの表示名
                         echo ($ROOM_DATA[$table][$room_count]);
-                        echo ("</a>");
+                        //echo ("</a>");
+                        echo ("</button>");
                         echo ("</td>\n");
                         $room_count++;
                     }
