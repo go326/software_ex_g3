@@ -33,7 +33,6 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./clean_management.css" type="text/css">
-        <script type="text/javascript" src="./seisou.js"></script>      
         <title>seisou</title>
 
     </head>
@@ -41,12 +40,10 @@
     <body>
         <header>
             <h1> 清掃情報管理画面</h1>
-            <ul>
-                <?php
-                    $date = date("Y-m-d");
-                    echo ($date);
-                ?>
-            </ul>
+            <?php
+                $date = date("Y-m-d");
+                echo ($date);
+            ?>
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
@@ -72,7 +69,9 @@
                         echo ("<td>");
                         //1部屋のリンク
                         //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
-                        echo ("<button class = \"room_button\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
+                        $SCMroom_clean = SCleanManagemantP($ROOM_DATA[$table][$room_count]);
+
+                        echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
                         //1セルの表示名
                         //1行目
                         echo ($ROOM_DATA[$table][$room_count]);
@@ -114,17 +113,17 @@
     }
 
 
-//清掃情報確認画面の枠組みの清掃状況を反映
-function SCleanManagemantP(){
-    global $pdo,$room_number,$room_clean;
-    $stmt = $pdo -> query("SELECT * FROM room");
+//清掃情報確認画面の枠組みの清掃状況を取り出し
+function SCleanManagemantP($room_number){
+    global $pdo;
+    $stmt = $pdo -> query("SELECT room_clean FROM room WHERE room_number = ".$room_number);
     //fetch
     while ($row = $stmt -> fetch()){
-        $room_number = $row["room_number"];
+        //$room_number = $row["room_number"];
         $room_clean = $row["room_clean"];
         echo($room_number.",".$room_clean."<br>");
     }
-    //return [$room_number,$room_clean];
+    return $room_clean;
 }
 
 //宿泊人数を表示
