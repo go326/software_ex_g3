@@ -43,7 +43,7 @@
 
         <!--清掃情報確認画面の枠組みの作成-->
         <?php
-            for ($table = 0; $table < $NUM_OF_FLOOR; $table){
+            for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
                 echo ("<table>");
                 //echo ("table-test<br>");
                 //ホテルの１階分だけループする。
