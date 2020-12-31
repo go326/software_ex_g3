@@ -125,16 +125,17 @@ function SCleanManagemantP($room_number){
 //宿泊人数を表示
 function SCleanNumberP($day_number, $room_number){
     global $pdo;
+    $number_people = 0;
     try{
-        echo ("start SCNP");
         $adult_sql = "SELECT adult, child FROM customer WHERE stay_date = ".$day_number. "AND room_1 = ".$room_number;
         //."OR room_2 = ".$room_number."OR room_3 = ".$room_number
         $stmt = $pdo -> query($adult_sql);
-        echo ("start stmt");
         while ($row = $stmt -> fetch()){
             $adult = $row["adult"];
             $child = $row["child"];
         }
+        echo ("start while");
+
         if(isset($adult)){
             if(isset($child)){
                 //大人も子供もいる状態
@@ -143,9 +144,6 @@ function SCleanNumberP($day_number, $room_number){
                 //大人だけいる状態
                 $number_people = $adult;
             }
-        }else{
-            //大人もいない状態
-            $number_people = 0;
         }
         return $number_people;
     } catch (PDOException $e) {
