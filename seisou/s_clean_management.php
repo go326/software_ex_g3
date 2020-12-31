@@ -45,7 +45,7 @@
                 echo ("table-test<br>");
                 //ホテルの１階分だけループする。
                 for ($tr = 0; $tr <= NUM_OF_FLOR; $tr++){
-                    echo ("tr-test".NUM_OF_FLOR."<br>");
+                    echo ("tr-test".$NUM_OF_FLOR."<br>");
                     echo ("<tr>");
                     $room_count = 0; //1階の部屋数のカウント
                     //表の１行に表示する部屋数分だけループする
