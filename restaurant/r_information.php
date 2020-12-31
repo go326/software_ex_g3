@@ -58,9 +58,7 @@ try {
         <th>子供</th>
         <th>メニュー</th>
       </tr>
-    </table>
-    <table border="1">
-      <!-- 表の表示 -->
+	<!-- 表の表示 -->
       <?php echo $rinfo; ?>
     </table>
   </div>
