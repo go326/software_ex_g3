@@ -46,9 +46,10 @@
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
             ?>
-            <span class = "sample0"> </span>掃除していない、予約なしの状態<br>
-            <span class = "sample1"> </span>お客様がチェックインしている状態<br>
-            <span class = "sample2"> </span>掃除済み状態<br>
+            
+            <span class = "sample0"><button></button></span>掃除していない、予約なしの状態<br>
+            <span class = "sample1"><button></button></span>お客様がチェックインしている状態<br>
+            <span class = "sample2"><button></button></span>掃除済み状態<br>
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
