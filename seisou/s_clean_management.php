@@ -32,8 +32,8 @@
 <html>
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
-        <link rel="stylesheet" href="clean_management.css" type="text/css">
-        <script type="text/javascript" src="seisou.js"></script>        
+        <link rel="stylesheet" href="./clean_management.css" type="text/css">
+        <script type="text/javascript" src="./seisou.js"></script>        
         <title>seisou</title>
 
     </head>
