@@ -103,14 +103,6 @@
 
 
     //原因不明だが、POST方式に変更する予定
-    
-    //phpとして別のファイルにするべき?
-    //清掃情報更新
-    if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
-        $room_number = $_GET["room_number"];
-        $room_clean = $_GET["room_clean"];
-        SCleanEditP($room_number,$room_clean);
-    }
 
 
 //清掃情報確認画面の枠組みの清掃状況を取り出し
@@ -121,7 +113,7 @@ function SCleanManagemantP($room_number){
     while ($row = $stmt -> fetch()){
         //$room_number = $row["room_number"];
         $room_clean = $row["room_clean"];
-        echo($room_number.",".$room_clean."<br>");
+        //echo($room_number.",".$room_clean."<br>");
     }
     return $room_clean;
 }
@@ -132,35 +124,6 @@ function SCleanNumberP(){
 }
 
 //色についてのphpのfunctionを作成する。
-
-
-//phpとして別のファイルにするべき？
-//掃除状況を変更する,清掃状況管理画面に戻る
-function SCleanEditP($room_number,$room_clean){
-    global $pdo;
-    try{
-        $sc_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number;
-        $stmt = $pdo -> prepare($sc_sql);
-        $stmt -> execute();
-        echo ("実行に成功しました。<br>");
-        echo ($room_number."号室を");
-        if($room_clean == 0){
-            echo("掃除していない");
-        }else if($room_clean == 1){
-            echo("チェックイン状態");
-        }else if($room_clean == 2){
-            echo("掃除済み");
-        }
-        echo ("に変更しました。<br>");
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
-    $back_URL = "clean_management.html";
-    echo ("<form action = ".$back_URL.">");
-    echo ("<button type = \" submit \">戻る</button>");
-    echo ("</form>");
-}
 
 //list($room_number,$room_clean) = SCleanManagemantP();
 //var_dump($room_number);
