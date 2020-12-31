@@ -30,7 +30,7 @@ function SCleanEditP($room_number,$room_clean){
         echo $e->getMessage();
         exit;
     }
-    $back_URL = "s_clean_management.html";
+    $back_URL = "s_clean_management.php";
     echo ("<form action = ".$back_URL.">");
     echo ("<button type = \" submit \">戻る</button>");
     echo ("</form>");
