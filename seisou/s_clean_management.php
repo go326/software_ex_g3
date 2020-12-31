@@ -66,12 +66,12 @@
                         //1セルの表示名
                         echo ($ROOM_DATA[$table][$room_count]);
                         echo ("</a>");
-                        echo ("</td>");
+                        echo ("</td>\n");
                         $room_count++;
                     }
                     echo ("</tr>");
                 }
-                echo ("</table>");
+                echo ("</table>\n");
             }
         ?>
         
