@@ -33,7 +33,7 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./clean_management.css" type="text/css">
-        <script type="text/javascript" src="./seisou.js"></script>        
+        <script type="text/javascript" src="./seisou.js"></script>      
         <title>seisou</title>
 
     </head>
@@ -42,7 +42,10 @@
         <header>
             <h1> 清掃情報管理画面</h1>
             <ul>
-                <li id="view_date"></li>
+                <?php
+                    $date = date(Y-m-d);
+                    echo ($date);
+                ?>
             </ul>
         </header>
 
