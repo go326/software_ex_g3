@@ -47,6 +47,7 @@
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
+        <form method="GET">
         <?php
             for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
                 echo ("<table>");
@@ -79,6 +80,7 @@
                 echo ("</table>\n");
             }
         ?>
+        </form>
         
     </body>
 </html>
