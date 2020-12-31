@@ -43,7 +43,7 @@
             <h1> 清掃情報管理画面</h1>
             <ul>
                 <?php
-                    $date = date(Y-m-d);
+                    $date = date("Y-m-d");
                     echo ($date);
                 ?>
             </ul>
