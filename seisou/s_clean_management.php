@@ -43,8 +43,8 @@
             <?php
                 $date = date("Y-m-d");
                 echo ($date."<br>");
-                $date = date("Y-m-d", strtotime("+1 day"));
-                echo ($date."<br>");
+                $next_date = date("Y-m-d", strtotime("+1 day"));
+                echo ($next_date."<br>");
             ?>
         </header>
 
