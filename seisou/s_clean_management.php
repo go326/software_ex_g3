@@ -43,7 +43,7 @@
             <?php
                 $date = date("Y-m-d");
                 echo ($date."<br>");
-                $date = date("Y-m-d", strtotime("YYYY-mm-dd 1 day"));
+                $date = date("Y-m-d", strtotime("+1 day"));
                 echo ($date."<br>");
             ?>
         </header>
