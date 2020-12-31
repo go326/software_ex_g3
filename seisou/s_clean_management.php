@@ -62,6 +62,7 @@
                         echo (DATA201_235[$room_count]);
                         echo ("</a>");
                         echo ("</td>");
+                        break;
                     }
                     echo ("</tr>");
                 }
