@@ -10,15 +10,22 @@ ul li{
     display: inline;
 }
 table{
-    margin: 0 auto;
-    width: 80%;
+    margin: 0 auto; /*画面の真ん中にする*/
+    width: 80%;     /*  真ん中にしたものを横幅80%*/
 }
 table tr td{
+    width: 5em;     /* 画面サイズに左右されないいい感じになるやつ*/
+    height: 4em;
+    margin: 0 auto; 
+    border: solid 1px black;
+}
+
+button{
     width: 5em;
     height: 4em;
     margin: 0 auto;
-    border: solid 1px black;
 }
+
 .span0{
     background: none;/*清掃情報の丸の色*/
     /*border-radius: 50%;
