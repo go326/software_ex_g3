@@ -47,10 +47,10 @@
                 echo ("<table>");
                 //echo ("table-test<br>");
                 //ホテルの１階分だけループする。
+                $room_count = 0; //1階の部屋数のカウント
                 for ($tr = 0; $tr <= $NUM_OF_FLOOR; $tr++){
                     //echo ("tr-test".$NUM_OF_FLOOR."<br>");
                     echo ("<tr>");
-                    $room_count = 0; //1階の部屋数のカウント
                     //表の１行に表示する部屋数分だけループする
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
                         //echo ("if-test".$LINE_BREAK."<br>");
