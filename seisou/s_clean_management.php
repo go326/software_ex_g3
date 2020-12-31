@@ -40,15 +40,18 @@
         <!--清掃情報確認画面の枠組みの作成-->
         
         <table>
+            
             <?php
+                echo ("table-test<br>");
                 //ホテルの１階分だけループする。
-                for ($tr = 0; $tr <= $NUM_OF_FLOR; $tr++){
+                for ($tr = 0; $tr <= NUM_OF_FLOR; $tr++){
+                    echo ("tr-test<br>");
                     echo ("<tr>");
                     $room_count = 0; //1階の部屋数のカウント
                     //表の１行に表示する部屋数分だけループする
-                    for ($td = 0; $td = $LINE_BLEAK; $td++){
+                    for ($td = 0; $td = LINE_BLEAK; $td++){
                         //1階の部屋数表を作成したら終了し、次の階へ
-                        if($room_count == $NUM_OF_ROOMS){
+                        if($room_count == NUM_OF_ROOMS){
                             break;
                         }
                         //1セルの表示開始
