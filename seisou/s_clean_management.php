@@ -44,7 +44,7 @@
                 $date = date("Y-m-d");
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
-                echo ($next_date."<br>");
+                //echo ($next_date."<br>");
             ?>
         </header>
 
@@ -80,10 +80,12 @@
                         //改行
                         echo ("<br>");
                         //現在の宿泊者数
-                        echo ("1人");
+                        $number_people = SCleanNumberP($date, $ROOM_DATA[$table][$room_count]);
+                        echo ($number_people."人");
                         echo ("<br>");
                         //次の日の宿泊者数
-                        echo ("2人");
+                        $number_people = SCleanNumberP($next_date, $ROOM_DATA[$table][$room_count]);
+                        echo ($number_people."人");
                         //echo ("</a>");
                         echo ("</button>");
                         echo ("</td>\n");
@@ -121,8 +123,33 @@ function SCleanManagemantP($room_number){
 }
 
 //宿泊人数を表示
-function SCleanNumberP(){
-    echo ("test");
+function SCleanNumberP($day_number, $room_number){
+    global $pdo;
+    try{
+        $adult_sql = "SELECT adult, child FROM customer WHERE stay_date = ".$day_number. "AND room_1 = ".$room_number;
+        //."OR room_2 = ".$room_number."OR room_3 = ".$room_number
+        $stmt = $pdo -> query($adult_sql);
+        while ($row = $stmt -> fetch()){
+            $adult = $row["adult"];
+            $child = $row["child"];
+        }
+        if(isset($adult)){
+            if(isset($child)){
+                //大人も子供もいる状態
+                $number_people = $adult + $child;
+            }else{
+                //大人だけいる状態
+                $number_people = $adult;
+            }
+        }else{
+            //大人もいない状態
+            $number_people = 0;
+        }
+        return $number_people;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        exit;
+    }
 }
 
 //色についてのphpのfunctionを作成する。
