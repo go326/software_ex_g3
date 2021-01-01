@@ -27,7 +27,7 @@
                 <input type = "radio" value="1" name="room_clean">チェックイン状態<br>
                 <input type = "radio" value="2" name="room_clean">掃除済み<br>
             </form>
-            <div class="button-area-p">
+            <div class="input#submit_button">
                 <!--戻るボタン-->
                 <form  id = "clean_back" action = "s_clean_management.php">
                     <button onclick="location.href='./s_clean_management.php'">戻る</button> 
