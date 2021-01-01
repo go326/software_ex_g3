@@ -97,6 +97,7 @@ function SCleanMainP(){
                 $question_count = 0; //質問の項目数のカウント
                 for ($tr = 0; $tr < $NUM_OF_QUESTION; $tr++){
                     echo ("<tr>");
+                    $question_count++;//次の質問へ(trでも良いよね？)
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
                         //1階の部屋数だけ表を作成したら終了し、次の階へ
                         //if($room_count == $NUM_OF_ROOMS){
@@ -118,7 +119,6 @@ function SCleanMainP(){
                         }
                         echo ($question_text);
                         echo ("</td>\n");
-                        $question_count++;//次の質問へ(trでも良いよね？)
                     }
                     echo ("</tr>");
                 }    
