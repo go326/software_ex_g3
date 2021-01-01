@@ -140,17 +140,20 @@ function IQuestionNumberP(){
     $stmt->execute();
     //行数取得
     $num_of_question = $stmt -> rowCount();
+    echo ($num_of_question."<br>");
     return $num_of_question;
 }
 
 //質問テーブルの内容を取得する。　(指定したものを)
 function IQuestionManagemantP($question_data, $question_count){
     global $pdo;
+    echo ($question_data."<br>".$question_count."<br>");
     $stmt = $pdo -> query("SELECT ".$question_data." FROM question WHERE question_number = ".$question_count);
     //fetch
     while ($row = $stmt -> fetch()){
         $question_text = $row[$question_data];
     }
+    echo ("IQMquery-test<br>");
     return $question_text;
 }
 ?>
