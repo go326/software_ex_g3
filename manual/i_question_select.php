@@ -8,55 +8,6 @@
     $NUM_OF_QUESTION = IQuestionNumberP(); //全ての質問数
     $LINE_BREAK = 2; //2個の要素tdで改行
 
-//総合TOPからの遷移時にform(get)でroginを与えてもらう。
-//ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
-    if(isset($_GET["rogin"])){
-        //SCleanMainP();
-    }
-
-//ログインしたときによくある質問情報テーブルを更新する関数
-function SCleanMainP(){
-    global $pdo;
-    //今日の日付を取得
-    $date = date("Y-m-d");
-    try{
-        //テーブル全ての情報を削除する。
-        $delete_sql = "DELETE FROM room";
-        $stmt = $pdo -> prepare($delete_sql);
-        $stmt -> execute();
-        echo ("過去のテーブルの削除に成功しました。<br>");
-
-        //まずは情報を抜き出す
-        $make_sql = "SELECT room1,customer_checkin  FROM customer WHERE stay_date = ".$day_number;
-        //2部屋めが生まれたらあとで考える
-
-        $stmt = $pdo -> query($make_sql);
-        while ($row = $stmt -> fetch()){
-            $room_number = $row["room1"];
-            $room_clean = $row["customer_checkin"];
-        }
-
-        //抜き出した情報を登録する。
-        $insert_sql = "INSERT INTO room (room_number, room_clean) VALUES ('201', '0');";
-
-        if(isset($adult)){
-            if(isset($child)){
-                //大人も子供もいる状態
-                $number_people = $adult + $child;
-            }else{
-                //大人だけいる状態
-                $number_people = $adult;
-            }
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
-    return $number_people;
-
-}
-
-
     //html開始
 ?>
 
