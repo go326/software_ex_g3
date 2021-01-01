@@ -18,6 +18,10 @@ function FInformationDetails(){
     $sql = "SELECT * FROM customer";// WHERE reservation_id = " . $;//部屋番号と宿泊日の
     //SQLステートメントを実行、結果を変数へ格納
     $stmt = $pdo -> query($sql);
+    $stmt -> execute();
+    while($row = stmt->fetch(PDO::FETCH_ASSOC)){
+
+    }
     
     //表示
     $finfo .="<dl>";
@@ -33,7 +37,7 @@ function FInformationDetails(){
     $finfo .='<dt>食事の有無</dt><dd>'. $row['is_denner'].'</dd>';//とりあえず、夕食
     $finfo .='<dt>食事のメニュー</dt><dd>'. $row['dinner_menu'].'</dd>';
     $finfo .='<dt>部屋番号</dt><dd>'. $row['room_1'].'</dd>';
-
+/*
     $finfo .='<dt>追加料金情報</dt><dd></dd>';
     $finfo .='<dt>日付</dt><dd>'. date("Y-m-d").'</dd>';
     //$finfo .='<dt>場所</dt><dd>'. $row['stay_date'].'</dd>';
@@ -41,7 +45,7 @@ function FInformationDetails(){
     $finfo .='<dt>商品名</dt><dd>'. $row['stay_date'].'</dd>';
     $finfo .='<dt>備考</dt><dd>'. $row['stay_date'].'</dd>';
     $finfo .="</dl>";
-
+*/
     echo $finfo;
 }
 
@@ -61,7 +65,7 @@ function FInformationDetails(){
     <div id="main">
         <?php FInformationDetails(); ?><!--customer表示-->
 
-        <?php FeeSelectP();?><!--fee表示-->
+        <!--fee表示-->
     </div>
 </body>
 
