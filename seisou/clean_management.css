@@ -14,7 +14,7 @@ table tr td{
     border: solid 1px black;
 }
 button.room_button{
-    width: 590%;
+    width: 500%; /*元は100*/
     height: 400%;
     margin: 0 auto;
 }
