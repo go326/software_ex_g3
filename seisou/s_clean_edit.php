@@ -30,10 +30,10 @@
             <div class="input#submit_button">
                 <!--戻るボタン-->
                 <form  id = "clean_back" action = "s_clean_management.php">
-                    <button onclick="location.href='./s_clean_management.php'">戻る</button> 
+                    <input id="submit_button" type="submt" name="submit" value="戻る" onclick="location.href='./s_clean_management.php'"> 
                 </form>
                 <!--完了ボタン-->
-                <button form = "clean_edit" type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了</input>
+                <input id="submit_button" form = "clean_edit" type = "submit" name="submit" value="完了" value="<?php echo $room_number; ?>" name="room_number"></input>
             </div>
         </div>
         <!--フッター-->
