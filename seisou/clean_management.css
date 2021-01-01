@@ -9,13 +9,13 @@ table{
 }
 table tr td{
     width: 5em;     /* 画面サイズに左右されないいい感じになるやつ*/
-    height: 4em;
+    height: 5em;
     margin: 0 auto; 
     border: solid 1px black;
 }
 button.room_button{
-    width: 100%;
-    height: 100%;
+    width: 500%; /*元は100*/
+    height: 400%;
     margin: 0 auto;
 }
 button.bg_color0,.sample0{
