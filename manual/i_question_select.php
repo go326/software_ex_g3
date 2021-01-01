@@ -33,9 +33,7 @@
             
         </header>
 
-        <!--よくある質問一覧画面の枠組みの作成-->
-        <!--formがget方式だがpostにする予定最悪このまま-->
-        <!--<form method="get" action = "s_clean_edit.php">-->
+        <!--よくある質問一覧画面の作成-->
         <table>
             <!--各列のタイトルの作成-->
             <tr>
@@ -55,8 +53,11 @@
                         //    break;
                         //}
 
+                        //formがget方式だがpostにする予定最悪このまま
+                        //<form method="get" action = "s_clean_edit.php">
+                        //質問番号とそのボタンなりの入力を配置
+                        //</form>
                         //1セルの表示開始
-                    
                         //質問番号を入れるときはLINE_BREAKを増やして、
                         echo ("<td>");
                         if($td == 0){
@@ -68,6 +69,7 @@
                             $question_result = ("question_result");
                             $question_text = IQuestionManagemantP($question_result, $question_count);
                         }
+                        //セルに取り出した値を出力する。
                         echo ($question_text);
                         echo ("</td>\n");
                     }
@@ -75,7 +77,11 @@
                 }    
             ?>
         </table>
-        <!--</form>-->
+        
+        <!--戻るボタン-->
+        <form method="get" action = "">
+            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+        </form>
         
     </body>
 </html>
