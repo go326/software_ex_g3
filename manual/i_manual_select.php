@@ -96,10 +96,14 @@
 function IManualNumberP(){
     global $pdo;
     $num_of_manual = 0;
-    $stmt = $pdo -> query("SELECT * FROM manual");
+    echo ("trtest");
+    $IMN_sql = ("SELECT * FROM manual");
+    echo ($IMN_sql);
+    $stmt = $pdo -> query($IMN_sql);
     $stmt->execute();
     //行数取得
-    $num_of_question = $stmt -> rowCount();
+    $num_of_manual = $stmt -> rowCount();
+    echo ($num_of_manual);
     return $num_of_manual;
 }
 
