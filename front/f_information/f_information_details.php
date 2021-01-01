@@ -17,7 +17,7 @@ function FInformationDetails(){
      */
     $sql = "SELECT * FROM customer";// WHERE reservation_id = " . $;//部屋番号と宿泊日の
     //SQLステートメントを実行、結果を変数へ格納
-    //$stmt = $pdo -> query($sql);
+    $stmt = $pdo -> query($sql);
     
     //表示
     $finfo .="<dl>";
