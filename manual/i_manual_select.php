@@ -43,12 +43,10 @@
 
             <?php
                 //マニュアル数だけループする。
-                echo ("trtest");
                 $manual_count = 0; //マニュアルの項目数のカウント
                 for ($tr = 0; $tr < $NUM_OF_MANUAL; $tr++){
                     echo ("<tr>");
                     $manual_count++;//次のマニュアルへ(trでも良いよね？)
-                    echo ("trtest2<br>");
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
                         //1階の部屋数だけ表を作成したら終了し、次の階へ
                         //if($room_count == $NUM_OF_ROOMS){
@@ -62,7 +60,6 @@
                         //1セルの表示開始
                         //質問番号を入れるときはLINE_BREAKを増やして、
                         echo ("<td>");
-                        echo ("tdtest<br>");
 
                         if($td == 0){
                             //１セル目の処理(manual_nameを取り出す。)
@@ -96,14 +93,12 @@
 function IManualNumberP(){
     global $pdo;
     $num_of_manual = 0;
-    echo ("trtest");
     $IMN_sql = ("SELECT * FROM manual");
     echo ($IMN_sql);
     $stmt = $pdo -> query($IMN_sql);
     $stmt->execute();
     //行数取得
     $num_of_manual = $stmt -> rowCount();
-    echo ($num_of_manual);
     return $num_of_manual;
 }
 
