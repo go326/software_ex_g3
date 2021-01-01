@@ -74,6 +74,7 @@ button.button-size{
     width: 80%;
     text-align: center;/*中央ぞろえ*/
     background-color: gold;
+    margin: 10%;
 }
 input#submit_button{
     /*width: 60px;
