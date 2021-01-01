@@ -66,8 +66,8 @@
                             $manual_text = IManualManagemantP($manual_name, $manual_count);
                         }else{
                             //2セル目の処理(manual_resultを取り出す。)
-                            $manual_result = ("manual_result");
-                            $manual_text = IManualManagemantP($manual_result, $manual_count);
+                            $manual_url = ("manual_url");
+                            $manual_text = IManualManagemantP($manual_url, $manual_count);
                         }
                         //セルに取り出した値を出力する。
                         echo ($manual_text);
