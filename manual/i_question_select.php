@@ -145,9 +145,7 @@ function IQuestionNumberP(){
 //質問テーブルの内容を取得する。　(指定したものを)
 function IQuestionManagemantP($question_data, $question_count){
     global $pdo;
-    echo ("quesdata".$question_data."<br>quescount".$question_count."<br>");
     $IQM_sql = ("SELECT ".$question_data." FROM question WHERE question_number = ".$question_count);
-    echo ($IQM_sql."<br>");
     $stmt = $pdo -> query($IQM_sql);
     //fetch
     while ($row = $stmt -> fetch()){
