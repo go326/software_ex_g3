@@ -19,7 +19,7 @@
             echo ($room_number."号室の掃除状況を変更します。<br>");
         ?>
             <!--メイン-->
-        <div class="content">
+        <div class="button-area">
             <!--i行目-->
             <form  id = "clean_edit" method = “get” action = "s_clean_edit_done.php">
                 <input type = "radio" value="0" name="room_clean">掃除していない<br>
