@@ -152,7 +152,7 @@ function SCleanMainP(){
 
         <!--戻るボタン-->
         <form method="get" action = "">
-            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+            <input type = "submit" value = "総合TOP画面へ戻る">
         </form>
         
     </body>
