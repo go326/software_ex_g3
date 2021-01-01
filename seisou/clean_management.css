@@ -14,8 +14,8 @@ table tr td{
     border: solid 1px black;
 }
 button.room_button{
-    width: 500%; /*元は100*/
-    height: 400%;
+    width: 100%; /*元は100*/
+    height: 100%;
     margin: 0 auto;
 }
 button.bg_color0,.sample0{
@@ -69,3 +69,11 @@ button.button-size{
     height: 50px;
 }
 */
+/*戻る、完了ボタン*/
+.button-area{
+    width: 200px;
+}
+.button-area p{
+    padding-right: 35px;
+    float: left;
+}

@@ -19,7 +19,7 @@
             echo ($room_number."号室の掃除状況を変更します。<br>");
         ?>
             <!--メイン-->
-        <div class="content">
+        <div class="button-area">
             <!--i行目-->
             <form  id = "clean_edit" method = “get” action = "s_clean_edit_done.php">
                 <input type = "radio" value="0" name="room_clean">掃除していない<br>
@@ -31,7 +31,7 @@
                 <button onclick="location.href='./s_clean_management.php'">戻る</button> 
             </form>
             <!--完了ボタン-->
-            <button form = "clean_edit" type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了</input>
+            <p><button form = "clean_edit" type = "submit" value="<?php echo $room_number; ?>" name="room_number">完了</input></p>
         </div>
         <!--フッター-->
     </body>
