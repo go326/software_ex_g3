@@ -18,8 +18,8 @@ function FInformationDetails(){
     $sql = "SELECT * FROM customer";// WHERE reservation_id = " . $;//部屋番号と宿泊日の
     //SQLステートメントを実行、結果を変数へ格納
     $stmt = $pdo -> query($sql);
-    $stmt -> execute();
-    
+    //$stmt -> fetch();
+    while($row = $stmt -> fetch()){
     //表示
     $finfo .="<dl>";
     $finfo .='<dt>宿泊日</dt><dd>'. $row['stay_date'].'</dd>';
@@ -34,6 +34,7 @@ function FInformationDetails(){
     $finfo .='<dt>食事の有無</dt><dd>'. $row['is_denner'].'</dd>';//とりあえず、夕食
     $finfo .='<dt>食事のメニュー</dt><dd>'. $row['dinner_menu'].'</dd>';
     $finfo .='<dt>部屋番号</dt><dd>'. $row['room_1'].'</dd>';
+    }
 /*
     $finfo .='<dt>追加料金情報</dt><dd></dd>';
     $finfo .='<dt>日付</dt><dd>'. date("Y-m-d").'</dd>';
