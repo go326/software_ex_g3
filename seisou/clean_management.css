@@ -75,9 +75,9 @@ button.button-size{
     background-color: gold;
 }
 input#submit_button{
-    width: 30px;
-    height: 10px;
+    width: 60px;
+    height: 30px;
     /*text-align: center;*/
-    display: inline-block;/*横並び*/
+    display: flex;/*横並び*/
     /*margin: 10px;*/
 }
