@@ -15,11 +15,12 @@
             <h1>清掃情報編集画面</h1>
         </header>
         <!--確認用の出力文＿-->
-        <?php
-            echo ($room_number."号室の掃除状況を変更します。<br>");
-        ?>
-            <!--メイン-->
         <div class="button-area">
+            <?php
+                echo ($room_number."号室の掃除状況を変更します。<br>");
+            ?>
+            <!--メイン-->
+        
             <!--i行目-->
             <form  id = "clean_edit" method = “get” action = "s_clean_edit_done.php">
                 <input type = "radio" value="0" name="room_clean">掃除していない<br>
