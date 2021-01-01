@@ -71,5 +71,7 @@ button.button-size{
 */
 /*戻る、完了ボタン*/
 .button-area{
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
 }
