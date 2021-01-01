@@ -73,3 +73,6 @@ button.button-size{
 .button-area{
     text-align: center;
 }
+.button-area-p{
+    display: flex;
+}
