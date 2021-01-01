@@ -9,7 +9,7 @@
 //顧客情報の表示
 function FInformationDetails(){
     global $pdo;
-
+    try{
     //データを持ってくる
     /**
      * コメント
@@ -19,9 +19,6 @@ function FInformationDetails(){
     //SQLステートメントを実行、結果を変数へ格納
     $stmt = $pdo -> query($sql);
     $stmt -> execute();
-    while($row = stmt->fetch(PDO::FETCH_ASSOC)){
-
-    }
     
     //表示
     $finfo .="<dl>";
@@ -47,6 +44,10 @@ function FInformationDetails(){
     $finfo .="</dl>";
 */
     echo $finfo;
+    }catch(PDOException $e){
+        echo $e->getMessage();
+        exit;
+    }
 }
 
 ?>
