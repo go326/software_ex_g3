@@ -7,9 +7,6 @@
     //部屋番号の配列
     $NUM_OF_QUESTION = IQuestionNumberP(); //全ての質問数
     $LINE_BREAK = 2; //2個の要素tdで改行
-    
-    $NUM_OF_FLOOR = 3; //部屋があるフロア数
-    $LINK_PHP = "s_clean_edit.php"; //phpのURL
 
 //総合TOPからの遷移時にform(get)でroginを与えてもらう。
 //ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
@@ -155,50 +152,5 @@ function IQuestionManagemantP($question_data, $question_count){
         $question_text = $row[$question_data];
     }
     return $question_text;
-}
-
-//清掃情報確認画面の枠組みに反映
-//清掃情報確認画面の枠組みの清掃状況を取り出し
-//ここで参照する色を決めている
-function SCleanManagemantP($room_number){
-    global $pdo;
-    $room_clean = 0; //清掃状況、初期値は0で宿泊予定者がいないことを示す。
-    $stmt = $pdo -> query("SELECT room_clean FROM room WHERE room_number = ".$room_number);
-    //fetch
-    while ($row = $stmt -> fetch()){
-        //$room_number = $row["room_number"];
-        $room_clean = $row["room_clean"];
-        //echo($room_number.",".$room_clean."<br>");
-    }
-    return $room_clean;
-}
-
-//宿泊人数を表示
-function SCleanNumberP($day_number, $room_number){
-    global $pdo;
-    $number_people = 0; //その部屋の人数初期値は0
-    try{
-        $people_sql = "SELECT adult, child FROM customer WHERE stay_date = ".$day_number." AND room_1 = ".$room_number;
-        //2部屋めが生まれたらこの処理が必要かも知れないそしてAND以降を（）でくくる？
-        //."OR room_2 = ".$room_number."OR room_3 = ".$room_number
-        $stmt = $pdo -> query($people_sql);
-        while ($row = $stmt -> fetch()){
-            $adult = $row["adult"];
-            $child = $row["child"];
-        }
-        if(isset($adult)){
-            if(isset($child)){
-                //大人も子供もいる状態
-                $number_people = $adult + $child;
-            }else{
-                //大人だけいる状態
-                $number_people = $adult;
-            }
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
-    return $number_people;
 }
 ?>
