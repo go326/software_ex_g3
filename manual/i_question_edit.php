@@ -53,7 +53,7 @@
                         <?php
                             //2セル
                             $question_result = ("question_result");
-                            $question_text = IQuestionManagemantP($question_result, $question_count);
+                            $question_text = IQuestionManagemantP($question_result, $question_number);
                             echo ($question_text);
                         ?>
                     </td>
