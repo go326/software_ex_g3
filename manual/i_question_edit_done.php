@@ -53,7 +53,6 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         $question_number = $_GET["question_number"];
         $question_name = $_GET["question_name"];
         $question_result = $_GET["question_result"];
-        echo ("test-IQEP<br>");
         IQuestionEditP($question_number,$question_name,$question_result);
     }
     ?>
