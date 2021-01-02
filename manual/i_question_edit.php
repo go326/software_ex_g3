@@ -40,7 +40,7 @@
                         echo ($question_number);
 
                     ?>
-                    <input type = "hidden" name = "qusetion_number" value = "<?php echo ($question_number);?>">
+                    <input type = "hidden" name = "question_number" value = "<?php echo ($question_number);?>">
                     </td>
 
                     <td>
@@ -48,7 +48,7 @@
                             //1セル
                             $question_name = ("question_name");
                             $question_text = IQuestionManagemantP($question_name, $question_number);
-                            echo ("<input type = \"textarea\" name = ".$question_name." value = ".$question_text.">");
+                            echo ("<input type = \"text\" name = ".$question_name." value = ".$question_text.">");
                         ?>
                     </td>
 
@@ -57,7 +57,7 @@
                             //2セル
                             $question_result = ("question_result");
                             $question_text = IQuestionManagemantP($question_result, $question_number);
-                            echo ("<input type = \"textarea\" name = ".$question_result." value = ".$question_text.">");
+                            echo ("<input type = \"text\" name = ".$question_result." value = ".$question_text.">");
                         ?>
                     </td>
 
