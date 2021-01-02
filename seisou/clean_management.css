@@ -80,9 +80,9 @@ button.button-size{
 }
 /*submitボタンの作成*/
 input#submit_button{
-    width: 20%;
-    height: 10%;
-    padding: 20px 50px;/*縦　横*/
+    width: 150px;
+    height: 50px;
+    /*padding: 20px 50px;/*縦　横*/
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
     /*letter-spacing: normal;
@@ -102,7 +102,7 @@ input#submit_button{
 .button-position-l{
     position: absolute;
     top: 90%;
-    left: 80%;
+    left: 20%;
 }
 /*右のボタン*/
 .button-position-r{
