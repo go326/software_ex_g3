@@ -66,7 +66,7 @@
             <div class="button-position-l">
                 <div class="input#submit_button">
                     <!--戻るボタン-->
-                    <form  id = "clean_back" action = "s_clean_management.php">
+                    <form  id = "clean_back" action = "i_question_select.php">
                         <input id="submit_button" type="submit" name="submit" value="戻る" onclick="location.href='./s_clean_management.php'"> 
                     </form>
                 </div>
