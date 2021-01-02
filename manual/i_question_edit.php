@@ -9,7 +9,7 @@
     <head>
         <!--文字コードUTF-8-->
         <meta http-equiv="Content-Type" content="test/html" charset="UTF-8">
-        <link rel="stylesheet" href="question_select.css" type="text/css"> 
+        <link rel="stylesheet" href="./question_select.css" type="text/css">
     </head>
     <body>
         <!--ヘッダー-->
@@ -27,11 +27,11 @@
             <form id = "question_edit" method = “get” action = "i_question_edit_done.php">
 
                 <table>
-
+                    <tr>
                     <th>質問No.</th>
                     <th>よくある質問<th>
                     <th>解答例<th>
-                    
+                    </tr>
                     <tr>    
                     <td>
                     <?php
