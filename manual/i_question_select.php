@@ -60,17 +60,8 @@
                         if($td == 0){
                             //0セル表示開始
                             //formがget方式だがpostにする予定最悪このまま
-                            if($user_auth == 1){
-                                echo ("<form method=\"get\" action = \"i_question_edit.php\">");
-                                //質問番号とそのボタンなりの入力を配置
-                                $question_number = ("question_number");
-                                $question_text = IQuestionManagemantP($question_number, $question_count);
-                                echo("<input type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
-                                echo("</form>");
-                            }else{
-                                $question_number = ("question_number");
-                                $question_text = IQuestionManagemantP($question_number, $question_count);
-                            }
+                            $question_number = ("question_number");
+                            $question_text = IQuestionManagemantP($question_number, $question_count);
                         }else if($td == 1){
                             //１セル目の処理(question_nameを取り出す。)
                             $question_name = ("question_name");
@@ -81,7 +72,18 @@
                             $question_text = IQuestionManagemantP($question_result, $question_count);
                         }
                         //セルに取り出した値を出力する。
+                        if($user_auth == 1 && $td == 0){
+                            echo ("<form method=\"get\" action = \"i_question_edit.php\">");
+                            //質問番号とそのボタンなりの入力を配置
+                            echo("<button type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
+                        }
+
                         echo ($question_text);
+
+                        if($user_auth == 1 && $td == 0){
+                            echo ("</button>");
+                            echo("</form>");
+                        }
                         echo ("</td>\n");
                     }
                     echo ("</tr>");
