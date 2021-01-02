@@ -69,7 +69,7 @@ button.button-size{
     height: 50px;
 }
 */
-/*戻る、完了ボタン*/
+/*中央揃え，背景イエロー*/
 .button-area{
     width: 60%;
     text-align: center;/*中央ぞろえ*/
@@ -77,14 +77,10 @@ button.button-size{
     margin: 20%;
     padding: 10%;
 }
-/*左のボタン*/
+/*submitボタンの作成*/
 input#submit_button{
     width: 15%;
     height: 7%;
-    display: -webkit-flex;/*横並び(4行)*/
-    display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
     /*letter-spacing: normal;
@@ -93,14 +89,10 @@ input#submit_button{
     top: 7%;
     right: 10%;*/
 }
-/*右のボタン*/
-input#submit_button_r{
-    width: 15%;
-    height: 7%;
-    /*text-align: center;*/
-    /*display: inline-block;/*横並び*/
-    letter-spacing: normal;
-    /*margin: 10px;*/
-    position: relative;
-    left: 10%;
+/*ボタンの横並び*/
+.button-position{
+    display: -webkit-flex;/*横並び(4行)*/
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
 }
