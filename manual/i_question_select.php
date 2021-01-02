@@ -44,11 +44,7 @@
         <table>
             <!--各列のタイトルの作成-->
             <tr>
-                <?php
-                    if($user_auth == 1){
-                        echo ("<th>質問No.</th>");
-                    }
-                ?>
+                <th>質問No.</th>
                 <th>よくある質問</th>
                 <th>解答例</th>
             </tr>
