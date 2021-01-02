@@ -50,7 +50,7 @@ function SCleanEditP($room_number,$room_clean){
 
     <body>
         <header>
-            <h1> 清掃情報管理画面</h1>
+            <h1> 清掃情報編集完了画面</h1>
         </header>
     <?php
         //清掃情報更新
