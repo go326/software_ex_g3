@@ -73,7 +73,7 @@ button.button-size{
 .button-area{
     width: 60%;
     text-align: center;/*中央ぞろえ*/
-    font-size: 1.5em;
+    /*font-size: 1.5em;
     /*background-color: yellow;*/
     position: relative;
     margin:0 auto;/*中央揃え*/
