@@ -8,6 +8,7 @@
     $NUM_OF_MANUAL = IManualNumberP(); //全てのマニュアル数
     $LINE_BREAK = 2; //2個の要素tdで改行
 
+    $user_auth = 1;//管理者権限の有無(1,0);
     //html開始
 ?>
 
@@ -37,6 +38,7 @@
         <table>
             <!--各列のタイトルの作成-->
             <tr>
+                <th>マニュアルNo.</th>
                 <th>マニュアル名</th>
                 <th>マニュアルURL</th>
             </tr>
@@ -47,17 +49,22 @@
                 for ($tr = 0; $tr < $NUM_OF_MANUAL; $tr++){
                     echo ("<tr>");
                     $manual_count++;//次のマニュアルへ(trでも良いよね？)
-                    //1階の部屋数だけ表を作成したら終了し、次の階へ
-                    //if($room_count == $NUM_OF_ROOMS){
-                    //    break;
-                    //}
-                     //formがget方式だがpostにする予定最悪このまま
-                    //<form method="get" action = "s_clean_edit.php">
-                    //質問番号とそのボタンなりの入力を配置
-                    //</form>
-                    //1セルの表示開始
-                    //質問番号を入れるときはLINE_BREAKを増やして、
-                    
+
+                    //0セル表示開始
+                    echo("<td>");
+                    //formがget方式だがpostにする予定最悪このまま
+                    if($user_auth == 1){
+                        echo ("<form method=\"get\" action = \"i_question_edit.php\">");
+                        //質問番号とそのボタンなりの入力を配置
+                        echo("<button type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
+                    }
+                    $question_number = ("question_number");
+                    $question_text = IQuestionManagemantP($question_number, $question_count);
+                    if($user_auth == 1){
+                        echo ("</button>");
+                        echo("</form>");
+                    }
+                    echo("</td>");
                     //１セル目の処理(manual_nameを取り出す。)
                     echo ("<td>");
                     $manual_name = ("manual_name");
