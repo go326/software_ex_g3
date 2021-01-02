@@ -29,9 +29,11 @@ function SCleanEditP($room_number,$room_clean){
     }
     $back_URL = "s_clean_management.php";
     echo ("<form action = ".$back_URL.">");
+    echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
     echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
     echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
     echo ("</div>");    //css-submitボタン終わり
+    echo ("</div>");    //css中央揃え終わり
     echo ("</form>");
 }
 

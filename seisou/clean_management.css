@@ -107,6 +107,10 @@ input#submit_button{
     -webkit-justify-content: space-around;
     justify-content: space-around;/*全体に均等に並べる*/
 }
+/*中央のボタン*/
+.button-position-c{
+    text-align: center;
+}
 /*左のボタン*/
 .button-position-l{
     position: absolute;
