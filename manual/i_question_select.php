@@ -8,6 +8,9 @@
     $NUM_OF_QUESTION = IQuestionNumberP(); //全ての質問数
     $LINE_BREAK = 2; //2個の要素tdで改行
 
+    $user_auth = 1;//管理者権限の有無(1,0);
+    //たぶん権限確認するメソッドが必要
+
     //html開始
 ?>
 
@@ -48,15 +51,17 @@
                     echo ("<tr>");
                     $question_count++;//次の質問へ(trでも良いよね？)
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
-                        //1階の部屋数だけ表を作成したら終了し、次の階へ
-                        //if($room_count == $NUM_OF_ROOMS){
-                        //    break;
-                        //}
 
+                        //0セル表示開始
                         //formがget方式だがpostにする予定最悪このまま
-                        //<form method="get" action = "s_clean_edit.php">
-                        //質問番号とそのボタンなりの入力を配置
-                        //</form>
+                        if($user_auth == 1){
+                            echo ("<form method=\"get\" action = \"i_question_edit.php\">");
+                            //質問番号とそのボタンなりの入力を配置
+                            $question_number = ("question_number");
+                            $question_text = IQuestionManagemantP($question_number, $question_count);
+                            echo("<input type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
+                            echo("</form>");
+                        }
                         //1セルの表示開始
                         //質問番号を入れるときはLINE_BREAKを増やして、
                         echo ("<td>");
