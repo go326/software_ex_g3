@@ -53,13 +53,14 @@
                     //0セル表示開始
                     echo("<td>");
                     //formがget方式だがpostにする予定最悪このまま
+                    $manual_number = ("manual_number");
+                    $manual_text = IManualManagemantP($manual_number, $manual_count);
                     if($user_auth == 1){
-                        echo ("<form method=\"get\" action = \"i_question_edit.php\">");
+                        echo ("<form method=\"get\" action = \"i_manual_edit.php\">");
                         //質問番号とそのボタンなりの入力を配置
-                        echo("<button type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
+                        echo("<button type = \"submit\" value = \"".$manual_text."\" name = \"".$manual_number."\">");
                     }
-                    $question_number = ("question_number");
-                    $question_text = IQuestionManagemantP($question_number, $question_count);
+                    echo ($manual_text);
                     if($user_auth == 1){
                         echo ("</button>");
                         echo("</form>");
