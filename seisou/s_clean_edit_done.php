@@ -11,6 +11,7 @@ function SCleanEditP($room_number,$room_clean){
         $sc_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number;
         $stmt = $pdo -> prepare($sc_sql);
         $stmt -> execute();
+        echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
         echo ($room_number."号室を");
         if($room_clean == 0){
@@ -21,13 +22,16 @@ function SCleanEditP($room_number,$room_clean){
             echo("掃除済み");
         }
         echo ("に変更しました。<br>");
+        echo ("</div>") //css終わり
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
     }
     $back_URL = "s_clean_management.php";
     echo ("<form action = ".$back_URL.">");
-    echo ("<button type = \" submit \">戻る</button>");
+    echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
+    echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
+    echo ("</div>");    //css-submitボタン終わり
     echo ("</form>");
 }
 
