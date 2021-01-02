@@ -52,7 +52,6 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         </header>
     <?php
         //清掃情報更新
-        echo ("test-IQEP<br>");
 
     if(isset($_GET["question_number"]) && isset($_GET["question_name"]) && isset($_GET['question_result'])){
         $question_number = $_GET["question_number"];
