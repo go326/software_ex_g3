@@ -82,7 +82,7 @@ input#submit_button_l{
     height: 7%;
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
-    /*letter-spacing: normal;
+    letter-spacing: normal;
     /*margin: 10px;*/
     position: relative;
     top: 7%;
@@ -94,7 +94,7 @@ input#submit_button_r{
     height: 7%;
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
-    /*letter-spacing: normal;
+    letter-spacing: normal;
     /*margin: 10px;*/
     position: relative;
     right: 10%;
