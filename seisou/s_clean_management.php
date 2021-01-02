@@ -94,7 +94,16 @@ function SCleanMainP(){
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
             ?>
-            
+
+            <!--戻るボタン-->
+            <div class="button-position-c">
+                <div class="input#submit_button">
+                    <form action = "../i_general_top.html">
+                        <input id="submit_button" type="submit" name="submit"value = "総合TOP画面へ戻る">
+                    </form>
+                </div>
+            </div>
+
             <span class = "sample0"><button class = "bg_color0"></button></span>掃除していない、予約なしの状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
             <span class = "sample2"><button class = "bg_color0"></button></span>掃除済み状態<br>
@@ -149,12 +158,6 @@ function SCleanMainP(){
             }
         ?>
         </form>
-
-        <!--戻るボタン-->
-        <form action = "../i_general_top.html">
-            <input type = "submit" value = "総合TOP画面へ戻る">
-        </form>
-        
     </body>
 </html>
 
