@@ -98,13 +98,13 @@ input#submit_button{
 }
 /*左のボタン*/
 .button-position-l{
-    position: relative;
-    top: 10px;
+    position: absolute;
+    top: 50%;
     left: 20%;
 }
 /*右のボタン*/
 .button-position-r{
-    position: relative;
-    bottom: 15px;
-    right: 20%;
+    position: absolute;
+    top: 50%;
+    right: 80%;
 }
