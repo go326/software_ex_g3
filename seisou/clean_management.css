@@ -82,6 +82,7 @@ button.button-size{
 input#submit_button{
     width: 20%;
     height: 10%;
+    padding: 20px 50px;/*縦　横*/
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
     /*letter-spacing: normal;
