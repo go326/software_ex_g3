@@ -53,7 +53,7 @@
                         <?php
                             //2セル
                             $question_result = ("question_result");
-                            $question_text = IQuestionManagemantP($question_result, $question_count);
+                            $question_text = IQuestionManagemantP($question_result, $question_number);
                             echo ($question_text);
                         ?>
                     </td>
@@ -88,12 +88,10 @@ function IQuestionManagemantP($question_data, $question_number){
     global $pdo;
     $IQM_sql = ("SELECT ".$question_data." FROM question WHERE question_number = ".$question_number);
     $stmt = $pdo -> query($IQM_sql);
-    echo ($IQM_sql."<br>");
     //fetch
     while ($row = $stmt -> fetch()){
         $question_text = $row[$question_data];
     }
-    echo ($question_text."<br>");
     return $question_text;
 }
 ?>
