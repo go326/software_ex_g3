@@ -38,11 +38,11 @@
                     echo ("<td>");
                     if($tr == 0){
                         echo ($question_number);
-                        echo ("input type = \"hidden\" name = \"question_number\" value = \".$question_number.\"");
+                        echo ("<input type = \"hidden\" name = \"question_number\" value = \".$question_number.\">");
                     }else if($tr == 1){
-                        echo ("input type = \"text\" name = \"question_name\"");
+                        echo ("<input type = \"text\" name = \"question_name\">");
                     }else if($tr = 2){
-                        echo ("input type = \"text\" name = \"question_result\"");
+                        echo ("<input type = \"text\" name = \"question_result\">");
                     }
                     echo ("</td>");
 
