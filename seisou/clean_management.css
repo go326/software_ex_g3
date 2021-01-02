@@ -81,9 +81,13 @@ button.button-size{
 input#submit_button{
     width: 15%;
     height: 7%;
+    display: -webkit-flex;/*横並び(4行)*/
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
     /*text-align: center;*/
-    display: inline-block;/*横並び*/
-    letter-spacing: normal;
+    /*display: inline-block;/*横並び*/
+    /*letter-spacing: normal;
     margin: 10%;
     /*position: relative;
     top: 7%;
