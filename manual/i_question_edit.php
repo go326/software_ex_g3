@@ -48,7 +48,6 @@
                             $question_name = ("question_name");
                             $question_text = IQuestionManagemantP($question_name, $question_number);
                             echo ("<input type = \"text\" name = ".$question_name." value = ".$question_text.">");
-                            echo ($question_text);
                         ?>
                     </td>
 
@@ -58,7 +57,6 @@
                             $question_result = ("question_result");
                             $question_text = IQuestionManagemantP($question_result, $question_number);
                             echo ("<input type = \"text\" name = ".$question_result." value = ".$question_text.">");
-                            echo ($question_text);
                         ?>
                     </td>
 
