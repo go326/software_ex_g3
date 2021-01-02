@@ -75,7 +75,7 @@ button.button-size{
     text-align: center;/*中央ぞろえ*/
     background-color: yellow;
     position: relative;
-    margin:20%;/*上下　左右*/
+    margin:0 auto;/*中央揃え*/
     padding: 10%;
 }
 /*submitボタンの作成*/
@@ -101,12 +101,12 @@ input#submit_button{
 /*左のボタン*/
 .button-position-l{
     position: absolute;
-    top: 90%;
+    bottom: 10%;
     left: 20%;
 }
 /*右のボタン*/
 .button-position-r{
     position: absolute;
-    top: 90%;
+    bottom: 10%;
     right: 20%;
 }
