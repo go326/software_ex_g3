@@ -95,7 +95,6 @@ function IManualNumberP(){
     global $pdo;
     $num_of_manual = 0;
     $IMN_sql = ("SELECT * FROM manual");
-    echo ($IMN_sql);
     $stmt = $pdo -> query($IMN_sql);
     $stmt->execute();
     //行数取得
