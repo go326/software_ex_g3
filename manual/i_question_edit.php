@@ -45,6 +45,7 @@
                             //1セル
                             $question_name = ("question_name");
                             $question_text = IQuestionManagemantP($question_name, $question_number);
+                            echo ($question_text);
                         ?>
                     </td>
 
@@ -53,6 +54,7 @@
                             //2セル
                             $question_result = ("question_result");
                             $question_text = IQuestionManagemantP($question_result, $question_count);
+                            echo ($question_text);
                         ?>
                     </td>
 
