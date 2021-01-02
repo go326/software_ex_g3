@@ -6,7 +6,7 @@
 function IQuestionEditP($question_number,$question_name,$question_result){
     global $pdo;
     try{
-        $iqe_sql = "UPDATE question SET question_name = ".$question_name." question_result = ".$question_result." WHERE question_number = ".$question_number;
+        $iqe_sql = "UPDATE question SET question_name = \"".$question_name."\" ,question_result = \"".$question_result."\" WHERE question_number = ".$question_number;
         $stmt = $pdo -> prepare($iqe_sql);
         $stmt -> execute();
         echo ($iqe_sql);
