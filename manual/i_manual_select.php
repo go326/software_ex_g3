@@ -71,6 +71,8 @@
                     $manual_url = ("manual_url");
                     $manual_text = IManualManagemantP($manual_url, $manual_count);
                     echo ("<a href = ".$manual_text." target=\" blank\">");
+                    echo ($manual_text);
+                    echo ("</a>");
                     echo ("</td>");
 
                     echo ("</tr>");
