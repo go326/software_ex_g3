@@ -73,16 +73,15 @@ button.button-size{
 .button-area{
     width: 60%;
     text-align: center;/*中央ぞろえ*/
-    background-color: gold;
-    margin: 10%;
+    background-color: rgb(229, 255, 0);
+    margin: 20%;
 }
 input#submit_button{
-    width: 60px;
-    height: 30px;
+    width: 30%;
+    height: 7%;
     /*text-align: center;*/
-    /*display: inline-block;/*横並び*/
+    display: inline-block;/*横並び*/
+    letter-spacing: normal;
     /*margin: 10px;*/
-}
-.inline{
-    display: inline-block;
+    /*position: relative;*/
 }
