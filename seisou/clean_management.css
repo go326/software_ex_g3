@@ -83,14 +83,14 @@ button.button-size{
 .font-margin{
     width: 30%;
     margin: 0 auto;
-    max-width: 500px;
+    /*max-width: 500px;*/
     text-align: left;
 }
 /*submitボタンの作成*/
 input#submit_button{
     width: 100px;
     height: 30px;
-    font-size: 1.1em;
+    /*font-size: 1.1em;*/
     /*padding: 20px 50px;/*縦　横*/
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
