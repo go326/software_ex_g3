@@ -72,7 +72,7 @@
                             $question_text = IQuestionManagemantP($question_result, $question_count);
                         }
                         //セルに取り出した値を出力する。
-                        if($user_auth == 1){
+                        if($user_auth == 1 && $td == 0){
                             echo ("<form method=\"get\" action = \"i_question_edit.php\">");
                             //質問番号とそのボタンなりの入力を配置
                             echo("<button type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
@@ -80,7 +80,7 @@
 
                         echo ($question_text);
 
-                        if($user_auth == 1){
+                        if($user_auth == 1 && $td == 0){
                             echo ("</button>");
                             echo("</form>");
                         }
