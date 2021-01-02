@@ -29,15 +29,15 @@
                 <input type = "hidden" value="<?php echo $room_number; ?>" name="room_number">
             </form>
         </div>
-        <div class="button-position-l">
+        <div class="button-position">
             <div class="input#submit_button">
                 <!--戻るボタン-->
                 <form  id = "clean_back" action = "s_clean_management.php">
                     <input id="submit_button" type="submit" name="submit" value="戻る" onclick="location.href='./s_clean_management.php'"> 
                 </form>
             </div>
-        </div>
-        <div class="button-position-r">
+        <!--</div>
+        <div class="button-position-r">-->
             <div class="input#submit_button">
                 <!--完了ボタン-->
                 <input id="submit_button" type="submit" name="submit" value="完了" form = "clean_edit">

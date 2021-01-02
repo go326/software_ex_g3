@@ -90,6 +90,12 @@ input#submit_button{
     right: 10%;*/
 }
 /*ボタンの横並び*/
+.button-position{
+    display: -webkit-flex;/*横並び(2行)*/
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;/*全体に均等に並べる*/
+}
 /*左のボタン*/
 .button-position-l{
     position: relative;
