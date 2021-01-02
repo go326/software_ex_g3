@@ -47,35 +47,34 @@
                 for ($tr = 0; $tr < $NUM_OF_MANUAL; $tr++){
                     echo ("<tr>");
                     $manual_count++;//次のマニュアルへ(trでも良いよね？)
-                    for ($td = 0; $td < $LINE_BREAK ; $td++){
-                        //1階の部屋数だけ表を作成したら終了し、次の階へ
-                        //if($room_count == $NUM_OF_ROOMS){
-                        //    break;
-                        //}
+                    //1階の部屋数だけ表を作成したら終了し、次の階へ
+                    //if($room_count == $NUM_OF_ROOMS){
+                    //    break;
+                    //}
+                     //formがget方式だがpostにする予定最悪このまま
+                    //<form method="get" action = "s_clean_edit.php">
+                    //質問番号とそのボタンなりの入力を配置
+                    //</form>
+                    //1セルの表示開始
+                    //質問番号を入れるときはLINE_BREAKを増やして、
+                    
+                    //１セル目の処理(manual_nameを取り出す。)
+                    echo ("<td>");
+                    $manual_name = ("manual_name");
+                    $manual_text = IManualManagemantP($manual_name, $manual_count);
+                    //セルに取り出した値を出力する。
+                    echo ($manual_text);
+                    echo ("</td>\n");
 
-                        //formがget方式だがpostにする予定最悪このまま
-                        //<form method="get" action = "s_clean_edit.php">
-                        //質問番号とそのボタンなりの入力を配置
-                        //</form>
-                        //1セルの表示開始
-                        //質問番号を入れるときはLINE_BREAKを増やして、
-                        echo ("<td>");
+                    //2セル目の処理(manual_resultを取り出す。)
+                    echo ("<td>");
+                    $manual_url = ("manual_url");
+                    $manual_text = IManualManagemantP($manual_url, $manual_count);
+                    echo ("<a href = ".$manual_text."target=\" blank\">");
+                    echo ("</td>");
 
-                        if($td == 0){
-                            //１セル目の処理(manual_nameを取り出す。)
-                            $manual_name = ("manual_name");
-                            $manual_text = IManualManagemantP($manual_name, $manual_count);
-                        }else{
-                            //2セル目の処理(manual_resultを取り出す。)
-                            $manual_url = ("manual_url");
-                            $manual_text = IManualManagemantP($manual_url, $manual_count);
-                        }
-                        //セルに取り出した値を出力する。
-                        echo ($manual_text);
-                        echo ("</td>\n");
-                    }
                     echo ("</tr>");
-                }    
+                }
             ?>
         </table>
         
