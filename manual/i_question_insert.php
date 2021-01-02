@@ -18,7 +18,7 @@
         </header>
 
         <table>
-            <form  id = "insert_form" method = “get” action = "i_question_insert_done.php">            
+            <form  id = "insert_form" method = "get" action = "i_question_insert_done.php">            
             <?php
                 //3行出力
                 for ($tr = 0; $tr < 3; $tr++){
