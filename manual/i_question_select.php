@@ -56,6 +56,7 @@
                     echo ("<tr>");
                     $question_count++;//次の質問へ(trでも良いよね？)
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
+                        echo ("<td>");
 
                         //0セル表示開始
                         //formがget方式だがpostにする予定最悪このまま
@@ -69,7 +70,6 @@
                         }
                         //1セルの表示開始
                         //質問番号を入れるときはLINE_BREAKを増やして、
-                        echo ("<td>");
                         if($td == 0){
                             //１セル目の処理(question_nameを取り出す。)
                             $question_name = ("question_name");
