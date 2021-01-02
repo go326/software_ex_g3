@@ -32,10 +32,12 @@
                 $date = date("Y-m-d");
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
-            ?>
-            <ul>
-                <li><input type="button" onclick="location.href='./i_question_insert.php?question_number=<?php echo ($NUM_OF_QUESTION + 1);?>'"value="新規入力"></li>
-            </ul>
+                if($user_auth == 1){
+                    echo ("<ul>");
+                    echo ("<li><input type=\"button\" onclick=\"location.href=\'./i_question_insert.php?question_number=<?php echo ($NUM_OF_QUESTION + 1);?>\'\"value=\"新規入力\"></li>");
+                    echo ("</ul>");
+                }
+                ?>
         </header>
 
         <!--よくある質問一覧画面の作成-->
