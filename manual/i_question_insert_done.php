@@ -31,7 +31,7 @@ function IQuestionInsertP($question_number,$question_name,$question_result){
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./question_select.css" type="text/css">
-        <title>question<title>
+        <title>question</title>
 
     </head>
 
