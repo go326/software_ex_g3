@@ -6,9 +6,10 @@
 function IQuestionEditP($question_number,$question_name,$question_result){
     global $pdo;
     try{
-        $iq_sql = "UPDATE question SET question_name = ".$question_name." question_result = ".$question_result." WHERE question_number = ".$question_number;
-        $stmt = $pdo -> prepare($iq_sql);
+        $iqe_sql = "UPDATE question SET question_name = ".$question_name." question_result = ".$question_result." WHERE question_number = ".$question_number;
+        $stmt = $pdo -> prepare($iqe_sql);
         $stmt -> execute();
+        echo ($iqe_sql);
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
         echo ("質問No.".$question_number."を<br>");
