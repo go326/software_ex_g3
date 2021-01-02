@@ -37,7 +37,9 @@
                     <?php
                         //0セル
                         echo ($question_number);
+
                     ?>
+                    <input type = "hidden" name = "qusetion_number" value = "<?php echo ($question_number);?>">
                     </td>
 
                     <td>
@@ -76,7 +78,7 @@
             <div class="button-position-r">
                 <div class="input#submit_button">
                     <!--完了ボタン-->
-                    <input id="submit_button" type="submit" name="submit" value="完了" form = "clean_edit">
+                    <input id="submit_button" type="submit" name="submit" value="完了" form = "question_edit">
                 </div>
             </div>
         </div>
