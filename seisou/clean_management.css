@@ -80,8 +80,8 @@ button.button-size{
 }
 /*submitボタンの作成*/
 input#submit_button{
-    width: 20px;
-    height: 10px;
+    width: 20%;
+    height: 10%;
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
     /*letter-spacing: normal;
