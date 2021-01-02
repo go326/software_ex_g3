@@ -22,7 +22,7 @@ function SCleanEditP($room_number,$room_clean){
             echo("掃除済み");
         }
         echo ("に変更しました。<br>");
-        echo ("</div>") //css終わり
+        echo ("</div>"); //css終わり
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
