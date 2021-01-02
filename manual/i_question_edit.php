@@ -1,5 +1,7 @@
 <?php
     $question_number = $_GET['question_number'];
+    include '../db_connect.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -17,16 +19,48 @@
         <!--確認用の出力文＿-->
         <div class="button-area">
             <?php
-                echo ("質問No.".$room_number."を変更します。<br>");
+                echo ("質問No.".$question_number."を変更します。<br>");
             ?>
             <!--メイン-->
         
             <!--i行目-->
-            <form id = "clean_edit" method = “get” action = "s_clean_edit_done.php">
-                <input type = "radio" value="0" name="room_clean">掃除していない<br>
-                <input type = "radio" value="1" name="room_clean">チェックイン状態<br>
-                <input type = "radio" value="2" name="room_clean">掃除済み<br>
-                <input type = "hidden" value="<?php echo $room_number; ?>" name="room_number">
+            <form id = "question_edit" method = “get” action = "i_question_edit_done.php">
+
+                <table>
+
+                    <th>質問No.</th>
+                    <th>よくある質問<th>
+                    <th>解答例<th>
+                    
+                    <tr>    
+                    <td>
+                    <?php
+                        //0セル
+                        echo ($question_number);
+                    ?>
+                    </td>
+
+                    <td>
+                        <?php
+                            //1セル
+                            $question_name = ("question_name");
+                            $question_text = IQuestionManagemantP($question_name, $question_number);
+                            echo ($question_text);
+                        ?>
+                    </td>
+
+                    <td>
+                        <?php
+                            //2セル
+                            $question_result = ("question_result");
+                            $question_text = IQuestionManagemantP($question_result, $question_count);
+                            echo ($question_text);
+                        ?>
+                    </td>
+
+                    </tr>
+                </table>
+
             </form>
 
             <div class="button-position-l">
@@ -47,3 +81,19 @@
         <!--フッター-->
     </body>
 </html>
+
+<?php
+//質問テーブルの内容を取得する。　(指定したものを)
+function IQuestionManagemantP($question_data, $question_number){
+    global $pdo;
+    $IQM_sql = ("SELECT ".$question_data." FROM question WHERE question_number = ".$question_number);
+    $stmt = $pdo -> query($IQM_sql);
+    echo ($IQM_sql."<br>");
+    //fetch
+    while ($row = $stmt -> fetch()){
+        $question_text = $row[$question_data];
+    }
+    echo ($question_text."<br>");
+    return $question_text;
+}
+?>
