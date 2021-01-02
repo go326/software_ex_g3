@@ -81,15 +81,16 @@ button.button-size{
 }
 /*選択するボタンの位置を左揃えにする*/
 .font-margin{
-    width: 60%;
+    width: 30%;
     margin: 0 auto;
+    max-width: 500px;
     text-align: left;
 }
 /*submitボタンの作成*/
 input#submit_button{
-    width: 150px;
-    height: 50px;
-    font-size: 1.2em;
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
     /*padding: 20px 50px;/*縦　横*/
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
@@ -99,7 +100,7 @@ input#submit_button{
     top: 7%;
     right: 10%;*/
 }
-/*ボタンの横並び*/
+/*ボタンの横並び 使ってない*/
 .button-position{
     display: -webkit-flex;/*横並び(2行)*/
     display: flex;
