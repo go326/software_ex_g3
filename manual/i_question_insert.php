@@ -18,37 +18,31 @@
         </header>
 
         <table>
-            <form id = "insert_form" method = "get" action = "i_question_insert_done.php">            
-            <?php
-                //3行出力
-                for ($tr = 0; $tr < 3; $tr++){
-                    echo ("<tr>");
-                    //1列目
-                    echo("<th>");
-                    if($tr == 0){
-                        echo ("質問No.");
-                        echo ("</th>");
+            <tr>
+                <th>質問No.</th>
+                <th>よくある質問.</th>
+                <th>解答例</th>
+            </tr>
+            
+            <tr>
+                <form id = "insert_form" method = "get" action = "i_question_insert_done.php">            
+                    <?php
+                        //3行出力
                         echo ("<td>");
                         echo ($question_number);
                         echo ("<input type = \"hidden\" name = \"question_number\" value = \"$question_number\">");
                         echo ("</td>");
-                    }else if($tr == 1){
-                        echo ("よくある質問");
-                        echo ("</th>");
+
                         echo ("<td>");
                         echo ("<input type = \"text\" name = \"question_name\">");
                         echo ("</td>");
-                    }else if($tr = 2){
-                        echo("解答例");
-                        echo ("</th>");
+
                         echo ("<td>");                        
                         echo ("<input type = \"text\" name = \"question_result\">");
                         echo ("</td>");
-                    }
-                    echo ("</tr>\n");
-                }
-            ?>
-            </form>
+                    ?>
+                </form>
+            </tr>
         </table>
 
         <form method="get" action = "i_question_select.php">
