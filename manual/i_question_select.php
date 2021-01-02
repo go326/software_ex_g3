@@ -6,7 +6,7 @@
     //よくある質問一覧画面の作成のための定数
     //部屋番号の配列
     $NUM_OF_QUESTION = IQuestionNumberP(); //全ての質問数
-    $LINE_BREAK = 2; //2個の要素tdで改行
+    $LINE_BREAK = 3; //3個の要素tdで改行
 
     $user_auth = 1;//管理者権限の有無(1,0);
     //たぶん権限確認するメソッドが必要
@@ -57,24 +57,25 @@
                     $question_count++;//次の質問へ(trでも良いよね？)
                     for ($td = 0; $td < $LINE_BREAK ; $td++){
                         echo ("<td>");
-
-                        //0セル表示開始
-                        //formがget方式だがpostにする予定最悪このまま
-                        if($user_auth == 1){
-                            echo ("<form method=\"get\" action = \"i_question_edit.php\">");
-                            //質問番号とそのボタンなりの入力を配置
-                            $question_number = ("question_number");
-                            $question_text = IQuestionManagemantP($question_number, $question_count);
-                            echo("<input type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
-                            echo("</form>");
-                        }
-                        //1セルの表示開始
-                        //質問番号を入れるときはLINE_BREAKを増やして、
                         if($td == 0){
+                            //0セル表示開始
+                            //formがget方式だがpostにする予定最悪このまま
+                            if($user_auth == 1){
+                                echo ("<form method=\"get\" action = \"i_question_edit.php\">");
+                                //質問番号とそのボタンなりの入力を配置
+                                $question_number = ("question_number");
+                                $question_text = IQuestionManagemantP($question_number, $question_count);
+                                echo("<input type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
+                                echo("</form>");
+                            }else{
+                                $question_number = ("question_number");
+                                $question_text = IQuestionManagemantP($question_number, $question_count);
+                            }
+                        }else if($td == 1){
                             //１セル目の処理(question_nameを取り出す。)
                             $question_name = ("question_name");
                             $question_text = IQuestionManagemantP($question_name, $question_count);
-                        }else{
+                        }else if($td == 2){
                             //2セル目の処理(question_resultを取り出す。)
                             $question_result = ("question_result");
                             $question_text = IQuestionManagemantP($question_result, $question_count);
