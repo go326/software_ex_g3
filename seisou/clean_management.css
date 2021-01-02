@@ -78,16 +78,16 @@ button.button-size{
     padding: 10%;
 }
 /*左のボタン*/
-input#submit_button_l{
+input#submit_button{
     width: 15%;
     height: 7%;
     /*text-align: center;*/
-    /*display: inline-block;/*横並び*/
+    display: inline-block;/*横並び*/
     letter-spacing: normal;
-    /*margin: 10px;*/
-    position: relative;
+    margin: 10%;
+    /*position: relative;
     top: 7%;
-    right: 10%;
+    right: 10%;*/
 }
 /*右のボタン*/
 input#submit_button_r{
