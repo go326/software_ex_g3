@@ -81,6 +81,8 @@ button.button-size{
 }
 /*選択するボタンの位置を左揃えにする*/
 .font-margin{
+    width: 60%;
+    margin: 0 auto;
     text-align: left;
 }
 /*submitボタンの作成*/
