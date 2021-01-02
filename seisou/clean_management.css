@@ -79,11 +79,16 @@ button.button-size{
     margin:0 auto;/*中央揃え*/
     padding: 10%;
 }
+/*選択するボタンの位置を左揃えにする*/
+.font-margin{
+    width:80%
+    margin:0 auto;
+}
 /*submitボタンの作成*/
 input#submit_button{
     width: 150px;
     height: 50px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     /*padding: 20px 50px;/*縦　横*/
     /*text-align: center;*/
     /*display: inline-block;/*横並び*/
