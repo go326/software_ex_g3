@@ -40,7 +40,7 @@
                         echo ($manual_number);
 
                     ?>
-                    <input type = "hidden" name = "manual_number" value = "<?php echo ($manualnumber);?>">
+                    <input type = "hidden" name = "manual_number" value = "<?php echo ($manual_number);?>">
                     </td>
 
                     <td>
