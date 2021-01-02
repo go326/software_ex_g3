@@ -32,7 +32,7 @@
                 $next_date = date("Y-m-d", strtotime("+1 day"));
                 if($user_auth == 1){
                     echo ("<ul>");
-                    echo ("<li><input type=\"button\" onclick=\"location.href='./i_question_insert.php?question_number=".($NUM_OF_QUESTION + 1)."'\" value=\"新規入力\"></li>");
+                    echo ("<li><input type=\"button\" onclick=\"location.href='./i_manual_insert.php?manual_number=".($NUM_OF_MANUAL + 1)."'\" value=\"新規入力\"></li>");
                     echo ("</ul>");
                 }
             ?>
