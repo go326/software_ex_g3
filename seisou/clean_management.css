@@ -73,15 +73,29 @@ button.button-size{
 .button-area{
     width: 60%;
     text-align: center;/*中央ぞろえ*/
-    background-color: rgb(229, 255, 0);
+    background-color: yellow;
     margin: 20%;
 }
-input#submit_button{
+/*左のボタン*/
+input#submit_button_l{
     width: 30%;
     height: 7%;
     /*text-align: center;*/
-    display: inline-block;/*横並び*/
-    letter-spacing: normal;
+    /*display: inline-block;/*横並び*/
+    /*letter-spacing: normal;
     /*margin: 10px;*/
-    /*position: relative;*/
+    position: relative;
+    top: 7%;
+    left: 10%;
+}
+/*右のボタン*/
+input#submit_button_r{
+    width: 30%;
+    height: 7%;
+    /*text-align: center;*/
+    /*display: inline-block;/*横並び*/
+    /*letter-spacing: normal;
+    /*margin: 10px;*/
+    position: relative;
+    right: 10%;
 }
