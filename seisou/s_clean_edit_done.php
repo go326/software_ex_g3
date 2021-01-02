@@ -1,12 +1,7 @@
 <?php
     include '../db_connect.php';
 
-    //清掃情報更新
-    if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
-        $room_number = $_GET["room_number"];
-        $room_clean = $_GET["room_clean"];
-        SCleanEditP($room_number,$room_clean);
-    }
+    
 
 //phpとして別のファイルにするべき？
 //掃除状況を変更する,清掃状況管理画面に戻る
@@ -37,3 +32,27 @@ function SCleanEditP($room_number,$room_clean){
 }
 
 ?>
+<!--//htmlの開始-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
+        <link rel="stylesheet" href="./clean_management.css" type="text/css">
+        <title>seisou</title>
+
+    </head>
+
+    <body>
+        <header>
+            <h1> 清掃情報管理画面</h1>
+        </header>
+    <?php
+        //清掃情報更新
+    if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
+        $room_number = $_GET["room_number"];
+        $room_clean = $_GET["room_clean"];
+        SCleanEditP($room_number,$room_clean);
+    }
+    ?>
+    </body>
+</html>
