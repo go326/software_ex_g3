@@ -44,9 +44,9 @@
                     }else if($tr = 2){
                         echo ("<input type = \"text\" name = \"question_result\">");
                     }
-                    echo ("</td>");
+                    echo ("</td\n>");
 
-                    echo ("</tr>");
+                    echo ("</tr>\n");
                 }
             ?>
             </form>
