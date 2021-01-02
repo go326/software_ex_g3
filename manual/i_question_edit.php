@@ -28,9 +28,9 @@
 
                 <table>
                     <tr>
-                    <td>質問No.</td>
-                    <td>よくある質問</td>
-                    <td>解答例</td>
+                    <th>質問No.</th>
+                    <th>よくある質問</th>
+                    <th>解答例</th>
                     </tr>
 
                     <tr>    
