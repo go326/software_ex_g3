@@ -74,7 +74,7 @@ button.button-size{
     width: 60%;
     text-align: center;/*中央ぞろえ*/
     background-color: yellow;
-    margin: 20%;
+    margin: 0 20%;/*上下　左右*/
     padding: 10%;
 }
 /*submitボタンの作成*/
@@ -91,9 +91,9 @@ input#submit_button{
 }
 /*ボタンの横並び*/
 .button-position{
-    display: -webkit-flex;/*横並び(4行)*/
+    display: -webkit-flex;/*横並び(2行)*/
     display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;/*左右の中央揃え*/
+    -webkit-justify-content: space-around;
+    justify-content: space-around;/*全体に均等に並べる*/
     background-color: teal;
 }
