@@ -31,7 +31,7 @@
         </div>
         <div class="button-position">
             <div class="input#submit_button">
-            <!--戻るボタン-->
+                <!--戻るボタン-->
                 <form  id = "clean_back" action = "s_clean_management.php">
                     <input id="submit_button" type="submit" name="submit" value="戻る" onclick="location.href='./s_clean_management.php'"> 
                 </form>

@@ -93,6 +93,7 @@ input#submit_button{
 .button-position{
     display: -webkit-flex;/*横並び(4行)*/
     display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
+    -webkit-justify-content: center;
+    justify-content: center;/*左右の中央揃え*/
+    background-color: teal;
 }
