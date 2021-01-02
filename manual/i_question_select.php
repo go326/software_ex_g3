@@ -33,8 +33,12 @@
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
             ?>
-            
+            <ul>
+                <li><input type="button" onclick="location.href='./i_question_insert.php'"value="新規入力"></li>
+            </ul>
         </header>
+
+        <>
 
         <!--よくある質問一覧画面の作成-->
         <table>
