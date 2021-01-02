@@ -5,9 +5,13 @@
 //よくある質問の内容を変更する,よくある質問一覧画面に戻る
 function IQuestionEditP($question_number,$question_name,$question_result){
     global $pdo;
+    echo ("start-IQEP<br>");
+
     try{
+        echo ("test-IQEP<br>");
         $iq_sql = "UPDATE question SET question_name = ".$question_name." question_result = ".$question_result." WHERE question_number = ".$question_number;
         $stmt = $pdo -> prepare($iq_sql);
+        echo ($iq_sql);
         $stmt -> execute();
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
@@ -52,6 +56,7 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         $question_number = $_GET["question_number"];
         $question_name = $_GET["question_name"];
         $question_result = $_GET["question_result"];
+        echo ("test-IQEP<br>");
         IQuestionEditP($question_number,$question_name,$question_result);
     }
     ?>
