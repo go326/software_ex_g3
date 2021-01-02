@@ -11,7 +11,7 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         $stmt -> execute();
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
-        echo ("質問No.".$question_number."を");
+        echo ("質問No.".$question_number."を<br>");
         echo ($question_name."<br>");
         echo ($question_result."<br>");
         echo ("に変更しました。<br>");
