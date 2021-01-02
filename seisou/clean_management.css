@@ -99,16 +99,12 @@ input#submit_button{
 /*左のボタン*/
 .button-position-l{
     position: relative;
-    top: 7px;
+    top: 10px;
     left: 20%;
-    /*display: -webkit-flex;/*横並び(2行)*/
-    /*display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;/*全体に均等に並べる*/
 }
 /*右のボタン*/
 .button-position-r{
     position: relative;
-    bottom: 7px;
+    bottom: 10px;
     left: 80%;
 }
