@@ -13,11 +13,12 @@
     <header>
         <h1>予約入力画面</h1>
     </header>
+<?php var_dump($_POST); ?>
 
-    <!--メイン-->
-    <div id="main" ?>
-        <dl>
-            <dt>宿泊日</dt>
+<!--メイン-->
+<div id="main" ?>
+<dl>
+    <dt>宿泊日</dt>
             <dd>
                 <?php echo $_POST["stay_year"] . "年" .  $_POST["stay_manth"] . "月" . $_POST["stay_day"] . "日" ?>
             </dd>
@@ -58,16 +59,16 @@
             </dd>
             <dt>部屋番号</dt>
             <dd>
-                <?php echo $_POST['room_mumber1'] ?>
-                <?php echo $_POST['room_mumber2'] ?>
-                <?php echo $_POST['room_mumber3'] ?>
+                <?php echo $_POST['room_number1'] ?>
+                <?php echo $_POST['room_number2'] ?>
+                <?php echo $_POST['room_number3'] ?>
             </dd>
             <dt>備考</dt>
             <dd>
                 <?php echo $_POST['remark'] ?>
             </dd>
         </dl>
-        <script src="f_reservation.js" ?></script>
+       
     </div>
     <!--フッター-->
 </body>
