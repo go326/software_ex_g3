@@ -58,9 +58,9 @@
             </dd>
             <dt>部屋番号</dt>
             <dd>
-                <?php echo $_POST['room-mumber1'] ?>
-                <?php echo $_POST['room-mumber2'] ?>
-                <?php echo $_POST['room-mumber3'] ?>
+                <?php echo $_POST['room_mumber1'] ?>
+                <?php echo $_POST['room_mumber2'] ?>
+                <?php echo $_POST['room_mumber3'] ?>
             </dd>
             <dt>備考</dt>
             <dd>
