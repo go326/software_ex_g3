@@ -4,7 +4,7 @@
 <head>
     <!--文字コードUTF-8-->
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
-    <link rel="stylesheet" href="../f_base.css" type="text/css">
+    <link rel="stylesheet" href="../f_reservation/f_input.css" type="text/css">
     <script src="../f_reservation/f_reservation.js"></script>
 </head>
 
@@ -16,7 +16,7 @@
 
     <!--メイン-->
     <div id="main">
-        <form action="../f_customer.php" method="post">
+        <form action="f_information_confirmation.php" method="post">
             <dl>
                 <dt>宿泊日</dt>
                 <dd>
@@ -25,11 +25,11 @@
                     <select class="year" name="stay_year" id="year1"></select>年
                     <select class="month" name="stay_manth" id="month1"></select>月
                     <select class="day" name="stay_day" id="day1"></select>日
-                    <script>getYear1();getMonth1();getDay1();</script>
+                    <script>getYear1(); getMonth1(); getDay1();</script>
                 </dd>
                 <dt>氏名</dt>
                 <dd>
-                    <input type="text" id="name" name="name" minlength="1" maxlength = "20" size="20">
+                    <input type="text" id="name" name="name" minlength="1" maxlength="20" size="20">
                 </dd>
                 <dt>住所</dt>
                 <dd>
@@ -67,9 +67,9 @@
                 </dd>
                 <dt>部屋番号</dt>
                 <dd>
-                    <input type="text" id="room-number1" name="room_number" minlength="3" maxlength="3" size = "10">
-                    <input type="text" id="room-number2" name="room_number" minlength="3" maxlength="3" size = "10">
-                    <input type="text" id="room-number3" name="room_number" minlength="3" maxlength="3" size = "10">
+                    <input type="text" id="room-number1" name="room_number1" minlength="3" maxlength="3" size="10">
+                    <input type="text" id="room-number2" name="room_number2" minlength="3" maxlength="3" size="10">
+                    <input type="text" id="room-number3" name="room_number3" minlength="3" maxlength="3" size="10">
                 </dd>
                 <dt>備考</dt>
                 <dd>
@@ -81,7 +81,9 @@
                 <li><input type="submit" name="reservation" value="完了"></li>
             </ul>
         </form>
-        <script src="../f_reservation/f_reservation.js"></script>
+        <script src="f_reservation.js"></script>
     </div>
+    <!--フッター-->
 </body>
+
 </html>
