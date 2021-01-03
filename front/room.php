@@ -10,7 +10,7 @@ $data = $smt->fetch();
 var_dump($data);
 ?>
 <script type="text/javascript">
-    import Rein from "./maketable.js";
+    //import Rein from "./maketable.js";
     let room = <?php echo $data; ?>;
 </script>
 <?php
