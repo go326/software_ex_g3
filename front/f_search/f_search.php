@@ -4,7 +4,7 @@ include("../../db_connect.php");
 
 global $pdo;
 var_dump($_POST);
-if (isset($_POST['sarch'])) {
+if (isset($_POST['search'])) {
     if ($_POST['reservation']  = 'past') {
         $sql = "SELECT * FROM past_customer where ";
         if (isset($_POST['tel']) && isset($_POST['name'])) {
