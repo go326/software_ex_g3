@@ -3,10 +3,10 @@
 include("../db_connect.php");
 global $pdo;
 
-$sql = "SELECT * FROM room ";
+$sql = "SELECT * FROM room";
 echo $sql;
 $smt = $pdo->query($sql);
-$data = $smt->fetch();
+$data = $smt->fetch(PDO::FETCH_ASSOC);
 var_dump($data);
 ?>
 <script type="text/javascript">
