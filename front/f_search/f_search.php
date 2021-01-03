@@ -27,6 +27,18 @@ if (isset($_POST['sarch'])) {
             $sql .= " phone_number =" . $_POST['tel'];
         }
     }
-    //$smt = $pdo->query($sql);
-    //$data = $smt->fetch(PDO::FETCH_NUM);
+    $smt = $pdo->query($sql);
+    $data = $smt->fetch(PDO::FETCH_NUM);
 }
+
+foreach ($data as $row) {
+    $res .= "<tr>
+                <td>" . $row['予約ID'] . "</td>
+                <td>" . $row['宿泊日'] . "</td>
+                <td>" . $row['予約日'] . "</td>
+                <td>" . $row['拍数'] . "</td>
+                <td>" . $row['氏名'] . "</td>
+                <td>" . $row['住所'] . "</td>
+                <td>" . $row['電話番号'] . "</td></th></tr>";
+}
+echo $res;
