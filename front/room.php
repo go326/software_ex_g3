@@ -61,7 +61,7 @@ var_dump($data);
     }
     //HTMLからの呼び出し
     //function call_makeTable() {
-    print(room);
+    //print(room);
     makeTable(room);
     // makeTable(data201_235);
     // makeTable(data301_335);
