@@ -14,8 +14,6 @@ if (isset($_POST['sarch'])) {
         } else if (isset($_POST['tel'])) {
             $sql .= " phone_number =" . $_POST['tel'];
         }
-        echo $sql;
-        //バグあり
     } else if ($_POST['reservation']  = 'future') {
         $sql = "SELECT * FROM customer where";
         echo $sql;
@@ -27,8 +25,11 @@ if (isset($_POST['sarch'])) {
             $sql .= " phone_number =" . $_POST['tel'];
         }
     }
+    echo $sql;
+    echo "<br>";
     $smt = $pdo->query($sql);
     $data = $smt->fetch(PDO::FETCH_NUM);
+    var_dump($data);
 }
 
 foreach ($data as $row) {
