@@ -14,7 +14,7 @@ var_dump($data);
     let room = <?php echo $data; ?>;
 </script>
 <?php
-header("Location:./f_top.html");
+//header("Location:./f_top.html");
 ?>
 <script type="text/javascript">
     /**
