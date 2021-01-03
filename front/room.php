@@ -60,13 +60,13 @@ var_dump($data);
         document.getElementById(ID_NAME).appendChild(table);
     }
     //HTMLからの呼び出し
-    function call_makeTable() {
-        print(room);
-        makeTable(room);
-        // makeTable(data201_235);
-        // makeTable(data301_335);
-        // makeTable(data401_435);
-    }
+    //function call_makeTable() {
+    print(room);
+    makeTable(room);
+    // makeTable(data201_235);
+    // makeTable(data301_335);
+    // makeTable(data401_435);
+    //   }
 
 
     //部屋番号の配列
