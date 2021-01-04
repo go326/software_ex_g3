@@ -48,6 +48,7 @@
             $stmt->bindValue(7, $_POST['cus_info'][6], PDO::PARAM_STR);  //電話番号
             $stmt->bindValue(8, $_POST['cus_info'][7], PDO::PARAM_INT);  //大人
             $stmt->bindValue(9, $_POST['cus_info'][8], PDO::PARAM_INT);  //子供
+            set_null(9, $_POST['cus_info'][8]);
             $stmt->bindValue(10, $_POST['cus_info'][9], PDO::PARAM_STR); //プラン
             $stmt->bindValue(11, $is_dinner, PDO::PARAM_INT); //is夕食
             $stmt->bindValue(12, $_POST['cus_info'][11], PDO::PARAM_STR); //メニュー
