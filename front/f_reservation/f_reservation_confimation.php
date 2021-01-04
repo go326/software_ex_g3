@@ -44,10 +44,10 @@
         $stmt->bindValue(13, $_POST[11], PDO::PARAM_STR); //is朝食
         $stmt->bindValue(14, $_POST[12], PDO::PARAM_STR); //メニュー
         $stmt->bindValue(15, $_POST[13], PDO::PARAM_INT); //部屋１
-        //$stmt->bindValue(16, $_POST[], PDO::PARAM_STR); //部屋２
-        //$stmt->bindValue(17, $_POST[], PDO::PARAM_STR); //部屋３
-        //$stmt->bindValue(18, $_POST[], PDO::PARAM_STR); //チェックイン
-        $stmt->bindValue(19, $_POST[14], PDO::PARAM_STR); //備考
+        $stmt->bindValue(16, $_POST[14], PDO::PARAM_STR); //部屋２
+        $stmt->bindValue(17, $_POST[15], PDO::PARAM_STR); //部屋３
+        $stmt->bindValue(18, $_POST[], PDO::PARAM_STR); //チェックイン
+        $stmt->bindValue(19, $_POST[16], PDO::PARAM_STR); //備考
 
         //header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
     }
