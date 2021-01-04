@@ -65,9 +65,9 @@ function getChild() {
  * 泊数のドロップダウンリスト
  */
 function getStayCount() {
-    let count = document.getElementById("count");
+    let count = document.getElementById("stay_count");
     document.createElement("option")
-    for (let i = 0; i <= NUMBER; i++) {
+    for (let i = 1; i <= NUMBER; i++) {
         let option = document.createElement("option");
         option.innerHTML = i;
         count.appendChild(option);
