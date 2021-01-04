@@ -53,7 +53,6 @@ footer{
 table{
     margin: 0 auto;
     width: 70%;
-    font-size: 2em;
 }
 
 th.name{ width: 200px};
@@ -62,10 +61,30 @@ th.chilt{width: 50px};
 th.menu{width: 200px};
 td{
     text-align: center;
+    font-size: 2em;
 }
 
 </style>
-  <script type="text/javascript" src="restaurant.js"></script>
+<script type="text/javascript">
+//HTMLからの呼び出し
+function date(){
+    document.getElementById("view_date").innerHTML = getDate();
+}
+//日付の表示
+function getDate(){
+    var now = new Date();
+    var year = now.getFullYear();
+    var mon = now.getMonth() + 1;
+    var day = now.getDate();
+    //var hour = now.getHours();
+    //var min = now.getMinutes();
+    //var sec = now.getSeconds();
+
+    var s = year + "/" + mon + "/" + day;
+    return s; 
+}
+</script>
+
 </head>
 
 <body>
