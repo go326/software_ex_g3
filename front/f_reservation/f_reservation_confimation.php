@@ -34,6 +34,7 @@
         $ID .= $_POST['cus_info'][13];
         $is_dinner = get_num($_POST['suc_info'][9]);
         $is_breakfast = get_num($_POST['suc_info'][11]);
+
         $stmt->bindValue(1, $ID, PDO::PARAM_INT); //宿泊日
         $stmt->bindValue(2, $stay_day, PDO::PARAM_STR); //宿泊日
         $stmt->bindValue(3, $today, PDO::PARAM_STR);    //予約日
@@ -46,12 +47,17 @@
         $stmt->bindValue(10, $_POST['suc_info'][8], PDO::PARAM_STR); //プラン
         $stmt->bindValue(11, $is_dinner, PDO::PARAM_INT); //is夕食
         $stmt->bindValue(12, $_POST['suc_info'][10], PDO::PARAM_STR); //メニュー
+        set_null(12, $_POST['suc_info'][10]);
         $stmt->bindValue(13, $is_breakfast, PDO::PARAM_INT); //is朝食
         $stmt->bindValue(14, $_POST['suc_info'][12], PDO::PARAM_STR); //メニュー
+        set_null(14, $_POST['suc_info'][12]);
         $stmt->bindValue(15, $_POST['suc_info'][13], PDO::PARAM_INT); //部屋１
         $stmt->bindValue(16, $_POST['suc_info'][14], PDO::PARAM_INT); //部屋２
+        set_null(16, $_POST['suc_info'][14]);
         $stmt->bindValue(17, $_POST['suc_info'][15], PDO::PARAM_INT); //部屋３
+        set_null(17, $_POST['suc_info'][15]);
         $stmt->bindValue(19, $_POST['suc_info'][16], PDO::PARAM_STR); //備考
+        set_null(19, $_POST['suc_info'][16]);
         $stmt->execute(null);
         header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
     }
@@ -62,6 +68,13 @@
             return 1;
         } else if (strcmp($name, '無')) {
             return 0;
+        }
+    }
+    function set_null($num, $name)
+    {
+        global $stmt;
+        if (strcmp($name, 'なし')) {
+            $stmt->bindValue($num, $name, PDO::PARAM_NULL);
         }
     }
     ?>
