@@ -26,11 +26,14 @@
         var_dump($_POST['cus_info']);
         $sql = 'INSERT INTO customer VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?)';
         $stmt = $pdo->prepare($sql);
-        $today = new DateTime('Y-m-d'); //予約日
-        $stay_day = new DateTime($_POST['cus_info'][0] . '-' . $_POST['cus_info'][1] . '-' . $_POST['cus_info'][2]); //宿泊日
-        $ID = $_POST['cus_info'][0] . "" . $_POST['cus_info'][1] . "" . $_POST['cus_info'][2] . "" . $_POST['suc_info'][13];
+        $dt = new DateTime(); //予約日
+        $today = $dt->format('Y-m-d');
+        $dt = new DateTime($_POST['cus_info'][0] . '/' . $_POST['cus_info'][1] . '/' . $_POST['cus_info'][2]); //宿泊日
+        $stay_day = $dt->format('Y-m-d');
+        $ID = $dt->format('Ymd');
         echo $today;
         echo $stay_day;
+        echo $ID;
         $stmt->bindValue(1, $ID, PDO::PARAM_STR); //宿泊日
         $stmt->bindValue(2, $stay_day, PDO::PARAM_STR); //宿泊日
         $stmt->bindValue(3, $today, PDO::PARAM_STR);    //予約日
@@ -41,7 +44,7 @@
         $stmt->bindValue(8, $_POST['suc_info'][6], PDO::PARAM_STR);  //大人
         $stmt->bindValue(9, $_POST['suc_info'][7], PDO::PARAM_STR);  //子供
         $stmt->bindValue(10, $_POST['suc_info'][8], PDO::PARAM_STR); //プラン
-        $stmt->bindValue(11, $_POST['suc_info'][9], PDO::PARAM_INT); //is夕食
+        $stmt->bindValue(11, $_POST['suc_info'][9], PDO::PARAM_INT); //is夕食x
         $stmt->bindValue(12, $_POST['suc_info'][10], PDO::PARAM_STR); //メニュー
         $stmt->bindValue(13, $_POST['suc_info'][11], PDO::PARAM_INT); //is朝食
         $stmt->bindValue(14, $_POST['suc_info'][12], PDO::PARAM_STR); //メニュー
