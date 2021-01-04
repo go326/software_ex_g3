@@ -88,7 +88,13 @@
     </div>
     <form action="" method="post">
         <button>キャンセル</button>
-        <input type="hidden" name="cus_info" class="" value={$_POST}>
+        <?php
+        foreach ($_POST as $info) {
+        ?>
+            <input type="hidden" name="cus_info[]" class="" value=<?php $info ?>>
+        <?php
+        }
+        ?>
         <input type="submit" name="input" value="登録" class="">
     </form>
     <!--フッター-->
