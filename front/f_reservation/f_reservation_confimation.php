@@ -14,6 +14,8 @@
         <h1>予約登録確認画面</h1>
     </header>
     <?php
+    include("../../db_connect.php");
+    global $pdo;
     foreach ($_POST as $name => $value) {
         if (empty($value)) {
             $_POST[$name] = 'なし';
@@ -21,8 +23,11 @@
     }
 
     if (isset($_POST['cus_info'])) {
-        echo 'aa';
-        header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
+        var_dump($_POST['cus_info']);
+        $sql = 'INSERT INTO customer VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(1, $_POST[], PDO::PARAM_STR);
+        //header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
     }
     ?>
 
