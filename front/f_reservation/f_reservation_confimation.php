@@ -24,9 +24,31 @@
 
     if (isset($_POST['cus_info'])) {
         var_dump($_POST['cus_info']);
-        $sql = 'INSERT INTO customer VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO customer VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(1, $_POST[], PDO::PARAM_STR);
+        $today = new DateTime('Y-m-d'); //予約日
+        $stay_day = new DateTime($_POST['cus_info'][0] . '-' . $_POST['cus_info'][1] . '-' . $_POST['cus_info'][2]); //宿泊日
+        echo $today;
+        echo $stay_day;
+        $stmt->bindValue(2, $stay_day, PDO::PARAM_STR); //宿泊日
+        $stmt->bindValue(3, $today, PDO::PARAM_STR);    //予約日
+        $stmt->bindValue(4, $_POST[7], PDO::PARAM_STR);  //泊数
+        $stmt->bindValue(5, $_POST[3], PDO::PARAM_STR);  //氏名
+        $stmt->bindValue(6, $_POST[4], PDO::PARAM_STR);  //住所
+        $stmt->bindValue(7, $_POST[5], PDO::PARAM_STR);  //電話番号
+        $stmt->bindValue(8, $_POST[6], PDO::PARAM_STR);  //大人
+        $stmt->bindValue(9, $_POST[7], PDO::PARAM_STR);  //子供
+        $stmt->bindValue(10, $_POST[8], PDO::PARAM_STR); //プラン
+        $stmt->bindValue(11, $_POST[9], PDO::PARAM_STR); //is夕食
+        $stmt->bindValue(12, $_POST[10], PDO::PARAM_STR); //メニュー
+        $stmt->bindValue(13, $_POST[11], PDO::PARAM_STR); //is朝食
+        $stmt->bindValue(14, $_POST[12], PDO::PARAM_STR); //メニュー
+        $stmt->bindValue(15, $_POST[13], PDO::PARAM_INT); //部屋１
+        //$stmt->bindValue(16, $_POST[], PDO::PARAM_STR); //部屋２
+        //$stmt->bindValue(17, $_POST[], PDO::PARAM_STR); //部屋３
+        //$stmt->bindValue(18, $_POST[], PDO::PARAM_STR); //チェックイン
+        $stmt->bindValue(19, $_POST[14], PDO::PARAM_STR); //備考
+
         //header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
     }
     ?>
@@ -91,7 +113,7 @@
         <?php
         foreach ($_POST as $info) {
         ?>
-            <input type="hidden" name="cus_info[]" class="" value=<?php $info ?>>
+            <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>>
         <?php
         }
         ?>
