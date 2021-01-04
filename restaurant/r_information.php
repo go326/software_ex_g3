@@ -48,19 +48,20 @@ header{
 
 footer{
     width: 110%;
-    mergin: 0 auto;
+    margin: 0 auto;
 }
 table{
     margin: 0 auto;
     width: 70%;
+    font-size: 2em;
 }
 
-th.name{width: 300px};
-th.adult{width: 100px};
-th.chilt{width: 100px};
-th.menu{width: 300px};
+th.name{ width: 200px};
+th.adult{width: 50px};
+th.chilt{width: 50px};
+th.menu{width: 200px};
 td{
-    font-size: 1.5em
+    text-align: center;
 }
 
 </style>
