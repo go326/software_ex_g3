@@ -35,7 +35,7 @@
             $dt = new DateTime($_POST['cus_info'][0] . '/' . $_POST['cus_info'][1] . '/' . $_POST['cus_info'][2]); //宿泊日
             $stay_day = $dt->format('Y-m-d');
             $ID = $dt->format('Ymd');
-            $ID .= $_POST['cus_info'][13];
+            $ID .= $_POST['cus_info'][14];
             $is_dinner = get_num($_POST['cus_info'][9]);
             $is_breakfast = get_num($_POST['cus_info'][11]);
 
@@ -58,7 +58,7 @@
             set_null(14, $_POST['cus_info'][13], 2);
             $stmt->bindValue(15, $_POST['cus_info'][14], PDO::PARAM_INT); //部屋１
             //$stmt->bindValue(16, $_POST['cus_info'][15], PDO::PARAM_INT); //部屋２
-            set_null(16, $_POST['cus_info'][15], 1);
+            set_null(16, (int)$_POST['cus_info'][15], 1);
             //$stmt->bindValue(17, $_POST['cus_info'][16], PDO::PARAM_INT); //部屋３
             set_null(17, $_POST['cus_info'][16], 1);
             //$stmt->bindValue(18, $_POST['cus_info'][17], PDO::PARAM_STR); //備考
@@ -68,7 +68,7 @@
             var_dump($e->getMessage());
         }
 
-        //header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
+        header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
     }
 
     function get_num($name)
@@ -85,7 +85,7 @@
         if (strcmp($name, 'なし')) {
             $stmt->bindValue($num, null, PDO::PARAM_NULL);
         } else if ($flag == 1) {
-            $stmt->bindValue($num, $name, PDO::PARAM_INT);
+            $stmt->bindValue($num, (int)$name, PDO::PARAM_INT);
         } else if ($flag == 2) {
             $stmt->bindValue($num, $name, PDO::PARAM_STR);
         }
