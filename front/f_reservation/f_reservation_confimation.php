@@ -19,6 +19,11 @@
             $_POST[$name] = 'なし';
         }
     }
+
+    if (isset($_POST['cus_info'])) {
+        echo 'aa';
+        header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
+    }
     ?>
 
     <!--メイン-->
@@ -76,6 +81,11 @@
         </dl>
 
     </div>
+    <form action="" method="post">
+        <button>キャンセル</button>
+        <input type="hidden" name="cus_info" class="" value={$_POST}>
+        <input type="submit" name="input" value="登録" class="">
+    </form>
     <!--フッター-->
 </body>
 
