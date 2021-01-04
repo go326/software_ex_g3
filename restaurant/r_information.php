@@ -55,12 +55,16 @@ table{
     width: 70%;
 }
 
-th.name{ width: 200px};
+th.name{width: 200px};
 th.adult{width: 50px};
 th.chilt{width: 50px};
 th.menu{width: 200px};
 td{
     text-align: center;
+    font-size: 1.5em;
+}
+
+input{
     font-size: 2em;
 }
 
