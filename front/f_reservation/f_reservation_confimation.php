@@ -47,22 +47,22 @@
             $stmt->bindValue(6, $_POST['cus_info'][5], PDO::PARAM_STR);  //住所
             $stmt->bindValue(7, $_POST['cus_info'][6], PDO::PARAM_STR);  //電話番号
             $stmt->bindValue(8, $_POST['cus_info'][7], PDO::PARAM_INT);  //大人
-            $stmt->bindValue(9, $_POST['cus_info'][8], PDO::PARAM_INT);  //子供
-            set_null(9, $_POST['cus_info'][8]);
+            //$stmt->bindValue(9, $_POST['cus_info'][8], PDO::PARAM_INT);  //子供
+            set_null(9, $_POST['cus_info'][8], 1);
             $stmt->bindValue(10, $_POST['cus_info'][9], PDO::PARAM_STR); //プラン
             $stmt->bindValue(11, $is_dinner, PDO::PARAM_INT); //is夕食
-            $stmt->bindValue(12, $_POST['cus_info'][11], PDO::PARAM_STR); //メニュー
-            set_null(12, $_POST['cus_info'][11]);
+            //$stmt->bindValue(12, $_POST['cus_info'][11], PDO::PARAM_STR); //メニュー
+            set_null(12, $_POST['cus_info'][11], 2);
             $stmt->bindValue(13, $is_breakfast, PDO::PARAM_INT); //is朝食
-            $stmt->bindValue(14, $_POST['cus_info'][13], PDO::PARAM_STR); //メニュー
-            set_null(14, $_POST['cus_info'][13]);
+            //$stmt->bindValue(14, $_POST['cus_info'][13], PDO::PARAM_STR); //メニュー
+            set_null(14, $_POST['cus_info'][13], 2);
             $stmt->bindValue(15, $_POST['cus_info'][14], PDO::PARAM_INT); //部屋１
-            $stmt->bindValue(16, $_POST['cus_info'][15], PDO::PARAM_INT); //部屋２
-            set_null(16, $_POST['cus_info'][15]);
-            $stmt->bindValue(17, $_POST['cus_info'][16], PDO::PARAM_INT); //部屋３
-            set_null(17, $_POST['cus_info'][16]);
-            $stmt->bindValue(18, $_POST['cus_info'][17], PDO::PARAM_STR); //備考
-            set_null(18, $_POST['cus_info'][17]);
+            //$stmt->bindValue(16, $_POST['cus_info'][15], PDO::PARAM_INT); //部屋２
+            set_null(16, $_POST['cus_info'][15], 1);
+            //$stmt->bindValue(17, $_POST['cus_info'][16], PDO::PARAM_INT); //部屋３
+            set_null(17, $_POST['cus_info'][16], 1);
+            //$stmt->bindValue(18, $_POST['cus_info'][17], PDO::PARAM_STR); //備考
+            set_null(18, $_POST['cus_info'][17], 2);
             $stmt->execute();
         } catch (PDOException $e) {
             var_dump($e->getMessage());
@@ -79,11 +79,15 @@
             return 0;
         }
     }
-    function set_null($num, $name)
+    function set_null($num, $name, $flag)
     {
         global $stmt;
         if (strcmp($name, 'なし')) {
-            $stmt->bindValue($num, $name, PDO::PARAM_NULL);
+            $stmt->bindValue($num, null, PDO::PARAM_NULL);
+        } else if ($flag == 1) {
+            $stmt->bindValue($num, $name, PDO::PARAM_INT);
+        } else if ($flag == 2) {
+            $stmt->bindValue($num, $name, PDO::PARAM_STR);
         }
     }
     ?>
