@@ -13,8 +13,8 @@ table{
     margin: 0 auto;
     width: 60%;
 }
-table tr td{
-    width: 5em;
+table tr th{
+    width:  5em;
     height: 4em;
     margin: 0 auto;
 }

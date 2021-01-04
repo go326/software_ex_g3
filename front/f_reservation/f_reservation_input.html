@@ -27,6 +27,11 @@
                     <select class="day" name="stay_day" id="day1"></select>日
                     <script>getYear1(); getMonth1(); getDay1();</script>
                 </dd>
+                <dt>泊数</dt>
+                <dd>
+                    <select name="stay_count" id="stay_count"></select>
+                    <script>getStayCount();</script>
+                </dd>
                 <dt>氏名</dt>
                 <dd>
                     <input type="text" id="name" name="name" minlength="1" maxlength="20" size="20">
@@ -56,7 +61,7 @@
                     <label><input type="radio" name="is_dinner" value="有">有</label>
                     <label><input type="radio" name="is_dinner" value="無">無</label>
                 </dd>
-                <dt>食事のメニュー</dt>
+                <dt>夕食のメニュー</dt>
                 <dd>
                     <input type="text" id="menu" name="dinner_nemu">
                 </dd>
@@ -64,6 +69,10 @@
                 <dd>
                     <label><input type="radio" name="is_breakfast" value="有">有</label>
                     <label><input type="radio" name="is_breakfast" value="無">無</label>
+                </dd>
+                <dt>朝食のメニュー</dt>
+                <dd>
+                    <input type="text" id="menu" name="breakfast_nemu">
                 </dd>
                 <dt>部屋番号</dt>
                 <dd>
