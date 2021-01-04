@@ -11,14 +11,20 @@
 <body>
     <!--ヘッダー-->
     <header>
-        <h1>予約入力画面</h1>
+        <h1>予約登録確認画面</h1>
     </header>
-<?php var_dump($_POST); ?>
+    <?php
+    foreach ($_POST as $name => $value) {
+        if (empty($value)) {
+            $_POST[$name] = 'なし';
+        }
+    }
+    ?>
 
-<!--メイン-->
-<div id="main" ?>
-<dl>
-    <dt>宿泊日</dt>
+    <!--メイン-->
+    <div id="main" ?>
+        <dl>
+            <dt>宿泊日</dt>
             <dd>
                 <?php echo $_POST["stay_year"] . "年" .  $_POST["stay_manth"] . "月" . $_POST["stay_day"] . "日" ?>
             </dd>
@@ -68,7 +74,7 @@
                 <?php echo $_POST['remark'] ?>
             </dd>
         </dl>
-       
+
     </div>
     <!--フッター-->
 </body>
