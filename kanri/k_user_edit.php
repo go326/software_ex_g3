@@ -27,9 +27,11 @@ require("k_user_management.php");
 
 
     <p>
-      <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
-      <?php echo "<button type='submit' name='ku_edit' value='" . $_POST['kid'] . "'>登録</button>"; ?>
-      <?php echo "<button type='submit' name='ku_del' value='" . $_POST['kid'] . "'>削除</button>"; ?>
+    <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
+    <input type="submit" name="ku_edit" value="登録">
+    <input type="submit" name="ku_del" value="削除">
+    <p>
+
   </form>
 
   <?php KUserEditP(); ?>
