@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 # var
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
@@ -53,10 +53,14 @@ try {
   {
     global $pdo, $ku_sql;
     static $kid = "", $kuu_id = "", $kuu_name = "", $kuu_pass = "", $kuu_auth = "", $hash = "";
+    if(isset($_POST['kid'])){
+      $_SESSION['ku_edit'] = $_POST['kid'];
+    }
     if (isset($_POST['ku_edit'])) {
       if (isset($_POST['kuu_id']) and isset($_POST['kuu_name']) and isset($_POST['kuu_pass'])) {
         if (isset($_POST['kuu_auth']) and is_array($_POST['kuu_auth'])) {
-          $kid = $_POST['ku_edit'];
+          
+          $kid = $_SESSION['ku_edit'];
           $kuu_id = $_POST['kuu_id'];
           $kuu_name = $_POST['kuu_name'];
           $kuu_pass = $_POST['kuu_pass'];
@@ -65,6 +69,8 @@ try {
           $ku_sql = "UPDATE user SET user_id = '$kuu_id', user_name = '$kuu_name', user_pass = '$hash', authority = '$kuu_auth' WHERE user_id = '$kid' ";
           $stmt = $pdo->prepare($ku_sql);
           $stmt->execute();
+          $_SESSION = array();
+          session_destroy();
           header("Location: k_user_screen.php");
           exit;
         }
@@ -76,12 +82,17 @@ try {
   {
     global $pdo, $ku_sql;
     static $kid = "";
+    if(isset($_POST['kid'])){
+      $_SESSION['ku_del'] = $_POST['kid'];
+    }
     if (isset($_POST['ku_del'])) {
-      $kid = $_POST['ku_del'];
+      $kid = $_SESSION['ku_del'];
       $ku_sql = "DELETE FROM user WHERE user_id = '$kid'";
       echo $ku_sql;
       $stmt = $pdo->prepare($ku_sql);
       $stmt->execute();
+      $_SESSION = array();
+      session_destroy();
       header("Location: k_user_screen.php");
       exit;
     }
@@ -89,4 +100,4 @@ try {
 } catch (PDOException $e) {
   echo $e->getMessage();
   exit;
-}
+  }
