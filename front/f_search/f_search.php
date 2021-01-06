@@ -6,7 +6,6 @@ global $pdo;
 ini_set('display_errors', "On");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-var_dump($_POST);
 try {
     if (isset($_POST['search'])) {
         $sql = "SELECT * FROM " . $_POST['reservation'] . " where ";
@@ -27,11 +26,8 @@ try {
             $smt = $pdo->prepare($sql);
             $smt->bindValue(':phone', $_POST['tel'], PDO::PARAM_STR);
         }
-        echo $sql;
-        echo "<br>";
         $smt->execute();
         $data = $smt->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($data);
     } else {
         header("Location:./f_search.html");
     }
@@ -39,20 +35,22 @@ try {
     var_dump($e->getMessage());
 }
 
+$res = "<table>";
 foreach ($data as $row) {
 
 ?>
     <form method="post" name="form1" action="../f_information/f_information.php">
     <?php
-    $res = "<tr>";
-    $res .= "<td><a href='' value=" . $row['reseravetion_id'] . ">" . $row['reseravetion_id'] . "</a></td>";
+    $res .= "<tr>";
+    $res .= "<td><a href='./f_information/f_information.php' value=" . $row['reseravetion_id'] . ">" . $row['reseravetion_id'] . "</a></td>";
     $res .= "<td>" . $row['stay_date'] . "</td>";
     $res .= "<td>" . $row['reservation_date'] . "</td>";
     $res .= "<td>" . $row['stay_count'] . "</td>";
     $res .= "<td>" . $row['customer_name'] . "</td>";
     $res .= "<td>" . $row['customer_address'] . "</td>";
-    $res .= "<td>" . $row['phone_number'] . "</td></th></tr>";
+    $res .= "<td>" . $row['phone_number'] . "</td></tr>";
 }
+$res .= "</table>";
 echo $res;
     ?>
     </form>
