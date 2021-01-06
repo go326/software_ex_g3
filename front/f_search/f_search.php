@@ -8,7 +8,7 @@ if (isset($_POST['search'])) {
     if ($_POST['reservation']  = 'past') {
         $sql = "SELECT * FROM past_customer where ";
         if (isset($_POST['tel']) && isset($_POST['name'])) {
-            $sql .= " phone_number =" . $_POST['tel'] . "and customer_name = " . $_POST['tel'];
+            $sql .= " phone_number =" . $_POST['tel'] . "and customer_name = " . $_POST['name'];
         } else if (isset($_POST['name'])) {
             $sql .= " customer_name =" . $_POST['name'];
         } else if (isset($_POST['tel'])) {
@@ -18,7 +18,7 @@ if (isset($_POST['search'])) {
         $sql = "SELECT * FROM customer where";
         echo $sql;
         if (isset($_POST['tel']) && isset($_POST['name'])) {
-            $sql .= " phone_number =" . $_POST['tel'] . "and customer_name = " . $_POST['tel'];
+            $sql .= " phone_number =" . $_POST['tel'] . "and customer_name = " . $_POST['name'];
         } else if (isset($_POST['name'])) {
             $sql .= " customer_name =" . $_POST['name'];
         } else if (isset($_POST['tel'])) {
@@ -28,7 +28,7 @@ if (isset($_POST['search'])) {
     echo $sql;
     echo "<br>";
     $smt = $pdo->query($sql);
-    $data = $smt->fetch(PDO::FETCH_NUM);
+    $data = $smt->fetchAll(PDO::FETCH_NUM);
     var_dump($data);
 }
 
