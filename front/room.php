@@ -56,7 +56,7 @@ foreach ($data as $value) {
 
     <!--清掃情報確認画面の枠組みの作成-->
     <!--formがget方式だがpostにする予定最悪このまま-->
-    <form method="P" action="s_clean_edit.php">
+    <form method="get" action="./f_information/f_information_confirmation.php">
         <?php
         //３階分テーブルを作成する
         foreach ($room as $num => $value) {
@@ -75,7 +75,7 @@ foreach ($data as $value) {
             //チェックインの情報をとるかな？
             //$SCMroom_clean = SCleanManagemantP($value);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
-            echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $ROOM_DATA[$table][$room_count] . " name = room_number >");
+            echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $value . " name = room >");
 
             //1セルの表示名
             //1行目
@@ -147,7 +147,8 @@ function SCleanNumberP($room)
         $stmt->bindValue(2, $room, PDO::PARAM_INT);
         $stmt->bindValue(3, $room, PDO::PARAM_INT);
         $stmt->bindValue(4, $room, PDO::PARAM_INT);
-        while ($row = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $adult = $row["adult"];
             $child = $row["child"];
         }
