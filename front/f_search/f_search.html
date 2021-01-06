@@ -18,10 +18,10 @@
         <h3>検索したい予約情報の電話番号を入力(ハイフン除く)</h3><br>
         <form method="POST" action="f_search.php">
             <select name="reservation">
-                <option value="past">過去のご予約</option>
-                <option value="future">今後のご予約</option>
+                <option value="past_customer">過去のご予約</option>
+                <option value="customer">今後のご予約</option>
             </select><br>
-            氏名　　：<input type="search" name="name" size = "30" maxlength="50"><br>
+            氏名　　：<input type="search" name="name" size="30" maxlength="50"><br>
             電話番号：<input type="search" name="tel" size="30" maxlength="50"><br>
             <input type="button" onclick="location.href=''" value="戻る">
             <input type="submit" name="search" value="完了">
