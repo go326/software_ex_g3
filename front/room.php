@@ -56,7 +56,7 @@ foreach ($data as $value) {
 
     <!--清掃情報確認画面の枠組みの作成-->
     <!--formがget方式だがpostにする予定最悪このまま-->
-    <form method="get" action="./f_information/f_information_confirmation.php">
+    <form method="POST" action="./f_information/f_information_confirmation.php">
         <?php
         //３階分テーブルを作成する
         foreach ($room as $num => $value) {
@@ -85,7 +85,7 @@ foreach ($data as $value) {
 
             echo cus_name($value) . "<br>";
             //今日の宿泊者数
-            //$number_people = SCleanNumberP($value);
+            $number_people = SCleanNumberP($value);
             echo ("本日" . $number_people . "人");
             echo ("<br>");
             echo ("</button>");

@@ -4,10 +4,15 @@
 include("../../db_connect.php");
 
 
-$sql = "SELECT * FROM customer ";
+$sql = "SELECT * FROM customer where room_1 = ? or room_2 = ? or room_3 = ?";
 
-$smt = $pdo->query($sql);
+$smt = $pdo->prepare($sql);
+$smt->bindValue(1, $_POST['room'], PDO::PARAM_INT);
+$smt->bindValue(2, $_POST['room'], PDO::PARAM_INT);
+$smt->bindValue(3, $_POST['room'], PDO::PARAM_INT);
+$smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
+
 
 $dt = new DateTime($data[1]);
 $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
