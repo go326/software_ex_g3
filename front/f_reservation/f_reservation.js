@@ -1,4 +1,5 @@
 /** 
+ * ドロップダウンリスト
  * 「年」は現在の年から10年間用意
 */
 function getYear() {
@@ -71,5 +72,78 @@ function getStayCount() {
         let option = document.createElement("option");
         option.innerHTML = i;
         count.appendChild(option);
+    }
+}
+/**
+ * 入力チェック
+ * メニューについては実装していない
+ */
+function check(){
+    let message = "";//警告で表示するメッセージ
+    let send = true;//確認画面へ入力を送るか(false->送信しない、true->送信する)
+
+    //氏名の入力チェック
+    let name = document.getElementById("name");
+    if(name.value == ""){
+        message += "・氏名が未入力です\n";
+        send = false;
+    }
+
+    //住所の入力チェック
+    let address1 = document.getElementById("address1");
+    if(address1.value == ""){
+        message += "・住所が未入力です\n";
+        send = false;
+    }
+
+    //電話番号の入力チェック
+    let tel = document.getElementById("tel");
+    if(tel.value == ""){
+        message += "・電話番号が未入力です\n";
+        send = false;
+    }else{
+        let checkTel = document.getElementById('tel').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+        if(!checkTel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)){//{ここの数字は}入力の数
+            message += "・電話番号を正しく入力してください\n";
+            send = false;
+        }
+    }
+
+    //大人、子供の人数が共に0の場合に、警告をだす
+    let child = document.getElementById("child");
+    let adult = document.getElementById("adult");
+    if(adult.value == "0"){
+        if(child.value == "0"){
+            message += "・人数が0です\n";
+            send = false;
+        }
+    }
+
+    //プランの入力チェック
+    let plan = document.getElementById("plan");
+    if(plan.value == ""){
+        message += "・プランが未入力です\n";
+        send = false;
+    }
+
+    //部屋番号の入力チェック
+    let room1 = document.getElementById("room-number1");
+    let room2 = document.getElementById("room-number2");
+    let room3 = document.getElementById("room-number3");
+    if(room1.value == ""){
+        if(room2.value == ""){
+            if(room3.value == ""){
+                message += "・部屋番号が未入力です\n"
+                send = false;
+            }
+        }
+    }
+
+    //htmlに戻る
+    if(send){
+        return send;
+    }else{
+        alert(message);
+        return send;
     }
 }

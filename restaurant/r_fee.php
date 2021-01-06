@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 # var DB
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
@@ -12,33 +12,33 @@ $date = "";
 $date = date('Y-m-d H:i:s');
 $flag = 0;
 
+# session
+unset($_SESSION["fee_id"]);
+if(!empty($_POST['fid'])){//f_information_details
+  $_SESSION['fee_id'] = $_POST['fid'];
+  $flag = 1;
+}elseif(!empty($_POST['fae'])){//f_addfee_edit
+  $_SESSION['fee_id'] = $_POST['fae'];
+  $flag = 2;
+}else{
+  $flag = 0;
+}
+if($flag!=0){
+  $id=$_SESSION['fee_id'];
+}
+
 try {
   //conect
   $pdo = new PDO($dsn, $user, $password);
-  
+
   // SELECT(fee)
   function FeeSelectP(){
     global $pdo,$rf_sql,$rf_res,$id,$date,$flag;
-    //f_information_details
-    if(!empty($_POST['fid'])){
-      $id = $_POST['fid'];
-      $flag=1;
-    }
-    //f_addfee_confirmation
-    else if(!empty($_POST['fac'])){
-      $id = $_POST['fac'];
-      $flag=2;
-    }
-    //f_addfee_edit
-    else if(!empty($_POST['fae'])){
-      $id = $_POST['fae'];
-      $flag=3;
-    }
     
     if($flag != 0){
-      if($flag == 1 or $flag ==2){
+      if($flag == 1){
 	$rf_sql = "SELECT * FROM customer,fee WHERE customer.reseravetion_id = '$id' AND fee.fee_id = '$id'";
-      }else if($flag == 3){
+      }else if($flag == 2){
 	$rf_sql = "SELECT * FROM customer WHERE customer.reseravetion_id = '$id'";
       }else{
 	$test_alert = "<script type='text/javascript'>alert('error');</script>";
@@ -61,24 +61,8 @@ try {
 	  $rf_res .= "</td></tr><tr><td>" ;
 	  $rf_res .= $row['fee_remark'];
 	}
-	//f_addfee_confirmation
-	else if($flag==2){
-	  $rf_res .= $row['room_1'];
-	  $rf_res .= "</td></tr><tr><td>" ;
-	  $rf_res .= $row['customer_name'];
-	  $rf_res .= "</td></tr><tr><td>" ;
-	  $rf_res .= substr($row['fee_date'], 0, 10);
-	  $rf_res .= "</td></tr><tr><td>" ;
-	  $rf_res .= $row['fee_place'];
-	  $rf_res .= "</td></tr><tr><td>" ;
-	  $rf_res .= $row['fee_add'];
-	  $rf_res .= "</td></tr><tr><td>" ;
-	  $rf_res .= $row['fee_contents'];
-	  $rf_res .= "</td></tr><tr><td>" ;
-	  $rf_res .= $row['fee_remark'];
-	}
 	//f_addfee_edit
-	else if($flag==3){
+	else if($flag==2){
 	  $id = $row['reseravetion_id'];
 	  $rf_res .= $row['room_1'];
 	  $rf_res .= "</td></tr><tr><td>" ;
@@ -97,7 +81,7 @@ try {
     static $rf_place = "", $rf_add = "", $rf_contents = "", $rf_remark = "";
     //f_addfee_edit(insert)
     if (isset($_POST['rf_reg'])) {
-      if (!empty($_POST['rf_place']) and !empty($_POST['rf_add'])
+      if (!empty($_POST['rf_place']) and !empty($_POST['rf_add']) 
 	  and !empty($_POST['rf_contents']) and !empty($_POST['rf_remark'])) {
         $rf_place = $_POST['rf_place'];
         $rf_add = $_POST['rf_add'];
@@ -117,4 +101,3 @@ try {
   exit;
   }
 ?>
-
