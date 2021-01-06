@@ -8,11 +8,10 @@ echo $sql;
 $smt = $pdo->prepare($sql);
 $data = $smt->execute();
 $data = $smt->fetchAll(PDO::FETCH_NUM);
-var_dump($data);
 
 $room = array();
 foreach ($data as $value) {
-    array_push($room, $value);
+    array_push($room, $value[0]);
 }
 ?>
 
@@ -60,7 +59,7 @@ foreach ($data as $value) {
         foreach ($room as $num => $value) {
 
 
-            if ($value[0] % 100 == 1) {
+            if ($value % 100 == 1) {
                 echo ("<table>");
                 //ホテルの１階分だけループする。
                 $room_count = 0; //1階の部屋数のカウント
@@ -71,13 +70,13 @@ foreach ($data as $value) {
             echo ("<td>");
             //1部屋のリンク現在はボタンで作成
             //チェックインの情報をとるかな？
-            //$SCMroom_clean = SCleanManagemantP($ROOM_DATA[$table][$room_count]);
+            //$SCMroom_clean = SCleanManagemantP($value[0]);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $ROOM_DATA[$table][$room_count] . " name = room_number >");
 
             //1セルの表示名
             //1行目
-            echo ($value[0]);
+            echo ($value);
             //改行
             echo ("<br>");
 
@@ -90,7 +89,7 @@ foreach ($data as $value) {
             echo ("</td>\n");
             //１セル終了
 
-            if ($value[0] % 100 == 35) {
+            if ($value[$num + 1] % 100 == 35) {
                 echo ("</tr>");
                 echo ("</table>\n");
             }
