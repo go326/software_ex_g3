@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <title>screen</title>
-  <link rel="stylesheet" href="k_user.css" type="text/css">
+  <link rel="stylesheet" href="./k_user.css" type="text/css">
 </head>
 
 <body>
