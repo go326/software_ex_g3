@@ -1,0 +1,82 @@
+.user{
+    width: 200px; /*px じゃないやつにすると、うまくいく（調べろ） */
+    height: 80px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    display:block;
+    padding:10px 0 10px;
+    background: rgb(203, 250, 133);
+    border-radius: 10px;
+}
+
+.log{
+    width: 200px;
+    height: 80px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    display:block;
+    padding:10px 0 10px;
+    background: rgb(255, 249, 181);
+    border-radius: 10px;
+}
+
+.question{
+    width: 200px;
+    height: 80px;
+    font-size: 15px;
+    color:black;
+    text-align: center;
+    display:block;
+    padding:10px 0 10px;
+    background: #a3e2ff;
+    border-radius: 10px;
+}
+
+.manual{
+    width: 200px;
+    height: 80px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    display:block;
+    padding:10px 0 10px;
+    background: pink;
+    border-radius: 10px;
+}
+
+.top{
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    display:block;
+    padding:10px 0 10px;
+    background:  rgb(153, 153, 153);
+    border-radius: 10px;
+}
+
+
+
+.inner2{
+    padding-top: 20px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}
+
+.inner{
+    padding-top: 15px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+}
+
+.back{
+    margin: 1cm 0px; /*外側の余白*/
+    padding-top: 0.6em;      /* 内側の余白 */
+    background-color: #ccc;  /* 背景色 */
+}
