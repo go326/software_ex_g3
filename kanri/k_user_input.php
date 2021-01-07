@@ -4,32 +4,35 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="./k_user.css" type="text/css">
   <title></title>
 </head>
 
 <body>
+<header>
   <h1>新規ユーザ情報入力</h1>
+</header>
+  <div id="main">
+   <!-- 入力欄 -->
+   <form action="" method="post">  
+      <p>ユーザID　　:<input type="text" name="kui_id"></p>
+      <p>ユーザ名　　:<input type="text" name="kui_name"></p>
+      <p>パスワード　:<input type="password" name="kui_pass"></p>
 
-  <!-- 入力欄 -->
-  <form action="" method="post">
-    <p>ユーザID<input type="text" name="kui_id"></p>
-    <p>ユーザ名<input type="text" name="kui_name"></p>
-    <p>パスワード<input type="password" name="kui_pass"></p>
+      <p>ユーザ権限</p>
+      <p>
+        フロント<input type="checkbox" name="kui_auth[]" value="1"> 
+        清掃<input type="checkbox" name="kui_auth[]" value="2"> 
+        レストラン<input type="checkbox" name="kui_auth[]" value="3"> 
+        アルバイト<input type="checkbox" name="kui_auth[]" value="4"> 
+        管理者<input type="checkbox" name="kui_auth[]" value="5"> 
+      </p>
 
-    <p>ユーザ権限</p>
-    <p>
-      フロント<input type="checkbox" name="kui_auth[]" value="1">
-      清掃<input type="checkbox" name="kui_auth[]" value="2">
-      レストラン<input type="checkbox" name="kui_auth[]" value="3">
-      アルバイト<input type="checkbox" name="kui_auth[]" value="4">
-      管理者<input type="checkbox" name="kui_auth[]" value="5">
-    </p>
-
-    <?php KUserInputP(); ?>
-    <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
-    <input type="submit" name="ku_input" value=" 登録">
-  </form>
-
+      <?php KUserInputP(); ?>
+     <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
+     <input type="submit" name="ku_input" value=" 登録">
+    </form>
+  </div>
 </body>
 
 </html>
