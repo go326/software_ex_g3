@@ -22,22 +22,33 @@ foreach ($data as $value) {
 <head>
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
     <link rel="stylesheet" href="../seisou/clean_management.css" type="text/css">
-    <title>seisou</title>
+    <link rel="stylesheet" href="f_top.css" type="text/css">
+    <title>フロントTOP画面</title>
 
 </head>
 
 <body>
     <header>
-        <h1> 清掃情報管理画面</h1>
+        <h1> フロントTOP画面</h1>
 
-        <!--戻るボタン-->
-        <div class="button-position-c">
+        <!--戻るボタン(清掃で使用していたコード)-->
+        <!--<div class="button-position-c">
             <div class="input#submit_button">
                 <form action="../i_general_top.html">
                     <input id="submit_button" type="submit" name="submit" value="総合TOP画面へ戻る">
                 </form>
             </div>
-        </div>
+        </div>-->
+        <!--総合TOP、新規入力、-->
+        <ul>
+            <li><input type="button" onclick="location.href='../i_general_top.html'"value="総合TOPへ戻る">
+            <li><input type="button" onclick="location.href='f_reservation/f_reservation_input.html'"value="新規入力"></li>
+            <li><input type="button" onclick="location.href='f_search/f_search.html'"value="予約検索"></li>
+            <li id="view_date"></li>
+        </ul>
+        <!--今日の日付の表示-->
+        <script type="text/javascript">date();</script>
+
 
         <!--日付取得-->
         <?php
@@ -91,6 +102,14 @@ foreach ($data as $value) {
             echo ("</button>");
             echo ("</td>\n");
             //１セル終了
+            
+            //セルのカウント
+            $room_count++;
+            //セルが8個並ぶとtrで改行を入れる
+            if($room_count % 8 == 0){
+                echo("</tr>");//一行分の<tr>~</tr>
+                echo("<tr>");//次の<tr>を開始
+            }
 
             if ($value[$num + 1] % 100 == 35) {
                 echo ("</tr>");
