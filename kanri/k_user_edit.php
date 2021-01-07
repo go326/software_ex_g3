@@ -10,7 +10,7 @@ require("k_user_management.php");
 </head>
 
 <body>
-
+  <h1>ユーザ情報変更<h1>
   <form action="" method="post">
     <p>ユーザID<input type="text" name="kuu_id"></p>
     <p>ユーザ名<input type="text" name="kuu_name"></p>
