@@ -21,7 +21,7 @@ foreach ($data as $value) {
 
 <head>
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
-    <link rel="stylesheet" href="./clean_management.css" type="text/css">
+    <link rel="stylesheet" href="../seisou/clean_management.css" type="text/css">
     <title>seisou</title>
 
 </head>
