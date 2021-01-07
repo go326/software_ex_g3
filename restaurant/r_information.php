@@ -115,7 +115,7 @@ function getDate(){
   <footer>
     <br><br>
     <center>
-      <input type="button" onclick="location.href='../i_gernal_top.html'" value="戻る">
+      <input type="button" onclick="location.href='../i_general_top.html'" value="戻る">
     </center>
   </footer>
 </body>
