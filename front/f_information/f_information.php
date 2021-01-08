@@ -11,7 +11,7 @@ $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $_POST['room'], PDO::PARAM_INT);
 $smt->bindValue(2, $_POST['room'], PDO::PARAM_INT);
 $smt->bindValue(3, $_POST['room'], PDO::PARAM_INT);
-$smt->bindValue(4, $_POST['reservation_id'], PDO::PARAM_STR);
+$smt->bindValue(4, $_POST['id'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 
