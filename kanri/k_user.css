@@ -1,0 +1,31 @@
+@charset 'utf-8';
+#main{
+    margin-left: 30%;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    display: inline;
+}
+table{
+    margin: 0 auto;
+    width: 40%;
+}
+table tr th{
+    width:  5em;
+    height: 4em;
+    margin: 0 auto;
+}
+
+/*************日付の表示************/
+#view_date{
+    position: absolute;
+    right: 10%;
+}
+
+button.button-size{
+    font-size: 10em;
+    width: 250px;
+    height: 150px;
+}

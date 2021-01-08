@@ -32,10 +32,10 @@
                     <select name="stay_count" id="stay_count"></select>
                     <script>getStayCount();</script>
                 </dd>
-                <!--入力必須項目-->
+                <!--入力必須項目(最大文字数20)-->
                 <dt>氏名</dt>
                 <dd>
-                    <input type="text" id="name" name="name" minlength="1" maxlength="20" size="20" required>
+                    <input type="text" id="name" name="name" maxlength="20" size="25" required>
                 </dd>
                 <!--入力必須項目-->
                 <dt>住所</dt>
@@ -58,27 +58,27 @@
 
                 <dt>プラン</dt>
                 <dd>
-                    <input type="text" id="plan" name="plan" minlength="1" size="30" required>
+                    <input type="text" id="plan" name="plan" manlength="30" size="30" required>
                 </dd>
                 <!--必須選択-->
                 <dt>夕食の有無</dt>
                 <dd>
                     <label><input type="radio" name="is_dinner" value="有" required>有</label>
-                    <label><input type="radio" name="is_dinner" value="無" required>無</label>
+                    <label><input type="radio" name="is_dinner" value="無" checked required>無</label>
                 </dd>
                 <dt>夕食のメニュー</dt>
                 <dd>
-                    <input type="text" id="dinner_menu" name="dinner_nemu">
+                    <input type="text" id="dinner_menu" name="dinner_nemu" manlength="30">
                 </dd>
                 <!--必須選択-->
                 <dt>朝食の有無</dt>
                 <dd>
                     <label><input type="radio" name="is_breakfast" value="有" required>有</label>
-                    <label><input type="radio" name="is_breakfast" value="無" required>無</label>
+                    <label><input type="radio" name="is_breakfast" value="無" checked required>無</label>
                 </dd>
                 <dt>朝食のメニュー</dt>
                 <dd>
-                    <input type="text" id="breakfast_menu" name="breakfast_nemu">
+                    <input type="text" id="breakfast_menu" name="breakfast_nemu" manlength="30">
                 </dd>
                 <!--部屋番必須入力(最低一つは)-->
                 <dt>部屋番号</dt>

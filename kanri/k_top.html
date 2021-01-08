@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!--文字コードUTF-8-->
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="k_top.css">
+        <title>管理者専用機能TOＰ画面</title>
+    </head>
+    <body>
+        <!--ヘッダー-->
+        <header>
+        <h1>管理者専用機能TOP</h1>
+        <fieldset class="back">
+            <center>
+                <h2>機能選択</h2>
+            </center>
+            <div class="inner">
+                <button type="button" class="user" onclick="location.href='k_user/k_user_screen.php'">ユーザ情報管理</button>
+                <button type="button" class="log" onclick="location.href='k_log/k_log_list.php'">システムログ参照</button>
+            </div>
+
+            <div class="inner">
+                <button type="button" class="question" onclick="location.href='../manual/i_question_select.php'">質問情報管理</button>
+                <button type="button" class="manual" onclick="location.href='../manual/i_manual_select.php'">マニュアル情報管理</button>
+             </div>
+
+             <div class="inner">
+                <button type="button" class="top" onclick="location.href='../i_general_top.html'">総合TOPに戻る</button>
+             </div>
+
+        </fieldset>
+
+
+    </body>
+</html>
