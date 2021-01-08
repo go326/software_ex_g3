@@ -4,7 +4,6 @@ include("../db_connect.php");
 global $pdo;
 
 $sql = "SELECT room_number FROM  room";
-echo $sql;
 $smt = $pdo->prepare($sql);
 $data = $smt->execute();
 $data = $smt->fetchAll(PDO::FETCH_NUM);
@@ -41,20 +40,19 @@ foreach ($data as $value) {
         </div>-->
         <!--総合TOP、新規入力、-->
         <ul>
-            <li><input type="button" onclick="location.href='../i_general_top.html'"value="総合TOPへ戻る">
-            <li><input type="button" onclick="location.href='f_reservation/f_reservation_input.html'"value="新規入力"></li>
-            <li><input type="button" onclick="location.href='f_search/f_search.html'"value="予約検索"></li>
+            <li><input type="button" onclick="location.href='../i_general_top.html'" value="総合TOPへ戻る">
+            <li><input type="button" onclick="location.href='f_reservation/f_reservation_input.html'" value="新規入力"></li>
+            <li><input type="button" onclick="location.href='f_search/f_search.html'" value="予約検索"></li>
             <li id="view_date"></li>
         </ul>
         <!--今日の日付の表示-->
-        <script type="text/javascript">date();</script>
+        <script type="text/javascript">
+            date();
+        </script>
 
 
         <!--日付取得-->
         <?php
-        // $date = date("Y-m-d");
-        // echo ($date . "<br>");
-        // $next_date = date("Y-m-d", strtotime("+1 day"));
 
         $dt = new DateTime(); //予約日
         $date = $dt->format('Y-m-d');
@@ -66,8 +64,7 @@ foreach ($data as $value) {
     </header>
 
     <!--清掃情報確認画面の枠組みの作成-->
-    <!--formがget方式だがpostにする予定最悪このまま-->
-    <form method="get" action="./f_information/f_information.php">
+    <form method="post" action="./f_information/f_information.php">
         <?php
         //３階分テーブルを作成する
         foreach ($room as $num => $value) {
@@ -102,13 +99,13 @@ foreach ($data as $value) {
             echo ("</button>");
             echo ("</td>\n");
             //１セル終了
-            
+
             //セルのカウント
             $room_count++;
             //セルが8個並ぶとtrで改行を入れる
-            if($room_count % 8 == 0){
-                echo("</tr>");//一行分の<tr>~</tr>
-                echo("<tr>");//次の<tr>を開始
+            if ($room_count % 8 == 0) {
+                echo ("</tr>"); //一行分の<tr>~</tr>
+                echo ("<tr>"); //次の<tr>を開始
             }
 
             if ($value[$num + 1] % 100 == 35) {

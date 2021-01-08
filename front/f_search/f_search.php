@@ -35,22 +35,23 @@ try {
     var_dump($e->getMessage());
 }
 
-$res = "<table>";
-foreach ($data as $row) {
-
 ?>
-    <form method="post" name="form1" action="../f_information/f_information.php">
+<form method="post" action="../f_information/f_information.php">
     <?php
-    $res .= "<tr>";
-    $res .= "<td><a href='./f_information/f_information.php' value=" . $row['reseravetion_id'] . ">" . $row['reseravetion_id'] . "</a></td>";
-    $res .= "<td>" . $row['stay_date'] . "</td>";
-    $res .= "<td>" . $row['reservation_date'] . "</td>";
-    $res .= "<td>" . $row['stay_count'] . "</td>";
-    $res .= "<td>" . $row['customer_name'] . "</td>";
-    $res .= "<td>" . $row['customer_address'] . "</td>";
-    $res .= "<td>" . $row['phone_number'] . "</td></tr>";
-}
-$res .= "</table>";
-echo $res;
+    $res = "<table>";
+    foreach ($data as $row) {
+
+        $res .= "<tr>";
+        $res .= "<td>" . $row['reseravetion_id'] . "</td>";
+        $res .= "<td>" . $row['stay_date'] . "</td>";
+        $res .= "<td>" . $row['reservation_date'] . "</td>";
+        $res .= "<td>" . $row['stay_count'] . "</td>";
+        $res .= "<td>" . $row['customer_name'] . "</td>";
+        $res .= "<td>" . $row['customer_address'] . "</td>";
+        $res .= "<td>" . $row['phone_number'] . "</td>";
+        $res .= "<td><button name = 'id' type= submit value=" . $row['reseravetion_id'] . "> 詳細 </td></tr>";
+    }
+    $res .= "</table>";
+    echo $res;
     ?>
-    </form>
+</form>
