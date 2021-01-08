@@ -97,6 +97,8 @@
         <form method="get" action = "i_mq_top.html">
             <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
         </form>
+
+        <input type="file" name="example" accept="image/jpeg, image/png"required>
         
     </body>
 </html>
