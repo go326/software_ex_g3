@@ -24,7 +24,7 @@
             <!--メイン-->
         
             <!--i行目-->
-            <form id = "manual_edit" method = “post” enctype = "multipart/form-data" action = "i_manual_edit_done.php">
+            <form id = "manual_edit" method = "post" enctype = "multipart/form-data" action = "i_manual_edit_done.php">
 
                 <table>
                     <tr>
