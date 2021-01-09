@@ -41,7 +41,6 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
         </header>
     <?php
         //清掃情報更新
-        echo ("test<br>");
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
         $manual_pdf = $_POST["manual_pdf"];
@@ -56,7 +55,6 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
         $manual_pdf = $_POST["manual_pdf"];
         IManualInsertP($manual_number,$manual_name,$manual_pdf);
     }
-    echo ("test<br>");
 
     //戻るボタン
     $back_URL = "i_manual_select.php";
