@@ -24,8 +24,8 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
     }
 
 }
+
 function IManualUploadP(){
-    echo ("test");
     // ファイル名を取得して、ユニークなファイル名に変更
     $manual_file_name = $_FILES['manual_pdf']['name'];
 
@@ -48,7 +48,7 @@ function IManualUploadP(){
             echo "Error:アップロードに失敗しました。";
         }
     } else {
-        echo "Error:画像が見つかりません。";
+        echo "Error:ファイルが見つかりません。";
     }
     return 0;
 }
