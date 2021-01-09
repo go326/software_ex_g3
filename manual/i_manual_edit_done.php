@@ -50,11 +50,14 @@ function IManualEditP($manual_number,$manual_name,$manual_url){
     <?php
         //清掃情報更新
 
-    if(isset($_GET["manual_number"]) && isset($_GET["manual_name"]) && isset($_GET['manual_url'])){
-        $manual_number = $_GET["manual_number"];
-        $manual_name = $_GET["manual_name"];
-        $manual_url = $_GET["manual_url"];
-        IManualEditP($manual_number,$manual_name,$manual_url);
+        $manual_file_name = IManualUploadP();
+        //ファイル名がmanual_file_nameになる
+
+    if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
+        $manual_number = $_POST["manual_number"];
+        $manual_name = $_POST["manual_name"];
+        $manual_url = $_POST["manual_url"];
+        IManualEditP($manual_number,$manual_name,$manual_file_name);
     }
     ?>
     </body>
