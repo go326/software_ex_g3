@@ -57,7 +57,7 @@ foreach ($data as $value) {
         <?php
 
         $dt = new DateTime(); //予約日
-        $date = $dt->format('Y-m-d');
+        $today = $dt->format('Y-m-d');
         ?>
         <!--
         <span class="sample0"><button class="bg_color0"></button></span>掃除していない、予約なしの状態<br>
@@ -92,11 +92,11 @@ foreach ($data as $value) {
             echo ($value);
             //改行
             echo ("<br>");
+            $data = bool_stay($value);
+            var_dump($data);
 
             echo cus_name($value) . "<br>";
             //今日の宿泊者数
-            $data = bool_stay($value);
-            var_dump($data);
             $number_people = SCleanNumberP($value);
             echo ("本日" . $number_people . "人");
             echo ("<br>");
@@ -130,7 +130,7 @@ foreach ($data as $value) {
 //ここで参照する色を決めている
 function SCleanManagemantP($room_number)
 {
-    global $pdo, $date;
+    global $pdo, $today;
     $room_clean = 0; //清掃状況、初期値は0で宿泊予定者がいないことを示す。
     $stmt = $pdo->query("SELECT customer_checkin FROM customer WHERE room_number = " . $room_number);
     //fetch
@@ -192,8 +192,8 @@ function SCleanNumberP($room)
 
 function bool_stay($room)
 {
-    global $pdo;
-    $sql = "SELECT stay_date, stay_count FROM customer where (room_1 = ? or room_2 = ? or room_3 = ?) and stay_count >= 2 "; 
+    global $pdo, $today;
+    $sql = "SELECT * FROM customer where room_1 = ? or room_2 = ? or room_3 = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(1, $room, PDO::PARAM_INT);
     $stmt->bindValue(2, $room, PDO::PARAM_INT);
@@ -201,7 +201,12 @@ function bool_stay($room)
     $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $dt = new DateTime($data['stay_date']);
-
-    return $data;
+    for ($i = 0; $i < $data['stay_count']; $i++) {
+        $date = $dt->add(DateInterval::createFromDateString($i . "day"))->format('Y-m-d');
+        if ($date == $today) {
+            return $_POST['reseravetion_id'];
+        }
+    }
+    return 0;
 }
 ?>
