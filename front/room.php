@@ -22,7 +22,8 @@ foreach ($data as $value) {
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
     <link rel="stylesheet" href="../seisou/clean_management.css" type="text/css">
     <link rel="stylesheet" href="f_top.css" type="text/css">
-    <script src="f_top.js"></script><!--今日の日付を取得-->
+    <script src="f_top.js"></script>
+    <!--今日の日付を取得-->
     <title>フロントTOP画面</title>
 
 </head>
@@ -47,7 +48,9 @@ foreach ($data as $value) {
             <li id="view_date"></li>
         </ul>
         <!--今日の日付の表示-->
-        <script type="text/javascript">date();</script>
+        <script type="text/javascript">
+            date();
+        </script>
 
 
         <!--日付取得-->
@@ -80,7 +83,7 @@ foreach ($data as $value) {
             echo ("<td>");
             //1部屋のリンク現在はボタンで作成
             //チェックインの情報をとるかな？
-            //$SCMroom_clean = SCleanManagemantP($value);
+            $SCMroom_clean = SCleanManagemantP($value);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $value . " name = room >");
 
@@ -97,6 +100,9 @@ foreach ($data as $value) {
             echo ("<br>");
             echo ("</button>");
             echo ("</td>\n");
+            $data = bool_stay($value);
+            var_dump($data);
+
             //１セル終了
 
             //セルのカウント
@@ -124,9 +130,9 @@ foreach ($data as $value) {
 //ここで参照する色を決めている
 function SCleanManagemantP($room_number)
 {
-    global $pdo;
+    global $pdo, $date;
     $room_clean = 0; //清掃状況、初期値は0で宿泊予定者がいないことを示す。
-    $stmt = $pdo->query("SELECT room_clean FROM room WHERE room_number = " . $room_number);
+    $stmt = $pdo->query("SELECT customer_checkin FROM customer WHERE room_number = " . $room_number);
     //fetch
     while ($row = $stmt->fetch()) {
         //$room_number = $row["room_number"];
@@ -138,6 +144,7 @@ function SCleanManagemantP($room_number)
 
 function cus_name($room)
 {
+
     global $date, $pdo;
     $sql = "SELECT customer_name FROM customer where stay_date = ? and ( room_1 = ? or room_2 =? or room_3 = ?)";
     $smt = $pdo->prepare($sql);
@@ -181,5 +188,18 @@ function SCleanNumberP($room)
         exit;
     }
     return $number_people;
+}
+
+function bool_stay($room)
+{
+    global $pdo;
+    $sql = "SELECT * FROM coustomer where ( room_1 = ? or room_2 =? or room_3 = ?) and stay_cunt > 2";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(1, $room, PDO::PARAM_INT);
+    $stmt->bindValue(2, $room, PDO::PARAM_INT);
+    $stmt->bindValue(3, $room, PDO::PARAM_INT);
+    $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $data;
 }
 ?>
