@@ -81,11 +81,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
         <div id="counter">
             <dt> 人数 </dt?>
             <dd>
-                <?php echo $data[7]; ?>
-            </dd>
-            <dt> 人数 </dt>
-            <dd>
-                <?php echo $data[8]; ?>
+                <?php echo "大人" . $data[7] ."人、子供" . $data[8] . "人";?>
             </dd>
         </div>
         <div id="plan">
