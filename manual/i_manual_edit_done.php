@@ -49,10 +49,10 @@ function IManualEditP($manual_number,$manual_name,$manual_url){
         </header>
     <?php
         //清掃情報更新
-
+        echo ("test");
         $manual_file_name = IManualUploadP();
         //ファイル名がmanual_file_nameになる
-
+        echo ($manual_file_name);
     if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
