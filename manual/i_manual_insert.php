@@ -37,9 +37,9 @@
                         echo ("<input type = \"text\" name = \"manual_name\">");
                         echo ("</td>");
 
-                        echo ("<td>");                        
-                        echo ("<input type = \"text\" name = \"manual_url\">");
-                        echo ("</td>");
+                        echo ("<form enctype = \"multipart/form-data\">");
+                        echo ("<input type=\"file\" name=\"example\" accept=\".pdf\" required multiple>");
+                        echo ("</form>");
                     ?>
                 </form>
             </tr>
