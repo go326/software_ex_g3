@@ -8,7 +8,7 @@
 function IManualInsertP($manual_number,$manual_name,$manual_pdf){
     global $pdo;
     try{
-        $imi_sql = "INSERT INTO manual (manual_number, manual_name, manual_pdf) VALUES ('".$manual_number."', '".$manual_name."', '".$manual_pdf."')";
+        $imi_sql = "INSERT INTO manual (manual_number, manual_name, manual_pdf) VALUES ('".$manual_number."', '".$manual_name."', './".$manual_pdf."')";
         $stmt = $pdo -> prepare($imi_sql);
         $stmt -> execute();
         echo("<div class=\"button-area\">");    //css始まり
