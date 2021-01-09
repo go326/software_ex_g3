@@ -47,13 +47,14 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
     </header>
 
     <div id="main">
-        <dl id="id">
+        <dl>
+        <div id="id">
             <dt> 予約ID </dt?>
             <dd>
                 <?php echo $data[0]; ?>
             </dd>
-        </dl>
-        <dl id="day">
+        </div>
+        <div id="day">
             <dt> 予約日 </dt?>
             <dd>
                 <?php echo $data[2]; ?>
@@ -62,8 +63,8 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <dd>
                 <?php echo $data[1] . "~" . $stay_day; ?>
             </dd>
-        </dl>
-        <dl id="customer">
+        </div>
+        <div id="customer">
             <dt> 氏名 </dt?>
             <dd>
                 <?php echo $data[4]; ?>
@@ -76,8 +77,8 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <dd>
                 <?php echo $data[6]; ?>
             </dd>
-        </dl>
-        <dl id="counter">
+        </div>
+        <div id="counter">
             <dt> 人数 </dt?>
             <dd>
                 <?php echo $data[7]; ?>
@@ -86,8 +87,8 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <dd>
                 <?php echo $data[8]; ?>
             </dd>
-        </dl>
-        <dl id="plan">
+        </div>
+        <div id="plan">
             <dt> プラン </dt?>
             <dd>
                 <?php echo $data[9]; ?>
@@ -108,19 +109,20 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <dd>
                 <?php echo $data[13]; ?>
             </dd>
-        </dl>
+        </div>
 
-        <dl id="room">
+        <div id="room">
             <dt> 部屋番号</dt?>
             <dd>
                 <?php echo $data[14] . " " . $data[15] . " " . $data[16]; ?>
             </dd>
-        </dl>
-        <dl id="remark">
+        </div>
+        <div id="remark">
             <dt> 備考</dt?>
             <dd>
                 <?php echo $data[18]; ?>
             </dd>
+        </div>
         </dl>
     </div>
 </body>
