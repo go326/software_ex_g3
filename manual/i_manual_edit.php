@@ -24,7 +24,7 @@
             <!--メイン-->
         
             <!--i行目-->
-            <form id = "manual_edit" method = “get” action = "i_manual_edit_done.php">
+            <form id = "manual_edit" method = “post” enctype = "multipart/form-data" action = "i_manual_edit_done.php">
 
                 <table>
                     <tr>
@@ -56,8 +56,8 @@
                         <?php
                             //2セル
                             $manual_url = ("manual_url");
-                            $manual_text = IManualManagemantP($manual_url, $manual_number);
-                            echo ("<input type = \"text\" name = ".$manual_url." value = ".$manual_text.">");
+                            $manual_text = IManualManagemantP($manual_url, $manual_number);                            
+                            echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" value = \"./".$manual_text."\"required multiple>");
                         ?>
                     </td>
 
