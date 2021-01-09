@@ -38,7 +38,8 @@ try {
 ?>
 <form method="post" action="../f_information/f_information.php">
     <?php
-    $res = "<table>";
+    $res = "<h1>検索結果</h1>";
+    $res .= "<table>";
     $res .= "<tr>";
     $res .= "<th>予約ID</th>";
     $res .= "<th>宿泊日</th>";

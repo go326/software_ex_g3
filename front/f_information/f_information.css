@@ -24,7 +24,7 @@ input{
 .simple-box h2{
     margin: 2em;
 }
-
+/*
 dl {
    float: left;
    font-size: 20px;
@@ -37,4 +37,29 @@ dt {
 }
 dt:after{
     content: " : "
+}*/
+dl {
+    background: gray;
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+dl dt,
+dl dd {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+dl dt {
+    width: 13em;
+    float: left;
+    clear: both;
+    font-weight: bold;
+}
+dl dd {
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    margin-left: 13em;
+}
+textarea{
+    width: 80%;
+    height: 50px;
 }
