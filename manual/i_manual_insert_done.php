@@ -5,17 +5,17 @@
 
 //phpとして別のファイルにするべき？
 //質問情報を登録する。
-function IManualInsertP($manual_number,$manual_name,$manual_url){
+function IManualInsertP($manual_number,$manual_name,$manual_pdf){
     global $pdo;
     try{
-        $imi_sql = "INSERT INTO manual (manual_number, manual_name, manual_url) VALUES ('".$manual_number."', '".$manual_name."', '".$manual_url."')";
+        $imi_sql = "INSERT INTO manual (manual_number, manual_name, manual_pdf) VALUES ('".$manual_number."', '".$manual_name."', '".$manual_pdf."')";
         $stmt = $pdo -> prepare($imi_sql);
         $stmt -> execute();
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
         echo ("マニュアルNo.".$manual_number."を<br>");
         echo ($manual_name."<br>");
-        echo ($manual_result."<br>");
+        echo ($manual_pdf."<br>");
         echo ("と登録しました。<br>");
         echo ("</div>"); //css終わり
     } catch (PDOException $e) {
@@ -41,11 +41,11 @@ function IManualInsertP($manual_number,$manual_name,$manual_url){
         </header>
     <?php
         //清掃情報更新
-    if(isset($_GET["manual_number"]) && isset($_GET["manual_name"]) && isset($_GET["manual_url"])){
+    if(isset($_GET["manual_number"]) && isset($_GET["manual_name"]) && isset($_GET["manual_pdf"])){
         $manual_number = $_GET["manual_number"];
         $manual_name = $_GET["manual_name"];
-        $manual_url = $_GET["manual_result"];
-        IManualInsertP($manual_number,$manual_name,$manual_url);
+        $manual_pdf = $_GET["manual_pdf"];
+        IManualInsertP($manual_number,$manual_name,$manual_pdf);
     }
     //戻るボタン
     $back_URL = "i_manual_select.php";
