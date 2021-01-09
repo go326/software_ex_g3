@@ -23,6 +23,34 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
         echo $e->getMessage();
         exit;
     }
+
+}
+function IManualUploadP(){
+    // ファイル名を取得して、ユニークなファイル名に変更
+    $manual_file_name = $_FILES['manual_pdf']['name'];
+
+    // 仮にファイルがアップロードされている場所のパスを取得
+    $tmp_path = $_FILES['manual_pdf']['tmp_name'];
+
+    // 保存先のパスを設定
+    $upload_path = './';
+
+    //正しいものかどうかを判断する
+    if (is_uploaded_file($tmp_path)) {
+        // 仮のアップロード場所から保存先にファイルを移動
+        if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
+        // ファイルが読出可能になるようにアクセス権限を変更
+        chmod($upload_path . $manual_file_name, 0644);
+
+        echo $manual_file_name . "をアップロードしました。";
+        return $manual_file_name;
+        } else {
+            echo "Error:アップロードに失敗しました。";
+        }
+    } else {
+        echo "Error:画像が見つかりません。";
+    }
+    return 0;
 }
 
 ?>
@@ -45,38 +73,11 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
         $manual_pdf = $_POST["manual_pdf"];
-
-        echo ("マニュアルNo.".$manual_number."を<br>");
-        echo ("マニュアル名".$manual_name."<br>");
-        echo ("pdf".$manual_pdf."<br>");
-
-        // ファイル名を取得して、ユニークなファイル名に変更
-        $manual_file_name = $_FILES['manual_pdf']['name'];
-
-        // 仮にファイルがアップロードされている場所のパスを取得
-        $tmp_path = $_FILES['manual_pdf']['tmp_name'];
-
-        // 保存先のパスを設定
-        $upload_path = './';
-
-        //正しいものかどうかを判断する
-        if (is_uploaded_file($tmp_path)) {
-            // 仮のアップロード場所から保存先にファイルを移動
-            if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
-            // ファイルが読出可能になるようにアクセス権限を変更
-            chmod($upload_path . $manual_file_name, 0644);
-
-            echo $manual_file_name . "をアップロードしました。";
-            } else {
-                echo "Error:アップロードに失敗しました。";
-            }
-        } else {
-            echo "Error:画像が見つかりません。";
-        }
-
+        
+        $manual_file_name = IManualUploadP();
         //ファイル名がmanual_file_nameになる
 
-    if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && isset($manual_file_name)){
+    if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
         //$manual_file_name は定義済
