@@ -31,18 +31,18 @@
                         echo ("<td>");
                         echo ($manual_number);
                         echo ("<input type = \"hidden\" name = \"manual_number\" value = \"$manual_number\">");
-                        echo ("</td>");
+                        echo ("</td>\n");
 
                         echo ("<td>");
                         echo ("<input type = \"text\" name = \"manual_name\">");
-                        echo ("</td>");
+                        echo ("</td>\n");
 
                         echo ("<td>");
                         echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required multiple>");
-                        echo ("</td>");
+                        echo ("</td>\n");
 
                     ?>
-                    </form>
+                </form>\n
             </tr>
         </table>
 
