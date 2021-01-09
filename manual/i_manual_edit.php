@@ -55,8 +55,6 @@
                     <td>
                         <?php
                             //2セル
-                            $manual_url = ("manual_url");
-                            $manual_text = IManualManagemantP($manual_url, $manual_number);  
                             echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required multiple>");
                         ?>
                     </td>
