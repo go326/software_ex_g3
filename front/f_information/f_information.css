@@ -2,6 +2,7 @@
 #main{
     margin: 0 auto;
     text-align: center;
+    width: 80%;
 }
 /*ボタンサイズwidth200,height70px*/
 input{
