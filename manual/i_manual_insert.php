@@ -25,7 +25,7 @@
             </tr>
             
             <tr>
-                <form id = "insert_form" method = "get" enctype = multipart/form-data action = "i_manual_insert_done.php">            
+                <form id = "insert_form" method = "get" enctype = "multipart/form-data" action = "i_manual_insert_done.php">            
                     <?php
                         //3行出力
                         echo ("<td>");
