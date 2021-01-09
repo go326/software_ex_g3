@@ -32,6 +32,34 @@ function IManualEditP($manual_number,$manual_name,$manual_url){
     echo ("</form>");
 }
 
+function IManualUploadP(){
+    // ファイル名を取得して、ユニークなファイル名に変更
+    $manual_file_name = $_FILES['manual_pdf']['name'];
+
+    // 仮にファイルがアップロードされている場所のパスを取得
+    $tmp_path = $_FILES['manual_pdf']['tmp_name'];
+
+    // 保存先のパスを設定
+    $upload_path = './';
+
+    //正しいものかどうかを判断する
+    if (is_uploaded_file($tmp_path)) {
+        // 仮のアップロード場所から保存先にファイルを移動
+        if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
+        // ファイルが読出可能になるようにアクセス権限を変更
+        chmod($upload_path . $manual_file_name, 0644);
+
+        echo $manual_file_name . "をアップロードしました。";
+        return $manual_file_name;
+        } else {
+            echo "Error:アップロードに失敗しました。";
+        }
+    } else {
+        echo "Error:画像が見つかりません。";
+    }
+    return 0;
+}
+
 ?>
 <!--//htmlの開始-->
 <!DOCTYPE html>
