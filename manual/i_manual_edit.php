@@ -68,14 +68,14 @@
                 <div class="input#submit_button">
                     <!--戻るボタン-->
                     <form  id = "clean_back" action = "i_manual_select.php">
-                        <input id="submit_button" type="submit" name="submit" value="戻る"> 
+                        <input id="submit_button" type="submit" value="戻る"> 
                     </form>
                 </div>
             </div>
             <div class="button-position-r">
                 <div class="input#submit_button">
                     <!--完了ボタン-->
-                    <input id="submit_button" type="submit" name="submit" value="完了" form = "manual_edit">
+                    <input id="submit_button" type="submit"  value="完了" form = "manual_edit">
                 </div>
             </div>
         </div>
