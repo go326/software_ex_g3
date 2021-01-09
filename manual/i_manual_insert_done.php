@@ -41,12 +41,23 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
         </header>
     <?php
         //清掃情報更新
-    if(isset($_GET["manual_number"]) && isset($_GET["manual_name"]) && isset($_GET["manual_pdf"])){
-        $manual_number = $_GET["manual_number"];
-        $manual_name = $_GET["manual_name"];
-        $manual_pdf = $_GET["manual_pdf"];
+        echo ("test<br>");
+        $manual_number = $_POST["manual_number"];
+        $manual_name = $_POST["manual_name"];
+        $manual_pdf = $_POST["manual_pdf"];
+
+        echo ("マニュアルNo.".$manual_number."を<br>");
+        echo ($manual_name."<br>");
+        echo ($manual_pdf."<br>");
+        
+    if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && isset($_POST["manual_pdf"])){
+        $manual_number = $_POST["manual_number"];
+        $manual_name = $_POST["manual_name"];
+        $manual_pdf = $_POST["manual_pdf"];
         IManualInsertP($manual_number,$manual_name,$manual_pdf);
     }
+    echo ("test<br>");
+
     //戻るボタン
     $back_URL = "i_manual_select.php";
     echo ("<form action = ".$back_URL.">");
