@@ -42,7 +42,7 @@
                         echo ("</td>\n");
 
                     ?>
-                </form>\n
+                </form>
             </tr>
         </table>
 
