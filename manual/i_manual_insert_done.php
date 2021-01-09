@@ -47,9 +47,9 @@ function IManualInsertP($manual_number,$manual_name,$manual_pdf){
         $manual_pdf = $_POST["manual_pdf"];
 
         echo ("マニュアルNo.".$manual_number."を<br>");
-        echo ($manual_name."<br>");
-        echo ($manual_pdf."<br>");
-        
+        echo ("マニュアル名".$manual_name."<br>");
+        echo ("pdf".$manual_pdf."<br>");
+
     if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && isset($_POST["manual_pdf"])){
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
