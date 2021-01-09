@@ -55,7 +55,7 @@ function IManualUploadP(){
             echo "Error:アップロードに失敗しました。";
         }
     } else {
-        echo "Error:画像が見つかりません。";
+        echo "Error:ファイルが見つかりません。";
     }
     return 0;
 }
