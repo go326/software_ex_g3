@@ -25,7 +25,7 @@
             </tr>
             
             <tr>
-                <form id = "insert_form" method = "get" action = "i_manual_insert_done.php">            
+                <form id = "insert_form" method = "get" enctype = multipart/form-data action = "i_manual_insert_done.php">            
                     <?php
                         //3行出力
                         echo ("<td>");
@@ -38,9 +38,7 @@
                         echo ("</td>");
                         echo ("</form>"); //id = insert_form
 
-                        echo ("<form id = \"file_form\" enctype = \"multipart/form-data\">");
-                        echo ("<input form = \"file_form\" type=\"file\" name=\"example\" accept=\".pdf\" required multiple>");
-                        echo ("</form>");
+                        echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required multiple>");
                     ?>
             </tr>
         </table>
