@@ -83,7 +83,7 @@ foreach ($data as $value) {
             echo ("<td>");
             //1部屋のリンク現在はボタンで作成
             //チェックインの情報をとるかな？
-            $SCMroom_clean = SCleanManagemantP($value);
+            //$SCMroom_clean = SCleanManagemantP($value);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $value . " name = room >");
 
@@ -95,13 +95,13 @@ foreach ($data as $value) {
 
             echo cus_name($value) . "<br>";
             //今日の宿泊者数
+            $data = bool_stay($value);
+            var_dump($data);
             $number_people = SCleanNumberP($value);
             echo ("本日" . $number_people . "人");
             echo ("<br>");
             echo ("</button>");
             echo ("</td>\n");
-            $data = bool_stay($value);
-            var_dump($data);
 
             //１セル終了
 
@@ -193,13 +193,15 @@ function SCleanNumberP($room)
 function bool_stay($room)
 {
     global $pdo;
-    $sql = "SELECT * FROM coustomer where ( room_1 = ? or room_2 =? or room_3 = ?) and stay_cunt > 2";
+    $sql = "SELECT stay_date, stay_count FROM customer where (room_1 = ? or room_2 = ? or room_3 = ?) and stay_count >= 2 "; 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(1, $room, PDO::PARAM_INT);
     $stmt->bindValue(2, $room, PDO::PARAM_INT);
     $stmt->bindValue(3, $room, PDO::PARAM_INT);
     $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $dt = new DateTime($data['stay_date']);
+
     return $data;
 }
 ?>
