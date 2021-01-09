@@ -22,6 +22,7 @@ foreach ($data as $value) {
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
     <link rel="stylesheet" href="../seisou/clean_management.css" type="text/css">
     <link rel="stylesheet" href="f_top.css" type="text/css">
+    <script src="f_top.js"></script><!--今日の日付を取得-->
     <title>フロントTOP画面</title>
 
 </head>
@@ -46,9 +47,7 @@ foreach ($data as $value) {
             <li id="view_date"></li>
         </ul>
         <!--今日の日付の表示-->
-        <script type="text/javascript">
-            date();
-        </script>
+        <script type="text/javascript">date();</script>
 
 
         <!--日付取得-->
@@ -57,10 +56,10 @@ foreach ($data as $value) {
         $dt = new DateTime(); //予約日
         $date = $dt->format('Y-m-d');
         ?>
-
+        <!--
         <span class="sample0"><button class="bg_color0"></button></span>掃除していない、予約なしの状態<br>
         <span class="sample1"><button class="bg_color0"></button></span>お客様がチェックインしている状態<br>
-        <span class="sample2"><button class="bg_color0"></button></span>掃除済み状態<br>
+        <span class="sample2"><button class="bg_color0"></button></span>掃除済み状態<br>-->
     </header>
 
     <!--清掃情報確認画面の枠組みの作成-->

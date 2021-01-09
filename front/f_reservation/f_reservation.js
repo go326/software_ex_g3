@@ -127,6 +127,34 @@ function check(){
         send = false;
     }
 
+    //夕食が「有」の時にメニューが未入力の時に警告
+    let is_dinner = document.getElementsByName("is_dinner");
+    for(i = is_dinner.length; i--;){
+        if(is_dinner[i].checked){
+            if(is_dinner[i].value == "有"){
+                let dinner = document.getElementById("dinner_menu");
+                if(dinner.value == ""){
+                    message += "・夕食のメニューが未入力です\n";
+                    send = false;
+                }
+            }
+        }
+    }
+
+    //朝食が「有」の時にメニューが未入力の時に警告
+    let is_breakfast = document.getElementsByName("is_breakfast");
+    for(i = is_breakfast.length; i--;){
+        if(is_breakfast[i].checked){
+            if(is_breakfast[i].value == "有"){
+                let breakfast = document.getElementById("breakfast_menu");
+                if(breakfast.value == ""){
+                    message += "・朝食のメニューが未入力です\n";
+                    send = false;
+                }
+            }
+        }
+    }
+
     //部屋番号の入力チェック
     let room1 = document.getElementById("room-number1");
     let room2 = document.getElementById("room-number2");
