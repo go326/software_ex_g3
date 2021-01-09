@@ -9,3 +9,10 @@ input type[tel]{
     width: 200px;
     height: 20px;
 }
+table{
+    margin: 0 auto;
+    width: 80%;
+}
+table,th,td{
+    border: solid 1px;
+}

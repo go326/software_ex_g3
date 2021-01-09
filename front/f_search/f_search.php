@@ -39,6 +39,15 @@ try {
 <form method="post" action="../f_information/f_information.php">
     <?php
     $res = "<table>";
+    $res .= "<tr>";
+    $res .= "<th>予約ID</th>";
+    $res .= "<th>宿泊日</th>";
+    $res .= "<th>予約日</th>";
+    $res .= "<th>宿泊数</th>";
+    $res .= "<th>氏名</th>";
+    $res .= "<th>住所</th>";
+    $res .= "<th>電話番号</th>";
+    $res .= "</tr>";
     foreach ($data as $row) {
 
         $res .= "<tr>";
@@ -55,3 +64,8 @@ try {
     echo $res;
     ?>
 </form>
+<html>
+<head>
+    <link rel="stylesheet" href="f_search.css" type="text/css">
+</head>
+</html>
