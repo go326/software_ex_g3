@@ -36,13 +36,13 @@
                         echo ("<td>");
                         echo ("<input type = \"text\" name = \"manual_name\">");
                         echo ("</td>");
-                        echo ("</form>"); //id = insert_form
 
                         echo ("<td>");
                         echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required multiple>");
                         echo ("</td>");
 
                     ?>
+                    </form>
             </tr>
         </table>
 
