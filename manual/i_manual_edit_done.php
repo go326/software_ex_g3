@@ -6,7 +6,7 @@
 function IManualEditP($manual_number,$manual_name,$manual_url){
     global $pdo;
     try{
-        $ime_sql = "UPDATE manual SET manual_name = \"".$manual_name."\" ,manual_url = \"./".$manual_url."\" WHERE manual_number = ".$manual_number;
+        $ime_sql = "UPDATE manual SET manual_name = \"".$manual_name."\" ,manual_url = \"".$manual_url."\" WHERE manual_number = ".$manual_number;
         $stmt = $pdo -> prepare($ime_sql);
         $stmt -> execute();
         echo("<div class=\"button-area\">");    //css始まり
