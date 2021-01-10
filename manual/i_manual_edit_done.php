@@ -39,18 +39,18 @@ function IManualUploadP(){
     $tmp_path = $_FILES['manual_pdf']['tmp_name'];
 
     // 保存先のパスを設定
-    $upload_path = '/upload';
+    $upload_path = '../../upload';
 
     //正しいものかどうかを判断する
     if (is_uploaded_file($tmp_path)) {
         // 仮のアップロード場所から保存先にファイルを移動
         if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
             echo("test".$upload_path.",".$manual_file_name."<br>");
-        // ファイルが読出可能になるようにアクセス権限を変更
-        chmod($upload_path . $manual_file_name, 0644);
+            // ファイルが読出可能になるようにアクセス権限を変更
+            chmod($upload_path . $manual_file_name, 0644);
 
-        echo $manual_file_name . "をアップロードしました。";
-        return $manual_file_name;
+            echo $manual_file_name . "をアップロードしました。";
+            return $manual_file_name;
         } else {
             echo "Error:アップロードに失敗しました。";
         }
@@ -82,6 +82,7 @@ function IManualUploadP(){
         $manual_pdf = $_POST["manual_pdf"];
 
         $manual_file_name = IManualUploadP();
+
         //ファイル名がmanual_file_nameになる
     if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
         $manual_number = $_POST["manual_number"];
