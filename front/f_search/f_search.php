@@ -59,14 +59,16 @@ try {
         $res .= "<td>" . $row['customer_name'] . "</td>";
         $res .= "<td>" . $row['customer_address'] . "</td>";
         $res .= "<td>" . $row['phone_number'] . "</td>";
-        $res .= "<td><button name = 'id' type= submit value=" . $row['reseravetion_id'] . "> 詳細 </td></tr>";
+        $res .= "<td><button name = 'ID' type= submit value=" . $row['reseravetion_id'] . "> 詳細 </td></tr>";
     }
     $res .= "</table>";
     echo $res;
     ?>
 </form>
 <html>
+
 <head>
     <link rel="stylesheet" href="f_search.css" type="text/css">
 </head>
+
 </html>
