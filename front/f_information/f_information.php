@@ -11,7 +11,7 @@ $date = $dt->format("Y-m-d");
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 
 $smt = $pdo->prepare($sql);
-$smt->bindValue(5, $_POST['ID'], PDO::PARAM_STR);
+$smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 

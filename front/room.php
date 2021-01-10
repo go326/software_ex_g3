@@ -72,6 +72,7 @@ foreach ($data as $value) {
         //３階分テーブルを作成する
         foreach ($room as $num => $value) {
 
+            $ID = bool_stay($today, $value);
 
             if ($value % 100 == 1) {
                 echo ("<table>");
@@ -93,7 +94,6 @@ foreach ($data as $value) {
             echo ($value);
             //改行
             echo ("<br>");
-            $ID = bool_stay($today, $value);
 
             echo cus_name($ID) . "<br>";
             //今日の宿泊者数

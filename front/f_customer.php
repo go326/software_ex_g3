@@ -19,11 +19,12 @@ function bool_stay($today, $room)
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $value) {
         $dt = new DateTime($value['stay_date']);
+        $date = $dt->format('Y-m-d');
         for ($i = 1; $i < $value['stay_count']; $i++) {
-            $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
             if ($date == $today) {
                 return $value['reseravetion_id'];
             }
+            $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
         }
     }
     return 0;
