@@ -17,10 +17,10 @@
     include("../../db_connect.php");
     require("../f_customer.php");
     global $pdo;
-    $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
-    $date = $dt->format('Y-m-d');
-    $count = $_POST["stay_count"];
     if (isset($_POST['reservation'])) {
+        $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
+        $date = $dt->format('Y-m-d');
+        $count = $_POST["stay_count"];
         for ($i = 1; $i <= $count; $i++) {
             for ($j = 1; $j < 4; $j++) {
                 if (empty($_POST['room_number' . $j])) {
