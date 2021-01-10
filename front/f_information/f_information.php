@@ -39,7 +39,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
 <body>
     <header>
         <h1>予約詳細画面</h1>
-        <form action="" method="post">
+        <form action="../f_reservation/f_restore.php" method="post">
             <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
             <input type="submit" name='restore' value="編集">
             <input type="submit" name='delete' value="削除">
