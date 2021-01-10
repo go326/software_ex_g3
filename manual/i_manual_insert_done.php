@@ -33,7 +33,7 @@ function IManualUploadP(){
     $tmp_path = $_FILES['manual_pdf']['tmp_name'];
 
     // 保存先のパスを設定
-    $upload_path = './';
+    $upload_path = '../../upload';
 
     //正しいものかどうかを判断する
     if (is_uploaded_file($tmp_path)) {
