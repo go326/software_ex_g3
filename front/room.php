@@ -1,6 +1,7 @@
 <?php
 
 include("../db_connect.php");
+require("./f_customer.php");
 global $pdo;
 
 $sql = "SELECT room_number FROM  room";
@@ -92,12 +93,11 @@ foreach ($data as $value) {
             echo ($value);
             //改行
             echo ("<br>");
-            $data = bool_stay($value);
-            var_dump($data);
+            $ID = bool_stay($today, $value);
 
-            echo cus_name($value) . "<br>";
+            echo cus_name($ID) . "<br>";
             //今日の宿泊者数
-            $number_people = SCleanNumberP($value);
+            $number_people = SCleanNumberP($ID);
             echo ("本日" . $number_people . "人");
             echo ("<br>");
             echo ("</button>");
@@ -142,71 +142,5 @@ function SCleanManagemantP($room_number)
     return $room_clean;
 }
 
-function cus_name($room)
-{
 
-    global $date, $pdo;
-    $sql = "SELECT customer_name FROM customer where stay_date = ? and ( room_1 = ? or room_2 =? or room_3 = ?)";
-    $smt = $pdo->prepare($sql);
-    $smt->bindValue(1, $date, PDO::PARAM_STR);
-    $smt->bindValue(2, $room, PDO::PARAM_INT);
-    $smt->bindValue(3, $room, PDO::PARAM_INT);
-    $smt->bindValue(4, $room, PDO::PARAM_INT);
-    $smt->execute();
-    $data = $smt->fetch(PDO::FETCH_ASSOC);
-    return $data['customer_name'] . " 様";
-}
-
-//宿泊人数を表示
-function SCleanNumberP($room)
-{
-    global $pdo, $date;
-    $number_people = 0; //その部屋の人数初期値は0
-    try {
-        $people_sql = "SELECT adult, child FROM customer WHERE stay_date = ? and ( room_1 = ? or room_2 =? or room_3 = ?) ";
-        $stmt = $pdo->prepare($people_sql);
-        $stmt->bindValue(1, $date, PDO::PARAM_STR);
-        $stmt->bindValue(2, $room, PDO::PARAM_INT);
-        $stmt->bindValue(3, $room, PDO::PARAM_INT);
-        $stmt->bindValue(4, $room, PDO::PARAM_INT);
-        $stmt->execute();
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $adult = $row["adult"];
-            $child = $row["child"];
-        }
-        if (isset($adult)) {
-            if (isset($child)) {
-                //大人も子供もいる状態
-                $number_people = $adult + $child;
-            } else {
-                //大人だけいる状態
-                $number_people = $adult;
-            }
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
-    return $number_people;
-}
-
-function bool_stay($room)
-{
-    global $pdo, $today;
-    $sql = "SELECT * FROM customer where room_1 = ? or room_2 = ? or room_3 = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(1, $room, PDO::PARAM_INT);
-    $stmt->bindValue(2, $room, PDO::PARAM_INT);
-    $stmt->bindValue(3, $room, PDO::PARAM_INT);
-    $stmt->execute();
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $dt = new DateTime($data['stay_date']);
-    for ($i = 0; $i < $data['stay_count']; $i++) {
-        $date = $dt->add(DateInterval::createFromDateString($i . "day"))->format('Y-m-d');
-        if ($date == $today) {
-            return $_POST['reseravetion_id'];
-        }
-    }
-    return 0;
-}
 ?>

@@ -15,8 +15,6 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
-
         $re = $pdo->prepare("SELECT * FROM `user` WHERE ? = `user_id`");
         $re->bindValue(1, $_POST['UserID']);
         $re->execute();
@@ -35,10 +33,12 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
                 header("Location:./i_general_top.html");
             } else {
                 $text = "ログイン認証に失敗";
+                header("Location:./i_login.html");
             }
         } else {
 
             $text = "ユーザーが見つかりません";
+            header("Location:./i_login.html");
         }
     } catch (PDOException $e) {
         print('Error:' . $e->getMessage());
@@ -48,5 +48,5 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
     session_unset();
 } else {
     $text = "入力してください";
+    header("Location:./i_login.html");
 }
-header("Location:./i_login.html");
