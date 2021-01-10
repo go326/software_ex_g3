@@ -71,8 +71,8 @@
             $stmt->bindValue(13, $is_breakfast, PDO::PARAM_INT); //is朝食
             set_null(14, $_POST['cus_info'][13], 2); //メニュー
             $stmt->bindValue(15, $_POST['cus_info'][14], PDO::PARAM_INT); //部屋１
-            set_null(16, (int)$_POST['cus_info'][15], 1); //部屋２
-            set_null(17, (int)$_POST['cus_info'][16], 1); //部屋３
+            set_null(16, $_POST['cus_info'][15], 1); //部屋２
+            set_null(17, $_POST['cus_info'][16], 1); //部屋３
             set_null(18, $_POST['cus_info'][17], 2); //備考
             $stmt->execute();
         } catch (PDOException $e) {
