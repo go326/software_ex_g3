@@ -166,7 +166,7 @@
 
     </div>
     <form action="" method="post">
-        <input type="button" onclick="location.href='./f_resarvation_input.html'" value="キャンセル">
+        <input type="button" onclick="location.href='./f_reservation_input.html'" value="キャンセル">
         <?php
         foreach ($_POST as $info) {
         ?>
