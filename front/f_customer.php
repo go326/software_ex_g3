@@ -83,13 +83,44 @@ function delete($ID)
     echo "削除されました．";
 }
 
-
-function restore($ID)
+function checkin($ID)
 {
     global $pdo;
-    $sql = "DELETE FROM customer where reseravetion_id = ?";
+    $checkin = ischeckin($ID);
+    if ($checkin == 0) {
+        $checkin = 1;
+    } else {
+        $checkin = 3;
+    }
+    $sql = "UPDATE customer SET customer_checkin = ? WHERE reseravetion_id = ?";
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $checkin, PDO::PARAM_INT);
+    $smt->bindValue(2, $ID, PDO::PARAM_STR);
+    $smt->execute();
+}
+
+function stay($ID)
+{
+    global $pdo;
+    $checkin = ischeckin($ID);
+    if ($checkin == 1) {
+        $checkin = 2;
+    } else if ($checkin == 2) {
+        $checkin = 1;
+    }
+    $sql = "UPDATE customer set customer_checkin = 2 WHERE reseravetion_id = ?";
     $smt = $pdo->prepare($sql);
     $smt->bindValue(1, $ID, PDO::PARAM_STR);
     $smt->execute();
-    echo "削除されました．";
+}
+
+function ischeckin($ID)
+{
+    global $pdo;
+    $sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ?";
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $ID, PDO::PARAM_STR);
+    $smt->execute();
+    $data = $smt->fetch();
+    return $data;
 }

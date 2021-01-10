@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <?php
 
-include("../../db_connect.php");
-require("../f_customer.php");
+require(dirname(__FILE__) . "/../../db_connect.php");
+require(dirname(__FILE__) . "/../f_customer.php");
+
+global $pdo;
+
+if (isset($_POST['delete'])) {
+    delete($_POST['ID']);
+}
+
+if (isset($_POST['checkin'])) {
+    checkin($_POST['ID']);
+}
+
+if (isset($_POST['isstay'])) {
+    stay($ID);
+}
 
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");

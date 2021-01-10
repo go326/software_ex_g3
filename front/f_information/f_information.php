@@ -43,6 +43,8 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
             <input type="submit" name='restore' value="編集">
             <input type="submit" name='delete' value="削除">
+            <input type="submit" name='checkin' value="チェックイン/チェックアウト">
+            <input type="submit" name='isstay' value="外出/帰館">
         </form>
     </header>
 
