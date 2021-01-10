@@ -20,7 +20,7 @@ function bool_stay($today, $room)
     foreach ($data as $value) {
         $dt = new DateTime($value['stay_date']);
         $date = $dt->format('Y-m-d');
-        for ($i = 1; $i < $value['stay_count']; $i++) {
+        for ($i = 1; $i <= $value['stay_count']; $i++) {
             if ($date == $today) {
                 return $value['reseravetion_id'];
             }
