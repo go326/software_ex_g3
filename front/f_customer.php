@@ -5,25 +5,6 @@ include("../db_connect.php");
 
 global $pdo;
 
-//insert か select か判定
-if (isset($_POST['reservation'])) {
-    //insert
-    var_dump($_POST);
-    foreach ($_POST as $value) {
-        $sql = "INSERT into customer values(' . implode(',', array_fill(0, count($value), '?')) . ')";
-        echo $sql;
-        //$smt = $pdo ->prepare($sql);
-        //$smt ->sxecute($parms);
-    }
-} else {
-    //select
-    $sql = "SELECT * FROM customer ";
-    echo $sql;
-    $smt = $pdo->query($sql);
-    $data = $smt->fetch();
-    var_dump($data);
-}
-
 //$todayに$room番の部屋が使われているかを判定
 //返り値 予約ID   または 0
 function bool_stay($today, $room)
@@ -36,12 +17,10 @@ function bool_stay($today, $room)
     $stmt->bindValue(3, $room, PDO::PARAM_INT);
     $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($data);
     foreach ($data as $value) {
         $dt = new DateTime($value['stay_date']);
         for ($i = 1; $i < $value['stay_count']; $i++) {
             $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
-            echo $date;
             if ($date == $today) {
                 return $value['reseravetion_id'];
             }
