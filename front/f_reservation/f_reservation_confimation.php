@@ -14,8 +14,8 @@
         <h1>予約登録確認画面</h1>
     </header>
     <?php
-    include("../../db_connect.php");
-    require("../f_customer.php");
+    require(dirname(__FILE__) . "/../../db_connect.php");
+    require(dirname(__FILE__) . "/../f_customer.php");
     global $pdo;
     if (isset($_POST['reservation'])) {
         $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
@@ -66,9 +66,9 @@
             $stmt->bindValue(8, $_POST['cus_info'][7], PDO::PARAM_INT);  //大人
             set_null(9, $_POST['cus_info'][8], 1); //子供
             $stmt->bindValue(10, $_POST['cus_info'][9], PDO::PARAM_STR); //プラン
-            $stmt->bindValue(11, $is_dinner, PDO::PARAM_INT); //is夕食
+            $stmt->bindValue(11, (int)$is_dinner, PDO::PARAM_INT); //is夕食
             set_null(12, $_POST['cus_info'][11], 2);  //メニュー
-            $stmt->bindValue(13, $is_breakfast, PDO::PARAM_INT); //is朝食
+            $stmt->bindValue(13, (int)$is_breakfast, PDO::PARAM_INT); //is朝食
             set_null(14, $_POST['cus_info'][13], 2); //メニュー
             $stmt->bindValue(15, $_POST['cus_info'][14], PDO::PARAM_INT); //部屋１
             set_null(16, $_POST['cus_info'][15], 1); //部屋２
