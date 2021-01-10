@@ -20,19 +20,20 @@
     $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
     $date = $dt->format('Y-m-d');
     $count = $_POST["stay_count"];
-    for ($i = 1; $i <= $count; $i++) {
-        for ($j = 1; $j < 4; $j++) {
-            if (empty($_POST['room_number' . $j])) {
-                continue;
+    if (isset($_POST['reservation'])) {
+        for ($i = 1; $i <= $count; $i++) {
+            for ($j = 1; $j < 4; $j++) {
+                if (empty($_POST['room_number' . $j])) {
+                    continue;
+                }
+                if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
+                    echo "予約が重複しています";
+                    //header("Location:./f_reservation_input.html");
+                }
             }
-            if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
-                echo "予約が重複しています";
-                //header("Location:./f_reservation_input.html");
-            }
+            $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
         }
-        $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
     }
-
     foreach ($_POST as $name => $value) {
         if (empty($value)) {
             $_POST[$name] = 'なし';
@@ -85,7 +86,6 @@
         } catch (PDOException $e) {
             var_dump($e->getMessage());
         }
-
         header("Location:/software_ex_g3/front/f_reservation/f_reservation_done.html");
     }
 
