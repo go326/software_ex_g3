@@ -5,10 +5,12 @@
 //よくある質問の内容を変更する,よくある質問一覧画面に戻る
 function IManualEditP($manual_number,$manual_name,$manual_url){
     global $pdo;
+    echo $manual_number,$manual_name,$manual_url;
     try{
         $ime_sql = "UPDATE manual SET manual_name = \"".$manual_name."\" ,manual_url = \"".$manual_url."\" WHERE manual_number = ".$manual_number;
         $stmt = $pdo -> prepare($ime_sql);
         $stmt -> execute();
+        echo $ime_sql;
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
         echo ("マニュアルNo.".$manual_number."を<br>");
