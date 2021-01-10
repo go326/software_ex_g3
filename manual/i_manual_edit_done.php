@@ -5,12 +5,10 @@
 //よくある質問の内容を変更する,よくある質問一覧画面に戻る
 function IManualEditP($manual_number,$manual_name,$manual_url){
     global $pdo;
-    echo $manual_number,$manual_name,$manual_url;
     try{
         $ime_sql = "UPDATE manual SET manual_name = \"".$manual_name."\" ,manual_url = \"".$manual_url."\" WHERE manual_number = ".$manual_number;
         $stmt = $pdo -> prepare($ime_sql);
         $stmt -> execute();
-        echo $ime_sql;
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
         echo ("マニュアルNo.".$manual_number."を<br>");
@@ -47,7 +45,6 @@ function IManualUploadP(){
     if (is_uploaded_file($tmp_path)) {
         // 仮のアップロード場所から保存先にファイルを移動
         if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
-            echo("test".$upload_path.",".$manual_file_name."<br>");
             // ファイルが読出可能になるようにアクセス権限を変更
             chmod($upload_path . $manual_file_name, 0644);
 
