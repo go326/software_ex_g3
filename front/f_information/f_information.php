@@ -2,6 +2,7 @@
 
 <?php
 include("../../db_connect.php");
+require("../f_customer.php");
 
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
@@ -39,9 +40,9 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
     <header>
         <h1>予約詳細画面</h1>
         <form action="" method="post">
-            <button>
-                <input type="submit" name="delete" value=<?php echo $_POST['ID']; ?>> 削除
-            </button>
+            <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
+            <input type="submit" name='restore' value="編集">
+            <input type="submit" name='delete' value="削除">
         </form>
     </header>
 

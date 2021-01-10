@@ -72,3 +72,24 @@ function SCleanNumberP($ID)
     }
     return $number_people;
 }
+
+function delete($ID)
+{
+    global $pdo;
+    $sql = "DELETE FROM customer where reseravetion_id = ?";
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $ID, PDO::PARAM_STR);
+    $smt->execute();
+    echo "削除されました．";
+}
+
+
+function restore($ID)
+{
+    global $pdo;
+    $sql = "DELETE FROM customer where reseravetion_id = ?";
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $ID, PDO::PARAM_STR);
+    $smt->execute();
+    echo "削除されました．";
+}
