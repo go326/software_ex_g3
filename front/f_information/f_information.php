@@ -2,8 +2,7 @@
 
 <?php
 include("../../db_connect.php");
-
-var_dump($_POST);
+require("../f_customer.php");
 
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
@@ -39,10 +38,17 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
 
 <body>
     <header>
-        <h1>予約確認画面</h1>
+        <h1>予約詳細画面</h1>
+        <form action="../f_reservation/f_restore.php" method="post">
+            <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
+            <input type="submit" name='restore' value="編集">
+            <input type="submit" name='delete' value="削除">
+            <input type="submit" name='checkin' value="チェックイン/チェックアウト">
+            <input type="submit" name='isstay' value="外出/帰館">
+        </form>
     </header>
 
-    <div id="main">
+    <div id=" main">
         <dl>
             <div id="id">
                 <dt> 予約ID </dt?>
