@@ -12,7 +12,7 @@ try {
   // DB接続
   $pdo = new PDO($dsn, $user, $password);
   // DBの呼び出し
-  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1 AND $date=stay_date";
+  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1 AND stay_date = '$date' ";
   $stmt = $pdo->query($sql);
   $stmt->execute();
   // 表の作成(基本的にhtml文と同じ)
