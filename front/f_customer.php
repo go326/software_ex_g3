@@ -117,10 +117,17 @@ function stay($ID)
 function ischeckin($ID)
 {
     global $pdo;
-    $sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ?";
-    $smt = $pdo->prepare($sql);
-    $smt->bindValue(1, $ID, PDO::PARAM_STR);
-    $smt->execute();
-    $data = $smt->fetch();
+    ini_set('display_errors', "On");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    try {
+        $sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ?";
+        $smt = $pdo->prepare($sql);
+        $smt->bindValue(1, $ID, PDO::PARAM_STR);
+        $smt->execute();
+        $data = $smt->fetch();
+    } catch (PDOException $e) {
+        var_dump($e->getMessage());
+    }
     return $data;
 }
