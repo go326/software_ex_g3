@@ -46,3 +46,4 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
     $text = "入力してください";
     //header("Location:./i_login.html");
 }
+echo $text;
