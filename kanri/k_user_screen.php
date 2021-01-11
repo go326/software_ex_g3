@@ -11,7 +11,7 @@
 
 <body>
 <header>
-  <p><input type="button" onclick="location.href='../i_gernal_top.html'" value="TOPへ戻る"></p>
+  <p><input type="button" onclick="location.href='k_top.html'" value="TOPへ戻る"></p>
   <h1>ユーザ情報管理</h1> 
   <p><input type="button" onclick="location.href='k_user_input.php'" value="新規入力"></p>
 </header> 

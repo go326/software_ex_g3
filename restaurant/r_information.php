@@ -52,20 +52,20 @@ footer{
 }
 table{
     margin: 0 auto;
-    width: 70%;
+    width: 60%;
 }
 
-th.name{width: 200px};
-th.adult{width: 50px};
-th.chilt{width: 50px};
-th.menu{width: 200px};
-td{
+table th.name{width: 30%};
+table th.adult{width: 20%};
+table th.chilt{width: 20%};
+table th.menu{width: 30%};
+table td{
     text-align: center;
     font-size: 1.5em;
 }
 
 input{
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 </style>
