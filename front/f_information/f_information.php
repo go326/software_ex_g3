@@ -30,7 +30,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
 <html>
 
 <head>
-    <meta http - equiv=”Content - Type” content=”text / html; charset=UTF - 8″>
+    <meta http - equiv=”Content - Type” content=”text html; charset=UTF - 8″>
     <link rel="stylesheet" href="./f_information.css" type="text/css">
     <script type="text/javascript" src="maketable.js"></script>
     <script type="text/javascript" src="f_top.js"></script>
@@ -45,6 +45,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <input type="submit" name='delete' value="削除">
             <input type="submit" name='checkin' value="チェックイン/チェックアウト">
             <input type="submit" name='isstay' value="外出/帰館">
+            <input type="submit" name='add_fee' value="追加料金登録">
         </form>
     </header>
 

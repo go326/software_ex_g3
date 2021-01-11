@@ -85,7 +85,7 @@ foreach ($data as $value) {
             echo ("<td>");
             //1部屋のリンク現在はボタンで作成
             //チェックインの情報をとるかな？
-            //$SCMroom_clean = SCleanManagemantP($value);
+            $SCMroom_clean = SCleanManagemantP($value);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $ID . " name = ID >");
 
@@ -128,18 +128,18 @@ foreach ($data as $value) {
 //清掃情報確認画面の枠組みに反映
 //清掃情報確認画面の枠組みの清掃状況を取り出し
 //ここで参照する色を決めている
-function SCleanManagemantP($room_number)
+function SCleanManagemantP($ID)
 {
-    global $pdo, $today;
+    global $pdo;
     $room_clean = 0; //清掃状況、初期値は0で宿泊予定者がいないことを示す。
-    $stmt = $pdo->query("SELECT customer_checkin FROM customer WHERE room_number = " . $room_number);
+    $stmt = $pdo->prepare("SELECT customer_checkin FROM customer WHERE reseravetion_id = ?");
+    $stmt->bindValue(1, $ID);
+    $stmt->execute();
     //fetch
     while ($row = $stmt->fetch()) {
-        //$room_number = $row["room_number"];
-        $room_clean = $row["room_clean"];
-        //echo($room_number.",".$room_clean."<br>");
+        $data = $row['customer_checkin'];
     }
-    return $room_clean;
+    return $data;
 }
 
 

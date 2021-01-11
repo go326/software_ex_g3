@@ -6,16 +6,27 @@ require(dirname(__FILE__) . "/../f_customer.php");
 
 global $pdo;
 
+if (isset($_POST['add_fee'])) {
+?>
+    <form action="../f_addfee/f_addfee_edit.html" type="POST">
+        <input type="hidden" value=<?php echo $_POST['id']; ?>>
+    </form>
+<?php
+}
+
 if (isset($_POST['delete'])) {
     delete($_POST['ID']);
+    header("Location:../room.php");
 }
 
 if (isset($_POST['checkin'])) {
     checkin($_POST['ID']);
+    header("Location:../room.php");
 }
 
 if (isset($_POST['isstay'])) {
     stay($_POST['ID']);
+    header("Location:../room.php");
 }
 
 $dt = new DateTime();
