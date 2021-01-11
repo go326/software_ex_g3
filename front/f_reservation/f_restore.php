@@ -15,7 +15,7 @@ if (isset($_POST['checkin'])) {
 }
 
 if (isset($_POST['isstay'])) {
-    stay($ID);
+    stay($_POST['ID']);
 }
 
 $dt = new DateTime();
