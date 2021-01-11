@@ -5,12 +5,14 @@ $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
 $password = 'software_ex_g3';
 $rinfo = "";
+$date = ""; 
+$date = date('Y-m-d');
 
 try {
   // DB接続
   $pdo = new PDO($dsn, $user, $password);
   // DBの呼び出し
-  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1";
+  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1 AND $date=stay_date";
   $stmt = $pdo->query($sql);
   $stmt->execute();
   // 表の作成(基本的にhtml文と同じ)
