@@ -3,13 +3,10 @@ session_start();
 $_SESSION = array();
 session_destroy();
 session_start();
-
+require(dirname(__FILE__) . "/db_connect.php");
 
 global $pdo;
-
 $text;
-
-
 if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Password'])) {
     try {
 
@@ -40,7 +37,7 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
             //header("Location:./i_login.html");
         }
     } catch (PDOException $e) {
-        print('Error:' . $e->getMessage());
+        var_dump('Error:' . $e->getMessage());
         die();
     }
 } else if (isset(($_POST['logout']))) {
