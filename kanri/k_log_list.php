@@ -44,6 +44,7 @@ try {
   exit;
   }
 ?>
+<?php require_once("k_log_record.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -53,6 +54,7 @@ try {
 </head>
 
 <body>
+<?php KLogRecodeP("work","table","line","attribute","befor","after"); ?>
 
   <!-- Management -->
   <table>
