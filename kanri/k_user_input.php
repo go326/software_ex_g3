@@ -15,8 +15,8 @@
   <div id="main">
    <!-- 入力欄 -->
    <form action="" method="post">  
-      <p>ユーザID　　:<input type="text" name="kui_id" minlength="1" maxlength="20" required></p>
-      <p>ユーザ名　　:<input type="text" name="kui_name"></p>
+      <p>ユーザID　　:<input type="number" name="kui_id" minlength="1" maxlength="12" required></p>
+      <p>ユーザ名　　:<input type="text" name="kui_name"  minlength="1" maxlength="16" required></p>
       <p>パスワード　:<input type="password" name="kui_pass"></p>
 
       <p>ユーザ権限</p>
