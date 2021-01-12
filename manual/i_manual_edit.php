@@ -94,7 +94,7 @@
             <div class="button-position-r">
                 <div class="input#submit_button">
                     <!--完了ボタン-->
-                    <input id="submit_button" type="submit"  value="完了" form = "manual_edit">
+                    <input id="submit_button" type="submit"  value="完了" form = "manual_edit" onclick = "return check()">
                 </div>
             </div>
         </div>
