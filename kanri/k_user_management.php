@@ -22,7 +22,7 @@ try {
       $k_res .= "<form action='k_user_edit.php' method='post'><button type='submit' name='kid' value='" . $row['user_id'] . "'>" . $row['user_id'] . "</button></form>";
       $k_res .= "</td><td>";
       $k_res .= $row['user_name'];
-      $k_res .= "</td></tr align ="center">";
+      $k_res .= "</td></tr align ='center'>";
     }
   }
 
