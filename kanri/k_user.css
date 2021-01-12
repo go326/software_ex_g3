@@ -17,6 +17,9 @@ table tr th{
     height: 4em;
     margin: 0 auto;
 }
+table tr td{
+    font-size: 1.5em;
+}
 
 /*************日付の表示************/
 #view_date{
