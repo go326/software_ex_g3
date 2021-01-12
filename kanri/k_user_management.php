@@ -45,6 +45,8 @@ try {
           header("Location: k_user_screen.php");
           exit;
         }
+        $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+        echo $test_alert;
       }
     }
   }
@@ -74,6 +76,8 @@ try {
           header("Location: k_user_screen.php");
           exit;
         }
+        $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+        echo $test_alert;
       }
     }
   }
