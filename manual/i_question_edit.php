@@ -16,9 +16,9 @@
                 const question_name = "よくある質問を入力してください\n";
                 const question_result = "解答例を入力してください\n";
                 var alert_text;
-                if (insert_form.question_name.value == ""){
+                if (question_edit.question_name.value == ""){
                     alert_text = question_name;
-                    if (insert_form.question_result.value == ""){
+                    if (question_edit.question_result.value == ""){
                         alert_text = alert_text + question_result;
                     }
                     //条件に一致する場合(メールアドレスが空の場合)
