@@ -17,7 +17,7 @@ try {
   $stmt->execute();
   // 表の作成(基本的にhtml文と同じ)
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $rinfo .= "<tr><td>";
+    $rinfo .= "<tr align="center"><td>";
     $rinfo .= "<form action='f_information_details.php' method='post'>";
     $rinfo .= "<button type='submit' name='fid' ";
     $rinfo .= "value='" . $row['reseravetion_id'] . "'>" . $row['customer_name'] . "</button>";
@@ -40,7 +40,7 @@ try {
 <head>
   <!--文字コードUTF-8-->
   <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
-  <title> </title>
+  <title>食事情報閲覧画面</title>
  <!--  <link rel="stylesheet" href="restaurant.css" type="text/css"> -->
 <style type="text/css">
 header{
@@ -61,8 +61,7 @@ table th.name{width: 30%};
 table th.adult{width: 20%};
 table th.chilt{width: 20%};
 table th.menu{width: 30%};
-table td{
-    text-align: center;
+table tr td{
     font-size: 1.5em;
 }
 
@@ -73,37 +72,19 @@ input{
 </style>
 <script type="text/javascript">
 //HTMLからの呼び出し
-function date(){
-    document.getElementById("view_date").innerHTML = getDate();
-}
-//日付の表示
-function getDate(){
-    var now = new Date();
-    var year = now.getFullYear();
-    var mon = now.getMonth() + 1;
-    var day = now.getDate();
-    //var hour = now.getHours();
-    //var min = now.getMinutes();
-    //var sec = now.getSeconds();
-
-    var s = year + "/" + mon + "/" + day;
-    return s; 
-}
-</script>
 
 </head>
 
 <body>
   <header>
     <h1>食事情報閲覧画面</h1>
-    <script type="text/javascript">date();</script>
   </header>
 
   <!--メイン-->
   <div id="main">
     <!--食事情報閲覧画面-->
     <table border="1">
-      <tr valign="top" ;>
+      <tr valign="top">
         <th class="name">名前</th>
         <th class="adult">大人</th>
         <th class="child">子供</th>

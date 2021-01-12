@@ -11,9 +11,6 @@
         <header>
             <h1>食事情報閲覧画面</h1>
             <ul>
-                <!--日付の表示カレンダー-->
-                <!--<li><input type="date" name="calendar" max="9999-12-31"></li>-->
-                <!--日付の表示-->
                 <li id="view_date"></li>
             </ul>
             <script type="text/javascript">date();</script>
@@ -23,15 +20,27 @@
         <div id="main">
             <!--食事情報を取得する-->
             <table border="1">
-                <tr valign="top";>
-                    <th>テーブル</th>
-                    <th>氏名</th>
-                    <th>人数</th>
-                    <th>メニュー</th>
+                <tr valign="top">
+                    <th class="name">名前</th>
+                    <th class="adult">大人</th>
+                    <th class="child">子供</th>
+                    <th class="menu">メニュー</th>
+                  </tr>
+                <tr align="center">
+                    <td>サンプル</td><td>3</td><td>2</td><td>海鮮</td>
                 </tr>
-                <?php 
-                require('./r_information.php');                
-                ?>
+                <tr align="center">
+                    <td>サンプル</td><td>3</td><td>2</td><td>海鮮</td>
+                </tr>
+                <tr align="center">
+                    <td>サンプル</td><td>3</td><td>2</td><td>海鮮</td>
+                </tr>
+                <tr align="center">
+                    <td>サンプル</td><td>3</td><td>2</td><td>海鮮</td>
+               </tr>                       
+                    
+                
+
             </table>
         </div>
         <!--フッター-->
