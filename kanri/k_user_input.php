@@ -17,11 +17,11 @@
    <form action="" method="post">  
       <p>ユーザID　　:<input type="number" name="kui_id" minlength="1" maxlength="12" required></p>
       <p>ユーザ名　　:<input type="text" name="kui_name"  minlength="1" maxlength="16" required></p>
-      <p>パスワード　:<input type="password" name="kui_pass"></p>
+      <p>パスワード　:<input type="password" name="kui_pass" minlength="1" required></p>
 
       <p>ユーザ権限</p>
       <p>
-        フロント<input type="checkbox" name="kui_auth[]" value="1"> 
+        フロント<input type="checkbox" name="kui_auth[]" value="1" > 
         清掃<input type="checkbox" name="kui_auth[]" value="2"> 
         レストラン<input type="checkbox" name="kui_auth[]" value="3"> 
         アルバイト<input type="checkbox" name="kui_auth[]" value="4"> 
