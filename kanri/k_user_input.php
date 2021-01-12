@@ -21,11 +21,11 @@
 
       <p>ユーザ権限</p>
       <p>
-        フロント<input type="checkbox" name="kui_auth[]" value="1"  required> 
-        清掃<input type="checkbox" name="kui_auth[]" value="2" required> 
-        レストラン<input type="checkbox" name="kui_auth[]" value="3" required> 
-        アルバイト<input type="checkbox" name="kui_auth[]" value="4" required> 
-        管理者<input type="checkbox" name="kui_auth[]" value="5" required> 
+        フロント<input type="checkbox" name="kui_auth[]" value="1"> 
+        清掃<input type="checkbox" name="kui_auth[]" value="2"> 
+        レストラン<input type="checkbox" name="kui_auth[]" value="3"> 
+        アルバイト<input type="checkbox" name="kui_auth[]" value="4"> 
+        管理者<input type="checkbox" name="kui_auth[]" value="5"> 
       </p>
 
       <?php KUserInputP(); ?>
