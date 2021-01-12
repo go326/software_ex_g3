@@ -21,7 +21,7 @@ try {
     global $pdo, $sql,$date,$name;
     if($name != "" and $work != "" and $table != "" and $line != "" and $attribute != "" and $befor != "" and $after != ""){
       $sql = "INSERT INTO log VALUES('$date','$name','$work','$table','$line','$attribute','$befor','$after')";
-       echo $sql;
+      //  echo $sql;
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
     }
