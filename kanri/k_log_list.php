@@ -58,6 +58,18 @@ try {
 
   <!-- Management -->
   <table>
+  <tr valign="top">
+        <th>日付</th>
+        <th>変更者</th>
+        <th>変更業務</th>
+        <th>変更テーブル</th>
+        <th>変更行</th>
+        <th>変更属性</th>
+        <th>変更前</th>
+        <th>変更後</th>
+
+
+      </tr>
     <?php KLogListP(); echo $res; ?>
   </table>
 
