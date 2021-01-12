@@ -7,6 +7,20 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./question_select.css" type="text/css">
+        
+        <script type="text/javascript">
+            function check(){
+                if (insert_form.question_name.value == ""){
+                    //条件に一致する場合(メールアドレスが空の場合)
+                    alert("よくある質問を入力してください");    //エラーメッセージを出力
+                    return false;    //送信ボタン本来の動作をキャンセルします
+                }else{
+                    //条件に一致しない場合(メールアドレスが入力されている場合)
+                    return true;    //送信ボタン本来の動作を実行します
+                }
+            }
+        </script>
+
         <title>question</title>
 
     </head>
@@ -49,7 +63,7 @@
             <input type = "submit" value = "戻る">
         </form>
         
-        <input form = "insert_form" type = "submit" value = "完了">
+        <input form = "insert_form" type = "submit" value = "完了" onclick = "return check()">
 
 
     </body>
