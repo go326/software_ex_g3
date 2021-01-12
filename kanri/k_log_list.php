@@ -55,7 +55,12 @@ try {
 
 <body>
 <?php KLogRecodeP("work","table","line","attribute","befor","after"); ?>
-
+<footer>
+    <br><br>
+    <center>
+      <input type="button" onclick="location.href='k_top.html'" value="TOPへ戻る">
+    </center>
+  </footer>
   <!-- Management -->
   <table>
   <tr valign="top">
@@ -67,7 +72,6 @@ try {
         <th>変更属性</th>
         <th>変更前</th>
         <th>変更後</th>
-
 
       </tr>
     <?php KLogListP(); echo $res; ?>
