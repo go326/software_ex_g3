@@ -17,7 +17,7 @@
                     alert_text = manual_name;
                     //条件に一致する場合(メールアドレスが空の場合)
                     if (insert_form.manual_pdf.value != "*.pdf"){
-                        alert_text = manual_pdf;
+                        alert_text = alert_text_manual_pdf;
                     }
                     alert(alert_text);    //エラーメッセージを出力
                     return false;    //送信ボタン本来の動作をキャンセルします
