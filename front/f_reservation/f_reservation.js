@@ -104,7 +104,7 @@ function check(){
     }else{
         let checkTel = document.getElementById('tel').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
         document.getElementById('tel').value = checkTel;
-        if(!checkTel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)){//{ここの数字は}入力の数
+        if(!checkTel.match(/^([0-9]{10}|[0-9]{11})$/)){//{ここの数字は}入力の数
             message += "・電話番号を正しく入力してください\n";
             send = false;
         }

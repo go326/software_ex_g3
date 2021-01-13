@@ -12,13 +12,13 @@
 
     <body>
     <header>
-        <h1>ユーザ情報変更<h1>
+        <h1>ユーザ情報変更</h1>
     <header>
     <div id="main">
         <form action="" method="post">
-        <p>ユーザID  :<input type="text" name="kuu_id" minlength="1" maxlength="12" required></p>
+        <p>ユーザID  :<input type="number" name="kuu_id" minlength="1" maxlength="12" required></p>
         <p>ユーザ名  :<input type="text" name="kuu_name" minlength="1" maxlength="16" required></p>
-        <p>パスワード:<input type="password" name="kuu_pass" minlength="1" required></p>
+        <p>パスワード:<input type="password" name="kuu_pass" minlength="1" maxlength="16" required></p>
 
         <p>ユーザ権限</p>
         <p>
@@ -33,10 +33,12 @@
         <p>
         <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
         <input type="submit" name="ku_edit" value="登録">
-        <input type="submit" name="ku_del" value="削除">
         <p>
-
         </form>
+        <form action="" method="post">
+        <input type="submit" name="ku_del" value="削除">
+        </form>
+
         <?php KUserEditP(); ?>
         <?php KUserDelP(); ?>
 
