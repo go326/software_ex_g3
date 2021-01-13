@@ -33,10 +33,12 @@
         <p>
         <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
         <input type="submit" name="ku_edit" value="登録">
-        <input type="submit" name="ku_del" value="削除">
         <p>
-
         </form>
+        <form action="" method="post">
+        <input type="submit" name="ku_del" value="削除">
+        </form>
+
         <?php KUserEditP(); ?>
         <?php KUserDelP(); ?>
 
