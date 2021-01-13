@@ -13,9 +13,13 @@
         <script type="text/javascript">
             function check(){
                 const manual_name = "マニュアル名を入力してください\n";
+                const manual_pdf = "PDFを指定してください\n";
                 var alert_text;
                 if (manual_edit.manual_name.value == ""){
                     alert_text = manual_name;
+                    if (manual_edit.manual_pdf.value != "*.pdf"){
+                        alert_text = alert_text + manual_pdf;
+                    }
                     //条件に一致する場合(メールアドレスが空の場合)
                     alert(alert_text);    //エラーメッセージを出力
                     return false;    //送信ボタン本来の動作をキャンセルします
