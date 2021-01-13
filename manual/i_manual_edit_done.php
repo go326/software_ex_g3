@@ -82,7 +82,7 @@ function IManualUploadP(){
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
 
-        echo ($manual_number."<br>".$manual_name."<br>");
+        echo ($manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
         //ファイル名がmanual_file_nameになる
     if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
         echo ("if-test");
