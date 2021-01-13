@@ -18,7 +18,7 @@
         <form action="" method="post">
         <p>ユーザID  :<input type="number" name="kuu_id" minlength="1" maxlength="12" required></p>
         <p>ユーザ名  :<input type="text" name="kuu_name" minlength="1" maxlength="16" required></p>
-        <p>パスワード:<input type="password" name="kuu_pass" minlength="1" required></p>
+        <p>パスワード:<input type="password" name="kuu_pass" minlength="1" maxlength="16" required></p>
 
         <p>ユーザ権限</p>
         <p>
