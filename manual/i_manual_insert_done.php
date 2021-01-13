@@ -77,8 +77,7 @@ function IManualUploadP(){
 
         //$manual_file_name は定義済
         IManualInsertP($manual_number,$manual_name,$manual_file_name);
-    }
-
+        
     //戻るボタン
     $back_URL = "i_manual_select.php";
     echo ("<form action = ".$back_URL.">");
