@@ -71,8 +71,8 @@ function IManualUploadP(){
         $manual_name = $_POST["manual_name"];
         //ファイル名がmanual_file_nameになる
         $manual_file_name = IManualUploadP();
-        if($manual_file_name != "*.pdf"){
-            IManualEditP($manual_number,$manual_name,$manual_file_name);
+        if(preg_match($manual_file_name, ".pdf")){
+            IManualEditP($manual_number, $manual_name, $manual_file_name);
         }
 
         //echo ($manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
