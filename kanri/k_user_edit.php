@@ -12,7 +12,7 @@
 
     <body>
     <header>
-        <h1>ユーザ情報変更<h1>
+        <h1>ユーザ情報変更</h1>
     <header>
     <div id="main">
         <form action="" method="post">
