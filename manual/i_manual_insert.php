@@ -11,10 +11,14 @@
         <script type="text/javascript">
             function check(){
                 const manual_name = "マニュアル名を入力してください\n";
+                const manual_pdf = "PDFを指定してください\n";
                 var alert_text;
                 if (insert_form.manual_name.value == ""){
                     alert_text = manual_name;
                     //条件に一致する場合(メールアドレスが空の場合)
+                    if (insert_form.manual_pdf.value == "*.pdf"){
+                        alert_text = manual_pdf;
+                    }
                     alert(alert_text);    //エラーメッセージを出力
                     return false;    //送信ボタン本来の動作をキャンセルします
                 }else{
@@ -55,7 +59,7 @@
                         echo ("</td>\n");
 
                         echo ("<td>");
-                        echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required multiple>");
+                        echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required>");
                         echo ("</td>\n");
 
                     ?>
