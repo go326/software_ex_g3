@@ -76,18 +76,12 @@ function IManualUploadP(){
         </header>
     <?php
         //清掃情報更新
-
-        $manual_file_name = IManualUploadP();
-        echo ("test");
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
-
-        echo ($manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
         //ファイル名がmanual_file_nameになる
-        echo ("if-test");
-        $manual_number = $_POST["manual_number"];
-        $manual_name = $_POST["manual_name"];
-        //$manual_url = $_POST["manual_url"];
+        $manual_file_name = IManualUploadP();
+
+        //echo ($manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
         IManualEditP($manual_number,$manual_name,$manual_file_name);
     ?>
     </body>
