@@ -12,14 +12,10 @@
         <link rel="stylesheet" href="./manual_select.css" type="text/css">
         <script type="text/javascript">
             function check(){
-                const question_name = "よくある質問を入力してください\n";
-                const question_result = "解答例を入力してください\n";
+                const manual_name = "マニュアル名を入力してください\n";
                 var alert_text;
-                if (manual_edit.question_name.value == ""){
-                    alert_text = question_name;
-                    if (manual_edit.question_result.value == ""){
-                        alert_text = alert_text + question_result;
-                    }
+                if (manual_edit.manual_name.value == ""){
+                    alert_text = manual_name;
                     //条件に一致する場合(メールアドレスが空の場合)
                     alert(alert_text);    //エラーメッセージを出力
                     return false;    //送信ボタン本来の動作をキャンセルします
