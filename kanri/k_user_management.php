@@ -129,6 +129,7 @@ if ($flag == 0) {
                     exit;
                 }
             }
+            $flag = 0;
         }
         // DELETE
         function KUserDelP()
