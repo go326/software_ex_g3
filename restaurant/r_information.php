@@ -71,7 +71,7 @@ input{
 }
 
 </style>
-<script type="text/javascript">
+<script type="text/javascript"></script>
 //HTMLからの呼び出し
 
 </head>
