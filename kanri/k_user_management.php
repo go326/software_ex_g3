@@ -10,6 +10,7 @@ $sql = "";
 $res = "";
 
 $eid = "";
+$flag = 0;
 
 $id = "";
 $name = "";
@@ -31,71 +32,71 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
     }
     $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
     echo $test_alert;
-    header("Location: k_user_screen.php");
-    exit;
+    $flag = 1;
 }
 
+if ($flag == 0) {
+    try {
+        $pdo = new PDO($dsn, $user, $password);
 
-try {
-    $pdo = new PDO($dsn, $user, $password);
+        function KUserManagementP()
+        {
+            global $pdo, $sql, $res;
+            $sql = "SELECT * FROM user";
+            $stmt = $pdo->query($sql);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $res .= "</tr><td>";
+                $res .= "<form action='k_user_edit.php' method='post'>";
+                $res .= "<button type='submit' name='eid' value='{$row['user_id']}'> {$row['user_id']} </button>";
+                $res .= "</form>";
+                $res .= "</td><td>";
+                $res .= $row['user_name'];
+                $res .= "</td></tr align ='center'>";
+            }
+        }
 
-    function KUserManagementP()
-    {
-        global $pdo, $sql, $res;
-        $sql = "SELECT * FROM user";
-        $stmt = $pdo->query($sql);
-        $stmt->execute();
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $res .= "</tr><td>";
-            $res .= "<form action='k_user_edit.php' method='post'>";
-            $res .= "<button type='submit' name='eid' value='{$row['user_id']}'> {$row['user_id']} </button>";
-            $res .= "</form>";
-            $res .= "</td><td>";
-            $res .= $row['user_name'];
-            $res .= "</td></tr align ='center'>";
+        // INSERT
+        function KUserInputP()
+        {
+            global $pdo, $sql, $id, $name, $pass, $auth;
+            if (isset($_POST['input'])) {
+                $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                header("Location: k_user_screen.php");
+                exit;
+            }
         }
-    }
-
-    // INSERT
-    function KUserInputP()
-    {
-        global $pdo, $sql, $id, $name, $pass, $auth;
-        if (isset($_POST['input'])) {
-            $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-            header("Location: k_user_screen.php");
-            exit;
+        // UPDATE
+        function KUserEditP()
+        {
+            global $pdo, $sql, $eid, $id, $name, $pass, $auth;
+            if (isset($_POST['edit'])) {
+                $eid = $_SESSION['edit'];
+                $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                header("Location: k_user_screen.php");
+                exit;
+            }
         }
-    }
-    // UPDATE
-    function KUserEditP()
-    {
-        global $pdo, $sql, $eid, $id, $name, $pass, $auth;
-        if (isset($_POST['edit'])) {
-            $eid = $_SESSION['edit'];
-            $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-            header("Location: k_user_screen.php");
-            exit;
+        // DELETE
+        function KUserDelP()
+        {
+            global $pdo, $sql, $eid;
+            if (isset($_POST['del'])) {
+                $eid = $_SESSION['del'];
+                $sql = "DELETE FROM user WHERE user_id = '$eid'";
+                echo $sql;
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                header("Location: k_user_screen.php");
+                exit;
+            }
         }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        exit;
     }
-    // DELETE
-    function KUserDelP()
-    {
-        global $pdo, $sql, $eid;
-        if (isset($_POST['del'])) {
-            $eid = $_SESSION['del'];
-            $sql = "DELETE FROM user WHERE user_id = '$eid'";
-            echo $sql;
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-            header("Location: k_user_screen.php");
-            exit;
-        }
-    }
-} catch (PDOException $e) {
-    echo $e->getMessage();
-    exit;
 }
