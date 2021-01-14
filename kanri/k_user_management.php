@@ -27,7 +27,7 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-        $auth = implode($_POST['auth']);
+        $auth = implode("", $_POST["auth"]);
     }
     $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
     echo $test_alert;
