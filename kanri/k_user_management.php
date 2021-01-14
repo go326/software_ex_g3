@@ -55,19 +55,19 @@ if ($flag == 0) {
                 $auth4 = "";
                 $auth5 = "";
                 if (strpos($row['authority'], '1') !== false) {
-                    $auth1 .= "・フロント";
+                    $auth1 .= "フロント ";
                 }
                 if (strpos($row['authority'], '2') !== false) {
-                    $auth2 .= "・清掃 ";
+                    $auth2 .= "清掃 ";
                 }
                 if (strpos($row['authority'], '3') !== false) {
-                    $auth3 .= "・レストラン ";
+                    $auth3 .= "レストラン ";
                 }
                 if (strpos($row['authority'], '4') !== false) {
-                    $auth4 .= "・アルバイト ";
+                    $auth4 .= "アルバイト ";
                 }
                 if (strpos($row['authority'], '5') !== false) {
-                    $auth5 .= "・管理者 ";
+                    $auth5 .= "管理者 ";
                 }
                 $res .= "</tr><td>";
                 $res .= "<form action='k_user_edit.php' method='post'>";
