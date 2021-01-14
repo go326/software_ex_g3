@@ -1,116 +1,116 @@
-<?php
-// セッション開始と初期化
-session_start();
-unset($_SESSION['fee_id']);
-unset($_SESSION['fee_room']);
-unset($_SESSION['fee_name']);
-unset($_SESSION['fee_date']);
-unset($_SESSION['fee_place']);
-unset($_SESSION['fee_fee']);
-unset($_SESSION['fee_content']);
-unset($_SESSION['fee_remark']);
+    <?php
+    // セッション開始と初期化
+    session_start();
+    unset($_SESSION['fee_id']);
+    unset($_SESSION['fee_room']);
+    unset($_SESSION['fee_name']);
+    unset($_SESSION['fee_date']);
+    unset($_SESSION['fee_place']);
+    unset($_SESSION['fee_fee']);
+    unset($_SESSION['fee_content']);
+    unset($_SESSION['fee_remark']);
 
-// 変数宣言
+    // 変数宣言
 
-// DB
-$dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
-$user = 'admin';
-$password = 'software_ex_g3';
+    // DB
+    $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
+    $user = 'admin';
+    $password = 'software_ex_g3';
 
-// sql文
-$rf_sql = "";
+    // sql文
+    $rf_sql = "";
 
-// 表示用
-$res_room = "";
-$res_name = "";
-$res_date = "";
-
-
-$id = "";
-$date = "";
-$date = date('Y-m-d H:i:s');
-
-// 予約IDの保存
-$_SESSION['fee_id'] = "2"; //（仮）予約ID
-//$_SESSION['fee_id'] = $_POST['fae'];
-$id = $_SESSION['fee_id'];
+    // 表示用
+    $res_room = "";
+    $res_name = "";
+    $res_date = "";
 
 
-try {
-  $pdo = new PDO($dsn, $user, $password);
+    $id = "";
+    $date = "";
+    $date = date('Y-m-d H:i:s');
 
-  function FeeSelectP()
-  {
-    global $pdo, $rf_sql, $res_room, $res_name, $res_date, $id, $date;
-
-    // データの取得
-    $rf_sql = "SELECT * FROM customer WHERE customer.reseravetion_id = '$id'";
-    $stmt = $pdo->query($rf_sql);
-    $stmt->execute();
-    $row = $stmt->fetch();
-
-    // 表示データの格納
-    $res_room = $row['room_1'];
-    $res_name = $row['customer_name'];
-    $res_date = substr($date, 0, 10);
-
-    // セッションに保存
-    $_SESSION['fee_room'] = $row['room_1'];
-    $_SESSION['fee_name'] = $row['customer_name'];
-    $_SESSION['fee_date'] = $date;
-  }
-} catch (PDOException $e) {
-  echo $e->getMessage();
-  exit;
-}
-?>
+    // 予約IDの保存
+    $_SESSION['fee_id'] = "2"; //（仮）予約ID
+    //$_SESSION['fee_id'] = $_POST['fae'];
+    $id = $_SESSION['fee_id'];
 
 
-<!DOCTYPE html>
-<html>
+    try {
+    $pdo = new PDO($dsn, $user, $password);
 
-<head>
-  <!--文字コードUTF-8-->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" href="../f_reservation/f_input.css" type="text/css">
-</head>
+    function FeeSelectP()
+    {
+        global $pdo, $rf_sql, $res_room, $res_name, $res_date, $id, $date;
 
-<body>
-  <!--ヘッダー-->
-  <header>
-    <h1>追加料金編集画面</h1>
-  </header>
+        // データの取得
+        $rf_sql = "SELECT * FROM customer WHERE customer.reseravetion_id = '$id'";
+        $stmt = $pdo->query($rf_sql);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        // 表示データの格納
+        $res_room = $row['room_1'];
+        $res_name = $row['customer_name'];
+        $res_date = substr($date, 0, 10);
+
+        // セッションに保存
+        $_SESSION['fee_room'] = $row['room_1'];
+        $_SESSION['fee_name'] = $row['customer_name'];
+        $_SESSION['fee_date'] = $date;
+    }
+    } catch (PDOException $e) {
+    echo $e->getMessage();
+    exit;
+    }
+    ?>
 
 
-  <!-- DBからの取得 -->
-  <?php FeeSelectP(); ?>
+    <!DOCTYPE html>
+    <html>
 
-  <!--メイン-->
-  <div id="main">
-    <form method="POST" action="f_addfee_confimation.php">
-      <dl>
+    <head>
+    <!--文字コードUTF-8-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../f_reservation/f_input.css" type="text/css">
+    </head>
 
-        <dt>部屋番号</dt>
-        <dd><?php echo $res_room; ?></dd>
-        <dt>氏名</dt>
-        <dd><?php echo $res_name; ?></dd>
-        <dt>日付</dt>
-        <dd><?php echo $res_date; ?></dd>
-        <dt>場所</dt>
-        <dd><input type="text" id="place" name="place"></dd>
-        <dt>追加料金(円)</dt>
-        <dd><input type="text" id="fee" name="fee"></dd>
-        <dt>内容</dt>
-        <dd><input type="text" id="content" name="content"></dd>
-        <dt>備考</dt>
-        <dd><input type="text" name="remark"></dd>
-      </dl>
-      <ul>
-        <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li>
-        <li><input type="submit" name="edit" value="確認"></li>
-      </ul>
-    </form>
-  </div>
-</body>
+    <body>
+    <!--ヘッダー-->
+    <header>
+        <h1>追加料金編集画面</h1>
+    </header>
 
-</html>
+
+    <!-- DBからの取得 -->
+    <?php FeeSelectP(); ?>
+
+    <!--メイン-->
+    <div id="main">
+        <form method="POST" action="f_addfee_confimation.php">
+        <dl>
+
+            <dt>部屋番号</dt>
+            <dd><?php echo $res_room; ?></dd>
+            <dt>氏名</dt>
+            <dd><?php echo $res_name; ?></dd>
+            <dt>日付</dt>
+            <dd><?php echo $res_date; ?></dd>
+            <dt>場所</dt>
+            <dd><input type="text" id="place" name="place"></dd>
+            <dt>追加料金(円)</dt>
+            <dd><input type="text" id="fee" name="fee"></dd>
+            <dt>内容</dt>
+            <dd><input type="text" id="content" name="content"></dd>
+            <dt>備考</dt>
+            <dd><input type="text" name="remark"></dd>
+        </dl>
+        <ul>
+            <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li>
+            <li><input type="submit" name="edit" value="確認"></li>
+        </ul>
+        </form>
+    </div>
+    </body>
+
+    </html>

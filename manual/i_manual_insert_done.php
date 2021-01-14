@@ -72,18 +72,12 @@ function IManualUploadP(){
         //清掃情報更新
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
-        $manual_pdf = $_POST["manual_pdf"];
-        
-        $manual_file_name = IManualUploadP();
         //ファイル名がmanual_file_nameになる
+        $manual_file_name = IManualUploadP();
 
-    if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
-        $manual_number = $_POST["manual_number"];
-        $manual_name = $_POST["manual_name"];
         //$manual_file_name は定義済
         IManualInsertP($manual_number,$manual_name,$manual_file_name);
-    }
-
+        
     //戻るボタン
     $back_URL = "i_manual_select.php";
     echo ("<form action = ".$back_URL.">");

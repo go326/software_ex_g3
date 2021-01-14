@@ -20,15 +20,6 @@ function IManualEditP($manual_number,$manual_name,$manual_url){
         echo $e->getMessage();
         exit;
     }
-    $back_URL = "i_manual_select.php";
-
-    echo ("<form action = ".$back_URL.">");
-    echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
-    echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
-    echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
-    echo ("</div>");    //css-submitボタン終わり
-    echo ("</div>");    //css中央揃え終わり
-    echo ("</form>");
 }
 
 function IManualUploadP(){
@@ -78,17 +69,22 @@ function IManualUploadP(){
         //清掃情報更新
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
-        $manual_pdf = $_POST["manual_pdf"];
-
-        $manual_file_name = IManualUploadP();
-
         //ファイル名がmanual_file_nameになる
-    if(isset($_POST["manual_number"]) && isset($_POST["manual_name"]) && ($manual_file_name != 0)){
-        $manual_number = $_POST["manual_number"];
-        $manual_name = $_POST["manual_name"];
-        //$manual_url = $_POST["manual_url"];
-        IManualEditP($manual_number,$manual_name,$manual_file_name);
-    }
+        $manual_file_name = IManualUploadP();
+        if(preg_match($manual_file_name, ".pdf")){
+            IManualEditP($manual_number, $manual_name, $manual_file_name);
+        }
+
+        //echo ($manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
+        
+        $back_URL = "i_manual_select.php";
+        echo ("<form action = ".$back_URL.">");
+        echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
+        echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
+        echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
+        echo ("</div>");    //css-submitボタン終わり
+        echo ("</div>");    //css中央揃え終わり
+        echo ("</form>");
     ?>
     </body>
 </html>
