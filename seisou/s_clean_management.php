@@ -97,7 +97,6 @@ function SCleanMainP(){
                     </form>
                 </div>
             <!--</div>-->
-<<<<<<< HEAD
 
             <!--更新ボタン-->
             <form action = "s_clean_management.php">
@@ -109,7 +108,6 @@ function SCleanMainP(){
                 echo ($date."<br>");
                 $next_date = date("Y-m-d", strtotime("+1 day"));
             ?>
-=======
             
             <div class="right">
                 <!--日付取得-->
@@ -119,7 +117,6 @@ function SCleanMainP(){
                     $next_date = date("Y-m-d", strtotime("+1 day"));
                 ?>
             </div>
->>>>>>> 0b1aa343cc259a95059b3646eeed05886e505c5a
 
             <span class = "sample0"><button class = "bg_color0"></button></span>掃除していない、予約なしの状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
