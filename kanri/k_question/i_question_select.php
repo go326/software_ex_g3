@@ -38,64 +38,64 @@
                     echo ("</ul>");
                 }
             ?>
-        </header>
-
-        <!--よくある質問一覧画面の作成-->
-        <table>
-            <!--各列のタイトルの作成-->
-            <tr>
-                <th>質問No.</th>
-                <th>よくある質問</th>
-                <th>解答例</th>
-            </tr>
-
-            <?php
-                //質問数だけループする。
-                $question_count = 0; //質問の項目数のカウント
-                for ($tr = 0; $tr < $NUM_OF_QUESTION; $tr++){
-                    echo ("<tr>");
-                    $question_count++;//次の質問へ(trでも良いよね？)
-                    for ($td = 0; $td < $LINE_BREAK ; $td++){
-                        echo ("<td>");
-                        if($td == 0){
-                            //0セル表示開始
-                            //formがget方式だがpostにする予定最悪このまま
-                            $question_number = ("question_number");
-                            $question_text = IQuestionManagemantP($question_number, $question_count);
-                        }else if($td == 1){
-                            //１セル目の処理(question_nameを取り出す。)
-                            $question_name = ("question_name");
-                            $question_text = IQuestionManagemantP($question_name, $question_count);
-                        }else if($td == 2){
-                            //2セル目の処理(question_resultを取り出す。)
-                            $question_result = ("question_result");
-                            $question_text = IQuestionManagemantP($question_result, $question_count);
-                        }
-                        //セルに取り出した値を出力する。
-                        if($user_auth == 1 && $td == 0){
-                            echo ("<form method=\"get\" action = \"i_question_edit.php\">");
-                            //質問番号とそのボタンなりの入力を配置
-                            echo("<button type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
-                        }
-
-                        echo ($question_text);
-
-                        if($user_auth == 1 && $td == 0){
-                            echo ("</button>");
-                            echo("</form>");
-                        }
-                        echo ("</td>\n");
-                    }
-                    echo ("</tr>");
-                }    
-            ?>
             
+
+            <!--よくある質問一覧画面の作成-->
+            <table>
+                <!--各列のタイトルの作成-->
+                <tr>
+                    <th>質問No.</th>
+                    <th>よくある質問</th>
+                    <th>解答例</th>
+                </tr>
+
+                <?php
+                    //質問数だけループする。
+                    $question_count = 0; //質問の項目数のカウント
+                    for ($tr = 0; $tr < $NUM_OF_QUESTION; $tr++){
+                        echo ("<tr>");
+                        $question_count++;//次の質問へ(trでも良いよね？)
+                        for ($td = 0; $td < $LINE_BREAK ; $td++){
+                            echo ("<td>");
+                            if($td == 0){
+                                //0セル表示開始
+                                //formがget方式だがpostにする予定最悪このまま
+                                $question_number = ("question_number");
+                                $question_text = IQuestionManagemantP($question_number, $question_count);
+                            }else if($td == 1){
+                                //１セル目の処理(question_nameを取り出す。)
+                                $question_name = ("question_name");
+                                $question_text = IQuestionManagemantP($question_name, $question_count);
+                            }else if($td == 2){
+                                //2セル目の処理(question_resultを取り出す。)
+                                $question_result = ("question_result");
+                                $question_text = IQuestionManagemantP($question_result, $question_count);
+                            }
+                            //セルに取り出した値を出力する。
+                            if($user_auth == 1 && $td == 0){
+                                echo ("<form method=\"get\" action = \"i_question_edit.php\">");
+                                //質問番号とそのボタンなりの入力を配置
+                                echo("<button type = \"submit\" value = \"".$question_text."\" name = \"".$question_number."\">");
+                            }
+
+                            echo ($question_text);
+
+                            if($user_auth == 1 && $td == 0){
+                                echo ("</button>");
+                                echo("</form>");
+                            }
+                            echo ("</td>\n");
+                        }
+                        echo ("</tr>");
+                    }    
+                ?>
+            </table>
             
             <!--戻るボタン-->
             <form method="get" action = "../k_top.html">
                 <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
             </form>
-        </table>
+        </header>    
     </body>
 </html>
 
