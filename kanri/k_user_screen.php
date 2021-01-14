@@ -20,6 +20,8 @@
             <tr>
                 <th> ユーザID </th>
                 <th> ユーザ名 </th>
+                <th> 権限 </th>
+
             </tr>
             <?php KUserManagementP();
             echo $res; ?>
