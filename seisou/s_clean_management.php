@@ -90,13 +90,13 @@ function SCleanMainP(){
             <h1> 清掃情報管理画面</h1>
             
             <!--戻るボタン-->
-            <div class="button-position-c">
+            <!--<div class="button-position-c">-->
                 <div class="input#submit_button">
                     <form action = "../i_general_top.html">
                         <input id="submit_button" type="submit" name="submit"value = "総合TOP画面へ戻る">
                     </form>
                 </div>
-            </div>
+            <!--</div>-->
             
             <!--日付取得-->
             <?php
