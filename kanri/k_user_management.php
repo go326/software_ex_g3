@@ -31,7 +31,8 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
     }
     $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
     echo $test_alert;
-    exit();
+    header("Location: k_user_screen.php");
+    exit;
 }
 
 
