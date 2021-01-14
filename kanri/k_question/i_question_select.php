@@ -89,13 +89,13 @@
                     echo ("</tr>");
                 }    
             ?>
+            
+            
+            <!--戻るボタン-->
+            <form method="get" action = "../k_top.html">
+                <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+            </form>
         </table>
-        
-        <!--戻るボタン-->
-        <form method="get" action = "../k_top.html">
-            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
-        </form>
-        
     </body>
 </html>
 
