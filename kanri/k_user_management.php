@@ -29,10 +29,11 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
         $name = $_POST['name'];
         $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
         $auth = implode("", $_POST["auth"]);
+    } else {
+        $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+        echo $test_alert;
+        $flag = 1;
     }
-    $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-    echo $test_alert;
-    $flag = 1;
 }
 
 if ($flag == 0) {
