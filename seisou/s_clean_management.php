@@ -25,8 +25,8 @@
 
 //総合TOPからの遷移時にform(get)でroginを与えてもらう。
 //ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
-    if(isset($_GET["rogin"])){
-        //SCleanMainP();
+    if(isset($_GET["update"])){
+        SCleanMainP();
     }
 
 //ログインしたときに部屋情報テーブルを更新する関数
@@ -99,15 +99,11 @@ function SCleanMainP(){
             <!--</div>-->
 
             <!--更新ボタン-->
-            <form action = "s_clean_management.php">
-
-                <input type>            
-            <!--日付取得-->
-            <?php
-                $date = date("Y-m-d");
-                echo ($date."<br>");
-                $next_date = date("Y-m-d", strtotime("+1 day"));
-            ?>
+            <form action = "s_clean_management.php" method="get">
+                <button type = "submit" name = "update" value = "1">
+                更新    
+                </button>
+            </form>
             
             <div class="right">
                 <!--日付取得-->
@@ -142,8 +138,6 @@ function SCleanMainP(){
                         }
                         //1セルの表示開始
                         echo ("<td>");
-                        //1部屋のリンク現在はボタンで作成
-                        //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
                         $SCMroom_clean = SCleanManagemantP($ROOM_DATA[$table][$room_count]);
                         //bg_color0,1,2あるがこれを文字列結合で判断している。
                         echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
