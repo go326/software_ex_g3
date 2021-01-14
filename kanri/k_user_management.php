@@ -1,6 +1,6 @@
 <?php
 session_start();
-unset($_SESSION['eid']);
+
 // 変数
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
@@ -42,6 +42,7 @@ if ($flag == 0) {
 
         function KUserManagementP()
         {
+            unset($_SESSION['eid']);
             global $pdo, $sql, $res;
             $sql = "SELECT * FROM user";
             $stmt = $pdo->query($sql);
