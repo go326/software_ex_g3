@@ -76,17 +76,23 @@ function IManualUploadP(){
         $manual_file_name = IManualUploadP();
 
         //$manual_file_name は定義済
-        IManualInsertP($manual_number,$manual_name,$manual_file_name);
+        if(strpos($manual_file_name, '.pdf') !== false){
+            IManualEditP($manual_number, $manual_name, $manual_file_name);
+        }else{
+            echo ("<div class=\"button-area\">");    //css始まり
+            echo ("登録に失敗しました。<br>");
+            echo ("</div>"); //css終わり
+        }
         
-    //戻るボタン
-    $back_URL = "i_manual_select.php";
-    echo ("<form action = ".$back_URL.">");
-    echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
-    echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
-    echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
-    echo ("</div>");    //css-submitボタン終わり
-    echo ("</div>");    //css中央揃え終わり
-    echo ("</form>");
+        //戻るボタン
+        $back_URL = "i_manual_select.php";
+        echo ("<form action = ".$back_URL.">");
+        echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
+        echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
+        echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
+        echo ("</div>");    //css-submitボタン終わり
+        echo ("</div>");    //css中央揃え終わり
+        echo ("</form>");
     ?>
     </body>
 </html>
