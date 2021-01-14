@@ -98,7 +98,7 @@ function SCleanMainP(){
                 </div>
             <!--</div>-->
             
-            <div class="left">
+            <div class="right">
                 <!--日付取得-->
                 <?php
                     $date = date("Y-m-d");

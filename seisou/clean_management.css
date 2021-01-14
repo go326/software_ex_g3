@@ -101,8 +101,8 @@ input#submit_button{
     right: 10%;*/
 }
 /*日付の左寄せ*/
-.left{
-    text-align: left;
+.right{
+    text-align: right;
 }
 /*ボタンの横並び 使ってない*/
 .button-position{
