@@ -10,6 +10,7 @@ $sql = "";
 $res = "";
 
 $eid = "";
+$authname = "";
 $flag = 0;
 
 $id = "";
@@ -43,17 +44,34 @@ if ($flag == 0) {
         function KUserManagementP()
         {
             unset($_SESSION['eid']);
-            global $pdo, $sql, $res;
+            global $pdo, $sql, $res, $authname;
             $sql = "SELECT * FROM user";
             $stmt = $pdo->query($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                if (strpos($row['authority'], '1') !== false) {
+                    $authname .= "フロント　";
+                }
+                if (strpos($row['authority'], '2') !== false) {
+                    $authname .= "清掃　";
+                }
+                if (strpos($row['authority'], '3') !== false) {
+                    $authname .= "レストラン　";
+                }
+                if (strpos($row['authority'], '4') !== false) {
+                    $authname .= "アルバイト　";
+                }
+                if (strpos($row['authority'], '5') !== false) {
+                    $authname .= "管理者　";
+                }
                 $res .= "</tr><td>";
                 $res .= "<form action='k_user_edit.php' method='post'>";
                 $res .= "<button type='submit' name='eid' value='{$row['user_id']}'> {$row['user_id']} </button>";
                 $res .= "</form>";
                 $res .= "</td><td>";
                 $res .= $row['user_name'];
+                $res .= "</td><td>";
+                $res .= $authname;
                 $res .= "</td></tr align ='center'>";
             }
         }
@@ -63,15 +81,11 @@ if ($flag == 0) {
         {
             global $pdo, $sql, $id, $name, $pass, $auth;
             if (isset($_POST['input'])) {
-                $test_alert = "<script type='text/javascript'>window.confirm(この内容で宜しいですか');</script>";
-                if ($test_alert) {
-
-                    $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute();
-                    header("Location: k_user_screen.php");
-                    exit;
-                }
+                $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                header("Location: k_user_screen.php");
+                exit;
             }
         }
         // UPDATE
