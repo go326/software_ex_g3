@@ -20,7 +20,6 @@ $auth = "";
 // 編集時のIDを記憶
 if (isset($_POST['eid'])) {
     $_SESSION['eid'] = $_POST['eid'];
-    $eid = $_SESSION['eid'];
 }
 
 // 入力情報の確認
@@ -75,6 +74,7 @@ if ($flag == 0) {
         {
             global $pdo, $sql, $eid, $id, $name, $pass, $auth;
             if (isset($_POST['edit'])) {
+                $eid = $_SESSION['eid'];
                 $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
@@ -87,6 +87,7 @@ if ($flag == 0) {
         {
             global $pdo, $sql, $eid;
             if (isset($_POST['del'])) {
+                $eid = $_SESSION['eid'];
                 $sql = "DELETE FROM user WHERE user_id = '$eid'";
                 echo $sql;
                 $stmt = $pdo->prepare($sql);
