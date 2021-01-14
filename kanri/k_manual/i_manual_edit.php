@@ -74,7 +74,7 @@
                     <td>
                         <?php
                             //2セル
-                            echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required multiple>");
+                            echo ("<input type=\"file\" name=\"manual_pdf\" accept=\".pdf\" required>");
                         ?>
                     </td>
 
