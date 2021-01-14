@@ -21,18 +21,18 @@ try {
     // 表の表示
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $room = $row['room_1'];
-        echo bool_stay($date, $room);
-
-        $rinfo .= "<tr><td>";
-        $rinfo .= "<form action='f_information_details.php' method='post'>";
-        $rinfo .= "<button type='submit' name='fid' ";
-        $rinfo .= "value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
-        $rinfo .= "</form>";
-        $rinfo .= "</td><td>";
-        $rinfo .= "{$row['adult']}</td><td>";
-        $rinfo .= "{$row['child']}</td><td>";
-        $rinfo .= "{$row['dinner_menu']}";
-        $rinfo .= "</td></tr>";
+        if (bool_stay($date, $room) != 0) {
+            $rinfo .= "<tr><td>";
+            $rinfo .= "<form action='f_information_details.php' method='post'>";
+            $rinfo .= "<button type='submit' name='fid' ";
+            $rinfo .= "value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
+            $rinfo .= "</form>";
+            $rinfo .= "</td><td>";
+            $rinfo .= "{$row['adult']}</td><td>";
+            $rinfo .= "{$row['child']}</td><td>";
+            $rinfo .= "{$row['dinner_menu']}";
+            $rinfo .= "</td></tr>";
+        }
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
