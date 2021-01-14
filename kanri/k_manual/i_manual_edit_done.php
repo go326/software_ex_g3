@@ -72,8 +72,16 @@ function IManualUploadP(){
         //ファイル名がmanual_file_nameになる
         $manual_file_name = IManualUploadP();
         echo ("start".$manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
+
         if(preg_match($manual_file_name, ".pdf")){
             IManualEditP($manual_number, $manual_name, $manual_file_name);
+            echo ("test1<br>");
+        }
+
+        if(strpos($manual_file_name, '.pdf') !== false){
+            IManualEditP($manual_number, $manual_name, $manual_file_name);
+            echo ("test2<br>");
+
         }
 
         echo ("end".$manual_number."<br>".$manual_name."<br>".$manual_file_name."<br>");
