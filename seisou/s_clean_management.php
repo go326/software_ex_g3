@@ -98,12 +98,14 @@ function SCleanMainP(){
                 </div>
             <!--</div>-->
             
-            <!--日付取得-->
-            <?php
-                $date = date("Y-m-d");
-                echo ($date."<br>");
-                $next_date = date("Y-m-d", strtotime("+1 day"));
-            ?>
+            <div class="left">
+                <!--日付取得-->
+                <?php
+                    $date = date("Y-m-d");
+                    echo ($date."<br>");
+                    $next_date = date("Y-m-d", strtotime("+1 day"));
+                ?>
+            </div>
 
             <span class = "sample0"><button class = "bg_color0"></button></span>掃除していない、予約なしの状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
