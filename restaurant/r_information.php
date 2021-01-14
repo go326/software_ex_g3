@@ -22,7 +22,7 @@ try {
   bool_stay($date,$room);
 
   // SELECT
-  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1 AND stay_date = '$date' ";
+  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 0 AND stay_date = '$date' ";
   $stmt = $pdo->query($sql);
   $stmt->execute();
   
