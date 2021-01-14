@@ -84,13 +84,25 @@ if ($flag == 0) {
         // INSERT
         function KUserInputP()
         {
-            global $pdo, $sql, $id, $name, $pass, $auth;
+            global $pdo, $sql, $id, $name, $pass, $auth, $flag;
             if (isset($_POST['input'])) {
-                $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
-                $stmt = $pdo->prepare($sql);
+                $sql = "SELECT * FROM user";
+                $stmt = $pdo->query($sql);
                 $stmt->execute();
-                header("Location: k_user_screen.php");
-                exit;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($id == $row['user_id']) {
+                        $test_alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                        echo $test_alert;
+                        $flag = 1;
+                    }
+                }
+                if ($flag == 0) {
+                    $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    header("Location: k_user_screen.php");
+                    exit;
+                }
             }
         }
         // UPDATE
@@ -98,12 +110,24 @@ if ($flag == 0) {
         {
             global $pdo, $sql, $eid, $id, $name, $pass, $auth;
             if (isset($_POST['edit'])) {
-                $eid = $_SESSION['eid'];
-                $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
-                $stmt = $pdo->prepare($sql);
+                $sql = "SELECT * FROM user";
+                $stmt = $pdo->query($sql);
                 $stmt->execute();
-                header("Location: k_user_screen.php");
-                exit;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($id == $row['user_id']) {
+                        $test_alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                        echo $test_alert;
+                        $flag = 1;
+                    }
+                }
+                if ($flag == 0) {
+                    $eid = $_SESSION['eid'];
+                    $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    header("Location: k_user_screen.php");
+                    exit;
+                }
             }
         }
         // DELETE
