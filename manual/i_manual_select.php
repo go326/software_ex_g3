@@ -8,7 +8,7 @@
     $NUM_OF_MANUAL = IManualNumberP(); //全てのマニュアル数
     $LINE_BREAK = 2; //2個の要素tdで改行
 
-    $user_auth = 1;//管理者権限の有無(1,0);
+    $user_auth = 0;//管理者権限の有無(1,0);
     //html開始
 ?>
 
