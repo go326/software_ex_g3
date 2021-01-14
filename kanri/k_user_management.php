@@ -63,11 +63,15 @@ if ($flag == 0) {
         {
             global $pdo, $sql, $id, $name, $pass, $auth;
             if (isset($_POST['input'])) {
-                $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute();
-                header("Location: k_user_screen.php");
-                exit;
+                $test_alert = "<script type='text/javascript'>window.confirm(この内容で宜しいですか');</script>";
+                echo $test_alert;
+                if ($test_alert) {
+                    $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    header("Location: k_user_screen.php");
+                    exit;
+                }
             }
         }
         // UPDATE
