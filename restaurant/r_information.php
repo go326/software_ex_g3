@@ -24,8 +24,7 @@ try {
         if (bool_stay($date, $room) != 0) {
             $rinfo .= "<tr><td>";
             $rinfo .= "<form action='../front/f_information/f_information.php' method='post'>";
-            $rinfo .= "<button type='submit' name='ID' ";
-            $rinfo .= "value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
+            $rinfo .= "<button type='submit' name='ID' value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
             $rinfo .= "</form>";
             $rinfo .= "</td><td>";
             $rinfo .= "{$row['adult']}</td><td>";
