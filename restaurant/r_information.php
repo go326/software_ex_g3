@@ -1,5 +1,6 @@
 <!-- PHP -->
 <?php
+require("../front/f_customer.php");
 // 変数宣言
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
 $user = 'admin';
@@ -7,12 +8,21 @@ $password = 'software_ex_g3';
 $rinfo = "";
 $dt = new DateTime();
 $date = $dt->format('Y-m-d');
+$room = "";
 
 try {
   $pdo = new PDO($dsn, $user, $password);
-  // SELECT
-  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 0 AND stay_date = '$date' ";
 
+  $sql = "SELECT room_1 FROM customer";
+  $stmt = $pdo->query($sql);
+  $stmt->execute();
+  $row = $stmt->fetch();
+  $room = $row['room_1'];
+
+  bool_stay($date,$room);
+
+  // SELECT
+  $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 1 AND stay_date = '$date' ";
   $stmt = $pdo->query($sql);
   $stmt->execute();
   
@@ -72,7 +82,6 @@ input{
 
 </style>
 <script type="text/javascript"></script>
-//HTMLからの呼び出し
 
 </head>
 
