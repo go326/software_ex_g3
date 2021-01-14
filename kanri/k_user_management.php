@@ -50,19 +50,19 @@ if ($flag == 0) {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 if (strpos($row['authority'], '1') !== false) {
-                    $authname .= "フロント　";
+                    $authname .= "フロント ";
                 }
                 if (strpos($row['authority'], '2') !== false) {
-                    $authname .= "清掃　";
+                    $authname .= "清掃 ";
                 }
                 if (strpos($row['authority'], '3') !== false) {
-                    $authname .= "レストラン　";
+                    $authname .= "レストラン ";
                 }
                 if (strpos($row['authority'], '4') !== false) {
-                    $authname .= "アルバイト　";
+                    $authname .= "アルバイト ";
                 }
                 if (strpos($row['authority'], '5') !== false) {
-                    $authname .= "管理者　";
+                    $authname .= "管理者 ";
                 }
                 $res .= "</tr><td>";
                 $res .= "<form action='k_user_edit.php' method='post'>";
