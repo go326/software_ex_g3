@@ -10,7 +10,6 @@ $sql = "";
 $res = "";
 
 $eid = "";
-$authname = "";
 $flag = 0;
 
 $id = "";
@@ -44,11 +43,13 @@ if ($flag == 0) {
         function KUserManagementP()
         {
             unset($_SESSION['eid']);
-            global $pdo, $sql, $res, $authname;
+            global $pdo, $sql, $res;
+            static $authname = "";
             $sql = "SELECT * FROM user";
             $stmt = $pdo->query($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $authname = "";
                 if (strpos($row['authority'], '1') !== false) {
                     $authname .= "フロント ";
                 }
