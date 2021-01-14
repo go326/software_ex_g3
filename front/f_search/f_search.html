@@ -5,6 +5,7 @@
     <!--文字コードUTF-8-->
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
     <link rel="stylesheet" href="f_search.css" type="text/css">
+    <script src="search.js"></script>
 </head>
 
 <body>
@@ -22,9 +23,9 @@
                 <option value="customer">今後のご予約</option>
             </select><br>
             氏名　　：<input type="search" name="name" size="30" maxlength="50"><br>
-            電話番号：<input type="search" name="tel" size="30" maxlength="50"><br>
+            電話番号：<input type="search" id="tel" name="tel" size="30" maxlength="50"><br>
             <input type="button" onclick="location.href='../room.php'" value="戻る">
-            <input type="submit" name="search" value="完了">
+            <input type="submit" name="search" value="完了" onclick="removeHyphen();">
         </form>
     </div>
     </footer>
