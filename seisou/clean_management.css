@@ -100,6 +100,10 @@ input#submit_button{
     top: 7%;
     right: 10%;*/
 }
+/*日付の左寄せ*/
+.right{
+    text-align: right;
+}
 /*ボタンの横並び 使ってない*/
 .button-position{
     display: -webkit-flex;/*横並び(2行)*/
