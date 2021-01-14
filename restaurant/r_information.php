@@ -7,25 +7,26 @@ $password = 'software_ex_g3';
 $rinfo = "";
 $dt = new DateTime();
 $date = $dt->format('Y-m-d');
+
 try {
-  // DB接続
   $pdo = new PDO($dsn, $user, $password);
-  // DBの呼び出し
+  // SELECT
   $sql = "SELECT reseravetion_id,customer_name,adult,child,dinner_menu FROM customer WHERE is_dinner = 0 AND stay_date = '$date' ";
 
   $stmt = $pdo->query($sql);
   $stmt->execute();
-  // 表の作成(基本的にhtml文と同じ)
+  
+  // 表の表示
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $rinfo .= "<tr><td>";
     $rinfo .= "<form action='f_information_details.php' method='post'>";
     $rinfo .= "<button type='submit' name='fid' ";
-    $rinfo .= "value='" . $row['reseravetion_id'] . "'>" . $row['customer_name'] . "</button>";
+    $rinfo .= "value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
     $rinfo .= "</form>";
     $rinfo .= "</td><td>";
-    $rinfo .= $row['adult'] . "</td><td>";
-    $rinfo .= $row['child'] . "</td><td>";
-    $rinfo .= $row['dinner_menu'];
+    $rinfo .= "{$row['adult']}</td><td>";
+    $rinfo .= "{$row['child']}</td><td>";
+    $rinfo .= "{$row['dinner_menu']}";
     $rinfo .= "</td></tr>";
   }
 } catch (PDOException $e) {
