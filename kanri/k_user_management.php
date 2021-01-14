@@ -44,26 +44,30 @@ if ($flag == 0) {
         {
             unset($_SESSION['eid']);
             global $pdo, $sql, $res;
-            static $authname = "";
+            static $auth1 = "", $auth2 = "", $auth3 = "", $auth4 = "", $auth5 = "";
             $sql = "SELECT * FROM user";
             $stmt = $pdo->query($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $authname = "";
+                $auth1 = "";
+                $auth2 = "";
+                $auth3 = "";
+                $auth4 = "";
+                $auth5 = "";
                 if (strpos($row['authority'], '1') !== false) {
-                    $authname .= "フロント ";
+                    $auth1 .= "・フロント";
                 }
                 if (strpos($row['authority'], '2') !== false) {
-                    $authname .= "清掃 ";
+                    $auth2 .= "・清掃 ";
                 }
                 if (strpos($row['authority'], '3') !== false) {
-                    $authname .= "レストラン ";
+                    $auth3 .= "・レストラン ";
                 }
                 if (strpos($row['authority'], '4') !== false) {
-                    $authname .= "アルバイト ";
+                    $auth4 .= "・アルバイト ";
                 }
                 if (strpos($row['authority'], '5') !== false) {
-                    $authname .= "管理者 ";
+                    $auth5 .= "・管理者 ";
                 }
                 $res .= "</tr><td>";
                 $res .= "<form action='k_user_edit.php' method='post'>";
@@ -72,7 +76,7 @@ if ($flag == 0) {
                 $res .= "</td><td>";
                 $res .= $row['user_name'];
                 $res .= "</td><td>";
-                $res .= $authname;
+                $res .= $auth1 . $auth2 . $auth3 . $auth4 . $auth5;
                 $res .= "</td></tr align ='center'>";
             }
         }
