@@ -97,7 +97,11 @@ function SCleanMainP(){
                     </form>
                 </div>
             <!--</div>-->
-            
+
+            <!--更新ボタン-->
+            <form action = "s_clean_management.php">
+
+                <input type>            
             <!--日付取得-->
             <?php
                 $date = date("Y-m-d");
@@ -206,5 +210,9 @@ function SCleanNumberP($day_number, $room_number){
         exit;
     }
     return $number_people;
+}
+
+function SCleanUpdateP(){
+
 }
 ?>
