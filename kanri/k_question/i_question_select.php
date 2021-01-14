@@ -92,7 +92,7 @@
         </table>
         
         <!--戻るボタン-->
-        <form method="get" action = "i_mq_top.html">
+        <form method="get" action = "../k_top.html">
             <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
         </form>
         
