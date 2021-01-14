@@ -16,7 +16,7 @@
             <header>
                 <div id="main">
                     <form action="" method="post">
-                        <p>ユーザID :<input type="number" name="id" value="<?php echo $eid ?>" minlength="1" maxlength="12" required></p>
+                        <p>ユーザID :<input type="number" name="id" value="<?php echo $_SESSION['eid'] ?>" minlength="1" maxlength="12" required></p>
                         <p>ユーザ名 :<input type="text" name="name" minlength="1" maxlength="16" required></p>
                         <p>パスワード:<input type="password" name="pass" minlength="1" maxlength="16" required></p>
 
