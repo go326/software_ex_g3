@@ -23,7 +23,7 @@ try {
         $room = $row['room_1'];
         if (bool_stay($date, $room) != 0) {
             $rinfo .= "<tr><td>";
-            $rinfo .= "<form action='f_information_details.php' method='post'>";
+            $rinfo .= "<form action='f_information.php' method='post'>";
             $rinfo .= "<button type='submit' name='ID' ";
             $rinfo .= "value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
             $rinfo .= "</form>";
