@@ -104,6 +104,7 @@ if ($flag == 0) {
                     exit;
                 }
             }
+            $flag = 0;
         }
         // UPDATE
         function KUserEditP()
