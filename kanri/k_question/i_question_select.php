@@ -28,9 +28,11 @@
         <header>
             <h1> よくある質問一覧画面</h1>
             <!--戻るボタン-->
-            <form method="get" action = "../k_top.html">
-                <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
-            </form>
+            <div class="input#submit_button">
+                <form method="get" action = "../k_top.html">
+                    <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+                </form>
+            </div>
 
             <div class="right">
                 <!--日付取得-->
@@ -40,12 +42,14 @@
                     $next_date = date("Y-m-d", strtotime("+1 day"));
                 ?>
             </div>
-            <?php
-                if($user_auth == 1){
-                    echo ("<input type=\"button\" onclick=\"location.href='./i_question_insert.php?question_number=".($NUM_OF_QUESTION + 1)."'\" value=\"新規入力\">");
-                }
-            ?>
-            
+
+            <div class="input#submit_button">
+                <?php
+                    if($user_auth == 1){
+                        echo ("<input type=\"button\" onclick=\"location.href='./i_question_insert.php?question_number=".($NUM_OF_QUESTION + 1)."'\" value=\"新規入力\">");
+                    }
+                ?>
+            </div>
             
 
             <!--よくある質問一覧画面の作成-->
