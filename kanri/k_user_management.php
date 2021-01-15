@@ -1,107 +1,153 @@
-    <?php
-    session_start();
-    # var
-    $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
-    $user = 'admin';
-    $password = 'software_ex_g3';
-    $ku_sql = "";
-    $k_res = "";
+<?php
+session_start();
 
+// 変数
+$dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
+$user = 'admin';
+$password = 'software_ex_g3';
+
+$sql = "";
+$res = "";
+
+$eid = "";
+$flag = 0;
+
+$id = "";
+$name = "";
+$pass = "";
+$auth = "";
+
+// 編集時のIDを記憶
+if (isset($_POST['eid'])) {
+    $_SESSION['eid'] = $_POST['eid'];
+}
+
+// 入力情報の確認
+if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
+    if (isset($_POST['auth']) and is_array($_POST['auth'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $auth = implode("", $_POST["auth"]);
+    } else {
+        $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+        echo $test_alert;
+        $flag = 1;
+    }
+}
+
+if ($flag == 0) {
     try {
         $pdo = new PDO($dsn, $user, $password);
 
-        // SELECT
         function KUserManagementP()
         {
-        global $pdo, $ku_sql, $k_res;
-        $ku_sql = "SELECT * FROM user";
-        $stmt = $pdo->query($ku_sql);
-        $stmt->execute();
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $k_res .= "</tr><td>";
-            $k_res .= "<form action='k_user_edit.php' method='post'><button type='submit' name='kid' value='" . $row['user_id'] . "'>" . $row['user_id'] . "</button></form>";
-            $k_res .= "</td><td>";
-            $k_res .= $row['user_name'];
-            $k_res .= "</td></tr align ='center'>";
-        }
+            unset($_SESSION['eid']);
+            global $pdo, $sql, $res;
+            static $auth1 = "", $auth2 = "", $auth3 = "", $auth4 = "", $auth5 = "";
+            $sql = "SELECT * FROM user";
+            $stmt = $pdo->query($sql);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $auth1 = "";
+                $auth2 = "";
+                $auth3 = "";
+                $auth4 = "";
+                $auth5 = "";
+                if (strpos($row['authority'], '1') !== false) {
+                    $auth1 .= "フロント ";
+                }
+                if (strpos($row['authority'], '2') !== false) {
+                    $auth2 .= "清掃 ";
+                }
+                if (strpos($row['authority'], '3') !== false) {
+                    $auth3 .= "レストラン ";
+                }
+                if (strpos($row['authority'], '4') !== false) {
+                    $auth4 .= "アルバイト ";
+                }
+                if (strpos($row['authority'], '5') !== false) {
+                    $auth5 .= "管理者 ";
+                }
+                $res .= "</tr><td>";
+                $res .= "<form action='k_user_edit.php' method='post'>";
+                $res .= "<button type='submit' name='eid' value='{$row['user_id']}'> {$row['user_id']} </button>";
+                $res .= "</form>";
+                $res .= "</td><td>";
+                $res .= $row['user_name'];
+                $res .= "</td><td>";
+                $res .= $auth1 . $auth2 . $auth3 . $auth4 . $auth5;
+                $res .= "</td></tr align ='center'>";
+            }
         }
 
         // INSERT
         function KUserInputP()
         {
-        global $pdo, $ku_sql, $hash;
-        static $ku_id = "", $ku_name = "", $ku_pass = "", $ku_auth = "";
-        if (isset($_POST['ku_input'])) {
-            if (isset($_POST['kui_id']) and isset($_POST['kui_name']) and isset($_POST['kui_pass'])) {
-            if (isset($_POST['kui_auth']) and is_array($_POST['kui_auth'])) {
-                $ku_id = $_POST['kui_id'];
-                $ku_name = $_POST['kui_name'];
-                $ku_pass = $_POST['kui_pass'];
-                $hash = password_hash($ku_pass, PASSWORD_DEFAULT);
-                $ku_auth = implode($_POST['kui_auth']);
-                $ku_sql = "INSERT INTO user VALUES('$ku_id','$ku_name','$hash','$ku_auth')";
-                $stmt = $pdo->prepare($ku_sql);
+            global $pdo, $sql, $id, $name, $pass, $auth, $flag;
+            if (isset($_POST['input'])) {
+                $sql = "SELECT * FROM user";
+                $stmt = $pdo->query($sql);
                 $stmt->execute();
-                header("Location: k_user_screen.php");
-                exit;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($id == $row['user_id']) {
+                        $test_alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                        echo $test_alert;
+                        $flag = 1;
+                    }
+                }
+                if ($flag == 0) {
+                    $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    header("Location: k_user_screen.php");
+                    exit;
+                }
             }
-            $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-            echo $test_alert;
-            }
-        }
+            $flag = 0;
         }
         // UPDATE
         function KUserEditP()
         {
-        global $pdo, $ku_sql;
-        static $kid = "", $kuu_id = "", $kuu_name = "", $kuu_pass = "", $kuu_auth = "", $hash = "";
-        if(isset($_POST['kid'])){
-            $_SESSION['ku_edit'] = $_POST['kid'];
-        }
-        if (isset($_POST['ku_edit'])) {
-            if (isset($_POST['kuu_id']) and isset($_POST['kuu_name']) and isset($_POST['kuu_pass'])) {
-            if (isset($_POST['kuu_auth']) and is_array($_POST['kuu_auth'])) {
-                
-                $kid = $_SESSION['ku_edit'];
-                $kuu_id = $_POST['kuu_id'];
-                $kuu_name = $_POST['kuu_name'];
-                $kuu_pass = $_POST['kuu_pass'];
-                $hash = password_hash($kuu_pass, PASSWORD_DEFAULT);
-                $kuu_auth = implode($_POST['kuu_auth']);
-                $ku_sql = "UPDATE user SET user_id = '$kuu_id', user_name = '$kuu_name', user_pass = '$hash', authority = '$kuu_auth' WHERE user_id = '$kid' ";
-                $stmt = $pdo->prepare($ku_sql);
+            global $pdo, $sql, $eid, $id, $name, $pass, $auth;
+            if (isset($_POST['edit'])) {
+                $sql = "SELECT * FROM user";
+                $stmt = $pdo->query($sql);
                 $stmt->execute();
-                $_SESSION = array();
-                session_destroy();
-                header("Location: k_user_screen.php");
-                exit;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($id == $row['user_id']) {
+                        $test_alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                        echo $test_alert;
+                        $flag = 1;
+                    }
+                }
+                if ($flag == 0) {
+                    $eid = $_SESSION['eid'];
+                    $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    header("Location: k_user_screen.php");
+                    exit;
+                }
             }
-            $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-            echo $test_alert;
-            }
-        }
+            $flag = 0;
         }
         // DELETE
         function KUserDelP()
         {
-        global $pdo, $ku_sql;
-        static $kid = "";
-        if(isset($_POST['kid'])){
-            $_SESSION['ku_del'] = $_POST['kid'];
-        }
-        if (isset($_POST['ku_del'])) {
-            $kid = $_SESSION['ku_del'];
-            $ku_sql = "DELETE FROM user WHERE user_id = '$kid'";
-            echo $ku_sql;
-            $stmt = $pdo->prepare($ku_sql);
-            $stmt->execute();
-            $_SESSION = array();
-            session_destroy();
-            header("Location: k_user_screen.php");
-            exit;
-        }
+            global $pdo, $sql, $eid;
+            if (isset($_POST['del'])) {
+                $eid = $_SESSION['eid'];
+                $sql = "DELETE FROM user WHERE user_id = '$eid'";
+                echo $sql;
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                header("Location: k_user_screen.php");
+                exit;
+            }
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
-        }
+    }
+}

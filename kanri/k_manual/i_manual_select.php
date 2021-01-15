@@ -1,14 +1,14 @@
 <?php
     //定数宣言
     //DBへ接続
-    include '../db_connect.php';
+    include '../../db_connect.php';
 
     //よくある質問一覧画面の作成のための定数
     //部屋番号の配列
     $NUM_OF_MANUAL = IManualNumberP(); //全てのマニュアル数
     $LINE_BREAK = 2; //2個の要素tdで改行
 
-    $user_auth = 0;//管理者権限の有無(1,0);
+    $user_auth = 1;//管理者権限の有無(1,0);
     //html開始
 ?>
 
@@ -83,7 +83,7 @@
                     echo ("<td>");
                     $manual_url = ("manual_url");
                     $manual_text = IManualManagemantP($manual_url, $manual_count);
-                    echo ("<a href = ../../upload/".$manual_text." target=\" blank\">");
+                    echo ("<a href = ../../../upload/".$manual_text." target=\" blank\">");
                     echo ($manual_text);
                     echo ("</a>");
                     echo ("</td>");
@@ -94,7 +94,7 @@
         </table>
         
         <!--戻るボタン-->
-        <form action = "i_mq_top.html">
+        <form action = "../k_top.html">
             <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
         </form>
         

@@ -88,8 +88,8 @@ button.button-size{
 }
 /*submitボタンの作成*/
 input#submit_button{
-    width: 180px;
-    height: 50px;
+    width: 100px;
+    height: 30px;
     /*font-size: 1.1em;*/
     /*padding: 20px 50px;/*縦　横*/
     /*text-align: center;*/
@@ -99,10 +99,6 @@ input#submit_button{
     /*position: relative;
     top: 7%;
     right: 10%;*/
-}
-/*日付の左寄せ*/
-.right{
-    text-align: right;
 }
 /*ボタンの横並び 使ってない*/
 .button-position{

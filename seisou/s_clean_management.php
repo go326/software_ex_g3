@@ -25,8 +25,8 @@
 
 //総合TOPからの遷移時にform(get)でroginを与えてもらう。
 //ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
-    if(isset($_GET["rogin"])){
-        //SCleanMainP();
+    if(isset($_GET["update"])){
+        SCleanMainP();
     }
 
 //ログインしたときに部屋情報テーブルを更新する関数
@@ -35,21 +35,7 @@ function SCleanMainP(){
     //今日の日付を取得
     $date = date("Y-m-d");
     try{
-        //テーブル全ての情報を削除する。
-        $delete_sql = "DELETE FROM room";
-        $stmt = $pdo -> prepare($delete_sql);
-        $stmt -> execute();
-        echo ("過去のテーブルの削除に成功しました。<br>");
-
-        //まずは情報を抜き出す
-        $make_sql = "SELECT room1,customer_checkin  FROM customer WHERE stay_date = ".$day_number;
-        //2部屋めが生まれたらあとで考える
-
-        $stmt = $pdo -> query($make_sql);
-        while ($row = $stmt -> fetch()){
-            $room_number = $row["room1"];
-            $room_clean = $row["customer_checkin"];
-        }
+        
 
         //抜き出した情報を登録する。
         $insert_sql = "INSERT INTO room (room_number, room_clean) VALUES ('201', '0');";
@@ -90,20 +76,29 @@ function SCleanMainP(){
             <h1> 清掃情報管理画面</h1>
             
             <!--戻るボタン-->
-            <div class="button-position-c">
+            <!--<div class="button-position-c">-->
                 <div class="input#submit_button">
                     <form action = "../i_general_top.html">
                         <input id="submit_button" type="submit" name="submit"value = "総合TOP画面へ戻る">
                     </form>
                 </div>
-            </div>
+            <!--</div>-->
+
+            <!--更新ボタン-->
+            <form action = "s_clean_management.php" method="get">
+                <button type = "submit" name = "update" value = "1">
+                更新    
+                </button>
+            </form>
             
-            <!--日付取得-->
-            <?php
-                $date = date("Y-m-d");
-                echo ($date."<br>");
-                $next_date = date("Y-m-d", strtotime("+1 day"));
-            ?>
+            <div class="right">
+                <!--日付取得-->
+                <?php
+                    $date = date("Y-m-d");
+                    echo ($date."<br>");
+                    $next_date = date("Y-m-d", strtotime("+1 day"));
+                ?>
+            </div>
 
             <span class = "sample0"><button class = "bg_color0"></button></span>掃除していない、予約なしの状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
@@ -129,8 +124,6 @@ function SCleanMainP(){
                         }
                         //1セルの表示開始
                         echo ("<td>");
-                        //1部屋のリンク現在はボタンで作成
-                        //echo ("<a href = \" ".$LINK_PHP."\"?room_number=".$ROOM_DATA[$table][$room_count].">");
                         $SCMroom_clean = SCleanManagemantP($ROOM_DATA[$table][$room_count]);
                         //bg_color0,1,2あるがこれを文字列結合で判断している。
                         echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
@@ -206,5 +199,9 @@ function SCleanNumberP($day_number, $room_number){
         exit;
     }
     return $number_people;
+}
+
+function SCleanUpdateP(){
+
 }
 ?>

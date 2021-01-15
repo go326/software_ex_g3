@@ -8,7 +8,7 @@
     $NUM_OF_QUESTION = IQuestionNumberP(); //全ての質問数
     $LINE_BREAK = 3; //3個の要素tdで改行
 
-    $user_auth = 1;//管理者権限の有無(1,0);
+    $user_auth = 0;//管理者権限の有無(1,0);
     //たぶん権限確認するメソッドが必要
 
     //html開始
