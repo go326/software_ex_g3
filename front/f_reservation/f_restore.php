@@ -15,17 +15,17 @@ if (isset($_POST['add_fee'])) {
 }
 
 if (isset($_POST['delete'])) {
-    delete($_POST['ID']);
+    delete($_POST['id']);
     header("Location:../room.php");
 }
 
 if (isset($_POST['checkin'])) {
-    checkin($_POST['ID']);
+    checkin($_POST['id']);
     header("Location:../room.php");
 }
 
 if (isset($_POST['isstay'])) {
-    stay($_POST['ID']);
+    stay($_POST['id']);
     header("Location:../room.php");
 }
 
@@ -35,7 +35,7 @@ $date = $dt->format("Y-m-d");
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 
 $smt = $pdo->prepare($sql);
-$smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
+$smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 
