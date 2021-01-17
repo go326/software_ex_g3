@@ -18,9 +18,9 @@
         <!-- 一覧 -->
         <table border="1">
             <tr>
-                <th> ユーザID </th>
-                <th> ユーザ名 </th>
-                <th> 権限 </th>
+                <th class ="ID"> ユーザID </th>
+                <th class ="name"> ユーザ名 </th>
+                <th class ="job"> 権限 </th>
 
             </tr>
             <?php KUserManagementP();

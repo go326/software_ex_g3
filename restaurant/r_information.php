@@ -48,7 +48,6 @@ try {
     <title>食事情報閲覧画面</title>
     <script type="text/javascript" src="restaurant.js"></script>
     <style type="text/css">
-        @charset 'utf-8';
         header {
             width: 80%;
             margin: 0 auto;
