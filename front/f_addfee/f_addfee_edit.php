@@ -73,6 +73,7 @@
     <!--文字コードUTF-8-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../f_reservation/f_input.css" type="text/css">
+    <script src="f_addfee.js"></script>
     </head>
 
     <body>
@@ -107,7 +108,7 @@
         </dl>
         <ul>
             <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li>
-            <li><input type="submit" name="edit" value="確認"></li>
+            <li><input type="submit" name="edit" value="確認" onclick="return check()"></li>
         </ul>
         </form>
     </div>
