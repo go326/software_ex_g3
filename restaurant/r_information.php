@@ -46,62 +46,51 @@ try {
     <!--文字コードUTF-8-->
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
     <title>食事情報閲覧画面</title>
-    <!--  <link rel="stylesheet" href="restaurant.css" type="text/css"> -->
+    <script type="text/javascript" src="restaurant.js"></script>
     <style type="text/css">
+        @charset 'utf-8';
         header {
             width: 80%;
             margin: 0 auto;
         }
-
         footer {
-            width: 110%;
             margin: 0 auto;
         }
-
+        ul {
+            text-align: right;
+            list-style: none;
+        }
+        ul li {
+            display: inline;
+        }
         table {
+            text-align: center;
             margin: 0 auto;
-            width: 60%;
+            width: 80%;
         }
 
-        table th.name {
-            width: 30%
-        }
-
-        ;
-
-        table th.adult {
-            width: 20%
-        }
-
-        ;
-
-        table th.chilt {
-            width: 20%
-        }
-
-        ;
-
-        table th.menu {
-            width: 30%
-        }
-
-        ;
+        table th.name {width: 30%;}
+        table th.adult {width: 20%;}
+        table th.child {width: 20%;}
+        table th.menu {width: 30%;}
 
         table tr td {
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
-
         input {
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
     </style>
-    <script type="text/javascript"></script>
 
 </head>
 
 <body>
     <header>
         <h1>食事情報閲覧画面</h1>
+        <ul>
+            <li id="view_date"></li>
+        </ul>
+        <script type="text/javascript">date();</script>
     </header>
 
     <!--メイン-->
