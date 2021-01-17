@@ -18,18 +18,21 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./manual_select.css" type="text/css">
-        <title>manual</title>
+        <title>マニュアル情報管理</title>
 
     </head>
 
     <body>
         <header>
-            <h1> マニュアル一覧画面</h1>
+            <h1> マニュアル情報管理画面</h1>
             <!--日付取得-->
+            <div class="input#submit_button">
+                <form method="get" action = "../k_top.html">
+                    <input type = "submit" value = "管理者専用機能TOPに戻る">
+                </form>
+            </div>
+            <br>
             <?php
-                $date = date("Y-m-d");
-                echo ($date."<br>");
-                $next_date = date("Y-m-d", strtotime("+1 day"));
                 if($user_auth == 1){
                     echo ("<ul>");
                     echo ("<li><input type=\"button\" onclick=\"location.href='./i_manual_insert.php?manual_number=".($NUM_OF_MANUAL + 1)."'\" value=\"新規入力\"></li>");
@@ -92,12 +95,12 @@
                 }
             ?>
         </table>
-        
-        <!--戻るボタン-->
-        <form action = "../k_top.html">
-            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
-        </form>
-        
+        <footer>
+            <!--戻るボタン-->
+            <form action = "../k_top.html">
+                <input type = "submit" value = "管理者専用機能TOPに戻る">
+            </form>
+        </footer>
     </body>
 </html>
 

@@ -20,29 +20,20 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./question_select.css" type="text/css">
-        <title>question</title>
+        <title>質問情報管理画面</title>
 
     </head>
 
     <body>
         <header>
-            <h1> よくある質問一覧画面</h1>
+            <h1> 質問情報管理画面</h1>
             <!--戻るボタン-->
             <div class="input#submit_button">
                 <form method="get" action = "../k_top.html">
-                    <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+                    <input type = "submit" value = "管理者専用機能TOPに戻る">
                 </form>
             </div>
-
-            <div class="right">
-                <!--日付取得-->
-                <?php
-                    $date = date("Y-m-d");
-                    echo ($date."<br>");
-                    $next_date = date("Y-m-d", strtotime("+1 day"));
-                ?>
-            </div>
-
+            <br>
             <div class="input#submit_button">
                 <?php
                     if($user_auth == 1){
@@ -51,7 +42,7 @@
                 ?>
             </div>
             
-
+        </header>
             <!--よくある質問一覧画面の作成-->
             <table>
                 <!--各列のタイトルの作成-->
@@ -101,10 +92,13 @@
                         echo ("</tr>");
                     }    
                 ?>
-            </table>
-            
-            
-        </header>    
+            </table>  
+        <footer>
+            <!--戻るボタン-->
+            <form action = "../k_top.html">
+                <input type = "submit" value = "管理者専用機能TOPに戻る">
+            </form>
+        </footer> 
     </body>
 </html>
 

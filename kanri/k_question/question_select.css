@@ -3,127 +3,25 @@ header{
     width: 80%;
     margin: 0 auto;
 }
+ul{
+    list-style: none;
+}
 table{
     margin: 0 auto; /*画面の真ん中にする*/
     width: 80%;     /*  真ん中にしたものを横幅80%*/
+    text-align: center;
+}
+table th{
+    font-size: 1.2em;
 }
 table tr td{
-    width: 5em;     /* 画面サイズに左右されないいい感じになるやつ*/
-    height: 5em;
+    height: 4em;
     margin: 0 auto; 
     border: solid 1px black;
 }
-button.room_button{
-    width: 100%; /*元は100*/
-    height: 100%;
-    margin: 0 auto;
-}
-button.bg_color0,.sample0{
-    background: none;/*清掃情報の丸の色*/
-    /*border-radius: 50%;
-    position: relative;*/
-}
-button.bg_color1,.sample1{
-    background: bisque;/*清掃情報の丸の色*/
-    /*border-radius: 50%;
-    position: relative;*/
-}
-button.bg_color2,.sample2{
-    background: red;/*清掃情報の丸の色*/
-    /*border-radius: 50%;
-    position: relative;*/
-}
-/*客室のtable全体をリンクとして扱う*/
-a {
-    display:block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;/*リンクのアンダーラインなし*/
-    color: black;
-}
-a:hover{
-    background-color: darkgray;
-}
-.content {
-    display:inline-block;/*横に並ぶ*/
-    width: 100%;
-    height: 200%;
-    text-decoration: none;/*リンクのアンダーラインなし*/
-    color: black;
-    /*background-color: darkgray;*/
-}
-.inner{
-    padding-top: 60px;
-    display: flex;
-    justify-content: space-evenly;
-}
-/*************日付の表示***********
-#view_date{
-    position: absolute;
-    right: 10%;
-}
 
-button.button-size{
-    font-size: 1em;
-    width: 170px;
-    height: 50px;
-}
-*/
-/*中央揃え，背景イエロー*/
-.button-area{
-    width: 60%;
-    text-align: center;/*中央ぞろえ*/
-    /*font-size: 1.5em;
-    /*background-color: yellow;*/
-    position: relative;
-    margin:0 auto;/*中央揃え*/
-    padding: 10%;
-}
-/*選択するボタンの位置を左揃えにする*/
-.font-margin{
-    width: 30%;
-    margin: 0 auto;
-    /*max-width: 500px;*/
-    text-align: left;
-}
-/*submitボタンの作成*/
-input#submit_button{
-    width: 180px;
-    height: 50px;
-    /*font-size: 1.1em;*/
-    /*padding: 20px 50px;/*縦　横*/
-    /*text-align: center;*/
-    /*display: inline-block;/*横並び*/
-    /*letter-spacing: normal;
-    margin: 10%;
-    /*position: relative;
-    top: 7%;
-    right: 10%;*/
-}
-/*ボタンの横並び 使ってない*/
-.button-position{
-    display: -webkit-flex;/*横並び(2行)*/
-    display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;/*全体に均等に並べる*/
-}
-/*中央のボタン*/
-.button-position-c{
-    text-align: center;
-}
-/*左のボタン*/
-.button-position-l{
-    position: absolute;
-    bottom: 10%;
-    left: 20%;
-}
-/*右のボタン*/
-.button-position-r{
-    position: absolute;
-    bottom: 10%;
-    right: 20%;
-}
-/*日付の左寄せ*/
-.right{
-    text-align: right;
+a {
+    display: block;
+    text-decoration: none;/*リンクのアンダーラインなし*/
+    color: black;
 }
