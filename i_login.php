@@ -13,7 +13,6 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $re = $pdo->prepare("SELECT * FROM `user` WHERE ? = `user_id`");
-        //echo ($re."<br>");
         $re->bindValue(1, $_POST['UserID']);
         $re->execute();
 
@@ -21,8 +20,9 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
         foreach ($result as $row) {
             $name = $row['user_id'];
             $pass_db = $row['user_pass'];
+            $auth = $row['authority'];
         }
-
+        echo ($name.",".$pass_db.",".$auth."<br>");
         if (isset($name)) {
 
             if (password_verify($_POST['Password'], $pass_db)) {
