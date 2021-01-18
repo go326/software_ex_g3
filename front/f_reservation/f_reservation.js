@@ -32,6 +32,7 @@ function getDay1() {
     document.createElement("option")
     for (let i = 1; i <= 31; i++) {
         let option = document.createElement("option");
+        option.setAttribute("value", i);
         option.innerHTML = i;
         day.appendChild(option);
     }
@@ -45,6 +46,7 @@ function getAdult() {
     document.createElement("option")
     for (let i = 0; i <= NUMBER; i++) {
         let option = document.createElement("option");
+        option.setAttribute("value", i);
         option.innerHTML = i;
         adult.appendChild(option);
     }
@@ -57,6 +59,7 @@ function getChild() {
     document.createElement("option")
     for (let i = 0; i <= NUMBER; i++) {
         let option = document.createElement("option");
+        option.setAttribute("value", i);
         option.innerHTML = i;
         child.appendChild(option);
     }
@@ -70,6 +73,7 @@ function getStayCount() {
     document.createElement("option")
     for (let i = 1; i <= NUMBER; i++) {
         let option = document.createElement("option");
+        option.setAttribute("value", i);
         option.innerHTML = i;
         count.appendChild(option);
     }
