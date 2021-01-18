@@ -18,25 +18,13 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./manual_select.css" type="text/css">
-        <title>manual</title>
+        <title>マニュアル一覧画面</title>
 
     </head>
 
     <body>
         <header>
-            <h1> マニュアル一覧画面</h1>
-            <!--日付取得-->
-            <?php
-                $date = date("Y-m-d");
-                echo ($date."<br>");
-                $next_date = date("Y-m-d", strtotime("+1 day"));
-                if($user_auth == 1){
-                    echo ("<ul>");
-                    echo ("<li><input type=\"button\" onclick=\"location.href='./i_manual_insert.php?manual_number=".($NUM_OF_MANUAL + 1)."'\" value=\"新規入力\"></li>");
-                    echo ("</ul>");
-                }
-            ?>
-            
+            <h1> マニュアル一覧画面</h1>            
         </header>
 
         <!--よくある質問一覧画面の作成-->
@@ -92,12 +80,12 @@
                 }
             ?>
         </table>
-        
+        <footer>
         <!--戻るボタン-->
         <form action = "i_mq_top.html">
             <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
         </form>
-        
+        </footer>
     </body>
 </html>
 
