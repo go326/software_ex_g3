@@ -75,6 +75,8 @@ function IManualUploadP(){
         //ファイル名がmanual_file_nameになる
         $manual_file_name = IManualUploadP();
 
+        echo ($manual_number.$manual_name.$manual_file_name."<br>");
+
         //$manual_file_name は定義済
         if(strpos($manual_file_name, '.pdf') !== false){
             IManualEditP($manual_number, $manual_name, $manual_file_name);
