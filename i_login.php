@@ -36,7 +36,7 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
                 echo ("input type = \"hidden\" name = \"auth\" value = \"".$auth."\"");
                 echo ("<button type=\"submit\">");
                 echo ("総合TOPへ");
-                echo ("<button>");
+                echo ("</button>");
                 echo ("</form>");
                 //header("Location:./i_general_top.html");
             } else {
