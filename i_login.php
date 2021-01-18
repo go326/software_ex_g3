@@ -13,7 +13,7 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $re = $pdo->prepare("SELECT * FROM `user` WHERE ? = `user_id`");
-        echo ($re."<br>");
+        //echo ($re."<br>");
         $re->bindValue(1, $_POST['UserID']);
         $re->execute();
 
