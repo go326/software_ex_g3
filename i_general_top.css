@@ -86,7 +86,13 @@
 }
 
 .back{
-    margin: 1cm 0px; /*外側の余白*/
-    padding-top: 0.6em;      /* 内側の余白 */
+    margin: 0cm 10%; /*外側の余白*/
+    padding-top: 0px;      /* 内側の余白 */
+    background-color: #ccc;  /* 背景色 */
+}
+
+.back2{
+    margin: 15% 20%; /*外側の余白*/
+    padding-top: 0px;      /* 内側の余白 */
     background-color: #ccc;  /* 背景色 */
 }
