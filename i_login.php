@@ -31,8 +31,12 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
                 
                 //次の総合TOPに遷移
                 //ここは変更するかもしれない
-                echo ("<form method = \"post\" action = \"./i_general_top.html\">");
-                echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"総合TOPへ\">");
+                //よくわからんし、めんどいから権限の情報だけ次にpostで送信する。
+                echo ("<form method = \"post\" action = \"./i_general_top.php\">");
+                echo ("input type = \"hidden\" name = \"auth\" value = \"".$auth."\"");
+                echo ("<button type=\"submit\">");
+                echo ("総合TOPへ");
+                echo ("<button>");
                 echo ("</form>");
                 //header("Location:./i_general_top.html");
             } else {
