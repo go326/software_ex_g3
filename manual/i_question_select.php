@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./question_select.css" type="text/css">
-        <title>question</title>
+        <title>よくある質問一覧画面</title>
 
     </head>
 
@@ -28,16 +28,6 @@
         <header>
             <h1> よくある質問一覧画面</h1>
             <!--日付取得-->
-            <?php
-                $date = date("Y-m-d");
-                echo ($date."<br>");
-                $next_date = date("Y-m-d", strtotime("+1 day"));
-                if($user_auth == 1){
-                    echo ("<ul>");
-                    echo ("<li><input type=\"button\" onclick=\"location.href='./i_question_insert.php?question_number=".($NUM_OF_QUESTION + 1)."'\" value=\"新規入力\"></li>");
-                    echo ("</ul>");
-                }
-            ?>
         </header>
 
         <!--よくある質問一覧画面の作成-->
@@ -90,12 +80,12 @@
                 }    
             ?>
         </table>
-        
+        <footer>
         <!--戻るボタン-->
         <form method="get" action = "i_mq_top.html">
             <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
         </form>
-        
+        </footer>
     </body>
 </html>
 
