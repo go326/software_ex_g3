@@ -13,6 +13,7 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $re = $pdo->prepare("SELECT * FROM `user` WHERE ? = `user_id`");
+        echo ($re."<br>");
         $re->bindValue(1, $_POST['UserID']);
         $re->execute();
 
@@ -27,7 +28,13 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
             if (password_verify($_POST['Password'], $pass_db)) {
                 $text = "ログイン認証に成功";
                 $_SESSION['user'] = $_POST['UserID'];
-                header("Location:./i_general_top.html");
+                
+                //次の総合TOPに遷移
+                //ここは変更するかもしれない
+                echo ("<form method = \"post\" action = \"./i_general_top.html\">");
+                echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"総合TOPへ\">");
+                echo ("</form>");
+                //header("Location:./i_general_top.html");
             } else {
                 $text = "ログイン認証に失敗";
                 //header("Location:./i_login.html");
@@ -47,3 +54,9 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
     //header("Location:./i_login.html");
 }
 echo $text;
+
+//戻るボタン
+$back_URL = "i_login.html";
+echo ("<form action = ".$back_URL.">");
+echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
+echo ("</form>");
