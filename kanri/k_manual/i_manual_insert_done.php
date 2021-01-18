@@ -75,19 +75,14 @@ function IManualUploadP(){
         //ファイル名がmanual_file_nameになる
         $manual_file_name = IManualUploadP();
 
-        echo ("1".$manual_number.$manual_name.$manual_file_name."<br>");
-
         //$manual_file_name は定義済
         if(strpos($manual_file_name, '.pdf') !== false){
-            echo ("2".$manual_number.$manual_name.$manual_file_name."<br>");
-
-            IManualEditP($manual_number, $manual_name, $manual_file_name);
+            IManualInsertP($manual_number, $manual_name, $manual_file_name);
         }else{
             echo ("<div class=\"button-area\">");    //css始まり
             echo ("登録に失敗しました。<br>");
             echo ("</div>"); //css終わり
         }
-        echo ("3".$manual_number.$manual_name.$manual_file_name."<br>");
         //戻るボタン
         $back_URL = "i_manual_select.php";
         echo ("<form action = ".$back_URL.">");
