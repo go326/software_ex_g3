@@ -52,30 +52,46 @@ try {
             width: 80%;
             margin: 0 auto;
         }
+
         footer {
             margin: 0 auto;
         }
+
         ul {
             text-align: right;
             list-style: none;
         }
+
         ul li {
             display: inline;
         }
+
         table {
             text-align: center;
             margin: 0 auto;
             width: 80%;
         }
 
-        table th.name {width: 30%;}
-        table th.adult {width: 20%;}
-        table th.child {width: 20%;}
-        table th.menu {width: 30%;}
+        table th.name {
+            width: 30%;
+        }
+
+        table th.adult {
+            width: 20%;
+        }
+
+        table th.child {
+            width: 20%;
+        }
+
+        table th.menu {
+            width: 30%;
+        }
 
         table tr td {
             font-size: 1.2em;
         }
+
         input {
             font-size: 1.2em;
         }
@@ -89,9 +105,17 @@ try {
         <ul>
             <li id="view_date"></li>
         </ul>
-        <script type="text/javascript">date();</script>
+        <script type="text/javascript">
+            date();
+        </script>
     </header>
-
+    <!--フッター-->
+    <footer>
+        <br><br>
+        <center>
+            <input type="button" onclick="location.href='../i_general_top.html'" value="TOP画面に戻る">
+        </center>
+    </footer>
     <!--メイン-->
     <div id="main">
         <!--食事情報閲覧画面-->
@@ -106,13 +130,7 @@ try {
             <?php echo $rinfo; ?>
         </table>
     </div>
-    <!--フッター-->
-    <footer>
-        <br><br>
-        <center>
-            <input type="button" onclick="location.href='../i_general_top.html'" value="戻る">
-        </center>
-    </footer>
+
 </body>
 
 </html>
