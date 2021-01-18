@@ -31,9 +31,9 @@
     $date = date('Y-m-d H:i:s');
 
     // 予約IDの保存
-    $_SESSION['add_fee'] = "2"; //（仮）予約ID
-    //$_SESSION['fee_id'] = $_POST['fae'];
-    $id = $_SESSION['add_fee'];
+    //$_SESSION['fee_id'] = "2"; //（仮）予約ID
+    $_SESSION['fee_id'] = $_POST['add_fee'];
+    $id = $_SESSION['fee_id'];
 
 
     try {
