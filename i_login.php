@@ -22,18 +22,19 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
             $pass_db = $row['user_pass'];
             $auth = $row['authority'];
         }
-        echo ($name.",".$pass_db.",".$auth."<br>");
+        echo ($name . "," . $pass_db . "," . $auth . "<br>");
         if (isset($name)) {
 
             if (password_verify($_POST['Password'], $pass_db)) {
                 $text = "ログイン認証に成功";
                 $_SESSION['user'] = $_POST['UserID'];
-                
+
                 //次の総合TOPに遷移
                 //ここは変更するかもしれない
                 //よくわからんし、めんどいから権限の情報だけ次にpostで送信する。
-                echo ("<form method = \"post\" action = \"./i_general_top.php\">");
-                echo ("<input type = \"hidden\" name = \"auth\" value = \"".$auth."\">");
+                // (確認のため.phpを.htmlに変更します 杉野)
+                echo ("<form method = \"post\" action = \"./i_general_top.html\">");
+                echo ("<input type = \"hidden\" name = \"auth\" value = \"" . $auth . "\">");
                 echo ("<button type=\"submit\">");
                 echo ("総合TOPへ");
                 echo ("</button>");
@@ -61,6 +62,6 @@ echo $text;
 
 //戻るボタン
 $back_URL = "i_login.html";
-echo ("<form action = ".$back_URL.">");
+echo ("<form action = " . $back_URL . ">");
 echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
 echo ("</form>");
