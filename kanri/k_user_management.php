@@ -8,6 +8,7 @@ $password = 'software_ex_g3';
 
 $sql = "";
 $res = "";
+$alert = "";
 
 $eid = "";
 $flag = 0;
@@ -29,13 +30,13 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
             $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
             $auth = implode("", $_POST["auth"]);
         } else {
-            $test_alert = "<script type='text/javascript'>alert('IDは0以外で指定してください');</script>";
-            echo $test_alert;
+            $alert = "<script type='text/javascript'>alert('IDは0以外で指定してください');</script>";
+            echo $alert;
             $flag = 1;
         }
     } else {
-        $test_alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-        echo $test_alert;
+        $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+        echo $alert;
         $flag = 1;
     }
 }
@@ -43,10 +44,11 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
 
 try {
     $pdo = new PDO($dsn, $user, $password);
+
     function KUserManagementP()
     {
         unset($_SESSION['eid']);
-        global $pdo, $sql, $res;
+        global $pdo, $sql, $res, $alert;
         static $auth = "";
         $sql = "SELECT * FROM user";
         $stmt = $pdo->query($sql);
@@ -69,20 +71,23 @@ try {
             $res .= "<td>{$auth}</td>";
             $res .= "</tr align ='center'>";
         }
+        if ($res == "") {
+            $alert = "<script type='text/javascript'>alert('ユーザ情報がありません');</script>";
+            echo $alert;
+        }
     }
 
-    // INSERT
     function KUserInputP()
     {
-        global $pdo, $sql, $id, $name, $pass, $auth, $flag;
+        global $pdo, $sql, $id, $name, $pass, $auth, $flag, $alert;
         if (isset($_POST['input']) and $flag == 0) {
             $sql = "SELECT * FROM user";
             $stmt = $pdo->query($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 if ($id == $row['user_id']) {
-                    $test_alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
-                    echo $test_alert;
+                    $alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                    echo $alert;
                     $flag = 1;
                 }
             }
@@ -98,7 +103,7 @@ try {
     // UPDATE
     function KUserEditP()
     {
-        global $pdo, $sql, $eid, $id, $name, $pass, $auth, $flag;
+        global $pdo, $sql, $eid, $id, $name, $pass, $auth, $flag, $alert;
         $eid = $_SESSION['eid'];
         if (isset($_POST['edit']) and $flag == 0) {
             $sql = "SELECT * FROM user";
@@ -106,8 +111,8 @@ try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 if ($id == $row['user_id'] and $id != $eid) {
-                    $test_alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
-                    echo $test_alert;
+                    $alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                    echo $alert;
                     $flag = 1;
                     break;
                 }
@@ -124,7 +129,7 @@ try {
     // DELETE
     function KUserDelP()
     {
-        global $pdo, $sql, $eid;
+        global $pdo, $sql, $eid, $alert;
         if (isset($_POST['del'])) {
             $eid = $_SESSION['eid'];
             $sql = "DELETE FROM user WHERE user_id = '$eid'";
