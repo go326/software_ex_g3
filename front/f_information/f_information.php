@@ -23,6 +23,11 @@ foreach ($data as $key => $value) {
         $data[$key] = "有";
     } else if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 0) {
         $data[$key] = "無";
+    }   
+    if ((strcmp($key, 'is_breakfast') == 0 || strcmp($key, 'is_breakfast') == 0) && $data[$key] == 1) {
+        $data[$key] = "有";
+    } else if ((strcmp($key, 'is_breakfast') == 0 || strcmp($key, 'is_breakfast') == 0) && $data[$key] == 0) {
+        $data[$key] = "無";
     }
 }
 
