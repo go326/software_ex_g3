@@ -2,6 +2,7 @@
     //定数宣言
     //DBへ接続
     include '../db_connect.php';
+    include '../front/f_customer.php';
 
     //清掃情報確認画面の枠組みの作成のための定数
     //部屋番号の配列
@@ -20,6 +21,7 @@
     $ROOM_DATA = ([$DATA201_235, $DATA301_335, $DATA401_435]); //2次元配列化
     $NUM_OF_ROOMS = 28; //1フロアの部屋数
     $NUM_OF_FLOOR = 3; //部屋があるフロア数
+    $ALL_ROOM = $NUM_OF_ROOMS * $NUM_OF_FLOOR; //ホテルの全ての部屋数
     $LINE_BREAK = 8; //8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
 
@@ -29,26 +31,33 @@
         SCleanMainP();
     }
 
-//ログインしたときに部屋情報テーブルを更新する関数
+//部屋情報テーブルを全て更新する関数
 function SCleanMainP(){
     global $pdo;
+     $today = date("Y-m-d");
+
     //今日の日付を取得
-    $date = date("Y-m-d");
     try{
-        
-
-        //抜き出した情報を登録する。
-        $insert_sql = "INSERT INTO room (room_number, room_clean) VALUES ('201', '0');";
-
-        if(isset($adult)){
-            if(isset($child)){
-                //大人も子供もいる状態
-                $number_people = $adult + $child;
-            }else{
-                //大人だけいる状態
-                $number_people = $adult;
+        //ホテルの階数分ループ
+        for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
+            //1階の部屋数分だけループ
+            for ($room_count = 0; $room_count < $NUM_OF_ROOMS; $room_count++){
+                //まずは顧客情報テーブルから、清掃状況を抜き取る
+                //そのために部屋番号からIDを取り出し、存在するかどうか確認する。
+                $res_id = bool_stay($today, $room);
+                if($res_id != 0){
+                    //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
+                    $room_clean = 0;
+                    //次にSCleanUpdateP($room_number, $room_clean)を実行する。
+                    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
+                }else{
+                    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count],0);
+                }
             }
         }
+        //最後までループしているか確認
+        echo ($ROOM_DATA[$floor_count][$room_count]."<br>");
+        //抜き出した情報を登録する。
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
@@ -84,13 +93,6 @@ function SCleanMainP(){
                 </div>
             <!--</div>-->
 
-            <!--更新ボタン-->
-            <form action = "s_clean_management.php" method="get">
-                <button type = "submit" name = "update" value = "1">
-                更新    
-                </button>
-            </form>
-            
             <div class="right">
                 <!--日付取得-->
                 <?php
@@ -99,6 +101,13 @@ function SCleanMainP(){
                     $next_date = date("Y-m-d", strtotime("+1 day"));
                 ?>
             </div>
+
+            <!--更新ボタン-->
+            <form action = "s_clean_management.php" method="get">
+                <button type = "submit" name = "update" value = "1" onclick = "<?php SCleanMainP();?>">
+                更新    
+                </button>
+            </form>
 
             <span class = "sample0"><button class = "bg_color0"></button></span>掃除していない、予約なしの状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
@@ -173,6 +182,7 @@ function SCleanManagemantP($room_number){
 }
 
 //宿泊人数を表示
+//これを改良することによって、本日と明日の人数を変更することができるはず、
 function SCleanNumberP($day_number, $room_number){
     global $pdo;
     $number_people = 0; //その部屋の人数初期値は0
@@ -201,7 +211,15 @@ function SCleanNumberP($day_number, $room_number){
     return $number_people;
 }
 
-function SCleanUpdateP(){
-
+//清掃状況を更新する
+//部屋番号とその清掃状況を渡して更新する。
+function SCleanUpdateP($room_number, $room_clean){
+    try{
+        $update_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number.";";
+        $stmt = $pdo -> query($people_sql);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        exit;
+    }
 }
 ?>
