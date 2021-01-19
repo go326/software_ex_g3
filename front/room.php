@@ -88,7 +88,7 @@ foreach ($data as $value) {
 
             echo cus_name($ID) . "<br>";
             //今日の宿泊者数
-            $number_people = SCleanNumberP($ID);
+            $number_people = SCleanNumber($ID);
             echo ("本日" . $number_people . "人");
             echo ("<br>");
             echo ("</button>");

@@ -11,6 +11,7 @@ global $pdo;
 function checkinColor($ID)
 {
     global $pdo;
+
     $stmt = $pdo->prepare("SELECT customer_checkin FROM customer WHERE reseravetion_id = ?");
     $stmt->bindValue(1, $ID);
     $stmt->execute();
@@ -59,7 +60,7 @@ function cus_name($ID)
 
 
 //宿泊人数を表示
-function SCleanNumberP($ID)
+function SCleanNumber($ID)
 {
     global $pdo;
     $number_people = 0; //その部屋の人数初期値は0
