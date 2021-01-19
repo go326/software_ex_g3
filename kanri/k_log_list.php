@@ -61,7 +61,7 @@
             </center>
         </footer>
         <!-- Management -->
-        <table>
+        <table border="1">
             <tr valign="top">
                 <th>日付</th>
                 <th>変更者</th>

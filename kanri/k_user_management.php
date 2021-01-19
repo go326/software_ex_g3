@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("k_log_record.php");
 
 // 変数
 $dsn = 'mysql:dbname=admin;host=localhost;charset=utf8';
@@ -58,11 +59,11 @@ if (isset($_POST['id']) and !empty($_POST['name']) and !empty($_POST['pass'])) {
 try {
     $pdo = new PDO($dsn, $user, $password);
 
+    // 表の作成
     function KUserManagementP()
     {
         unset($_SESSION['eid']);
         unset($_SESSION['user_name']);
-
         global $pdo, $sql, $res, $alert;
         static $auth = "";
         $sql = "SELECT * FROM user";
@@ -92,6 +93,7 @@ try {
         }
     }
 
+    // ユーザの登録
     function KUserInputP()
     {
         global $pdo, $sql, $id, $name, $pass, $auth, $flag, $alert;
@@ -136,8 +138,10 @@ try {
                 $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
-                header("Location: k_user_screen.php");
-                exit;
+                KLogRecodeP("ユーザ編集", "ユーザ情報テーブル", "{$id}", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
+                echo $sql;
+                // header("Location: k_user_screen.php");
+                // exit;
             }
         }
     }
