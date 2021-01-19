@@ -31,6 +31,7 @@
 //    }
 
 //部屋情報テーブルを全て更新する関数
+/*
 function SCleanMainP(){
     //global $pdo;
     $today = date("Y-m-d");
@@ -65,6 +66,7 @@ function SCleanMainP(){
     }
     return $number_people;
 }
+*/
 
 //清掃情報確認画面の枠組みに反映
 //清掃情報確認画面の枠組みの清掃状況を取り出し
@@ -114,6 +116,7 @@ function SCleanNumberP($day_number, $room_number){
 
 //清掃状況を更新する
 //部屋番号とその清掃状況を渡して更新する。
+/*
 function SCleanUpdateP($room_number, $room_clean){
     global $pdo;
     try{
@@ -124,4 +127,5 @@ function SCleanUpdateP($room_number, $room_clean){
         exit;
     }
 }
+*/
 ?>
