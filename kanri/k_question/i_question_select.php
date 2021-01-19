@@ -93,12 +93,6 @@
                     }    
                 ?>
             </table>  
-        <footer>
-            <!--戻るボタン-->
-            <form action = "../k_top.html">
-                <input type = "submit" value = "管理者専用機能TOPに戻る">
-            </form>
-        </footer> 
     </body>
 </html>
 
