@@ -5,6 +5,22 @@ include("../db_connect.php");
 
 global $pdo;
 
+//清掃情報確認画面の枠組みに反映
+//清掃情報確認画面の枠組みの清掃状況を取り出し
+//ここで参照する色を決めている
+function checkinColor($ID)
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT customer_checkin FROM customer WHERE reseravetion_id = ?");
+    $stmt->bindValue(1, $ID);
+    $stmt->execute();
+    //fetch
+    while ($row = $stmt->fetch()) {
+        $data = $row['customer_checkin'];
+    }
+    return $data;
+}
+
 //$todayに$room番の部屋が使われているかを判定
 //返り値 予約ID   または 0
 function bool_stay($today, $room)
