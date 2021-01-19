@@ -65,7 +65,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
             <div id="day">
                 <dt> 予約日 </dt>
                 <dd>
-                    <?php echo $data['reservetion_date']; ?>
+                    <?php echo $data['reservation_date']; ?>
                 </dd>
                 <dt> 宿泊日 </dt>
                 <dd>
