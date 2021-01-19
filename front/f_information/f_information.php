@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include("../../db_connect.php");
-require("../f_customer.php");
+require(dirname(__FILE__) . "/../../db_connect.php");
+require(dirname(__FILE__) . "/../f_customer.php");
 
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
@@ -14,29 +14,22 @@ $smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_ASSOC);
 
-foreach ($data as $key => $value) {
-    if ((strcmp($key, 'room_2') != 0 && strcmp($key, 'room_3') != 0 && strcmp($key, 'child') != 0) && empty($value)) {
-        $data[$key] = 'なし';
-    }
-    if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
-        $data[$key] = "有";
-    } else {
-        $data[$key] = "無";
-    }
-}
+// foreach ($data as $key => $value) {
+//     if ((strcmp($key, 'room_2') != 0 && strcmp($key, 'room_3') != 0 && strcmp($key, 'child') != 0) && empty($value)) {
+//         $data[$key] = 'なし';
+//     }
+//     if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
+//         $data[$key] = "有";
+//     } else {
+//         $data[$key] = "無";
+//     }
+// }
 
 
 $dt = new DateTime($data['stay_date']);
 $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
 
 ?>
-
-<script>
-    var $info = "<?php echo $_POST; ?>"
-    var $stay_day = "<?php echo $stay_day; ?>"
-</script>
-
-
 
 <html>
 
