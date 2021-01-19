@@ -9,23 +9,23 @@ global $pdo;
 if (isset($_POST['add_fee'])) {
 ?>
     <form action="../f_addfee/f_addfee_edit.html" type="POST">
-        <input type="hidden" value=<?php echo $_POST['ID']; ?>>
+        <input type="hidden" value=<?php echo $_POST['id']; ?>>
     </form>
 <?php
 }
 
 if (isset($_POST['delete'])) {
-    delete($_POST['ID']);
+    delete($_POST['id']);
     header("Location:../room.php");
 }
 
 if (isset($_POST['checkin'])) {
-    checkin($_POST['ID']);
+    checkin($_POST['id']);
     header("Location:../room.php");
 }
 
 if (isset($_POST['isstay'])) {
-    stay($_POST['ID']);
+    stay($_POST['id']);
     header("Location:../room.php");
 }
 
@@ -35,7 +35,7 @@ $date = $dt->format("Y-m-d");
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 
 $smt = $pdo->prepare($sql);
-$smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
+$smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 
@@ -150,8 +150,8 @@ $day = $dt->format('d');
                 </dd>
             </dl>
             <ul>
-                <li><input type="button" onclick="location.href='../f_information/f_information.php'" value="戻る"></li>
-                <li><input type="submit" name="" value="完了" onclick="return check()"></li>
+                <li><input type="button" onclick="location.href='../room.php'" value="戻る"></li>
+                <li><input type="submit" name="reservation" value="完了" onclick="return check()"></li>
             </ul>
         </form>
         <script src="f_reservation.js"></script>
