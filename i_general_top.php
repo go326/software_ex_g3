@@ -1,8 +1,14 @@
 <?php
 $auth = $_POST['auth'];
 
-function IAuthCheckP($auth,$auth_check){
+$FRONT = 1;
+$SEISOU = 2;
+$RESTAURANT = 3;
+$ARUBAITO = 4;
+$KANRI = 5;
 
+function IAuthCheckP($auth,$auth_check){
+    echo ("test");
     if(strpos($manual_file_name, $auth_check) !== false){    
         return true;
     }else{
@@ -30,15 +36,26 @@ function IAuthCheckP($auth,$auth_check){
                 <h2>機能選択</h2>
             </center>
             <div class="inner">
-                <button type="button" class="flont" onclick="location.href='front/room.php'">フロント業務機能</button>
-                <button type="button" class="seisou"
-                    onclick="location.href='seisou/s_clean_management.php'">清掃業務機能</button>
+                <?php
+                    if(IAuthCheckP($auth, $FRONT)){
+                        echo ("<button type=\"button\" class=\"flont\" onclick=\"location.href='front/room.php'\">フロント業務機能</button>");
+                    }
+                    
+                    if(IAuthCheckP($auth, $SEISOU)){
+                        echo ("<button type=\"button\" class=\"seisou\" onclick=\"location.href='seisou/s_clean_management.php'\">清掃業務機能</button>");
+                    }
+                ?>
             </div>
 
             <div class="inner">
-                <button type="button" class="restaurant"
-                    onclick="location.href='restaurant/r_information.php'">レストラン業務機能</button>
-                <button type="button" class="manual" onclick="location.href='manual/i_mq_top.html'">マニュアル・質問閲覧</button>
+                <?php
+                    if(IAuthCheckP($auth, $RESTAURANT)){
+                        echo ("<button type=\"button\" class=\"restaurant\" onclick=\"location.href='restaurant/r_information.php'\">レストラン業務機能</button>");
+                    }
+                    if(IAuthCheckP($auth, $KANRI)){
+                        echo ("<button type=\"button\" class=\"manual\" onclick=\"location.href='manual/i_mq_top.html'\">マニュアル・質問閲覧</button>");
+                    }
+                ?>
             </div>
 
             <div class="inner">
