@@ -15,8 +15,9 @@ $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 
 foreach ($data as $key => $value) {
-if((strcmp($key, 'room_2') || strcmp($key, 'room_3')) && empty($value)){
+    if ((strcmp($key, 'room_2') || strcmp($key, 'room_3')) && empty($value)) {
         $data[$key] = 'なし';
+    }
 }
 
 
@@ -45,7 +46,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
     <header>
         <h1>予約詳細画面</h1>
         <form action="../f_reservation/f_restore.php" method="post">
-            <input type="hidden" name='id' value= <?php echo $_POST['ID']; ?>>
+            <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
             <input type="submit" name='restore' value="編集">
             <input type="submit" name='delete' value="削除">
             <input type="submit" name='checkin' value="チェックイン/チェックアウト">
@@ -89,10 +90,10 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <div id="counter">
                 <dt> 人数 </dt>
                 <dd>
-                    <?php 
+                    <?php
                     echo "大人" . $data[7] . "人";
-                    if(!empty($data[8])){
-                        echo ", 子供" . $data[8] . "人"; 
+                    if (!empty($data[8])) {
+                        echo ", 子供" . $data[8] . "人";
                     }
                     ?>
                 </dd>
