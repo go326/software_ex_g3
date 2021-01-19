@@ -8,13 +8,14 @@ $ARUBAITO = 4;
 $KANRI = 5;
 
 function IAuthCheckP($auth,$auth_check){
-    echo ($auth.$auth_check."<br>");
-    echo ("test");
+    
     if(strpos($manual_file_name, $auth_check) !== false){   
-        echo ($auth.$auth_check."<br>");
-        echo ("test");
+        echo ($auth.$auth_check);
+        echo ("truetest<br>");
         return true;
     }else{
+        echo ($auth.$auth_check);
+        echo ("falsetest<br>");
         return false;
     }
 }
