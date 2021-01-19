@@ -21,7 +21,7 @@ foreach ($data as $key => $value) {
     }
     if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
         $data[$key] = "有";
-    } else {
+    } else if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 0) {
         $data[$key] = "無";
     }
 }
