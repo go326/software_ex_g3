@@ -41,21 +41,23 @@ function SCleanMainP(){
         for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
             //1階の部屋数分だけループ
             for ($room_count = 0; $room_count < $NUM_OF_ROOMS; $room_count++){
+                echo ($room_count."<br>");
                 //まずは顧客情報テーブルから、清掃状況を抜き取る
                 //そのために部屋番号からIDを取り出し、存在するかどうか確認する。
-                $res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
-                if($res_id != 0){
+                //$res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
+                //if($res_id != 0){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
-                    $room_clean = 0;
+                //    $room_clean = 0;
                     //次にSCleanUpdateP($room_number, $room_clean)を実行する。
-                    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
-                }else{
-                    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count],0);
-                }
+                //    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
+                //}else{
+                    //SCleanUpdateP($ROOM_DATA[$floor_count][$room_count],0);
+                //}
             }
+            echo ($floor_count);
         }
         //最後までループしているか確認
-        echo ($ROOM_DATA[$floor_count][$room_count]."<br>");
+        echo ("<br>".$ROOM_DATA[$floor_count][$room_count]."<br>");
         //抜き出した情報を登録する。
     } catch (PDOException $e) {
         echo $e->getMessage();
