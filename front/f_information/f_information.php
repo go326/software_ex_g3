@@ -14,6 +14,11 @@ $smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 
+foreach ($data as $key => $value) {
+if((strcmp($key, 'room_2') || strcmp($key, 'room_3')) && empty($value)){
+        $data[$key] = 'なし';
+}
+
 
 $dt = new DateTime($data[1]);
 $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
@@ -40,7 +45,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
     <header>
         <h1>予約詳細画面</h1>
         <form action="../f_reservation/f_restore.php" method="post">
-            <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
+            <input type="hidden" name='id' value= <?php echo $_POST['ID']; ?>>
             <input type="submit" name='restore' value="編集">
             <input type="submit" name='delete' value="削除">
             <input type="submit" name='checkin' value="チェックイン/チェックアウト">
@@ -52,13 +57,13 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
     <div id=" main">
         <dl>
             <div id="id">
-                <dt> 予約ID </dt?>
+                <dt> 予約ID </dt>
                 <dd>
                     <?php echo $data[0]; ?>
                 </dd>
             </div>
             <div id="day">
-                <dt> 予約日 </dt?>
+                <dt> 予約日 </dt>
                 <dd>
                     <?php echo $data[2]; ?>
                 </dd>
@@ -68,7 +73,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
                 </dd>
             </div>
             <div id="customer">
-                <dt> 氏名 </dt?>
+                <dt> 氏名 </dt>
                 <dd>
                     <?php echo $data[4]; ?>
                 </dd>
@@ -82,13 +87,18 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
                 </dd>
             </div>
             <div id="counter">
-                <dt> 人数 </dt?>
+                <dt> 人数 </dt>
                 <dd>
-                    <?php echo "大人" . $data[7] . "人、子供" . $data[8] . "人"; ?>
+                    <?php 
+                    echo "大人" . $data[7] . "人";
+                    if(!empty($data[8])){
+                        echo ", 子供" . $data[8] . "人"; 
+                    }
+                    ?>
                 </dd>
             </div>
             <div id="plan">
-                <dt> プラン </dt?>
+                <dt> プラン </dt>
                 <dd>
                     <?php echo $data[9]; ?>
                 </dd>
@@ -111,13 +121,13 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             </div>
 
             <div id="room">
-                <dt> 部屋番号</dt?>
+                <dt> 部屋番号</dt>
                 <dd>
                     <?php echo $data[14] . " " . $data[15] . " " . $data[16]; ?>
                 </dd>
             </div>
             <div id="remark">
-                <dt> 備考</dt?>
+                <dt> 備考</dt>
                 <dd>
                     <?php echo $data[18]; ?>
                 </dd>
@@ -125,3 +135,5 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
         </dl>
     </div>
 </body>
+
+</html>
