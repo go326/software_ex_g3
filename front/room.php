@@ -32,15 +32,6 @@ foreach ($data as $value) {
 <body>
     <header>
         <h1> フロントTOP画面</h1>
-
-        <!--戻るボタン(清掃で使用していたコード)-->
-        <!--<div class="button-position-c">
-            <div class="input#submit_button">
-                <form action="../i_general_top.html">
-                    <input id="submit_button" type="submit" name="submit" value="総合TOP画面へ戻る">
-                </form>
-            </div>
-        </div>-->
         <!--総合TOP、新規入力、-->
         <ul>
             <li><input type="button" onclick="location.href='../i_general_top.html'" value="総合TOPへ戻る">
@@ -85,9 +76,10 @@ foreach ($data as $value) {
             echo ("<td>");
             //1部屋のリンク現在はボタンで作成
             //チェックインの情報をとるかな？
-            $SCMroom_clean = SCleanManagemantP($value);
+            $color = checkinColor($value);
+            echo $color;
             //bg_color0,1,2あるがこれを文字列結合で判断している。
-            echo ("<button class = room_button bg_color" . $SCMroom_clean . " type = submit value = " . $ID . " name = ID >");
+            echo ("<button class = room_button bg_color" . $color . " type = submit value = " . $ID . " name = ID >");
 
             //1セルの表示名
             //1行目
@@ -123,24 +115,3 @@ foreach ($data as $value) {
 </body>
 
 </html>
-
-<?php
-//清掃情報確認画面の枠組みに反映
-//清掃情報確認画面の枠組みの清掃状況を取り出し
-//ここで参照する色を決めている
-function SCleanManagemantP($ID)
-{
-    global $pdo;
-    $room_clean = 0; //清掃状況、初期値は0で宿泊予定者がいないことを示す。
-    $stmt = $pdo->prepare("SELECT customer_checkin FROM customer WHERE reseravetion_id = ?");
-    $stmt->bindValue(1, $ID);
-    $stmt->execute();
-    //fetch
-    while ($row = $stmt->fetch()) {
-        $data = $row['customer_checkin'];
-    }
-    return $data;
-}
-
-
-?>
