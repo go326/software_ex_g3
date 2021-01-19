@@ -12,11 +12,16 @@ $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
-$data = $smt->fetch(PDO::FETCH_NUM);
+$data = $smt->fetch(PDO::FETCH_ASSOC);
 
 foreach ($data as $key => $value) {
-    if ((strcmp($key, 'room_2') || strcmp($key, 'room_3')) && empty($value)) {
+    if ((strcmp($key, 'room_2') != 0 && strcmp($key, 'room_3') != 0 && strcmp($key, 'child') != 0) && empty($value)) {
         $data[$key] = 'なし';
+    }
+    if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
+        $data[$key] = "有";
+    } else {
+        $data[$key] = "無";
     }
 }
 
