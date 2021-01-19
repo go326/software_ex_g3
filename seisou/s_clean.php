@@ -1,7 +1,7 @@
 <?php
     //定数宣言
     //DBへ接続
-    include ("../front/f_customer.php");;
+    include("../front/f_customer.php");;
 
     //清掃情報確認画面の枠組みの作成のための定数
     //部屋番号の配列
