@@ -109,13 +109,6 @@ try {
             date();
         </script>
     </header>
-    <!--フッター-->
-    <footer>
-        <br><br>
-        <center>
-            <input type="button" onclick="location.href='../i_general_top.html'" value="TOP画面に戻る">
-        </center>
-    </footer>
     <!--メイン-->
     <div id="main">
         <!--食事情報閲覧画面-->
@@ -130,7 +123,13 @@ try {
             <?php echo $rinfo; ?>
         </table>
     </div>
-
+    <!--フッター-->
+    <footer>
+        <br><br>
+        <center>
+            <input type="button" onclick="location.href='../i_general_top.html'" value="TOP画面に戻る">
+        </center>
+    </footer>
 </body>
 
 </html>

@@ -53,8 +53,8 @@
             $stay_day = $dt->format('Y-m-d');
             $ID = $dt->format('Ymd');
             $ID .= $_POST['cus_info'][14];
-            $is_dinner = get_num($_POST['cus_info'][9]);
-            $is_breakfast = get_num($_POST['cus_info'][11]);
+            $is_dinner = get_num($_POST['cus_info'][10]);
+            $is_breakfast = get_num($_POST['cus_info'][12]);
 
             $stmt->bindValue(1, $ID, PDO::PARAM_INT); //宿泊日
             $stmt->bindValue(2, $stay_day, PDO::PARAM_STR); //宿泊日
@@ -83,11 +83,12 @@
 
     function get_num($name)
     {
-        if (strcmp($name, '有') == 0) {
-            return 1;
-        } else if (strcmp($name, '無') == 0) {
-            return 0;
+        if (strcmp($name, "有") == 0) {
+            $num = 1;
+        } else if (strcmp($name, "無") == 0) {
+            $num = 0;
         }
+        return $num;
     }
     function set_null($num, $name, $flag)
     {

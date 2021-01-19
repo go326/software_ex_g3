@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 
 <?php
-include("../../db_connect.php");
-require("../f_customer.php");
+require(dirname(__FILE__) . "/../../db_connect.php");
+require(dirname(__FILE__) . "/../f_customer.php");
 
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
 
-$sql = "SELECT * FROM customer where  reseravetion_id = ?";
+global $pdo;
 
+$sql = "SELECT * FROM customer where  reseravetion_id = ?";
 $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
-$data = $smt->fetch(PDO::FETCH_NUM);
+$data = $smt->fetch(PDO::FETCH_ASSOC);
+
+foreach ($data as $key => $value) {
+    if ((strcmp($key, 'room_2') != 0 && strcmp($key, 'room_3') != 0 && strcmp($key, 'child') != 0) && empty($value)) {
+        $data[$key] = 'なし';
+    }
+    if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
+        $data[$key] = "有";
+    } else if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 0) {
+        $data[$key] = "無";
+    }   
+    if ((strcmp($key, 'is_breakfast') == 0 || strcmp($key, 'is_breakfast') == 0) && $data[$key] == 1) {
+        $data[$key] = "有";
+    } else if ((strcmp($key, 'is_breakfast') == 0 || strcmp($key, 'is_breakfast') == 0) && $data[$key] == 0) {
+        $data[$key] = "無";
+    }
+}
 
 
-$dt = new DateTime($data[1]);
-$stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
+$dt = new DateTime($data['stay_date']);
+$stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "day"))->format('Y-m-d');
 
 ?>
-
-<script>
-    var $info = "<?php echo $_POST; ?>"
-    var $stay_day = "<?php echo $stay_day; ?>"
-</script>
-
-
 
 <html>
 
@@ -52,76 +62,83 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
     <div id=" main">
         <dl>
             <div id="id">
-                <dt> 予約ID </dt?>
+                <dt> 予約ID </dt>
                 <dd>
-                    <?php echo $data[0]; ?>
+                    <?php echo $data['reseravetion_id']; ?>
                 </dd>
             </div>
             <div id="day">
-                <dt> 予約日 </dt?>
+                <dt> 予約日 </dt>
                 <dd>
-                    <?php echo $data[2]; ?>
+                    <?php echo $data['reservation_date']; ?>
                 </dd>
                 <dt> 宿泊日 </dt>
                 <dd>
-                    <?php echo $data[1] . "~" . $stay_day; ?>
+                    <?php echo $data['stay_date'] . "~" . $stay_day; ?>
                 </dd>
             </div>
             <div id="customer">
-                <dt> 氏名 </dt?>
+                <dt> 氏名 </dt>
                 <dd>
-                    <?php echo $data[4]; ?>
+                    <?php echo $data['customer_name']; ?>
                 </dd>
                 <dt> 住所 </dt>
                 <dd>
-                    <?php echo $data[5]; ?>
+                    <?php echo $data['customer_address']; ?>
                 </dd>
                 <dt> 電話番号 </dt>
                 <dd>
-                    <?php echo $data[6]; ?>
+                    <?php echo $data['phone_number']; ?>
                 </dd>
             </div>
             <div id="counter">
-                <dt> 人数 </dt?>
+                <dt> 人数 </dt>
                 <dd>
-                    <?php echo "大人" . $data[7] . "人、子供" . $data[8] . "人"; ?>
+                    <?php
+                    echo "大人" . $data['adult'] . "人";
+                    if (!empty($data['child'])) {
+                        echo ", 子供" . $data['child'] . "人";
+                    }
+                    ?>
                 </dd>
             </div>
             <div id="plan">
-                <dt> プラン </dt?>
+                <dt> プラン </dt>
                 <dd>
-                    <?php echo $data[9]; ?>
+                    <?php echo $data['customer_plan']; ?>
                 </dd>
                 <dt> 夕食 </dt>
                 <dd>
-                    <?php echo $data[10]; ?>
+                    <?php echo $data['is_dinner']; ?>
                 </dd>
                 <dt> 夕食メニュー </dt>
                 <dd>
-                    <?php echo $data[11]; ?>
+                    <?php echo $data['dinner_menu']; ?>
                 </dd>
                 <dt> 朝食 </dt>
                 <dd>
-                    <?php echo $data[12]; ?>
+                    <?php echo $data['is_breakfast']; ?>
                 </dd>
                 <dt> 朝食メニュー </dt>
                 <dd>
-                    <?php echo $data[13]; ?>
+                    <?php echo $data['breakfast_menu']; ?>
                 </dd>
             </div>
 
             <div id="room">
-                <dt> 部屋番号</dt?>
+                <dt> 部屋番号</dt>
                 <dd>
-                    <?php echo $data[14] . " " . $data[15] . " " . $data[16]; ?>
+                    <?php echo $data['room_1'] . " " . $data['room_2'] . " " . $data['room_3']; ?>
                 </dd>
             </div>
             <div id="remark">
-                <dt> 備考</dt?>
+                <dt> 備考</dt>
                 <dd>
-                    <?php echo $data[18]; ?>
+                    <?php echo $data['customer_remark']; ?>
                 </dd>
             </div>
         </dl>
     </div>
 </body>
+
+</html>
