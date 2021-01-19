@@ -7,14 +7,7 @@ $RESTAURANT = 3;
 $ARUBAITO = 4;
 $KANRI = 5;
 
-function IAuthCheckP($auth,$auth_check){
-    
-    if(strpos(strval($auth), strval($auth_check)) !== false){   
-        return true;
-    }else{
-        return false;
-    }
-}
+include("i_general_management");
 ?>
 
 <!DOCTYPE html>
