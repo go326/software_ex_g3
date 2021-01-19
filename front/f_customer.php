@@ -15,9 +15,8 @@ function checkinColor($ID)
     $stmt->bindValue(1, $ID);
     $stmt->execute();
     //fetch
-    while ($row = $stmt->fetch()) {
-        $data = $row['customer_checkin'];
-    }
+    $row = $stmt->fetch();
+    $data = $row['customer_checkin'];
     return $data;
 }
 

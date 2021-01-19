@@ -76,8 +76,7 @@ foreach ($data as $value) {
             echo ("<td>");
             //1部屋のリンク現在はボタンで作成
             //チェックインの情報をとるかな？
-            $color = checkinColor($value);
-            echo $color;
+            $color = checkinColor($ID);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = room_button bg_color" . $color . " type = submit value = " . $ID . " name = ID >");
 
