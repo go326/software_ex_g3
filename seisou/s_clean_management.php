@@ -1,7 +1,6 @@
 <?php
     //定数宣言
     //DBへ接続
-    include '../db_connect.php';
     include '../front/f_customer.php';
 
     //清掃情報確認画面の枠組みの作成のための定数
@@ -63,10 +62,7 @@ function SCleanMainP(){
         exit;
     }
     return $number_people;
-
 }
-
-
     //html開始
 ?>
 
