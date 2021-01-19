@@ -28,10 +28,10 @@
                     管理者<input type="checkbox" name="auth[]" value="5">
                 </p>
 
-                <?php KUserInputP(); ?>
                 <input type="button" onclick="location.href='k_user_screen.php'" value="取消">
                 <input type="submit" name="input" value=" 登録">
             </form>
+            <?php KUserInputP(); ?>
         </div>
     </body>
 
