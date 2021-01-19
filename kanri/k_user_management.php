@@ -18,11 +18,22 @@ $name = "";
 $pass = "";
 $auth = "";
 
-// IDを保持
-if (isset($_POST['eid'])) $_SESSION['eid'] = $_POST['eid'];
+// ID(+ユーザ情報)保持
+if (isset($_POST['eid'])) {
+    $_SESSION['eid'] = $_POST['eid'];
+    $eid = $_SESSION['eid'];
+    $sql = "SELECT * FROM user WHERE user_id = '$eid'";
+    $stmt = $pdo->query($sql);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    $_SESSION['user_id'] = $row['user_id'];
+    $_SESSION['user_name'] = $row['user_name'];
+    $_SESSION['user_pass'] = $row['user_id'];
+    $_SESSION['user_auth'] = $row['user_id'];
+}
 
-// 入力情報の確認
-if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
+// 入力確認
+if (isset($_POST['id']) and !empty($_POST['name']) and !empty($_POST['pass'])) {
     if (isset($_POST['auth']) and is_array($_POST['auth'])) {
         if ($_POST['id'] != 0) {
             $id = $_POST['id'];
@@ -41,13 +52,17 @@ if (isset($_POST['id']) and isset($_POST['name']) and isset($_POST['pass'])) {
     }
 }
 
-
 try {
     $pdo = new PDO($dsn, $user, $password);
 
     function KUserManagementP()
     {
         unset($_SESSION['eid']);
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_name']);
+        unset($_SESSION['user_pass']);
+        unset($_SESSION['user_auth']);
+
         global $pdo, $sql, $res, $alert;
         static $auth = "";
         $sql = "SELECT * FROM user";
