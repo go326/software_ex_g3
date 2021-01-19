@@ -7,7 +7,7 @@ $RESTAURANT = 3;
 $ARUBAITO = 4;
 $KANRI = 5;
 
-include("i_general_management");
+include("i_general_management.php");
 ?>
 
 <!DOCTYPE html>
