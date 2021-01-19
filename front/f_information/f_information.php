@@ -7,27 +7,28 @@ require(dirname(__FILE__) . "/../f_customer.php");
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
 
-$sql = "SELECT * FROM customer where  reseravetion_id = ?";
+global $pdo;
 
+$sql = "SELECT * FROM customer where  reseravetion_id = ?";
 $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_ASSOC);
 
-// foreach ($data as $key => $value) {
-//     if ((strcmp($key, 'room_2') != 0 && strcmp($key, 'room_3') != 0 && strcmp($key, 'child') != 0) && empty($value)) {
-//         $data[$key] = 'なし';
-//     }
-//     if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
-//         $data[$key] = "有";
-//     } else {
-//         $data[$key] = "無";
-//     }
-// }
+foreach ($data as $key => $value) {
+    if ((strcmp($key, 'room_2') != 0 && strcmp($key, 'room_3') != 0 && strcmp($key, 'child') != 0) && empty($value)) {
+        $data[$key] = 'なし';
+    }
+    if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 1) {
+        $data[$key] = "有";
+    } else {
+        $data[$key] = "無";
+    }
+}
 
 
 $dt = new DateTime($data['stay_date']);
-$stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->format('Y-m-d');
+$stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "day"))->format('Y-m-d');
 
 ?>
 
@@ -64,7 +65,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <div id="day">
                 <dt> 予約日 </dt>
                 <dd>
-                    <?php echo $data['reseravetion_date']; ?>
+                    <?php echo $data['reservetion_date']; ?>
                 </dd>
                 <dt> 宿泊日 </dt>
                 <dd>
@@ -99,7 +100,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data[3] . "day"))->form
             <div id="plan">
                 <dt> プラン </dt>
                 <dd>
-                    <?php echo $data['customer_plun']; ?>
+                    <?php echo $data['customer_plan']; ?>
                 </dd>
                 <dt> 夕食 </dt>
                 <dd>
