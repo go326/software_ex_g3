@@ -10,7 +10,9 @@ $KANRI = 5;
 function IAuthCheckP($auth,$auth_check){
     echo ($auth.$auth_check."<br>");
     echo ("test");
-    if(strpos($manual_file_name, $auth_check) !== false){    
+    if(strpos($manual_file_name, $auth_check) !== false){   
+        echo ($auth.$auth_check."<br>");
+        echo ("test");
         return true;
     }else{
         return false;
@@ -53,7 +55,7 @@ function IAuthCheckP($auth,$auth_check){
                     if(IAuthCheckP($auth, $RESTAURANT)){
                         echo ("<button type=\"button\" class=\"restaurant\" onclick=\"location.href='restaurant/r_information.php'\">レストラン業務機能</button>");
                     }
-                    if(IAuthCheckP($auth, $KANRI)){
+                    if(IAuthCheckP($auth, $ARUBAITO)){
                         echo ("<button type=\"button\" class=\"manual\" onclick=\"location.href='manual/i_mq_top.html'\">マニュアル・質問閲覧</button>");
                     }
                 ?>
