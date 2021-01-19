@@ -15,17 +15,17 @@ if (isset($_POST['add_fee'])) {
 }
 
 if (isset($_POST['delete'])) {
-    delete($_POST['id']);
+    delete($_POST['ID']);
     header("Location:../room.php");
 }
 
 if (isset($_POST['checkin'])) {
-    checkin($_POST['id']);
+    checkin($_POST['ID']);
     header("Location:../room.php");
 }
 
 if (isset($_POST['isstay'])) {
-    stay($_POST['id']);
+    stay($_POST['ID']);
     header("Location:../room.php");
 }
 
@@ -35,7 +35,7 @@ $date = $dt->format("Y-m-d");
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 
 $smt = $pdo->prepare($sql);
-$smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
+$smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_NUM);
 
@@ -69,9 +69,9 @@ $day = $dt->format('d');
                 <dd>
                     <!--日付の入力フォームの作成(ドロップダウンリスト)-->
 
-                    <select class="year" name="stay_year" id="year1" value=<?php echo $year; ?>></select>年
-                    <select class="month" name="stay_manth" id="month1" value=<?php echo $manth; ?>></select>月
-                    <select class="day" name="stay_day" id="day1" value=<?php echo $day; ?>></select>日
+                    <select class="year" name="stay_year" id="year1" selected=<?php echo $year; ?>></select>年
+                    <select class="month" name="stay_manth" id="month1" selected=<?php echo $manth; ?>></select>月
+                    <select class="day" name="stay_day" id="day1" selected=<?php echo $day; ?>></select>日
                     <script>
                         getYear1();
                         getMonth1();
@@ -80,7 +80,7 @@ $day = $dt->format('d');
                 </dd>
                 <dt>泊数</dt>
                 <dd>
-                    <select name="stay_count" id="stay_count" value=<?php echo $data[3]; ?>></select>
+                    <select name="stay_count" id="stay_count" selected=<?php echo $data[3]; ?>></select>
                     <script>
                         getStayCount();
                     </script>
@@ -103,11 +103,11 @@ $day = $dt->format('d');
                 <dt>人数</dt>
                 <dd>
 
-                    大人<select name="adult" id="adult" value='<?php echo $data[7]; ?>'></select>人
+                    大人<select name="adult" id="adult" selected='<?php echo $data[7]; ?>'></select>人
                     <script>
                         getAdult();
                     </script>
-                    子供<select name="child" id="child" value='<?php echo $data[8]; ?>'></select>人
+                    子供<select name="child" id="child" selected='<?php echo $data[8]; ?>'></select>人
                     <script>
                         getChild();
                     </script>
