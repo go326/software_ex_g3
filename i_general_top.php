@@ -9,7 +9,7 @@ $KANRI = 5;
 
 function IAuthCheckP($auth,$auth_check){
     
-    if(strpos(strval($auth), $auth_check) !== false){   
+    if(strpos(strval($auth), strval($auth_check)) !== false){   
         echo ($auth.$auth_check);
         echo ("truetest<br>");
         return true;
