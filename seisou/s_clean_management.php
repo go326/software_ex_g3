@@ -1,7 +1,5 @@
 <?php
-
-    include 's_clean.php';
-
+    include("s_clean.php");
 ?>
 
 <!DOCTYPE html>
