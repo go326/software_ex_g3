@@ -114,6 +114,7 @@ function stay($ID)
     $smt->execute();
 }
 
+//checkin状態を取得、返す
 function ischeckin($ID)
 {
     global $pdo;
