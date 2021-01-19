@@ -37,7 +37,7 @@
 
             <!--更新ボタン-->
             <form action = "s_clean_management.php" method="get">
-                <button type = "submit" name = "update" value = "1" onclick = "<?php SCleanMainP();?>">
+                <button type = "submit" name = "update" value = "1">
                 更新    
                 </button>
             </form>
