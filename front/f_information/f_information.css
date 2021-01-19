@@ -64,3 +64,9 @@ textarea{
     width: 80%;
     height: 50px;
 }
+input{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
