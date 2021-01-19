@@ -10,12 +10,8 @@ $KANRI = 5;
 function IAuthCheckP($auth,$auth_check){
     
     if(strpos(strval($auth), strval($auth_check)) !== false){   
-        echo ($auth.$auth_check);
-        echo ("truetest<br>");
         return true;
     }else{
-        echo ($auth.$auth_check);
-        echo ("falsetest<br>");
         return false;
     }
 }
@@ -63,7 +59,11 @@ function IAuthCheckP($auth,$auth_check){
             </div>
 
             <div class="inner">
-                <button type="button" class="kanri" onclick="location.href='kanri/k_top.html'">管理者専用機能</button>
+                <?php
+                    if(IAuthCheckP($auth, $KANRI)){
+                        echo ("<button type=\"button\" class=\"kanri\" onclick=\"location.href='kanri/k_top.html'\">管理者専用機能</button>");
+                    }
+                ?>
                 <button type="button" class="logout" onclick="location.href='i_login.html'">ログアウト</button>
             </div>
         </fieldset>
