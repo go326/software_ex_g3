@@ -22,14 +22,17 @@ $auth = "";
 if (isset($_POST['eid'])) {
     $_SESSION['eid'] = $_POST['eid'];
     $eid = $_SESSION['eid'];
-    $sql = "SELECT * FROM user WHERE user_id = '$eid'";
-    $stmt = $pdo->query($sql);
-    $stmt->execute();
-    $row = $stmt->fetch();
-    $_SESSION['user_id'] = $row['user_id'];
-    $_SESSION['user_name'] = $row['user_name'];
-    $_SESSION['user_pass'] = $row['user_id'];
-    $_SESSION['user_auth'] = $row['user_id'];
+    try {
+        $pdo = new PDO($dsn, $user, $password);
+        $sql = "SELECT user_name FROM user WHERE user_id = '$eid'";
+        $stmt = $pdo->query($sql);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $_SESSION['user_name'] = $row['user_name'];
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        exit;
+    }
 }
 
 // 入力確認
@@ -58,10 +61,7 @@ try {
     function KUserManagementP()
     {
         unset($_SESSION['eid']);
-        unset($_SESSION['user_id']);
         unset($_SESSION['user_name']);
-        unset($_SESSION['user_pass']);
-        unset($_SESSION['user_auth']);
 
         global $pdo, $sql, $res, $alert;
         static $auth = "";
