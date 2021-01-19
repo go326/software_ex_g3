@@ -9,7 +9,7 @@ global $pdo;
 if (isset($_POST['add_fee'])) {
 ?>
     <form action="../f_addfee/f_addfee_edit.html" type="POST">
-        <input type="hidden" value=<?php echo $_POST['id']; ?>>
+        <input type="hidden" value=<?php echo $_POST['ID']; ?>>
     </form>
 <?php
 }
@@ -150,8 +150,8 @@ $day = $dt->format('d');
                 </dd>
             </dl>
             <ul>
-                <li><input type="button" onclick="location.href='../room.php'" value="戻る"></li>
-                <li><input type="submit" name="reservation" value="完了" onclick="return check()"></li>
+                <li><input type="button" onclick="location.href='../f_information/f_information.php'" value="戻る"></li>
+                <li><input type="submit" name="" value="完了" onclick="return check()"></li>
             </ul>
         </form>
         <script src="f_reservation.js"></script>
