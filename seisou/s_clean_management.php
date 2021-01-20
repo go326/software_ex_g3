@@ -75,6 +75,7 @@
         <!--formがget方式だがpostにする予定最悪このまま-->
         <form method="get" action = "s_clean_edit.php">
         <?php
+        global $date;
             //３階分テーブルを作成する
             for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
                 echo ("<table>");
