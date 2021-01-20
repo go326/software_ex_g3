@@ -32,8 +32,8 @@
 
     // 予約IDの保存
     //$_SESSION['fee_id'] = "2"; //（仮）予約ID
-    if (isset($_POST['ID'])) {
-        $_SESSION['fee_id'] = $_POST['ID'];
+    if (isset($_POST['fee_id'])) {
+        $_SESSION['fee_id'] = $_POST['fee_id'];
     }
     $id = $_SESSION['fee_id'];
 
@@ -68,8 +68,8 @@
     ?>
 
 
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
     <head>
         <!--文字コードUTF-8-->
@@ -92,7 +92,6 @@
         <div id="main">
             <form method="POST" action="f_addfee_confimation.php">
                 <dl>
-
                     <dt>部屋番号</dt>
                     <dd><?php echo $res_room; ?></dd>
                     <dt>氏名</dt>
@@ -108,13 +107,22 @@
                     <dt>備考</dt>
                     <dd><input type="text" name="remark"></dd>
                 </dl>
-                <ul>
-                    <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
-                    <li><button type='submit' name='ID' value='<?php echo $row['user_id'] ?>'>戻る</button></li>
-                    <li><input type="submit" name="edit" value="確認" onclick="return check()"></li>
-                </ul>
             </form>
+            <ul>
+            <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
+            <li>
+            <form method="POST" action="../f_information/f_information.php">    
+            <button type="submit" name="ID" value="<?php echo $_SESSION['fee_id']; ?>">戻る</button>
+            </form>
+            </li>   
+                
+            <li>
+            <form method="POST" action="f_addfee_confimation.php">
+            <input type="submit" name="edit" value="確認" onclick="return check()">
+            </form>
+            </li>
+            </ul>
+
         </div>
     </body>
-
-    </html>
+</html>
