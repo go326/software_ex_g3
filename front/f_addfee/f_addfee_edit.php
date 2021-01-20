@@ -107,21 +107,16 @@
                     <dt>備考</dt>
                     <dd><input type="text" name="remark"></dd>
                 </dl>
+
+                <input type="submit" name="edit" value="確認" onclick="return check()">
             </form>
-            <ul>
+            
             <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
-            <li>
             <form method="POST" action="../f_information/f_information.php">    
             <button type="submit" name="ID" value="<?php echo $_SESSION['fee_id']; ?>">戻る</button>
             </form>
-            </li>   
+               
                 
-            <li>
-            <form method="POST" action="f_addfee_confimation.php">
-            <input type="submit" name="edit" value="確認" onclick="return check()">
-            </form>
-            </li>
-            </ul>
 
         </div>
     </body>
