@@ -41,7 +41,7 @@ function getDay1() {
  *  あらかじめ選択
  *  日付に合わせてるので人数はプラス1したもの
  * */ 
-function LoadDay(ID,num){
+function LoadData(ID,num){
     num -= 1;
     let objSelect = document.getElementById(ID);
     let m = objSelect.length;
