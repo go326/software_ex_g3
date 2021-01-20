@@ -56,7 +56,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
             <input type="submit" name='checkin' value="チェックイン/チェックアウト">
             <input type="submit" name='isstay' value="外出/帰館">
         </form>
-        <form action="../f_addfee/f_addfee.php" method="post">
+        <form action="../f_addfee/f_addfee_edit.php" method="post">
             <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
             <input type="submit" name='add_fee' value="追加料金登録">
         </form>
