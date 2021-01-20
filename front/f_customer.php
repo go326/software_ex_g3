@@ -138,6 +138,7 @@ function checkin($ID)
 {
     global $pdo;
     $checkin = ischeckin($ID);
+    echo $checkin;
     if ($checkin == 0) {
         $checkin = 1;
     } else {
