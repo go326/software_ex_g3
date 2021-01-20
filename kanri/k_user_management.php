@@ -139,9 +139,8 @@ try {
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
                 KLogRecodeP("ユーザ編集", "ユーザ情報テーブル", "{$id}", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
-                echo $sql;
-                // header("Location: k_user_screen.php");
-                // exit;
+                header("Location: k_user_screen.php");
+                exit;
             }
         }
     }
