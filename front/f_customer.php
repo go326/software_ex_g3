@@ -130,8 +130,7 @@ function ischeckin($ID)
     } catch (PDOException $e) {
         var_dump($e->getMessage());
     }
-    var_dump($data);
-    return $data;
+    return $data['customer_checkin'];
 }
 
 //is_checkinを変更する
