@@ -109,7 +109,8 @@
                     <dd><input type="text" name="remark"></dd>
                 </dl>
                 <ul>
-                    <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li>
+                    <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
+                    <li><button type='submit' name='ID' value='<?php echo $row['user_id'] ?>'>戻る</button></li>
                     <li><input type="submit" name="edit" value="確認" onclick="return check()"></li>
                 </ul>
             </form>
