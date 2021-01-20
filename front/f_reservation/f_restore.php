@@ -21,7 +21,7 @@ if (isset($_POST['delete'])) {
 
 if (isset($_POST['checkin'])) {
     checkin($_POST['id']);
-    header("Location:../room.php");
+    //header("Location:../room.php");
 }
 
 if (isset($_POST['isstay'])) {
@@ -72,14 +72,8 @@ $day = $dt->format('d');
                     <select class="year" name="stay_year" id="year1"></select>年
                     <select class="month" name="stay_manth" id="month1"></select>月
                     <select class="day" name="stay_day" id="day1"></select>日
-                    <script>
-                        getYear1();
-                        getMonth1();
-                        getDay1();
-                        LoadData("year1",<?php echo $year; ?>);
-                        LoadData("month1",<?php echo $manth; ?> );
-                        LoadData("day1",<?php echo $day; ?>);
-                    </script>
+                    <script>getYear1();getMonth1();getDay1();</script>
+                    <script>LoadData("day1",<?php echo $day; ?>);</script>
                 </dd>
                 <dt>泊数</dt>
                 <dd>
