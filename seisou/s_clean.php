@@ -52,7 +52,7 @@ function SCleanMainP(){
             echo ($floor_count);
         }
         //最後までループしているか確認
-        echo ("1<br>".$ROOM_DATA[$floor_count][$room_count]."2<br>");
+        echo ($floor_count."<br>".$ROOM_DATA[$floor_count][$room_count]."<br>".$room_count."<br>");
         //抜き出した情報を登録する。
     } catch (PDOException $e) {
         echo $e->getMessage();
