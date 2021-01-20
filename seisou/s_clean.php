@@ -44,9 +44,9 @@ function SCleanMainP(){
                 //予約が存在しているか確認する
                 if($res_id != 0){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
-                    echo($res_id."<br>");
+                    echo($res_id."<br>test<br>");
                     $room_clean = ischeckin($res_id); 
-                    echo($room_clean."<br>");
+                    print_r($room_clean);
                 }
                 //次にSCleanUpdateP($room_number, $room_clean)を実行する。
                 SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
