@@ -33,8 +33,10 @@ function SCleanMainP(){
     //今日の日付を取得
     try{
         //ホテルの階数分ループ
+        echo ($today."<br>");
         for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
             //1階の部屋数分だけループ
+            echo ($today."test1<br>");
             for ($room_count = 0; $room_count < $NUM_OF_ROOMS; $room_count++){
                 echo ($room_count."<br>");
                 //まずは顧客情報テーブルから、清掃状況を抜き取る
