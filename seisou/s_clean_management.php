@@ -23,7 +23,6 @@
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
 
     if(isset($_POST['update'])){
-        echo ("test<br>");
         SCleanMainP();
     }
 ?>
