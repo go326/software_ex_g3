@@ -100,11 +100,11 @@
                         //改行
                         echo ("<br>");
                         //今日の宿泊者数
-                        $number_people = SCleanNumberP($date, $ROOM_DATA[$table][$room_count]);
+                        $number_people = SCleanNumber(bool_stay($date, $ROOM_DATA[$floor_count][$room_count]));
                         echo ("本日".$number_people."人");
                         echo ("<br>");
                         //明日の宿泊者数
-                        $number_people = SCleanNumberP($next_date, $ROOM_DATA[$table][$room_count]);
+                        $number_people = SCleanNumber(bool_stay($next_date, $ROOM_DATA[$floor_count][$room_count]));
                         echo ("明日".$number_people."人");
                         //echo ("</a>");
                         echo ("</button>");
