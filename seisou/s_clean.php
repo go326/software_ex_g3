@@ -31,6 +31,7 @@
 function SCleanMainP(){
     global $DATA201_235,$DATA301_335,$DATA401_435,$ROOM_DATA,$NUM_OF_ROOMS,$NUM_OF_FLOOR,$ALL_ROOM;
     $today = date("Y-m-d");
+    $room_clean = 0; //初期値は0
     //今日の日付を取得
     try{
         //ホテルの階数分ループ
@@ -42,7 +43,9 @@ function SCleanMainP(){
                 $res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
                 if($res_id != 0){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
-                    $room_clean = 0;
+                    echo("test1<br>");
+                    $room_clean = ischeckin($res_id); 
+                    echo("test1<br>");
                     //次にSCleanUpdateP($room_number, $room_clean)を実行する。
                     SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
                 }else{
