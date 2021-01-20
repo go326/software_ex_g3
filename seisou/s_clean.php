@@ -47,6 +47,7 @@ function SCleanMainP(){
                     echo($res_id."<br>test<br>");
                     $room_clean = ischeckin($res_id); 
                     print_r($room_clean);
+                    print_r($res_id);
                 }
                 //次にSCleanUpdateP($room_number, $room_clean)を実行する。
                 SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
