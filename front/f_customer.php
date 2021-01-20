@@ -130,6 +130,7 @@ function ischeckin($ID)
     } catch (PDOException $e) {
         var_dump($e->getMessage());
     }
+    var_dump($data);
     return $data;
 }
 
