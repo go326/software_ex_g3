@@ -67,7 +67,7 @@
 
             <span class = "sample0"><button class = "bg_color0"></button></span>掃除していない、予約なしの状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
-            <span class = "sample3"></span> お客様が外出している状態
+            <span class = "sample3"><button class = "bg_color0"></button></span>お客様が外出している状態
             <span class = "sample2"><button class = "bg_color0"></button></span>掃除済み状態<br>
         </header>
 
