@@ -74,10 +74,10 @@ $day = $dt->format('d');
                     <select class="day" name="stay_day" id="day1"></select>日
                     <script>
                         getYear1();
-                        getMonth1();
-                        getDay1();
                         LoadData("year1",<?php echo $year; ?>);
+                        getMonth1();
                         LoadData("month1",<?php echo $manth; ?> );
+                        getDay1();
                         LoadData("day1",<?php echo $day; ?>);
                     </script>
                 </dd>
