@@ -27,6 +27,21 @@
 //総合TOPからの遷移時にform(get)でroginを与えてもらう。
 //ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
 
+function GetChecknP($ID)
+{
+    global $pdo;
+    try {
+        $checkin_sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ";
+        $stmt = $pdo -> query($checkin_sql);
+        while ($row = $stmt -> fetch()){
+            $checkin = $row["customer_checkin"];    
+        }
+    } catch (PDOException $e) {
+        var_dump($e->getMessage());
+    }
+    return $checkin;
+}
+
 //部屋情報テーブルを全て更新する関数
 function SCleanMainP(){
     global $DATA201_235,$DATA301_335,$DATA401_435,$ROOM_DATA,$NUM_OF_ROOMS,$NUM_OF_FLOOR,$ALL_ROOM;
@@ -45,7 +60,7 @@ function SCleanMainP(){
                 if($res_id != 0){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
                     echo($res_id."<br>test<br>");
-                    $room_clean = ischeckin($res_id); 
+                    $room_clean = GetChecknP($res_id); 
                     print_r($room_clean);
                     print_r($res_id);
                 }
