@@ -40,10 +40,10 @@
         <!--確認用の出力文＿-->
         <div class="button-area">
             <?php
-                echo ("質問No.".$question_number."を変更します。<br>");
+                echo ("質問No.".$question_number."を変更します。");
             ?>
             <!--メイン-->
-        
+            <br>
             <!--i行目-->
             <form id = "question_edit" method = “get” action = "i_question_edit_done.php">
 
@@ -86,7 +86,7 @@
                 </table>
 
             </form>
-
+            <p>
             <div class="button-position-l">
                 <div class="input#submit_button">
                     <!--戻るボタン-->
@@ -101,6 +101,7 @@
                     <input id="submit_button" type="submit" name="submit" value="完了" form = "question_edit" onclick = "return check()">
                 </div>
             </div>
+            </p>
         </div>
         <!--フッター-->
     </body>

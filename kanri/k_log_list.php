@@ -49,17 +49,32 @@
 
     <head>
         <meta charset="utf-8">
-        <title>log</title>
+        <title>システムログ参照</title>
+        <style type="text/css">
+        header {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin: 0 auto;
+        }
+
+        table {
+            text-align: center;
+            margin: 0 auto;
+            width: 80%;
+        }
+    </style>
     </head>
 
     <body>
 
-        <footer>
-            <br><br>
-            <center>
-                <input type="button" onclick="location.href='k_top.html'" value="TOPへ戻る">
-            </center>
-        </footer>
+        <header>
+            <h1>システムログ参照</h1>
+            <input type="button" onclick="location.href='k_top.html'" value="TOPへ戻る">
+
+        </header>
         <!-- Management -->
         <table border="1">
             <tr valign="top">

@@ -31,6 +31,7 @@
                     <input type = "submit" value = "管理者専用機能TOPに戻る">
                 </form>
             </div>
+            <br>
             <?php
                     echo ("<input type=\"button\" onclick=\"location.href='./i_question_insert.php?question_number=".($NUM_OF_QUESTION + 1)."'\" value=\"新規入力\">");
             ?>
