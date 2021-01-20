@@ -24,11 +24,9 @@
     $LINE_BREAK = 8; //8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
 
-//総合TOPからの遷移時にform(get)でroginを与えてもらう。
-//ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
 
-function GetChecknP($ID)
-{
+//チェックイン状態を取り出す。
+function GetChecknP($ID){
     global $pdo;
     try {
         $checkin_sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ".$ID.";";
@@ -59,24 +57,16 @@ function SCleanMainP(){
                 //予約が存在しているか確認する
                 if($res_id != 0){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
-                    echo($res_id."<br>test<br>");
                     $room_clean = GetChecknP($res_id); 
-                    print_r($room_clean);
-                    print_r($res_id);
                 }
                 //次にSCleanUpdateP($room_number, $room_clean)を実行する。
                 SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
             }
-            echo ($floor_count);
         }
-        //最後までループしているか確認
-        echo ($floor_count."<br>".$ROOM_DATA[$floor_count][$room_count]."<br>".$room_count."<br>");
-        //抜き出した情報を登録する。
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
     }
-    return $number_people;
 }
 
 //清掃情報確認画面の枠組みに反映
