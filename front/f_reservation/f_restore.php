@@ -77,7 +77,7 @@ $day = $dt->format('d');
                         getMonth1();
                         getDay1();
                         LoadData("year1",<?php echo $year; ?>);
-                        LoadData("month1",<?php echo $manth; ?> )
+                        LoadData("month1",<?php echo $manth; ?> );
                         LoadData("day1",<?php echo $day; ?>);
                     </script>
                 </dd>
@@ -110,12 +110,12 @@ $day = $dt->format('d');
                     大人<select name="adult" id="adult"></select>人
                     <script>
                         getAdult();
-                        LoadData("adult", <?php echo $data[7]; ?>);
+                        LoadNumber("adult", <?php echo $data[7]; ?>);
                     </script>
                     子供<select name="child" id="child"></select>人
                     <script>
                         getChild();
-                        LoadData("child", <?php echo $data[8]; ?>);
+                        LoadNumber("child", <?php echo $data[8]; ?>);
                     </script>
                 </dd>
 
