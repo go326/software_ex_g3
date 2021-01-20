@@ -1,7 +1,7 @@
     <?php
     // セッション開始と初期化
     session_start();
-    unset($_SESSION['fee_id']);
+    // unset($_SESSION['fee_id']);
     unset($_SESSION['fee_room']);
     unset($_SESSION['fee_name']);
     unset($_SESSION['fee_date']);
@@ -9,7 +9,6 @@
     unset($_SESSION['fee_fee']);
     unset($_SESSION['fee_content']);
     unset($_SESSION['fee_remark']);
-
     // 変数宣言
 
     // DB
@@ -31,8 +30,9 @@
     $date = date('Y-m-d H:i:s');
 
     // 予約IDの保存
-    //$_SESSION['fee_id'] = "2"; //（仮）予約ID
-    $_SESSION['fee_id'] = $_POST['add_fee'];
+    if (isset($_POST['fee_id'])) {
+        $_SESSION['fee_id'] = $_POST['fee_id'];
+    }
     $id = $_SESSION['fee_id'];
 
 
@@ -41,6 +41,7 @@
 
         function FeeSelectP()
         {
+
             global $pdo, $rf_sql, $res_room, $res_name, $res_date, $id, $date;
 
             // データの取得
@@ -66,8 +67,8 @@
     ?>
 
 
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
     <head>
         <!--文字コードUTF-8-->
@@ -90,7 +91,6 @@
         <div id="main">
             <form method="POST" action="f_addfee_confimation.php">
                 <dl>
-
                     <dt>部屋番号</dt>
                     <dd><?php echo $res_room; ?></dd>
                     <dt>氏名</dt>
@@ -106,12 +106,17 @@
                     <dt>備考</dt>
                     <dd><input type="text" name="remark"></dd>
                 </dl>
-                <ul>
-                    <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li>
-                    <li><input type="submit" name="edit" value="確認" onclick="return check()"></li>
-                </ul>
+
+                <input type="submit" name="edit" value="確認" onclick="return check()">
             </form>
+            
+            <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
+            <form method="POST" action="../f_information/f_information.php">    
+            <button type="submit" name="ID" value="<?php echo $_SESSION['fee_id']; ?>">戻る</button>
+            </form>
+               
+                
+
         </div>
     </body>
-
-    </html>
+</html>

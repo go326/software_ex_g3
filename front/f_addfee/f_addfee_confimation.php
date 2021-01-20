@@ -54,7 +54,7 @@
         $stmt = $pdo->prepare($rf_sql);
         $stmt->execute();
         // 画面遷移
-        header("Location:/software_ex_g3/front/f_addfee/f_addfee_done.html");
+        header("Location:/software_ex_g3/front/f_addfee/f_addfee_done.php");
         exit();
         }
     }

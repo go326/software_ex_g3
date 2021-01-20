@@ -38,6 +38,18 @@ function getDay1() {
     }
 }
 /**
+ *  あらかじめ選択
+ *  日付に合わせてるので人数はプラス1したもの
+ * */ 
+function LoadData(ID,num){
+    num -= 1;
+    let objSelect = document.getElementById(ID);
+    let m = objSelect.length;
+    let i = 0;
+    objSelect.options[num].selected = true;
+}
+
+/**
  * 大人の人数のドロップダウンリスト
  */
 const NUMBER = 10;
@@ -48,6 +60,7 @@ function getAdult() {
         let option = document.createElement("option");
         option.setAttribute("value", i);
         option.innerHTML = i;
+        //option.innerHTML = i;
         adult.appendChild(option);
     }
 }

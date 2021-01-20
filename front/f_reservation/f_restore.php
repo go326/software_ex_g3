@@ -69,20 +69,24 @@ $day = $dt->format('d');
                 <dd>
                     <!--日付の入力フォームの作成(ドロップダウンリスト)-->
 
-                    <select class="year" name="stay_year" id="year1" selected='<?php echo $year; ?>'></select>年
-                    <select class="month" name="stay_manth" id="month1" selected='<?php echo $manth; ?>'></select>月
-                    <select class="day" name="stay_day" id="day1" selected='<?php echo $day; ?>'></select>日
+                    <select class="year" name="stay_year" id="year1"></select>年
+                    <select class="month" name="stay_manth" id="month1"></select>月
+                    <select class="day" name="stay_day" id="day1"></select>日
                     <script>
                         getYear1();
                         getMonth1();
                         getDay1();
+                        LoadData("year1",<?php echo $year; ?>);
+                        LoadData("month1",<?php echo $manth; ?> )
+                        LoadData("day1",<?php echo $day; ?>);
                     </script>
                 </dd>
                 <dt>泊数</dt>
                 <dd>
-                    <select name="stay_count" id="stay_count" selected='<?php echo $data[3]; ?>'></select>
+                    <select name="stay_count" id="stay_count"></select>
                     <script>
                         getStayCount();
+                        LoadData("stay_count", <?php echo $data[3]; ?>)
                     </script>
                 </dd>
                 <!--入力必須項目(最大文字数20)-->
@@ -103,13 +107,15 @@ $day = $dt->format('d');
                 <dt>人数</dt>
                 <dd>
 
-                    大人<select name="adult" id="adult" selected='<?php echo $data[7]; ?>'></select>人
+                    大人<select name="adult" id="adult"></select>人
                     <script>
                         getAdult();
+                        LoadData("adult", <?php echo $data[7]; ?>);
                     </script>
-                    子供<select name="child" id="child" selected='<?php echo $data[8]; ?>'></select>人
+                    子供<select name="child" id="child"></select>人
                     <script>
                         getChild();
+                        LoadData("child", <?php echo $data[8]; ?>);
                     </script>
                 </dd>
 
