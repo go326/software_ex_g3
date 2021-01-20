@@ -33,6 +33,11 @@ button.bg_color2,.sample2{
     /*border-radius: 50%;
     position: relative;*/
 }
+button.bg_color3,.sample3{
+    background: skyblue;/*清掃情報の丸の色*/
+    /*border-radius: 50%;
+    position: relative;*/
+}
 /*客室のtable全体をリンクとして扱う*/
 a {
     display:block;
