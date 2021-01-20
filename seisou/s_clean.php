@@ -34,6 +34,7 @@ function SCleanMainP(){
     try{
         //ホテルの階数分ループ
         echo ($ALL_ROOM."test0<br>");
+        echo ($NUM_OF_ROOMS.$NUM_OF_FLOOR);
         for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
             //1階の部屋数分だけループ
             echo ($today."test1<br>");
