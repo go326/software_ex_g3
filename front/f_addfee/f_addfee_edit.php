@@ -32,7 +32,9 @@
 
     // 予約IDの保存
     //$_SESSION['fee_id'] = "2"; //（仮）予約ID
-    $_SESSION['fee_id'] = $_POST['add_fee'];
+    if (isset($_POST['ID'])) {
+        $_SESSION['fee_id'] = $_POST['ID'];
+    }
     $id = $_SESSION['fee_id'];
 
 
