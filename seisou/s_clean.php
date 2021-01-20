@@ -26,16 +26,10 @@
 
 //総合TOPからの遷移時にform(get)でroginを与えてもらう。
 //ログインして、この画面に遷移したときに掃除情報テーブル(room)を更新するように設定する。
-//    if(isset($_GET["update"])){
-//        SCleanMainP();
-//    }
 
 //部屋情報テーブルを全て更新する関数
-/*
 function SCleanMainP(){
-    //global $pdo;
     $today = date("Y-m-d");
-
     //今日の日付を取得
     try{
         //ホテルの階数分ループ
@@ -45,15 +39,15 @@ function SCleanMainP(){
                 echo ($room_count."<br>");
                 //まずは顧客情報テーブルから、清掃状況を抜き取る
                 //そのために部屋番号からIDを取り出し、存在するかどうか確認する。
-                //$res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
-                //if($res_id != 0){
+                $res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
+                if($res_id != 0){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
-                //    $room_clean = 0;
+                    $room_clean = 0;
                     //次にSCleanUpdateP($room_number, $room_clean)を実行する。
-                //    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
-                //}else{
-                    //SCleanUpdateP($ROOM_DATA[$floor_count][$room_count],0);
-                //}
+                    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
+                }else{
+                    SCleanUpdateP($ROOM_DATA[$floor_count][$room_count],0);
+                }
             }
             echo ($floor_count);
         }
@@ -66,7 +60,6 @@ function SCleanMainP(){
     }
     return $number_people;
 }
-*/
 
 //清掃情報確認画面の枠組みに反映
 //清掃情報確認画面の枠組みの清掃状況を取り出し
@@ -116,7 +109,6 @@ function SCleanNumberP($day_number, $room_number){
 
 //清掃状況を更新する
 //部屋番号とその清掃状況を渡して更新する。
-/*
 function SCleanUpdateP($room_number, $room_clean){
     global $pdo;
     try{
@@ -127,5 +119,4 @@ function SCleanUpdateP($room_number, $room_clean){
         exit;
     }
 }
-*/
 ?>
