@@ -78,7 +78,7 @@ foreach ($data as $value) {
             //チェックインの情報をとるかな？
             $color = checkinColor($ID);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
-            echo ("<button class = room_button bg_color" . $color . " type = submit value = " . $ID . " name = ID >");
+            echo ("<button class = 'room_button bg_color" . $color . " ' type = submit value = " . $ID . " name = ID >");
 
             echo $color;
             //1セルの表示名
