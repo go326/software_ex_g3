@@ -44,8 +44,11 @@ function getDay1() {
 function LoadData(ID,num){
     num -= 1;
     let objSelect = document.getElementById(ID);
-    let m = objSelect.length;
-    let i = 0;
+    objSelect.options[num].selected = true;
+}
+
+function LoadNumber(ID, num){
+    let objSelect = document.getElementById(ID);
     objSelect.options[num].selected = true;
 }
 

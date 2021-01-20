@@ -21,7 +21,7 @@ try {
     // 表の表示
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $room = $row['room_1'];
-        if (bool_stay($date, $room) != 0) {
+    if (bool_stay($date, $room) != 0) {
             $rinfo .= "<tr><td>";
             $rinfo .= "<form action='../front/f_information/f_information.php' method='post'>";
             $rinfo .= "<button type='submit' name='ID' value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
