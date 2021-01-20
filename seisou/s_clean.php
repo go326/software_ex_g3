@@ -33,7 +33,7 @@ function SCleanMainP(){
     //今日の日付を取得
     try{
         //ホテルの階数分ループ
-        echo ($today."<br>");
+        echo ($ALL_ROOM."test0<br>");
         for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
             //1階の部屋数分だけループ
             echo ($today."test1<br>");
