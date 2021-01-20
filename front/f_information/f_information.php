@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <?php
+session_start();
+unset($_SESSION['fee_id']);
+
 require(dirname(__FILE__) . "/../../db_connect.php");
 require(dirname(__FILE__) . "/../f_customer.php");
 
