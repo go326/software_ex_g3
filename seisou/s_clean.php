@@ -29,6 +29,7 @@
 
 //部屋情報テーブルを全て更新する関数
 function SCleanMainP(){
+    global $DATA201_235,$DATA301_335,$DATA401_435,$ROOM_DATA,$NUM_OF_ROOMS,$NUM_OF_FLOOR,$ALL_ROOM;
     $today = date("Y-m-d");
     //今日の日付を取得
     try{
