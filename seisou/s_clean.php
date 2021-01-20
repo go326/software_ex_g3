@@ -31,7 +31,7 @@ function GetChecknP($ID)
 {
     global $pdo;
     try {
-        $checkin_sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ";
+        $checkin_sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ".$ID.";";
         $stmt = $pdo -> query($checkin_sql);
         while ($row = $stmt -> fetch()){
             $checkin = $row["customer_checkin"];    
