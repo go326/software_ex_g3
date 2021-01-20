@@ -80,6 +80,7 @@ foreach ($data as $value) {
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = room_button bg_color" . $color . " type = submit value = " . $ID . " name = ID >");
 
+            echo $color;
             //1セルの表示名
             //1行目
             echo ($value);
