@@ -76,6 +76,7 @@ $day = $dt->format('d');
                         getYear1();
                         getMonth1();
                         getDay1();
+                        LoadDay("day1",<?php echo $day; ?>)
                     </script>
                 </dd>
                 <dt>泊数</dt>
