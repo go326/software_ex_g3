@@ -70,10 +70,11 @@ $day = $dt->format('d');
                     <!--日付の入力フォームの作成(ドロップダウンリスト)-->
 
                     <select class="year" name="stay_year" id="year1"></select>年
+                    <script>getYear1();LoadData("year1",<?php echo $year; ?>);</script>
                     <select class="month" name="stay_manth" id="month1"></select>月
+                    <script>getMonth1();LoadData("month1",<?php echo $manth; ?>);</script>
                     <select class="day" name="stay_day" id="day1"></select>日
-                    <script>getYear1();getMonth1();getDay1();</script>
-                    <script>LoadData("day1",<?php echo $day; ?>);</script>
+                    <script>getDay1();LoadData("day1",<?php echo $day; ?>);</script>
                 </dd>
                 <dt>泊数</dt>
                 <dd>
