@@ -99,22 +99,6 @@ function delete($ID)
     echo "削除されました．";
 }
 
-function checkin($ID)
-{
-    global $pdo;
-    $checkin = ischeckin($ID);
-    if ($checkin == 0) {
-        $checkin = 1;
-    } else {
-        $checkin = 3;
-    }
-    $sql = "UPDATE customer SET customer_checkin = ? WHERE reseravetion_id = ?";
-    $smt = $pdo->prepare($sql);
-    $smt->bindValue(1, $checkin, PDO::PARAM_INT);
-    $smt->bindValue(2, $ID, PDO::PARAM_STR);
-    $smt->execute();
-}
-
 function stay($ID)
 {
     global $pdo;
@@ -147,4 +131,22 @@ function ischeckin($ID)
         var_dump($e->getMessage());
     }
     return $data;
+}
+
+//is_checkinを変更する
+function checkin($ID)
+{
+    global $pdo;
+    $checkin = ischeckin($ID);
+    if ($checkin == 0) {
+        $checkin = 1;
+    } else {
+        $checkin = 3;
+    }
+    echo $checkin;
+    $sql = "UPDATE customer SET customer_checkin = ? WHERE reseravetion_id = ?";
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $checkin, PDO::PARAM_INT);
+    $smt->bindValue(2, $ID, PDO::PARAM_STR);
+    $smt->execute();
 }
