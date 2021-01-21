@@ -89,7 +89,7 @@
 
         <!--メイン-->
         <div id="main">
-            <form method="POST" action="f_addfee_confimation.php">
+            <form method="POST" action="f_addfee_confimation.php" id="form1">
                 <dl>
                     <dt>部屋番号</dt>
                     <dd><?php echo $res_room; ?></dd>
@@ -104,16 +104,19 @@
                     <dt>内容</dt>
                     <dd><input type="text" id="content" name="content"></dd>
                     <dt>備考</dt>
-                    <dd><input type="text" name="remark"></dd>
+                    <dd><input type="text" id="remark" name="remark"></dd>
                 </dl>
-
-                <input type="submit" name="edit" value="確認" onclick="return check()">
             </form>
-            
+            <form method="POST" action="../f_information/f_information.php" id="form2">
+            </form>
+            <ul>
+                <li><input type="submit" name="edit" value="確認" onclick="return check()" form="form1"></li>
+                <li><button type="submit" id="backbutton" name="ID" value="<?php echo $_SESSION['fee_id']; ?>" form="form2">戻る</button></li>
+            </ul>
             <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
-            <form method="POST" action="../f_information/f_information.php">    
-            <button type="submit" name="ID" value="<?php echo $_SESSION['fee_id']; ?>">戻る</button>
-            </form>
+            <!--<form method="POST" action="../f_information/f_information.php">-->    
+            
+            <!--</form>-->
                
                 
 

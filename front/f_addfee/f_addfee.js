@@ -25,6 +25,13 @@ function check(){
         message += "・内容が未入力です\n";
         send = false;
     }
+
+    //備考
+    let remark = document.getElementById("remark");
+    if(remark.value == ""){
+        document.getElementById("remark").value ="なし";
+    }
+
     if(send){
         return send;
     }else{
