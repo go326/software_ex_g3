@@ -56,7 +56,7 @@ function SCleanMainP(){
 }
 
 //もしかしたら清掃情報と比較をして一致状態は普遍みたいなことをするかも、清掃済状態は５にするかも
-function SCleanChange($room_clean){
+function SCleanChangeP($room_clean){
     if($room_clean == 0 || $room_clean == 3){
         $room_clean = 0;
     }else if($room_clean == 1 || $room_clean == 2){
