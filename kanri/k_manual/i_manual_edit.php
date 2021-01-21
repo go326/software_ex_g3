@@ -34,13 +34,11 @@
         <!--ヘッダー-->
         <header>
             <h1>マニュアル編集画面</h1>
-        </header>
         <!--確認用の出力文＿-->
-        <div class="text">
             <?php
                 echo ("マニュアルNo.".$manual_number."を変更します。<br>");
             ?>
-        </div>
+        </header>
             <!--メイン-->
         
             <!--i行目-->
