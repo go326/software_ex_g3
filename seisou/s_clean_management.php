@@ -98,10 +98,10 @@
 
                         //1セルの表示名
                         //1行目
-                        echo ($room_number);
+                        //echo ($room_number);
                         $today_res_id = bool_stay($date, $room_number);
                         $next_res_id = bool_stay($next_date, $room_number);
-                        echo ($today_res_id.",".$next_res_id."<br>");
+                        //echo ($today_res_id.",".$next_res_id."<br>");
                         //改行
                         echo ("<br>");
                         //今日の宿泊者数
