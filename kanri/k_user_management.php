@@ -24,11 +24,12 @@ if (isset($_POST['eid'])) {
     $eid = $_SESSION['eid'];
     try {
         $pdo = new PDO($dsn, $user, $password);
-        $sql = "SELECT user_name FROM user WHERE user_id = '$eid'";
+        $sql = "SELECT * FROM user WHERE user_id = '$eid'";
         $stmt = $pdo->query($sql);
         $stmt->execute();
         $row = $stmt->fetch();
         $_SESSION['user_name'] = $row['user_name'];
+        $_SESSION['user_auth'] = $row['authority'];
     } catch (PDOException $e) {
         echo $e->getMessage();
         exit;
@@ -43,9 +44,10 @@ try {
     {
         unset($_SESSION['eid']);
         unset($_SESSION['user_name']);
+        unset($_SESSION['user_auth']);
+
         global $pdo, $sql, $res, $alert;
         static $auth = "";
-        echo $_SESSION['user'];
         $sql = "SELECT * FROM user";
         $stmt = $pdo->query($sql);
         $stmt->execute();
@@ -78,23 +80,8 @@ try {
     {
         global $pdo, $sql, $id, $name, $pass, $auth, $flag;
         if (isset($_POST['input'])) {
-    
-            // 入力確認
-            if(!empty($_POST['id'])) $id = $_POST['id'];
-            if($id == 0){
-                $alert = "<script type='text/javascript'>alert('IDは0以外の数値を指定してください');</script>";
-                echo $alert;
-                $flag = 1;
-            }
-            if(!empty($_POST['name'])) $name = $_POST['name'];
-            if(!empty($_POST['pass'])) $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            if (isset($_POST['auth']) and is_array($_POST['auth'])) $auth = implode("", $_POST["auth"]);
-            else{
-                $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-                echo $alert;
-                $flag = 1;
-            }
-            if($flag==0){
+            InputConf();
+            if ($flag == 0) {
                 $sql = "SELECT * FROM user";
                 $stmt = $pdo->query($sql);
                 $stmt->execute();
@@ -121,23 +108,17 @@ try {
         global $pdo, $sql, $eid, $id, $name, $pass, $auth, $flag;
         $eid = $_SESSION['eid'];
         if (isset($_POST['edit'])) {
-            if(!empty($_POST['name'])) $name = $_POST['name'];
-            if(!empty($_POST['pass'])) $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            if (isset($_POST['auth']) and is_array($_POST['auth'])) $auth = implode("", $_POST["auth"]);
-            else{
-                $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-                echo $alert;
-                $flag = 1;
-            }    
-            if($flag==0){
-            $sql = "UPDATE user SET user_id = '$eid', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
+            InputConf();
+            if ($flag == 0) {
+                $sql = "UPDATE user SET user_id = '$eid', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
-                if(empty($_SESSION['user_name'])) $_SESSION['user_name'] = "-";
-                if(empty($_SESSION['user_auth'])) $_SESSION['user_auth'] = "-";
-                if($name == "") $name = "-";
-                if($auth == "") $auth = "-";
-                KLogRecodeP("ユーザ編集", "ユーザ情報", "$eid", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
+
+                if (empty($_SESSION['user_name'])) $_SESSION['user_name'] = "-";
+                if (empty($_SESSION['user_auth'])) $_SESSION['user_auth'] = "-";
+                if ($name == "") $name = "-";
+                if ($auth == "") $auth = "-";
+                KLogRecodeP("$_SESSION[user]", "ユーザ編集", "ユーザ情報", "$eid", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
                 header("Location: k_user_screen.php");
                 exit;
             }
@@ -159,4 +140,31 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
     exit;
+}
+
+// 入力確認
+function InputConf()
+{
+    global $id, $name, $pass, $auth, $flag;
+    // ID
+    if (!empty($_POST['id'])) {
+        if ($_POST['id'] != 0) {
+            $id = $_POST['id'];
+        } else {
+            $alert = "<script type='text/javascript'>alert('IDは0以外の数値を指定してください');</script>";
+            echo $alert;
+            $flag = 1;
+        }
+    }
+    // 名前
+    if (!empty($_POST['name'])) $name = $_POST['name'];
+    // パスワード
+    if (!empty($_POST['pass'])) $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+    // 権限
+    if (isset($_POST['auth']) and is_array($_POST['auth'])) $auth = implode("", $_POST["auth"]);
+    else {
+        $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+        echo $alert;
+        $flag = 1;
+    }
 }
