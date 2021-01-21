@@ -1,5 +1,6 @@
 <?php
     include("s_clean.php");
+    include("../front/f_customer.php");
 
     //清掃情報確認画面の枠組みの作成のための定数
     //部屋番号の配列
