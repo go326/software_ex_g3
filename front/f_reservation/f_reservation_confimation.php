@@ -9,15 +9,26 @@
 </head>
 
 <body>
-    <!--ヘッダー-->
+<?php
+    if(isset($_POST['reservation'])){
+?>
+	    <!--ヘッダー-->
     <header>
         <h1>予約登録確認画面</h1>
-    </header>
-    <?php
+	</header>
+<?php
+    }else{
+	    ?>
+            <!--ヘッダー-->
+    <header>
+        <h1>予約編集確認画面</h1>
+        </header>
+<?php
+    }
     require(dirname(__FILE__) . "/../../db_connect.php");
     require(dirname(__FILE__) . "/../f_customer.php");
     global $pdo;
-    if (isset($_POST['reservation'])) {
+    if (isset($_POST['reservation'])|| isset($_POST['restore'])) {
         $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
         $date = $dt->format('Y-m-d');
 	$count = $_POST["stay_count"];
