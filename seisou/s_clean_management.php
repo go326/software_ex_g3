@@ -89,17 +89,18 @@
                         if($room_count == $NUM_OF_ROOMS){
                             break;
                         }
+                        $room_number = $ROOM_DATA[$table][$room_count];
                         //1セルの表示開始
                         echo ("<td>");
-                        $SCMroom_clean = SCleanManagemantP($ROOM_DATA[$table][$room_count]);
+                        $SCMroom_clean = SCleanManagemantP($room_number);
                         //bg_color0,1,2あるがこれを文字列結合で判断している。
-                        echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$ROOM_DATA[$table][$room_count]."\" name = \"room_number\" >");
+                        echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
 
                         //1セルの表示名
                         //1行目
-                        echo ($ROOM_DATA[$table][$room_count]);
-                        $today_res_id = bool_stay($date, $ROOM_DATA[$floor_count][$room_count]);
-                        $next_res_id = bool_stay($next_date, $ROOM_DATA[$floor_count][$room_count]);
+                        echo ($room_number);
+                        $today_res_id = bool_stay($date, $room_number);
+                        $next_res_id = bool_stay($next_date, $room_number);
                         echo ($today_res_id.",".$next_res_id."<br>");
                         //改行
                         echo ("<br>");
