@@ -8,7 +8,6 @@ $password = 'software_ex_g3';
 $rinfo = "";
 $dt = new DateTime();
 $date = $dt->format('Y-m-d');
-$room = "";
 
 try {
     $pdo = new PDO($dsn, $user, $password);
@@ -20,12 +19,16 @@ try {
 
     // 表の表示
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $room = $row['room_1'];
-        // echo $row['reseravetion_id'];
-        // echo "{bool_stay($date, $room)}<br>";
-        // echo bool_stay($date, $room);
+        $fdt = new DateTime($row['stay_date']);
+        $fdate = $fdt->format('Y-m-d');
+        for ($i = 1; $i <= $row['stay_count']; $i++) {
+            if ($fdate == $date) {
+                break;
+            }
+            $fdate = $fdt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
+        }
 
-        if (bool_stay($date, $room) != 0) {
+        if (strtotime($fdate) >= strtotime($date)) {
             $rinfo .= "<tr><td>";
             $rinfo .= "<form action='../front/f_information/f_information.php' method='post'>";
             $rinfo .= "<button type='submit' name='ID' value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
@@ -36,7 +39,6 @@ try {
             $rinfo .= "{$row['dinner_menu']}";
             $rinfo .= "</td></tr>";
         }
-        // echo "{$rinfo}<br>";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
