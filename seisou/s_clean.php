@@ -62,6 +62,7 @@ function SCleanChange($room_clean){
     }else if($room_clean == 1 || $room_clean == 2){
         $room_clean = 1;
     }
+    return $room_clean;
 
 }
 
