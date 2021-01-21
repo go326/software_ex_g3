@@ -28,7 +28,7 @@
                 }
                 if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
                     echo "予約が重複しています";
-                    break;
+                    break 2;
                 }
             }
             $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
@@ -172,13 +172,13 @@
         for ($i = 1; $i <= $count; $i++) {
             for ($j = 1; $j < 4; $j++) {
                 if (empty($_POST['room_number' . $j])) {
-                    continue 1;
+                    continue;
                 }
                 if (bool_stay($date, $_POST['room_number' . $j]) == 0) {
                     $flag = 1;
                 }
-                $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
             }
+            $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
         }
         if ($flag == 1) {
         ?>
