@@ -47,7 +47,7 @@
             <h1>よくある質問編集画面</h1>
         
             <!--確認用の出力文＿-->
-            <div class="button-area">
+            
                 <?php
                     echo (<p>"質問No.".$question_number."を変更します。"</p>);
                 ?>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 </p>
-            </div>
+            
         </header>
         <!--フッター-->
     </body>
