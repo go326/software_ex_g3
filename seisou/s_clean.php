@@ -24,22 +24,6 @@
     $LINE_BREAK = 8; //8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
 
-
-//チェックイン状態を取り出す。
-function GetChecknP($ID){
-    global $pdo;
-    try {
-        $checkin_sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ".$ID.";";
-        $stmt = $pdo -> query($checkin_sql);
-        while ($row = $stmt -> fetch()){
-            $checkin = $row["customer_checkin"];    
-        }
-    } catch (PDOException $e) {
-        var_dump($e->getMessage());
-    }
-    return $checkin;
-}
-
 //部屋情報テーブルを全て更新する関数
 function SCleanMainP(){
     global $DATA201_235,$DATA301_335,$DATA401_435,$ROOM_DATA,$NUM_OF_ROOMS,$NUM_OF_FLOOR,$ALL_ROOM;
@@ -59,6 +43,8 @@ function SCleanMainP(){
                     //部屋が存在しており、予約IDから清掃状況（チェックイン状態）を取り出す。
                     $room_clean = GetChecknP($res_id); 
                 }
+                //チェックイン状態を清掃の方法に変換する。
+                $room_clean = SCleanChangeP($room_clean);
                 //次にSCleanUpdateP($room_number, $room_clean)を実行する。
                 SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
             }
@@ -67,6 +53,32 @@ function SCleanMainP(){
         echo $e->getMessage();
         exit;
     }
+}
+
+//もしかしたら清掃情報と比較をして一致状態は普遍みたいなことをするかも、清掃済状態は５にするかも
+function SCleanChangeP($room_clean){
+    if($room_clean == 0 || $room_clean == 3){
+        $room_clean = 0;
+    }else if($room_clean == 1 || $room_clean == 2){
+        $room_clean = 1;
+    }
+    return $room_clean;
+
+}
+
+//チェックイン状態を取り出す。
+function GetChecknP($ID){
+    global $pdo;
+    try {
+        $checkin_sql = "SELECT customer_checkin FROM customer WHERE reseravetion_id = ".$ID.";";
+        $stmt = $pdo -> query($checkin_sql);
+        while ($row = $stmt -> fetch()){
+            $checkin = $row["customer_checkin"];    
+        }
+    } catch (PDOException $e) {
+        var_dump($e->getMessage());
+    }
+    return $checkin;
 }
 
 //清掃情報確認画面の枠組みに反映
