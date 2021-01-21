@@ -71,7 +71,7 @@ try {
     <link rel="stylesheet" href="f_search.css" type="text/css">
 </head>
 <body>
-    <input type="button" onclick="location.href='f_search.html'" value="戻る">
+    <input type="button" class="button1" id="back_button" onclick="location.href='f_search.html'" value="戻る">
 </body>
 
 </html>
