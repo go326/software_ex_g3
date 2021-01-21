@@ -28,7 +28,9 @@
         <header>
             <h1> よくある質問一覧画面</h1>
             <br>
-            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+            <form method="get" action = "i_mq_top.html">
+                <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
+            </from>
             <!--日付取得-->
         </header>
 
