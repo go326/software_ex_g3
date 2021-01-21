@@ -22,6 +22,12 @@
                     alert(alert_text);    //エラーメッセージを出力
                     return false;    //送信ボタン本来の動作をキャンセルします
                 }else{
+                    if (insert_form.question_result.value == ""){
+                        alert_text = question_result;
+                        //条件に一致する場合(メールアドレスが空の場合)
+                        alert(alert_text);    //エラーメッセージを出力
+                        return false;    //送信ボタン本来の動作をキャンセルします
+                    }
                     //条件に一致しない場合(メールアドレスが入力されている場合)
                     return true;    //送信ボタン本来の動作を実行します
                 }
