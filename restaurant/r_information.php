@@ -21,7 +21,11 @@ try {
     // 表の表示
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $room = $row['room_1'];
-    if (bool_stay($date, $room) != 0) {
+        // echo $row['reseravetion_id'];
+        // echo "{bool_stay($date, $room)}<br>";
+        // echo bool_stay($date, $room);
+
+        if (bool_stay($date, $room) != 0) {
             $rinfo .= "<tr><td>";
             $rinfo .= "<form action='../front/f_information/f_information.php' method='post'>";
             $rinfo .= "<button type='submit' name='ID' value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
@@ -32,6 +36,7 @@ try {
             $rinfo .= "{$row['dinner_menu']}";
             $rinfo .= "</td></tr>";
         }
+        // echo "{$rinfo}<br>";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
@@ -121,7 +126,8 @@ try {
                 <th class="menu">メニュー</th>
             </tr>
             <!-- 表の表示 -->
-            <?php echo $rinfo; ?>
+            <?php echo $rinfo;
+            ?>
         </table>
     </div>
 </body>
