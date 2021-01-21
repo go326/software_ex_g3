@@ -12,6 +12,10 @@ $date = $dt->format("Y-m-d");
 
 global $pdo;
 
+if (isset($_POST['ID'])) {
+    header("Location:/software_ex_g3/front/room.php");
+}
+
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
@@ -26,7 +30,7 @@ foreach ($data as $key => $value) {
         $data[$key] = "有";
     } else if ((strcmp($key, 'is_dinner') == 0 || strcmp($key, 'is_dinner') == 0) && $data[$key] == 0) {
         $data[$key] = "無";
-    }   
+    }
     if ((strcmp($key, 'is_breakfast') == 0 || strcmp($key, 'is_breakfast') == 0) && $data[$key] == 1) {
         $data[$key] = "有";
     } else if ((strcmp($key, 'is_breakfast') == 0 || strcmp($key, 'is_breakfast') == 0) && $data[$key] == 0) {
@@ -65,7 +69,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
         </form>
     </header>
 
-    <div id=" main">
+    <div id="info">
         <dl>
             <div id="id">
                 <dt> 予約ID </dt>
@@ -144,6 +148,24 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
                 </dd>
             </div>
         </dl>
+    </div>
+
+    <div id="fee">
+        <div id="day">
+            <dt> 内容 </dt>
+            <dd>
+                <?php echo $data['reservation_date']; ?>
+            </dd>
+            <dt> 料金 </dt>
+            <dd>
+                <?php echo $data['stay_date'] . "~" . $stay_day; ?>
+            </dd>
+            <dt> 備考 </dt>
+            <dd>
+                <?php echo $data['stay_date'] . "~" . $stay_day; ?>
+            </dd>
+        </div>
+
     </div>
 </body>
 
