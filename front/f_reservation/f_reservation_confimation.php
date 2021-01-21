@@ -38,7 +38,9 @@
                 if (empty($_POST['room_number' . $j])) {
                     continue;
                 }
-                if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
+                if (isset($_POST['restore'])) {
+                    break 2;
+                } else  if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
                     echo "予約が重複しています";
                     $is_submit = 1;
                     break 2;
@@ -57,7 +59,6 @@
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     if (isset($_POST['cus_info'])) {
         try {
-            var_dump($_POST['cus_info']);
             $sql = 'INSERT INTO customer VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?)';
             $stmt = $pdo->prepare($sql);
             $dt = new DateTime(); //予約日
@@ -69,7 +70,7 @@
             $is_dinner = get_num($_POST['cus_info'][10]);
             $is_breakfast = get_num($_POST['cus_info'][12]);
 
-            $stmt->bindValue(1, $ID, PDO::PARAM_INT); //宿泊日
+            $stmt->bindValue(1, $ID, PDO::PARAM_INT); //ID
             $stmt->bindValue(2, $stay_day, PDO::PARAM_STR); //宿泊日
             $stmt->bindValue(3, $today, PDO::PARAM_STR);    //予約日
             $stmt->bindValue(4, $_POST['cus_info'][3], PDO::PARAM_STR);  //泊数
@@ -180,7 +181,7 @@
             <?php
         } else {
             ?>
-                <form action="" method="post">
+                <form action="../f_information/f_information_done.php" method="post">
 
                 <?php
             }
