@@ -98,20 +98,26 @@
 
                         //1セルの表示名
                         //1行目
-                        //echo ($room_number);
+                        echo ($room_number);
+
+                        //今日と明日の予約の人数を取得するための予約IDを探す
                         $today_res_id = bool_stay($date, $room_number);
                         $next_res_id = bool_stay($next_date, $room_number);
                         //echo ($today_res_id.",".$next_res_id."<br>");
                         //改行
                         echo ("<br>");
+
+                        //2行目
                         //今日の宿泊者数
                         $number_people = SCleanNumber($today_res_id);
                         echo ("本日".$number_people."人");
                         echo ("<br>");
+
+                        //３行目
                         //明日の宿泊者数
                         $number_people = SCleanNumber($next_res_id);
                         echo ("明日".$number_people."人");
-                        //echo ("</a>");
+                        
                         echo ("</button>");
                         echo ("</td>\n");
                         //１セル終了
