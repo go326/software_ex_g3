@@ -28,7 +28,6 @@
                 }
                 if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
                     echo "予約が重複しています";
-                    //header("Location:./f_reservation_input.html");
                 }
             }
             $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
@@ -166,8 +165,12 @@
             <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>>
         <?php
         }
+        if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
         ?>
-        <input type="submit" name="input" value="登録" class="">
+            <input type="submit" name="input" value="登録" class="">
+        <?php
+        }
+        ?>
     </form>
     <!--フッター-->
 </body>

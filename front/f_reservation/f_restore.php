@@ -21,7 +21,7 @@ if (isset($_POST['delete'])) {
 
 if (isset($_POST['checkin'])) {
     checkin($_POST['id']);
-    //header("Location:../room.php");
+    header("Location:../room.php");
 }
 
 if (isset($_POST['isstay'])) {
@@ -58,7 +58,7 @@ $day = $dt->format('d');
 <body>
     <!--ヘッダー-->
     <header>
-        <h1>予約入力画面</h1>
+        <h1>予約編集画面</h1>
     </header>
 
     <!--メイン-->
@@ -70,11 +70,20 @@ $day = $dt->format('d');
                     <!--日付の入力フォームの作成(ドロップダウンリスト)-->
 
                     <select class="year" name="stay_year" id="year1"></select>年
-                    <script>getYear1();LoadData("year1",<?php echo $year; ?>);</script>
+                    <script>
+                        getYear1();
+                        LoadData("year1", <?php echo $year; ?>);
+                    </script>
                     <select class="month" name="stay_manth" id="month1"></select>月
-                    <script>getMonth1();LoadData("month1",<?php echo $manth; ?>);</script>
+                    <script>
+                        getMonth1();
+                        LoadData("month1", <?php echo $manth; ?>);
+                    </script>
                     <select class="day" name="stay_day" id="day1"></select>日
-                    <script>getDay1();LoadData("day1",<?php echo $day; ?>);</script>
+                    <script>
+                        getDay1();
+                        LoadData("day1", <?php echo $day; ?>);
+                    </script>
                 </dd>
                 <dt>泊数</dt>
                 <dd>
