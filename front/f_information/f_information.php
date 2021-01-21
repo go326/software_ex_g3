@@ -13,7 +13,7 @@ $date = $dt->format("Y-m-d");
 global $pdo;
 
 if (isset($_POST['ID'])) {
-    header("Location:software_ex_g3/front/room.php");
+    header("Location:/software_ex_g3/front/room.php");
 }
 
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
