@@ -26,7 +26,9 @@
         <header>
             <h1> マニュアル一覧画面</h1>          
             <br>
-            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">  
+            <form method="get" action = "i_mq_top.html">
+                <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る"> 
+            </from>
         </header>
 
         <!--よくある質問一覧画面の作成-->
