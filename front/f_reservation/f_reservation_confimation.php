@@ -20,7 +20,8 @@
     if (isset($_POST['reservation'])) {
         $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
         $date = $dt->format('Y-m-d');
-        $count = $_POST["stay_count"];
+	$count = $_POST["stay_count"];
+	$is_submit = 0;
         for ($i = 1; $i <= $count; $i++) {
             for ($j = 1; $j < 4; $j++) {
                 if (empty($_POST['room_number' . $j])) {
@@ -28,6 +29,7 @@
                 }
                 if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
                     echo "予約が重複しています";
+		    $is_submit = 1;
                     break 2;
                 }
             }
@@ -166,21 +168,7 @@
             <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>>
         <?php
         }
-        $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
-        $date = $dt->format('Y-m-d');
-        $flag = 0;
-        for ($i = 1; $i <= $count; $i++) {
-            for ($j = 1; $j < 4; $j++) {
-                if (empty($_POST['room_number' . $j])) {
-                    continue;
-                }
-                if (bool_stay($date, $_POST['room_number' . $j]) == 0) {
-                    $flag = 1;
-                }
-            }
-            $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
-        }
-        if ($flag == 1) {
+        if ($is_submit == 0) {
         ?>
             <input type="submit" name="input" value="登録" class="">
         <?php
