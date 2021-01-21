@@ -18,6 +18,11 @@ $name = "";
 $pass = "";
 $auth = "";
 
+// ログ
+$auth_edit1 = "";
+$auth_edit2 = "";
+
+
 // ID(+ユーザ情報)保持
 if (isset($_POST['eid'])) {
     $_SESSION['eid'] = $_POST['eid'];
@@ -78,7 +83,7 @@ try {
     // ユーザの登録
     function KUserInputP()
     {
-        global $pdo, $sql, $id, $name, $pass, $auth, $flag;
+        global $pdo, $sql, $id, $name, $pass, $auth, $flag, $auth_edit2;
         if (isset($_POST['input'])) {
             InputConf();
             if ($flag == 0) {
@@ -97,6 +102,9 @@ try {
                 $sql = "INSERT INTO user VALUES('$id','$name','$pass','$auth')";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
+                UserLog();
+                KLogRecodeP("$_SESSION[user]", "ユーザ登録", "ユーザ情報", "$id", "全", "-", "{$id},{$name},{$auth_edit2}");
+
                 header("Location: k_user_screen.php");
                 exit;
             }
@@ -105,7 +113,7 @@ try {
 
     function KUserEditP()
     {
-        global $pdo, $sql, $eid, $id, $name, $pass, $auth, $flag;
+        global $pdo, $sql, $eid, $name, $pass, $auth, $flag, $auth_edit1, $auth_edit2;
         $eid = $_SESSION['eid'];
         if (isset($_POST['edit'])) {
             InputConf();
@@ -113,12 +121,8 @@ try {
                 $sql = "UPDATE user SET user_id = '$eid', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
-
-                if (empty($_SESSION['user_name'])) $_SESSION['user_name'] = "-";
-                if (empty($_SESSION['user_auth'])) $_SESSION['user_auth'] = "-";
-                if ($name == "") $name = "-";
-                if ($auth == "") $auth = "-";
-                KLogRecodeP("$_SESSION[user]", "ユーザ編集", "ユーザ情報", "$eid", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
+                UserLog();
+                KLogRecodeP("$_SESSION[user]", "ユーザ編集", "ユーザ情報", "$eid", "氏名,権利", "{$_SESSION['user_name']},{$auth_edit1}", "{$name},{$auth_edit2}");
                 header("Location: k_user_screen.php");
                 exit;
             }
@@ -127,8 +131,10 @@ try {
 
     function KUserDelP()
     {
-        global $pdo, $sql, $eid;
+        global $pdo, $sql, $eid, $auth_edit1;
         if (isset($_POST['del'])) {
+            UserLog();
+            KLogRecodeP("$_SESSION[user]", "ユーザ削除", "ユーザ情報", "$eid", "全", "{$eid},{$_SESSION['user_name']},{$auth_edit1}", "-");
             $eid = $_SESSION['eid'];
             $sql = "DELETE FROM user WHERE user_id = '$eid'";
             $stmt = $pdo->prepare($sql);
@@ -167,4 +173,28 @@ function InputConf()
         echo $alert;
         $flag = 1;
     }
+}
+
+// ログの保存
+function UserLog()
+{
+    global $eid, $name, $auth, $auth_edit1, $auth_edit2;
+    // 名前：変更前
+    if (empty($_SESSION['user_name'])) $_SESSION['user_name'] = "-";
+    // 名前：変更後
+    if ($name == "") $name = "-";
+    // 権限：変更前
+    if (empty($_SESSION['user_auth'])) $auth_edit1 = "-";
+    if (strpos($_SESSION['user_auth'], '1') !== false) $auth_edit1 .= "フロント ";
+    if (strpos($_SESSION['user_auth'], '2') !== false) $auth_edit1 .= "清掃 ";
+    if (strpos($_SESSION['user_auth'], '3') !== false) $auth_edit1 .= "レストラン ";
+    if (strpos($_SESSION['user_auth'], '4') !== false) $auth_edit1 .= "アルバイト ";
+    if (strpos($_SESSION['user_auth'], '5') !== false) $auth_edit1 .= "管理者";
+    // 権限：変更後
+    if ($auth == "") $auth_edit2 = "-";
+    if (strpos($auth, '1') !== false) $auth_edit2 .= "フロント ";
+    if (strpos($auth, '2') !== false) $auth_edit2 .= "清掃 ";
+    if (strpos($auth, '3') !== false) $auth_edit2 .= "レストラン ";
+    if (strpos($auth, '4') !== false) $auth_edit2 .= "アルバイト ";
+    if (strpos($auth, '5') !== false) $auth_edit2 .= "管理者";
 }
