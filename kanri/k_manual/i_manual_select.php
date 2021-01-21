@@ -33,7 +33,7 @@
             </div>
             <br>
             <?php
-                    echo ("<input type=\"button\" onclick=\"location.href='./i_question_insert.php?question_number=".($NUM_OF_QUESTION + 1)."'\" value=\"新規入力\">");
+                    echo ("<input type=\"button\" onclick=\"location.href='./i_manual_insert.php?manual_number=".($NUM_OF_MANUAL + 1)."'\" value=\"新規入力\">");
             ?>
             
         </header>
