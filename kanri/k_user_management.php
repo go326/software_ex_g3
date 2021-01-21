@@ -9,7 +9,6 @@ $password = 'software_ex_g3';
 
 $sql = "";
 $res = "";
-$alert = "";
 
 $eid = "";
 $flag = 0;
@@ -36,26 +35,6 @@ if (isset($_POST['eid'])) {
     }
 }
 
-// 入力確認
-if (isset($_POST['id']) and !empty($_POST['name']) and !empty($_POST['pass'])) {
-    if (isset($_POST['auth']) and is_array($_POST['auth'])) {
-        if ($_POST['id'] != 0) {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            $auth = implode("", $_POST["auth"]);
-        } else {
-            $alert = "<script type='text/javascript'>alert('IDは0以外で指定してください');</script>";
-            echo $alert;
-            $flag = 1;
-        }
-    } else {
-        $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
-        echo $alert;
-        $flag = 1;
-    }
-}
-
 try {
     $pdo = new PDO($dsn, $user, $password);
 
@@ -66,6 +45,7 @@ try {
         unset($_SESSION['user_name']);
         global $pdo, $sql, $res, $alert;
         static $auth = "";
+        echo $_SESSION['user'];
         $sql = "SELECT * FROM user";
         $stmt = $pdo->query($sql);
         $stmt->execute();
@@ -96,16 +76,34 @@ try {
     // ユーザの登録
     function KUserInputP()
     {
-        global $pdo, $sql, $id, $name, $pass, $auth, $flag, $alert;
-        if (isset($_POST['input']) and $flag == 0) {
-            $sql = "SELECT * FROM user";
-            $stmt = $pdo->query($sql);
-            $stmt->execute();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                if ($id == $row['user_id']) {
-                    $alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
-                    echo $alert;
-                    $flag = 1;
+        global $pdo, $sql, $id, $name, $pass, $auth, $flag;
+        if (isset($_POST['input'])) {
+    
+            // 入力確認
+            if(!empty($_POST['id'])) $id = $_POST['id'];
+            if($id == 0){
+                $alert = "<script type='text/javascript'>alert('IDは0以外の数値を指定してください');</script>";
+                echo $alert;
+                $flag = 1;
+            }
+            if(!empty($_POST['name'])) $name = $_POST['name'];
+            if(!empty($_POST['pass'])) $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+            if (isset($_POST['auth']) and is_array($_POST['auth'])) $auth = implode("", $_POST["auth"]);
+            else{
+                $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+                echo $alert;
+                $flag = 1;
+            }
+            if($flag==0){
+                $sql = "SELECT * FROM user";
+                $stmt = $pdo->query($sql);
+                $stmt->execute();
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($id == $row['user_id']) {
+                        $alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
+                        echo $alert;
+                        $flag = 1;
+                    }
                 }
             }
             if ($flag == 0) {
@@ -117,41 +115,41 @@ try {
             }
         }
     }
-    // UPDATE
+
     function KUserEditP()
     {
-        global $pdo, $sql, $eid, $id, $name, $pass, $auth, $flag, $alert;
+        global $pdo, $sql, $eid, $id, $name, $pass, $auth, $flag;
         $eid = $_SESSION['eid'];
-        if (isset($_POST['edit']) and $flag == 0) {
-            $sql = "SELECT * FROM user";
-            $stmt = $pdo->query($sql);
-            $stmt->execute();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                if ($id == $row['user_id'] and $id != $eid) {
-                    $alert = "<script type='text/javascript'>alert('ユーザIDが既に登録されています');</script>";
-                    echo $alert;
-                    $flag = 1;
-                    break;
-                }
-            }
-            if ($flag == 0) {
-                $sql = "UPDATE user SET user_id = '$id', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
+        if (isset($_POST['edit'])) {
+            if(!empty($_POST['name'])) $name = $_POST['name'];
+            if(!empty($_POST['pass'])) $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+            if (isset($_POST['auth']) and is_array($_POST['auth'])) $auth = implode("", $_POST["auth"]);
+            else{
+                $alert = "<script type='text/javascript'>alert('チェックボックスが選択されていません');</script>";
+                echo $alert;
+                $flag = 1;
+            }    
+            if($flag==0){
+            $sql = "UPDATE user SET user_id = '$eid', user_name = '$name', user_pass = '$pass', authority = '$auth' WHERE user_id = '$eid' ";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
-                KLogRecodeP("ユーザ編集", "ユーザ情報テーブル", "{$id}", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
+                if(empty($_SESSION['user_name'])) $_SESSION['user_name'] = "-";
+                if(empty($_SESSION['user_auth'])) $_SESSION['user_auth'] = "-";
+                if($name == "") $name = "-";
+                if($auth == "") $auth = "-";
+                KLogRecodeP("ユーザ編集", "ユーザ情報", "$eid", "氏名,権利", "{$_SESSION['user_name']},{$_SESSION['user_auth']}", "{$name},{$auth}");
                 header("Location: k_user_screen.php");
                 exit;
             }
         }
     }
-    // DELETE
+
     function KUserDelP()
     {
-        global $pdo, $sql, $eid, $alert;
+        global $pdo, $sql, $eid;
         if (isset($_POST['del'])) {
             $eid = $_SESSION['eid'];
             $sql = "DELETE FROM user WHERE user_id = '$eid'";
-            echo $sql;
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             header("Location: k_user_screen.php");

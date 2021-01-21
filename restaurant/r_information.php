@@ -108,6 +108,7 @@ try {
         <script type="text/javascript">
             date();
         </script>
+        <input type="button" onclick="location.href='../i_general_top.html'" value="TOP画面に戻る">
     </header>
     <!--メイン-->
     <div id="main">
@@ -123,13 +124,6 @@ try {
             <?php echo $rinfo; ?>
         </table>
     </div>
-    <!--フッター-->
-    <footer>
-        <br><br>
-        <center>
-            <input type="button" onclick="location.href='../i_general_top.html'" value="TOP画面に戻る">
-        </center>
-    </footer>
 </body>
 
 </html>
