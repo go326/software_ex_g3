@@ -51,6 +51,7 @@
                 <?php
                     echo (<p>"質問No.".$question_number."を変更します。"</p>);
                 ?>
+        </header>
                 <!--メイン-->
                 <br>
                 <!--i行目-->
@@ -111,8 +112,6 @@
                     </div>
                 </div>
                 </p>
-            
-        </header>
         <!--フッター-->
     </body>
 </html>

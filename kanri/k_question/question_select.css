@@ -3,20 +3,12 @@ header{
     width: 80%;
     margin: 0 auto;
 }
-footer{
-    width: 80%;
-    margin: 0 auto;
-}
-#main{
-    width: 80%;
-    margin: 0 auto;
-}
 ul{
     list-style: none;
 }
 table{
-    margin: 0 auto; /*画面の真ん中にする*/
-    width: 80%;     /*  真ん中にしたものを横幅80%*/
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
 }
 table th{
@@ -32,4 +24,11 @@ a {
     display: block;
     text-decoration: none;/*リンクのアンダーラインなし*/
     color: black;
+}
+
+.button-position{
+    width: 80%;
+    margin: 0 auto;
+    display: -webkit-flex;/*横並び(2行)*/
+    display: flex;
 }
