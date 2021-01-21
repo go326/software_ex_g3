@@ -49,7 +49,7 @@
             <!--確認用の出力文＿-->
             
                 <?php
-                    echo (<p>"質問No.".$question_number."を変更します。"</p>);
+                    echo ("質問No.".$question_number."を変更します。");
                 ?>
         </header>
                 <!--メイン-->
@@ -96,23 +96,15 @@
                     </table>
 
                 </form>
-                <p>
-                <div class="button-position-l">
-                    <div class="input#submit_button">
-                        <!--戻るボタン-->
-                        <form  id = "clean_back" action = "i_question_select.php">
-                            <input id="submit_button" type="submit" name="submit" value="戻る" > 
-                        </form>
-                    </div>
+                <div class="button-position">
+                    <!--戻るボタン-->
+                    <form  id = "clean_back" action = "i_question_select.php">
+                        <input id="submit_button" type="submit" name="submit" value="戻る" > 
+                    </form>
+
+                    <!--完了ボタン-->
+                    <input id="submit_button" type="submit" name="submit" value="完了" form = "question_edit" onclick = "return check()">
                 </div>
-                <div class="button-position-r">
-                    <div class="input#submit_button">
-                        <!--完了ボタン-->
-                        <input id="submit_button" type="submit" name="submit" value="完了" form = "question_edit" onclick = "return check()">
-                    </div>
-                </div>
-                </p>
-        <!--フッター-->
     </body>
 </html>
 
