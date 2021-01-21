@@ -17,8 +17,14 @@
         <div id="main">
             <form action="" method="post">
                 <p>ユーザID :<?php echo $_SESSION['eid'] ?></p>
-                <p>ユーザ名 :<input type="text" name="name" value="<?php echo $_SESSION['user_name'] ?>" minlength="1" maxlength="16" required></p>
-                <p>パスワード:<input type="password" name="pass" minlength="1" maxlength="16" required></p>
+                <p>ユーザ名　　:<input oninput="maxLengthCheck(this)" type="text" name="name" value="<?php echo $_SESSION['user_name'] ?>" minlength="1" maxlength="16" required></p>
+                <p>パスワード　:<input oninput="maxLengthCheck(this)" type="password" name="pass" minlength="1" maxlength="16" required></p>
+                <script>
+                    function maxLengthCheck(object) {
+                        if (object.value.length > object.maxLength)
+                            object.value = object.value.slice(0, object.maxLength)
+                    }
+                </script>
                 <p>ユーザ権限</p>
                 <p>
                     フロント<input type="checkbox" name="auth[]" value="1">
