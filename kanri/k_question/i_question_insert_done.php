@@ -31,7 +31,7 @@ function IQuestionInsertP($question_number,$question_name,$question_result){
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./question_select.css" type="text/css">
-        <title>question</title>
+        <title>質問登録完了画面</title>
 
     </head>
 
@@ -39,6 +39,7 @@ function IQuestionInsertP($question_number,$question_name,$question_result){
         <header>
             <h1> よくある質問登録完了画面</h1>
         </header>
+    <center>
     <?php
         //清掃情報更新
     if(isset($_GET["question_number"]) && isset($_GET["question_name"]) && isset($_GET["question_result"])){
@@ -57,5 +58,6 @@ function IQuestionInsertP($question_number,$question_name,$question_result){
     echo ("</div>");    //css中央揃え終わり
     echo ("</form>");
     ?>
+    </center>
     </body>
 </html>

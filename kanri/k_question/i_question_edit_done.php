@@ -38,7 +38,7 @@ function IQuestionEditP($question_number,$question_name,$question_result){
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./question_select.css" type="text/css">
-        <title>seisou</title>
+        <title>質問編集完了画面</title>
 
     </head>
 
@@ -46,6 +46,7 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         <header>
             <h1> よくある質問編集完了画面</h1>
         </header>
+    <center>
     <?php
         //清掃情報更新
 
@@ -56,5 +57,6 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         IQuestionEditP($question_number,$question_name,$question_result);
     }
     ?>
+    </center>
     </body>
 </html>

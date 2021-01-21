@@ -57,7 +57,7 @@ function IManualUploadP(){
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
         <link rel="stylesheet" href="./manual_select.css" type="text/css">
-        <title>manual</title>
+        <title>マニュアル編集完了画面</title>
 
     </head>
 
@@ -65,6 +65,7 @@ function IManualUploadP(){
         <header>
             <h1> マニュアル編集完了画面</h1>
         </header>
+    <center>
     <?php
         //清掃情報更新
         $manual_number = $_POST["manual_number"];
@@ -94,5 +95,6 @@ function IManualUploadP(){
         echo ("</div>");    //css中央揃え終わり
         echo ("</form>");
     ?>
+    </center>
     </body>
 </html>
