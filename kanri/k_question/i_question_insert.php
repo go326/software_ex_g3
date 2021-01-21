@@ -34,7 +34,7 @@
             }
         </script>
 
-        <title>question</title>
+        <title>よくある質問登録画面</title>
 
     </head>
 
@@ -71,13 +71,13 @@
                 </form>
             </tr>
         </table>
-        <p>
+        <div class="button-position">
         <form method="get" action = "i_question_select.php">
             <input type = "submit" value = "戻る">
         </form>
         
         <input form = "insert_form" type = "submit" value = "完了" onclick = "return check()">
-        </p>
+        </div>
 
     </body>
 </html>
