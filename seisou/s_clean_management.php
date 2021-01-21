@@ -98,14 +98,17 @@
                         //1セルの表示名
                         //1行目
                         echo ($ROOM_DATA[$table][$room_count]);
+                        $today_res_id = bool_stay($date, $ROOM_DATA[$floor_count][$room_count]);
+                        $next_res_id = bool_stay($next_date, $ROOM_DATA[$floor_count][$room_count]);
+                        echo ($today_res_id.",".$next_res_id."<br>");
                         //改行
                         echo ("<br>");
                         //今日の宿泊者数
-                        $number_people = SCleanNumber(bool_stay($date, $ROOM_DATA[$floor_count][$room_count]));
+                        $number_people = SCleanNumber($today_res_id);
                         echo ("本日".$number_people."人");
                         echo ("<br>");
                         //明日の宿泊者数
-                        $number_people = SCleanNumber(bool_stay($next_date, $ROOM_DATA[$floor_count][$room_count]));
+                        $number_people = SCleanNumber($next_res_id);
                         echo ("明日".$number_people."人");
                         //echo ("</a>");
                         echo ("</button>");
