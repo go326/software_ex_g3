@@ -65,10 +65,9 @@
                 </button>
             </form>
 
-            <span class = "sample0"><button class = "bg_color0"></button></span>お客様がチェックインしていない状態、掃除していない、予約なしの状態<br>
-            <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
-            <span class = "sample2"><button class = "bg_color0"></button></span>お客様が外出している状態<br>
-            <span class = "sample3"><button class = "bg_color0"></button></span>お客様がチェックアウトした状態<br>
+            <span class = "sample0"><button class = "bg_color0"></button></span>未清掃<br>3,0->0
+            <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>1,2->1
+            <span class = "sample2"><button class = "bg_color0"></button></span>清掃済<br>2original
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
