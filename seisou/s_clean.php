@@ -85,36 +85,6 @@ function SCleanManagemantP($room_number){
     return $room_clean;
 }
 
-//宿泊人数を表示
-//これを改良することによって、本日と明日の人数を変更することができるはず、
-function SCleanNumberP($day_number, $room_number){
-    global $pdo;
-    $number_people = 0; //その部屋の人数初期値は0
-    try{
-        $people_sql = "SELECT adult, child FROM customer WHERE stay_date = ".$day_number." AND room_1 = ".$room_number;
-        //2部屋めが生まれたらこの処理が必要かも知れないそしてAND以降を（）でくくる？
-        //."OR room_2 = ".$room_number."OR room_3 = ".$room_number
-        $stmt = $pdo -> query($people_sql);
-        while ($row = $stmt -> fetch()){
-            $adult = $row["adult"];
-            $child = $row["child"];
-        }
-        if(isset($adult)){
-            if(isset($child)){
-                //大人も子供もいる状態
-                $number_people = $adult + $child;
-            }else{
-                //大人だけいる状態
-                $number_people = $adult;
-            }
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
-    return $number_people;
-}
-
 //清掃状況を更新する
 //部屋番号とその清掃状況を渡して更新する。
 function SCleanUpdateP($room_number, $room_clean){

@@ -1,5 +1,5 @@
 .user{
-    width: 200px; /*px じゃないやつにすると、うまくいく（調べろ） */
+    width: 200px; 
     height: 80px;
     font-size: 15px;
     color: black;
@@ -76,7 +76,7 @@
 }
 
 .back{
-    margin: 1cm 0px; /*外側の余白*/
-    padding-top: 0.6em;      /* 内側の余白 */
+    margin: 0cm 10%; /*外側の余白*/
+    padding-top: 0px;      /* 内側の余白 */
     background-color: #ccc;  /* 背景色 */
 }
