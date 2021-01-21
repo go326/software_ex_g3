@@ -16,12 +16,17 @@
                 <h2>ログイン</h2>
 
                 <form action="./i_login.php" method="post">
-                    <p>ユーザーID：
-                        <input type="text" name="UserID" maxlength="12">
+                    <p>ユーザーID：<input oninput="maxLengthCheck(this)" type="number" name="UserID" maxlength="10" required>
                     </p>
-                    <p>パスワード：
-                        <input type="password" name="Password" maxlength="127">
-                    </p>
+                    <p>パスワード：<input oninput="maxLengthCheck(this)" type="password" name="Password" maxlength="127"
+                            required></p>
+                    <script>
+                        function maxLengthCheck(object) {
+                            if (object.value.length > object.maxLength)
+                                object.value = object.value.slice(0, object.maxLength)
+                        }
+                    </script>
+
                     <p><input type="submit" name="login" value="ログイン" id="button2"></p>
                 </form>
 
