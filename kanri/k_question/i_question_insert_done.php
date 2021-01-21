@@ -39,6 +39,7 @@ function IQuestionInsertP($question_number,$question_name,$question_result){
         <header>
             <h1> よくある質問登録完了画面</h1>
         </header>
+    <br><br><br><br>
     <center>
     <?php
         //清掃情報更新

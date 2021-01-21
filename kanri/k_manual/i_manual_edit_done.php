@@ -65,6 +65,7 @@ function IManualUploadP(){
         <header>
             <h1> マニュアル編集完了画面</h1>
         </header>
+        <br><br><br><br>
     <center>
     <?php
         //清掃情報更新

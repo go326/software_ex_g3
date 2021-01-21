@@ -46,6 +46,7 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         <header>
             <h1> よくある質問編集完了画面</h1>
         </header>
+        <br><br><br><br>
     <center>
     <?php
         //清掃情報更新
