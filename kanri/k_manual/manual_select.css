@@ -3,11 +3,7 @@ header{
     width: 80%;
     margin: 0 auto;
 }
-footer{
-    width: 80%;
-    margin: 0 auto;
-}
-#main{
+main{
     width: 80%;
     margin: 0 auto;
 }
@@ -15,8 +11,6 @@ ul{
     list-style: none;
 }
 table{
-    margin: 0 auto; /*画面の真ん中にする*/
-    width: 80%;     /*  真ん中にしたものを横幅80%*/
     text-align: center;
 }
 table th{
@@ -37,6 +31,4 @@ a {
 .button-position{
     display: -webkit-flex;/*横並び(2行)*/
     display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;/*全体に均等に並べる*/
 }

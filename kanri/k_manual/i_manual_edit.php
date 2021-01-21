@@ -36,7 +36,7 @@
             <h1>マニュアル編集画面</h1>
         </header>
         <!--確認用の出力文＿-->
-        <div class="button-area">
+        <div class="main">
             <?php
                 echo ("マニュアルNo.".$manual_number."を変更します。<br>");
             ?>

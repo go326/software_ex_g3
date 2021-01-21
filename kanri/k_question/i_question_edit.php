@@ -49,7 +49,7 @@
             <!--確認用の出力文＿-->
             <div class="button-area">
                 <?php
-                    echo ("質問No.".$question_number."を変更します。");
+                    echo (<p>"質問No.".$question_number."を変更します。"</p>);
                 ?>
                 <!--メイン-->
                 <br>
