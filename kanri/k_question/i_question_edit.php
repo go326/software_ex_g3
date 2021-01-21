@@ -100,7 +100,7 @@
                 <div class="input#submit_button">
                     <!--戻るボタン-->
                     <form  id = "clean_back" action = "i_question_select.php">
-                        <input id="submit_button" type="submit" name="submit" value="戻る" onclick="location.href='./s_clean_management.php'"> 
+                        <input id="submit_button" type="submit" name="submit" value="戻る" > 
                     </form>
                 </div>
             </div>
