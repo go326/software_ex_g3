@@ -65,9 +65,9 @@
                 </button>
             </form>
 
-            <span class = "sample0"><button class = "bg_color0"></button></span>未清掃<br>3,0->0
-            <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>1,2->1
-            <span class = "sample2"><button class = "bg_color0"></button></span>清掃済<br>2original
+            <span class = "sample0"><button class = "bg_color0"></button></span>未清掃<br>
+            <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
+            <span class = "sample2"><button class = "bg_color0"></button></span>清掃済<br>
         </header>
 
         <!--清掃情報確認画面の枠組みの作成-->
