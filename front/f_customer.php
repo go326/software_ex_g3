@@ -108,9 +108,10 @@ function stay($ID)
     } else if ($checkin == 2) {
         $checkin = 1;
     }
-    $sql = "UPDATE customer set customer_checkin = 2 WHERE reseravetion_id = ?";
+    $sql = "UPDATE customer set customer_checkin = ? WHERE reseravetion_id = ?";
     $smt = $pdo->prepare($sql);
-    $smt->bindValue(1, $ID, PDO::PARAM_STR);
+    $smt->bindValue(1, $checkin, PDO::PARAM_STR);
+    $smt->bindValue(2, $ID, PDO::PARAM_STR);
     $smt->execute();
 }
 
