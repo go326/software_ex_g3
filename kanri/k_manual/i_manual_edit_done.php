@@ -79,6 +79,10 @@ function IManualUploadP(){
 
         if(strpos($manual_file_name, '.pdf') !== false){
             IManualEditP($manual_number, $manual_name, $manual_file_name);
+        }else{
+            echo ("<div class=\"button-area\">");    //css始まり
+            echo ("登録に失敗しました。<br>");
+            echo ("</div>"); //css終わり
         }
                 
         $back_URL = "i_manual_select.php";
