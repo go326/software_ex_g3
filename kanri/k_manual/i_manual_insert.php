@@ -67,11 +67,10 @@
             </tr>
         </table>
         <div class= "button-position">
-        <form method="get" action = "i_manual_select.php">
-            <input type = "submit" value = "戻る">
-        </form>
-        
-        <input form = "insert_form" type = "submit" value = "完了" onclick = "return check()">
+            <form method="get" action = "i_manual_select.php">
+                <input type = "submit" value = "戻る">
+            </form>        
+            <input form = "insert_form" type = "submit" value = "完了" onclick = "return check()">
         </div>
 
     </body>
