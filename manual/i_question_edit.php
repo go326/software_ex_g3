@@ -87,7 +87,7 @@
 
             </form>
 
-            <div class="button-position-l">
+            <div class="button-position">
                 <div class="input#submit_button">
                     <!--戻るボタン-->
                     <form  id = "clean_back" action = "i_question_select.php">
@@ -95,7 +95,7 @@
                     </form>
                 </div>
             </div>
-            <div class="button-position-r">
+            <div class="button-position">
                 <div class="input#submit_button">
                     <!--完了ボタン-->
                     <input id="submit_button" type="submit" name="submit" value="完了" form = "question_edit" onclick = "return check()">

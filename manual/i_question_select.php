@@ -27,6 +27,8 @@
     <body>
         <header>
             <h1> よくある質問一覧画面</h1>
+            <br>
+            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
             <!--日付取得-->
         </header>
 
@@ -80,12 +82,6 @@
                 }    
             ?>
         </table>
-        <footer>
-        <!--戻るボタン-->
-        <form method="get" action = "i_mq_top.html">
-            <input type = "submit" value = "よくある質問、マニュアルTOP画面に戻る">
-        </form>
-        </footer>
     </body>
 </html>
 

@@ -82,22 +82,18 @@
                 </table>
 
             </form>
-            <p>
-            <div class="button-position-l">
+            <div class="button-position">
                 <div class="input#submit_button">
                     <!--戻るボタン-->
                     <form  id = "clean_back" action = "i_manual_select.php">
                         <input id="submit_button" type="submit" value="戻る"> 
                     </form>
                 </div>
-            </div>
-            <div class="button-position-r">
                 <div class="input#submit_button">
                     <!--完了ボタン-->
                     <input id="submit_button" type="submit"  value="完了" form = "manual_edit" onclick = "return check()">
                 </div>
             </div>
-            </p>
         </div>
         <!--フッター-->
     </body>
