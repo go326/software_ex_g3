@@ -36,10 +36,11 @@
             <h1>マニュアル編集画面</h1>
         </header>
         <!--確認用の出力文＿-->
-        <div class="main">
+        <div class="text">
             <?php
                 echo ("マニュアルNo.".$manual_number."を変更します。<br>");
             ?>
+        </div>
             <!--メイン-->
         
             <!--i行目-->
@@ -94,7 +95,6 @@
                     <input id="submit_button" type="submit"  value="完了" form = "manual_edit" onclick = "return check()">
                 </div>
             </div>
-        </div>
         <!--フッター-->
     </body>
 </html>

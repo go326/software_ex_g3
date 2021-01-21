@@ -11,6 +11,8 @@ ul{
     list-style: none;
 }
 table{
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
 }
 table th{
@@ -29,6 +31,8 @@ a {
 }
 
 .button-position{
+    width: 80%;
+    margin: 0 auto;
     display: -webkit-flex;/*横並び(2行)*/
     display: flex;
 }
