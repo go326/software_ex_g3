@@ -30,13 +30,13 @@ function IManualUploadP(){
     // ファイル名を取得して、ユニークなファイル名に変更
     $manual_file_name = $_FILES['manual_pdf']['name'];
 
-    //ファイル名に.pdfであるかどうかを判断する。        
     // 仮にファイルがアップロードされている場所のパスを取得
     $tmp_path = $_FILES['manual_pdf']['tmp_name'];
 
     // 保存先のパスを設定
     $upload_path = '../../../upload/';
-
+    
+    //ファイル名に.pdfであるかどうかを判断する。        
     if(strpos($manual_file_name, '.pdf') !== false){
         //正しいものかどうかを判断する
         if (is_uploaded_file($tmp_path)) {

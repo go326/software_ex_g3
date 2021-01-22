@@ -32,20 +32,25 @@ function IManualUploadP(){
     // 保存先のパスを設定
     $upload_path = '../../../upload/';
 
-    //正しいものかどうかを判断する
-    if (is_uploaded_file($tmp_path)) {
-        // 仮のアップロード場所から保存先にファイルを移動
-        if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
-            // ファイルが読出可能になるようにアクセス権限を変更
-            chmod($upload_path . $manual_file_name, 0644);
+    //ファイル名に.pdfであるかどうかを判断する。        
+    if(strpos($manual_file_name, '.pdf') !== false){
+        //正しいものかどうかを判断する
+        if (is_uploaded_file($tmp_path)) {
+            // 仮のアップロード場所から保存先にファイルを移動
+            if (move_uploaded_file($tmp_path, $upload_path . $manual_file_name)) {
+                // ファイルが読出可能になるようにアクセス権限を変更
+                chmod($upload_path . $manual_file_name, 0644);
 
-            echo $manual_file_name . "をアップロードしました。";
-            return $manual_file_name;
+                echo $manual_file_name . "をアップロードしました。";
+                return $manual_file_name;
+            } else {
+                echo "Error:アップロードに失敗しました。";
+            }
         } else {
-            echo "Error:アップロードに失敗しました。";
-        }
+            echo "Error:ファイルが見つかりません。";
+        } 
     } else {
-        echo "Error:ファイルが見つかりません。";
+        echo ("Error:PDFファイルではありません。");
     }
     return 0;
 }
