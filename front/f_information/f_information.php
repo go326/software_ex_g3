@@ -151,7 +151,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
     </div>
 
     <div id="fee">
-        <div id="day">
+        <dl>
             <dt> 内容 </dt>
             <dd>
                 <?php echo $data['reservation_date']; ?>
@@ -164,8 +164,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
             <dd>
                 <?php echo $data['stay_date'] . "~" . $stay_day; ?>
             </dd>
-        </div>
-
+        </dl>
     </div>
 </body>
 

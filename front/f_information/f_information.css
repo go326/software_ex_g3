@@ -25,20 +25,6 @@ input{
 .simple-box h2{
     margin: 2em;
 }
-/*
-dl {
-   float: left;
-   font-size: 20px;
-   width: 20%;
-}
-
-dt {
-    float: left;
-    
-}
-dt:after{
-    content: " : "
-}*/
 dl {
     background: gray;
     border: 1px solid #ddd;
