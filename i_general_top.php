@@ -1,5 +1,5 @@
 <?php
-session_save_path("var/tmp/");
+session_save_path("/var/tmp/");
 session_start();
 $auth =$_SESSION['auth'];
 // $auth = $_POST['auth'];
