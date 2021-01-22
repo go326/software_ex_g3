@@ -29,21 +29,28 @@ if (isset($_POST['isstay'])) {
     header("Location:../room.php");
 }
 
+if (isset($_POST['cus_info'])){
+    echo "aa";
+
+} else if ($_POST['id']){
+
+    echo "bb";
+    $sql = "SELECT * FROM customer where  reseravetion_id = ?";
+    
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
+    $smt->execute();
+    $data = $smt->fetch(PDO::FETCH_NUM);
+    
+    
+    $dt = new DateTime($data[1]);
+    $year = $dt->format('Y');
+    $manth = $dt->format('m');
+    $day = $dt->format('d');
+}
+
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
-
-$sql = "SELECT * FROM customer where  reseravetion_id = ?";
-
-$smt = $pdo->prepare($sql);
-$smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
-$smt->execute();
-$data = $smt->fetch(PDO::FETCH_NUM);
-
-
-$dt = new DateTime($data[1]);
-$year = $dt->format('Y');
-$manth = $dt->format('m');
-$day = $dt->format('d');
 ?>
 
 <html>
@@ -130,8 +137,19 @@ $day = $dt->format('d');
                 <!--必須選択-->
                 <dt>夕食の有無</dt>
                 <dd>
+                <?php
+                if($data[10] == 1){
+                    ?>
+                    <label><input type="radio" name="is_dinner" value="有" checked required>有</label>
+                    <label><input type="radio" name="is_dinner" value="無" required>無</label>
+                    <?php
+                }else {
+                    ?>
                     <label><input type="radio" name="is_dinner" value="有" required>有</label>
                     <label><input type="radio" name="is_dinner" value="無" checked required>無</label>
+                    <?php
+                }
+                    ?>
                 </dd>
                 <dt>夕食のメニュー</dt>
                 <dd>
@@ -140,8 +158,19 @@ $day = $dt->format('d');
                 <!--必須選択-->
                 <dt>朝食の有無</dt>
                 <dd>
+                <?php
+                if($data[12] == 1){
+                    ?>
+                    <label><input type="radio" name="is_breakfast" value="有" checked required>有</label>
+                    <label><input type="radio" name="is_breakfast" value="無" required>無</label>
+                    <?php
+                } else {
+                    ?>
                     <label><input type="radio" name="is_breakfast" value="有" required>有</label>
                     <label><input type="radio" name="is_breakfast" value="無" checked required>無</label>
+                    <?php
+                }
+                    ?>
                 </dd>
                 <dt>朝食のメニュー</dt>
                 <dd>
@@ -161,7 +190,7 @@ $day = $dt->format('d');
             </dl>
             <ul>
                 <li><input type="button" onclick="location.href='../room.php'" value="戻る"></li>
-                <li><input type="submit" name="reservation" value="完了" onclick="return check()"></li>
+                <li><input type="submit" name="restore" value="完了" onclick="return check()"></li>
             </ul>
         </form>
         <script src="f_reservation.js"></script>

@@ -43,9 +43,11 @@
             <!--戻るボタン-->
             <!--<div class="button-position-c">-->
                 <div class="input#submit_button">
-                    <form action = "../i_general_top.html">
+                    <!-- <form action = "../i_general_top.html">
                         <input id="submit_button" type="submit" name="submit"value = "総合TOP画面へ戻る">
-                    </form>
+                    </form> -->
+        <input id="submit_button" type="button" onclick="location.href='../i_general_top.html'" value="TOP画面に戻る">
+
                 </div>
             <!--</div>-->
 

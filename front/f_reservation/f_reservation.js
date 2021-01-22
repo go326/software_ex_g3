@@ -123,7 +123,6 @@ function check(){
         send = false;
     }else{
         let checkTel = document.getElementById('tel').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
-        document.getElementById('tel').value = checkTel;
         if(!checkTel.match(/^([0-9]{10}|[0-9]{11})$/)){//{ここの数字は}入力の数
             message += "・電話番号を正しく入力してください\n";
             send = false;
@@ -190,6 +189,10 @@ function check(){
 
     //htmlに戻る
     if(send){
+        //電話番号のハイフンを外す
+        let checkTel2 = document.getElementById('tel').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+        document.getElementById('tel').value = checkTel2;
+
         return send;
     }else{
         alert(message);

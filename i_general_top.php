@@ -1,5 +1,7 @@
 <?php
-$auth = $_POST['auth'];
+session_start();
+$auth =$_SESSION['auth'];
+// $auth = $_POST['auth'];
 
 $FRONT = 1;
 $SEISOU = 2;
