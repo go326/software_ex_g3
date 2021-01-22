@@ -22,3 +22,11 @@ table,th,td{
     padding-left: 20px;
     padding-right: 20px;
 }
+h1{
+    width: 80%;
+    margin: 0 auto;
+}
+#back_button{
+    width: 80%;
+    margin: 0 auto;
+}

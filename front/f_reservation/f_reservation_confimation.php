@@ -9,27 +9,40 @@
 </head>
 
 <body>
-    <!--ヘッダー-->
-    <header>
-        <h1>予約登録確認画面</h1>
-    </header>
     <?php
+    if (isset($_POST['reservation'])) {
+    ?>
+        <!--ヘッダー-->
+        <header>
+            <h1>予約登録確認画面</h1>
+        </header>
+    <?php
+    } else {
+    ?>
+        <!--ヘッダー-->
+        <header>
+            <h1>予約編集確認画面</h1>
+        </header>
+    <?php
+    }
     require(dirname(__FILE__) . "/../../db_connect.php");
     require(dirname(__FILE__) . "/../f_customer.php");
     global $pdo;
-    if (isset($_POST['reservation'])) {
+    if (isset($_POST['reservation']) || isset($_POST['restore'])) {
         $dt = new DateTime($_POST["stay_year"] . '/' . $_POST["stay_manth"]  . '/' . $_POST["stay_day"]); //宿泊日
         $date = $dt->format('Y-m-d');
-	$count = $_POST["stay_count"];
-	$is_submit = 0;
+        $count = $_POST["stay_count"];
+        $is_submit = 0;
         for ($i = 1; $i <= $count; $i++) {
             for ($j = 1; $j < 4; $j++) {
                 if (empty($_POST['room_number' . $j])) {
                     continue;
                 }
-                if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
+                if (isset($_POST['restore'])) {
+                    break 2;
+                } else  if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
                     echo "予約が重複しています";
-		    $is_submit = 1;
+                    $is_submit = 1;
                     break 2;
                 }
             }
@@ -46,7 +59,6 @@
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     if (isset($_POST['cus_info'])) {
         try {
-            var_dump($_POST['cus_info']);
             $sql = 'INSERT INTO customer VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?)';
             $stmt = $pdo->prepare($sql);
             $dt = new DateTime(); //予約日
@@ -58,7 +70,7 @@
             $is_dinner = get_num($_POST['cus_info'][10]);
             $is_breakfast = get_num($_POST['cus_info'][12]);
 
-            $stmt->bindValue(1, $ID, PDO::PARAM_INT); //宿泊日
+            $stmt->bindValue(1, $ID, PDO::PARAM_INT); //ID
             $stmt->bindValue(2, $stay_day, PDO::PARAM_STR); //宿泊日
             $stmt->bindValue(3, $today, PDO::PARAM_STR);    //予約日
             $stmt->bindValue(4, $_POST['cus_info'][3], PDO::PARAM_STR);  //泊数
@@ -161,21 +173,34 @@
 
     </div>
     <form action="" method="post">
-        <input type="button" onclick="location.href='./f_reservation_input.html'" value="キャンセル">
+
         <?php
-        foreach ($_POST as $info) {
+        if (isset($_POST['reservation'])) {
         ?>
-            <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>>
-        <?php
-        }
-        if ($is_submit == 0) {
-        ?>
-            <input type="submit" name="input" value="登録" class="">
-        <?php
-        }
-        ?>
-    </form>
-    <!--フッター-->
+            <form action="" method="post">
+            <?php
+        } else {
+            ?>
+                <form action="../f_information/f_information_done.php" method="post">
+
+                <?php
+            }
+                ?>
+                <input type="button" onclick="location.href='./f_reservation_input.html'" value="キャンセル"> </input>
+                <?php
+                foreach ($_POST as $info) {
+                ?>
+                    <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>></input>
+                <?php
+                }
+                if ($is_submit == 0) {
+                ?>
+                    <input type="submit" name="input" value="登録" class=""></input>
+                <?php
+                }
+                ?>
+                </form>
+                <!--フッター-->
 </body>
 
 </html>

@@ -102,8 +102,10 @@
     </div>
 
     <form action="" method="post">
-        <input type="button" onclick="location.href='f_addfee_edit.php'" value="キャンセル">
-        <input type="submit" name="input" value="登録" class="">
+        <ul>
+            <li><input type="button" onclick="location.href='f_addfee_edit.php'" value="キャンセル"></li>
+            <li><input type="submit" name="input" value="登録"></li>
+        </ul>
     </form>
     <?php FeeInsertP(); ?>
 

@@ -5,6 +5,7 @@
     <!--文字コードUTF-8-->
     <meta charset="UTF-8">
     <link rel="stylesheet" href="i_general_top.css">
+    <script src="i_login.js"></script>
     <title>ログイン画面</title>
 </head>
 
@@ -14,22 +15,16 @@
         <fieldset class="back2">
             <center>
                 <h2>ログイン</h2>
-
+                <script type='text/javascript'> window.onload = error_msg() </script>
                 <form action="./i_login.php" method="post">
-                    <p>ユーザーID：
-                        <input type="text" name="UserID" maxlength="12">
+                    <p>ユーザーID：<input oninput="maxLengthCheck(this)" type="number" name="UserID" maxlength="12" required>
                     </p>
-                    <p>パスワード：
-                        <input type="password" name="Password" maxlength="127">
-                    </p>
+                    <p>パスワード：<input oninput="maxLengthCheck(this)" type="password" name="Password" maxlength="127"
+                            required></p>
                     <p><input type="submit" name="login" value="ログイン" id="button2"></p>
                 </form>
-
             </center>
-
         </fieldset>
-
-
 </body>
 
 </html>
