@@ -86,15 +86,15 @@ foreach ($data as $value) {
             echo ($value);
             //改行
             echo ("<br>");
-
-            echo cus_name($ID) . "<br>";
-            //今日の宿泊者数
-            $number_people = SCleanNumber($ID);
-            echo ("本日" . $number_people . "人");
-            echo ("<br>");
-            echo ("</button>");
-            echo ("</td>\n");
-
+            if($ID != 0){
+                echo cus_name($ID) . "<br>";
+                //今日の宿泊者数
+                $number_people = SCleanNumber($ID);
+                echo ("本日" . $number_people . "人");
+                echo ("<br>");
+                echo ("</button>");
+                echo ("</td>\n");
+            }
             //１セル終了
 
             //セルのカウント
