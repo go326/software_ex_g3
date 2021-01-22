@@ -110,8 +110,8 @@
             <form method="POST" action="../f_information/f_information.php" id="form2">
             </form>
             <ul>
-                <li><input type="submit" name="edit" value="確認" onclick="return check()" form="form1"></li>
                 <li><button type="submit" id="backbutton" name="ID" value="<?php echo $_SESSION['fee_id']; ?>" form="form2">戻る</button></li>
+                <li><input type="submit" name="edit" value="確認" onclick="return check()" form="form1"></li>
             </ul>
             <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
             <!--<form method="POST" action="../f_information/f_information.php">-->    
