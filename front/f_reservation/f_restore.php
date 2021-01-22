@@ -130,8 +130,19 @@ $day = $dt->format('d');
                 <!--必須選択-->
                 <dt>夕食の有無</dt>
                 <dd>
+                <?php
+                if($data[10] == 1){
+                    ?>
+                    <label><input type="radio" name="is_dinner" value="有" required required>有</label>
+                    <label><input type="radio" name="is_dinner" value="無" checked>無</label>
+                    <?php
+                }else {
+                    ?>
                     <label><input type="radio" name="is_dinner" value="有" required>有</label>
                     <label><input type="radio" name="is_dinner" value="無" checked required>無</label>
+                    <?php
+                }
+                    ?>
                 </dd>
                 <dt>夕食のメニュー</dt>
                 <dd>
@@ -140,8 +151,19 @@ $day = $dt->format('d');
                 <!--必須選択-->
                 <dt>朝食の有無</dt>
                 <dd>
+                <?php
+                if($data[12] == 1){
+                    ?>
+                    <label><input type="radio" name="is_breakfast" value="有" required required>有</label>
+                    <label><input type="radio" name="is_breakfast" value="無" checked >無</label>
+                    <?php
+                } else {
+                    ?>
                     <label><input type="radio" name="is_breakfast" value="有" required>有</label>
                     <label><input type="radio" name="is_breakfast" value="無" checked required>無</label>
+                    <?php
+                }
+                    ?>
                 </dd>
                 <dt>朝食のメニュー</dt>
                 <dd>
