@@ -62,7 +62,6 @@ if (isset($_SESSION['info'])){
     $day = $dt->format('d');
 } else if (isset($_SESSION['new_res'])){
 
-    echo $_SESSION['new_res'];
     $array = array();
     $data = array_pad($array, 18, null);
     $data[14] = $_SESSION['new_res'];

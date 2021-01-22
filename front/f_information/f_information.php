@@ -15,7 +15,7 @@ global $pdo;
 
 $ID = bool_stay($date, $_POST['room']);
 
-if ($ID == 0i) {
+if ($ID == 0) {
     $_SESSION['new_res'] = $_POST['room'];
     header("Location:/software_ex_g3/front/f_reservation/f_restore.php");
 }
@@ -61,11 +61,17 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
     <header>
         <h1>予約詳細画面</h1>
         <form action="../f_reservation/f_restore.php" method="post">
+        <?php
+            if($_SESSION['auth'] == 1){
+        ?>
             <input type="hidden" name='id' value=<?php echo $ID; ?>>
             <input type="submit" name='restore' value="編集">
             <input type="submit" name='delete' value="削除">
             <input type="submit" name='checkin' value="チェックイン/チェックアウト">
             <input type="submit" name='isstay' value="外出/帰館">
+        <?php
+            }
+        ?>
             <input type="button" onclick="location.href='../room.php'" value="戻る">
         </form>
         <form action="../f_addfee/f_addfee_edit.php" method="post">
