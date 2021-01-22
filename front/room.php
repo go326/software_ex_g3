@@ -52,9 +52,9 @@ foreach ($data as $value) {
         $today = $dt->format('Y-m-d');
         ?>
        
-        <span class="sample0"><button class="bg_color0"></button></span>未チェックイン<br>
-        <span class="sample1"><button class="bg_color0"></button></span>在室中<br>
-        <span class="sample2"><button class="bg_color0"></button></span>外泊中<br>
+        <span class="sample0"><button class="bg_color0"></button></span>未チェックイン<span>
+        <span class="sample1"><button class="bg_color0"></button></span>在室中<span>
+        <span class="sample2"><button class="bg_color0"></button></span>外泊中<span>
         <span class="sample3"><button class="bg_color0"></button></span>チェックアウト済<br>
     </header>
 
@@ -105,7 +105,7 @@ foreach ($data as $value) {
                 echo ("<tr>"); //次の<tr>を開始
             }
 
-            if ($value[$num + 1] % 100 == 35) {
+            if ($value % 100 == 35) {
                 echo ("</tr>");
                 echo ("</table>\n");
             }
