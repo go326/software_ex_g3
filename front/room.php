@@ -1,7 +1,7 @@
 <?php
 
-include("../db_connect.php");
-require("./f_customer.php");
+require(dirname(__FILE__) . "/../db_connect.php");
+require(dirname(__FILE__) ."/f_customer.php");
 global $pdo;
 
 $sql = "SELECT room_number FROM  room";
