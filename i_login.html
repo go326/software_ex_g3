@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="i_general_top.css">
     <script src="i_login.js"></script>
     <title>ログイン画面</title>
+    <meta http-equiv="refresh" content="0;URL='./i_login.php" />
 </head>
 
 <body>
+    <script>
+        function maxLengthCheck(object) {
+            if (object.value.length > object.maxLength)
+                object.value = object.value.slice(0, object.maxLength)
+        }
+    </script>
     <!--ヘッダー-->
     <header>
         <fieldset class="back2">
