@@ -62,7 +62,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
         <h1>予約詳細画面</h1>
         <form action="../f_reservation/f_restore.php" method="post">
         <?php
-            if($_SESSION['auth'] == 1){
+            if(strpos(strval($_SESSION['auth']), strval('1')) !== false){
         ?>
             <input type="hidden" name='id' value=<?php echo $ID; ?>>
             <input type="submit" name='restore' value="編集">
