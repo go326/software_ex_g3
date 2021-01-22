@@ -26,13 +26,13 @@ function check(){
         send = false;
     }
 
-    //備考
-    let remark = document.getElementById("remark");
-    if(remark.value == ""){
-        document.getElementById("remark").value ="なし";
-    }
 
     if(send){
+        //備考
+        let remark = document.getElementById("remark");
+        if(remark.value == ""){
+            document.getElementById("remark").value ="なし";
+        }
         return send;
     }else{
         alert(message);
