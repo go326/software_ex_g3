@@ -65,7 +65,7 @@
                 </button>
             </form>
 
-            <span class = "sample0"><button class = "bg_color0"></button></span>予約なし<br>
+            <span class = "sample0"><button class = "bg_color0"></button></span>お客様がチェックインしていない状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
             <span class = "sample3"><button class = "bg_color0"></button></span>未清掃<br>
             <span class = "sample2"><button class = "bg_color0"></button></span>清掃済<br>
@@ -92,9 +92,12 @@
                         //1セルの表示開始
                         echo ("<td>");
                         $SCMroom_clean = SCleanManagemantP($room_number);
-                        //bg_color0,1,2あるがこれを文字列結合で判断している。
-                        echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
-
+                        if($SCMroom_clean == 10){
+                            echo ("<button class = \"room_button\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
+                        }else{
+                            //bg_color0,1,2あるがこれを文字列結合で判断している。
+                            echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
+                        }
                         //1セルの表示名
                         //1行目
                         echo ($room_number);
