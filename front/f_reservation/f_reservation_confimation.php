@@ -10,7 +10,6 @@
 
 <body>
     <?php
-    var_dump($_POST);
     if (isset($_POST['reservation'])) {
         $is = 'reservation';
     ?>
@@ -115,16 +114,19 @@
 
     </div>
     <form action="../ex/f_done.php" method="post">
+    
+    <?php
+    foreach ($_POST as $info) {
+    ?>
+        <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>></input>
+    <?php
+    }
+    ?>
 
-            <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>></input>
-            <input type="button" onclick="location.href='./f_reservation_input.html'" value="キャンセル"> </input>
-            <?php
-            foreach ($_POST as $info) {
-            ?>
-                <input type="hidden" name="is" value=<?php echo  $is; ?>></input>
+    <input type="button" onclick="location.href='./f_restore.php'" value="キャンセル"> </input>
+    <input type="hidden" name="is" value=<?php echo  $is; ?>></input>
 
             <?php
-            }
             if ($is_submit == 0) {
             ?>
                 <input type="submit" name="input" value="登録" class=""></input>

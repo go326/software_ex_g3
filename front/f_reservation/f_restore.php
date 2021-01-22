@@ -16,17 +16,17 @@ if (isset($_POST['add_fee'])) {
 
 if (isset($_POST['delete'])) {
     delete($_POST['id']);
-    header("Location:../room.php");
+    header("Location:/software_ex_g3/front/room.php");
 }
 
 if (isset($_POST['checkin'])) {
     checkin($_POST['id']);
-    header("Location:../room.php");
+    header("Location:/software_ex_g3/front/room.php");
 }
 
 if (isset($_POST['isstay'])) {
     stay($_POST['id']);
-    header("Location:../room.php");
+    header("Location:/software_ex_g3/front/room.php");
 }
 
 if (isset($_POST['cus_info'])){
@@ -34,7 +34,6 @@ if (isset($_POST['cus_info'])){
 
 } else if ($_POST['id']){
 
-    echo "bb";
     $sql = "SELECT * FROM customer where  reseravetion_id = ?";
     
     $smt = $pdo->prepare($sql);
