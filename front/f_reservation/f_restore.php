@@ -32,7 +32,14 @@ if (isset($_POST['isstay'])) {
 
 if (isset($_SESSION['info'])){
     var_dump($_SESSION['info']);
-
+    $year = $_SESSION['info']['stay_year'];
+    $manth = $_SESSION['info']['stay_manth'];
+    $day = $_SESSION['info']['stay_day'];
+    $data = array(1, 1, 1);
+    foreach($_SESSION['info'] as $value){
+        array_push($data, $value);
+    }
+    var_dump($data);
 } else if ($_POST['id']){
 
     $sql = "SELECT * FROM customer where  reseravetion_id = ?";
