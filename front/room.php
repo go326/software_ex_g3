@@ -80,6 +80,9 @@ foreach ($data as $value) {
             //チェックインの情報をとるかな？
             $color = checkinColor($ID);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
+            ?>
+                <input type="hidden" name="room" value=<?php echo $value ?>>
+            <?php
             echo ("<button class = 'room_button bg_color" . $color . " ' type = 'submit' value = '" . $ID . "' name = 'ID' >");
 
             //1セルの表示名
@@ -95,9 +98,7 @@ foreach ($data as $value) {
                 echo ("<br>");
                 echo ("</button>");
                 echo ("</td>\n");
-            } else {
-                $_SESSION['new_res'] = $value;
-            }
+            } 
             //１セル終了
 
             //セルのカウント

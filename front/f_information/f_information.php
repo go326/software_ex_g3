@@ -14,6 +14,7 @@ $date = $dt->format("Y-m-d");
 global $pdo;
 
 if (empty($_POST['ID'])) {
+    $_SESSION['new_res'] = $_POST['room'];
     header("Location:/software_ex_g3/front/f_reservation/f_restore.php");
 }
 
