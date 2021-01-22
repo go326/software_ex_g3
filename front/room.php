@@ -50,7 +50,9 @@ foreach ($data as $value) {
         <?php
 
         $dt = new DateTime(); //予約日
-        $today = $dt->format('Y-m-d');
+$today = $dt->format('Y-m-d');
+$time = $dt->format('H:i:s');
+echo $time . "<br>";
         ?>
        
         <span class="sample0"><button class="bg_color0"></button></span>未チェックイン<span>
