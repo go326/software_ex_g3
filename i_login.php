@@ -2,6 +2,7 @@
 session_start();
 $_SESSION = array();
 session_destroy();
+session_save_path("var/tmp/");
 session_start();
 require(dirname(__FILE__) . "/db_connect.php");
 
