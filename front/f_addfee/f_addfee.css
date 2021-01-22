@@ -9,6 +9,12 @@ input{
     width: 200px;
     height: 70px;
 }
+button{
+    margin-top: 30px;
+    width: 200px;
+    height: 70px;
+}
+
 /*上下左右中央配置*/
 .central-configuration{
     display: flex;
