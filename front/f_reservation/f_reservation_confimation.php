@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    session_save_path("/var/tmp/");
     session_start();
     $_SESSION['info'] = $_POST;
     if (isset($_POST['reservation'])) {
