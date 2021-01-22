@@ -35,7 +35,7 @@ if (isset($_SESSION['info'])){
     $year = $_SESSION['info']['stay_year'];
     $manth = $_SESSION['info']['stay_manth'];
     $day = $_SESSION['info']['stay_day'];
-    $data = array(1, 1, 1);
+    $data = array();
     foreach($_SESSION['info'] as $value){
         array_push($data, $value);
     }
@@ -206,3 +206,5 @@ $date = $dt->format("Y-m-d");
 </body>
 
 </html>
+<?php
+session_unset();
