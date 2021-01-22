@@ -28,13 +28,13 @@
 function SCleanMainP(){
     global $DATA201_235,$DATA301_335,$DATA401_435,$ROOM_DATA,$NUM_OF_ROOMS,$NUM_OF_FLOOR,$ALL_ROOM;
     $today = date("Y-m-d");
-    $room_clean = 0; //初期値は0
     //今日の日付を取得
     try{
         //ホテルの階数分ループ
         for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
             //1階の部屋数分だけループ
             for ($room_count = 0; $room_count < $NUM_OF_ROOMS; $room_count++){
+                $room_clean = 0; //初期値は0
                 //まずは顧客情報テーブルから、清掃状況を抜き取る
                 //そのために部屋番号からIDを取り出し、存在するかどうか確認する。
                 $res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
