@@ -48,7 +48,7 @@ function SCleanMainP(){
                 //チェックイン状態を清掃の方法に変換する。
                 $room_clean = SCleanChangeP($room_clean);
                 //次にSCleanUpdateP($room_number, $room_clean)を実行する。
-                echo (",".$room_clean.."<br>");
+                echo (",".$room_clean."<br>");
                 SCleanUpdateP($ROOM_DATA[$floor_count][$room_count], $room_clean);
 
                 
