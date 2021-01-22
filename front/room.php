@@ -100,7 +100,7 @@ foreach ($data as $value) {
             //セルのカウント
             $room_count++;
             //セルが8個並ぶとtrで改行を入れる
-            if ($room_count % 8 == 0) {
+            if ($room_count % 10 == 0) {
                 echo ("</tr>"); //一行分の<tr>~</tr>
                 echo ("<tr>"); //次の<tr>を開始
             }

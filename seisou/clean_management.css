@@ -19,7 +19,7 @@ button.room_button{
     margin: 0 auto;
 }
 button.bg_color0,.sample0{
-    background: none;/*清掃情報の丸の色*/
+    background: pink;/*清掃情報の丸の色*/
     /*border-radius: 50%;
     position: relative;*/
 }
