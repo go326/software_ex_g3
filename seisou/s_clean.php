@@ -34,7 +34,7 @@ function SCleanMainP(){
         for ($floor_count = 0; $floor_count < $NUM_OF_FLOOR; $floor_count++){
             //1階の部屋数分だけループ
             for ($room_count = 0; $room_count < $NUM_OF_ROOMS; $room_count++){
-                $room_clean = 0; //初期値は0
+                $room_clean = 10; //初期値は0
                 //まずは顧客情報テーブルから、清掃状況を抜き取る
                 //そのために部屋番号からIDを取り出し、存在するかどうか確認する。
                 $res_id = bool_stay($today, $ROOM_DATA[$floor_count][$room_count]);
@@ -59,12 +59,14 @@ function SCleanMainP(){
 
 //もしかしたら清掃情報と比較をして一致状態は普遍みたいなことをするかも、清掃済状態は５にするかも
 function SCleanChangeP($room_clean){
-    if($room_clean == 0){
+    if($room_clean == 10){
         $room_clean = 10;
     }else if($room_clean == 1 || $room_clean == 2){
         $room_clean = 1;
     }else if($room_clean == 3){
         $room_clean = 3;
+    }else if($room_clean == 0){
+        $room_clean = 0;
     }
     return $room_clean;
 }
