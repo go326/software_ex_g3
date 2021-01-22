@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    var_dump($_POST);
     if (isset($_POST['reservation'])) {
         $is = 'reservation';
     ?>
@@ -113,7 +114,7 @@
         </dl>
 
     </div>
-    <form action="" method="post">
+    <form action="../ex/f_done.php" method="post">
 
             <input type="button" onclick="location.href='./f_reservation_input.html'" value="キャンセル"> </input>
             <?php
