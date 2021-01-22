@@ -13,14 +13,16 @@ $date = $dt->format("Y-m-d");
 
 global $pdo;
 
-if (empty($_POST['ID'])) {
+$ID = bool_stay($date, $_POST['room']);
+
+if ($ID == 0i) {
     $_SESSION['new_res'] = $_POST['room'];
     header("Location:/software_ex_g3/front/f_reservation/f_restore.php");
 }
 
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
 $smt = $pdo->prepare($sql);
-$smt->bindValue(1, $_POST['ID'], PDO::PARAM_STR);
+$smt->bindValue(1, $ID, PDO::PARAM_STR);
 $smt->execute();
 $data = $smt->fetch(PDO::FETCH_ASSOC);
 
@@ -59,7 +61,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
     <header>
         <h1>予約詳細画面</h1>
         <form action="../f_reservation/f_restore.php" method="post">
-            <input type="hidden" name='id' value=<?php echo $_POST['ID']; ?>>
+            <input type="hidden" name='id' value=<?php echo $ID; ?>>
             <input type="submit" name='restore' value="編集">
             <input type="submit" name='delete' value="削除">
             <input type="submit" name='checkin' value="チェックイン/チェックアウト">
@@ -67,7 +69,7 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
             <input type="button" onclick="location.href='../room.php'" value="戻る">
         </form>
         <form action="../f_addfee/f_addfee_edit.php" method="post">
-            <input type="hidden" name='fee_id' value=<?php echo $_POST['ID']; ?>>
+            <input type="hidden" name='fee_id' value=<?php echo $ID; ?>>
             <input type="submit" name='add_fee' value="追加料金登録">
         </form>
     </header>
