@@ -31,15 +31,20 @@ if (isset($_POST['isstay'])) {
 }
 
 if (isset($_SESSION['info'])){
-    var_dump($_SESSION['info']);
     $year = $_SESSION['info']['stay_year'];
     $manth = $_SESSION['info']['stay_manth'];
     $day = $_SESSION['info']['stay_day'];
     $data = array();
     foreach($_SESSION['info'] as $value){
-        array_push($data, $value);
+        if(strcmp($value, "有") == 0){
+            $set = 1;
+        } else if (strcmp($value, "無") == 0){
+            $set = 0;
+        } else {
+            $set = $value;
+        }
+        array_push($data, $set);
     }
-    var_dump($data);
 } else if ($_POST['id']){
 
     $sql = "SELECT * FROM customer where  reseravetion_id = ?";
