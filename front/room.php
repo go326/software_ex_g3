@@ -1,5 +1,6 @@
 <?php
-
+session_save_path("/var/tmp/");
+session_start();
 require(dirname(__FILE__) . "/../db_connect.php");
 require(dirname(__FILE__) ."/f_customer.php");
 global $pdo;
@@ -94,6 +95,8 @@ foreach ($data as $value) {
                 echo ("<br>");
                 echo ("</button>");
                 echo ("</td>\n");
+            } else {
+                $_SESSION['new_res'] = $value;
             }
             //１セル終了
 

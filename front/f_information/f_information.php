@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+session_save_path("/var/tmp/");
 session_start();
 unset($_SESSION['fee_id']);
 
@@ -13,7 +14,7 @@ $date = $dt->format("Y-m-d");
 global $pdo;
 
 if (empty($_POST['ID'])) {
-    header("Location:/software_ex_g3/front/room.php");
+    header("Location:/software_ex_g3/front/f_reservation/f_restore.php");
 }
 
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_save_path("/var/tmp/");
 session_start();
 
 require(dirname(__FILE__) . "/../../db_connect.php");
@@ -56,6 +57,15 @@ if (isset($_SESSION['info'])){
     
     
     $dt = new DateTime($data[1]);
+    $year = $dt->format('Y');
+    $manth = $dt->format('m');
+    $day = $dt->format('d');
+} else if (isset($_SESSION['new_res'])){
+
+    echo $_SESSION['new_res'];
+    $data = array_pad(null, 18, null);
+    $data[14] = $_SESSION['new_res'];
+    $dt = new DateTime();
     $year = $dt->format('Y');
     $manth = $dt->format('m');
     $day = $dt->format('d');
@@ -212,4 +222,5 @@ $date = $dt->format("Y-m-d");
 
 </html>
 <?php
-session_unset();
+unset($_SESSION['info']);
+unset($_SESSION['new_res']);
