@@ -79,9 +79,6 @@
 
     <body>
         <!--ヘッダー-->
-        <header>
-            <h1>追加料金編集画面</h1>
-        </header>
 
 
         <!-- DBからの取得 -->
@@ -89,6 +86,7 @@
 
         <!--メイン-->
         <div id="main">
+        <h1>追加料金編集画面</h1>
             <form method="POST" action="f_addfee_confimation.php" id="form1">
                 <dl>
                     <dt>部屋番号</dt>
