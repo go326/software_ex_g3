@@ -2,12 +2,13 @@
 <?php
 require("./db.php");
 $title = "";
-if (isset($_POST['resevation'])) {
+var_dump($_POST);
+if (strcmp($_POST['is'], 'reservation') == 0) {
     $title = "予約情報登録完了画面";
-    db_insert($_POST);
-} elseif (isset($_POST['resevation'])) {
+    db_insert($_POST['cus_info']);
+} elseif (strcmp($_POST['is'], 'restore') == 0) {
     $title = "予約情報編集完了画面";
-    db_update($_POST);
+	 db_update($_POST['cus_info']);
 }
 
 ?>
@@ -32,7 +33,7 @@ if (isset($_POST['resevation'])) {
         <div class="simple-box">
             <h2 class="central-configuration">変更を完了しました</h2>
         </div>
-        <input type="button" onclick="location.href='f_information.php'" value="予約情報詳細へ">
+        <input type="button" onclick="location.href='../f_information/f_information.php'" value="予約情報詳細へ">
     </div>
     </footer>
 </body>
