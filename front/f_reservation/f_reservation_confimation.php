@@ -116,11 +116,11 @@
     </div>
     <form action="../ex/f_done.php" method="post">
 
+            <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>></input>
             <input type="button" onclick="location.href='./f_reservation_input.html'" value="キャンセル"> </input>
             <?php
             foreach ($_POST as $info) {
             ?>
-                <input type="hidden" name="cus_info[]" class="" value=<?php echo $info ?>></input>
                 <input type="hidden" name="is" value=<?php echo  $is; ?>></input>
 
             <?php

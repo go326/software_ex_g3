@@ -29,21 +29,28 @@ if (isset($_POST['isstay'])) {
     header("Location:../room.php");
 }
 
+if (isset($_POST['cus_info'])){
+    echo "aa";
+
+} else if ($_POST['id']){
+
+    echo "bb";
+    $sql = "SELECT * FROM customer where  reseravetion_id = ?";
+    
+    $smt = $pdo->prepare($sql);
+    $smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
+    $smt->execute();
+    $data = $smt->fetch(PDO::FETCH_NUM);
+    
+    
+    $dt = new DateTime($data[1]);
+    $year = $dt->format('Y');
+    $manth = $dt->format('m');
+    $day = $dt->format('d');
+}
+
 $dt = new DateTime();
 $date = $dt->format("Y-m-d");
-
-$sql = "SELECT * FROM customer where  reseravetion_id = ?";
-
-$smt = $pdo->prepare($sql);
-$smt->bindValue(1, $_POST['id'], PDO::PARAM_STR);
-$smt->execute();
-$data = $smt->fetch(PDO::FETCH_NUM);
-
-
-$dt = new DateTime($data[1]);
-$year = $dt->format('Y');
-$manth = $dt->format('m');
-$day = $dt->format('d');
 ?>
 
 <html>
