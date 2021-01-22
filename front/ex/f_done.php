@@ -2,7 +2,7 @@
 <?php
 require("./db.php");
 $title = "";
-var_dump($_POST);
+//var_dump($_POST);
 if (strcmp($_POST['is'], 'reservation') == 0) {
     $title = "予約情報登録完了画面";
     db_insert($_POST['cus_info']);
@@ -19,7 +19,7 @@ if (strcmp($_POST['is'], 'reservation') == 0) {
     <!--文字コードUTF-8-->
     <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″>
     <link rel="stylesheet" href="../f_base.css" type="text/css">
-    <link rel="stylesheet" href="f_information.css" type="text/css">
+    <link rel="stylesheet" href="../f_information/f_information.css" type="text/css">
 </head>
 
 <body>

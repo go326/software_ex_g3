@@ -11,7 +11,6 @@ function db_update($value)
 {
     global $pdo, $stmt;
     try {
-        var_dump($value);
         $sql = 'UPDATE customer set stay_date = ?, stay_count = ?, customer_name = ?, customer_address = ?, phone_number = ?,';
         $sql .= ' adult = ?, child = ?, customer_plan = ?, is_dinner = ?, dinner_menu = ?, is_breakfast = ?, breakfast_menu = ?,';
         $sql .= ' room_1 = ?, room_2 = ?, room_3 = ?, customer_remark = ? WHERE reseravetion_id = ?';
@@ -45,7 +44,6 @@ function db_update($value)
     } catch (PDOException $e) {
         var_dump($e->getMessage());
     }
-    echo "aa";
 }
 
 function db_insert($value)
@@ -82,7 +80,6 @@ function db_insert($value)
         set_null(17, $value[16], 1); //部屋３
         set_null(18, $value[17], 2); //備考
         $stmt->execute();
-	echo "aa";
     } catch (PDOException $e) {
         var_dump($e->getMessage());
     }
