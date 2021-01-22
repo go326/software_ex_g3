@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include("../db_connect.php");
+require(dirname(__FILE__) . "/../db_connect.php");
+
 
 global $pdo;
 
