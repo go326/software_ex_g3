@@ -133,8 +133,8 @@ $day = $dt->format('d');
                 <?php
                 if($data[10] == 1){
                     ?>
-                    <label><input type="radio" name="is_dinner" value="有" required required>有</label>
-                    <label><input type="radio" name="is_dinner" value="無" checked>無</label>
+                    <label><input type="radio" name="is_dinner" value="有" checked required>有</label>
+                    <label><input type="radio" name="is_dinner" value="無" required>無</label>
                     <?php
                 }else {
                     ?>
@@ -154,8 +154,8 @@ $day = $dt->format('d');
                 <?php
                 if($data[12] == 1){
                     ?>
-                    <label><input type="radio" name="is_breakfast" value="有" required required>有</label>
-                    <label><input type="radio" name="is_breakfast" value="無" checked >無</label>
+                    <label><input type="radio" name="is_breakfast" value="有" checked required>有</label>
+                    <label><input type="radio" name="is_breakfast" value="無" required>無</label>
                     <?php
                 } else {
                     ?>
