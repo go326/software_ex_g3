@@ -46,7 +46,7 @@ if (isset($_SESSION['info'])){
         }
         array_push($data, $set);
     }
-} else if ($_POST['id']){
+} else if (isset($_POST['id'])){
 
     $sql = "SELECT * FROM customer where  reseravetion_id = ?";
     
@@ -63,7 +63,8 @@ if (isset($_SESSION['info'])){
 } else if (isset($_SESSION['new_res'])){
 
     echo $_SESSION['new_res'];
-    $data = array_pad(null, 18, null);
+    $array = array();
+    $data = array_pad($array, 18, null);
     $data[14] = $_SESSION['new_res'];
     $dt = new DateTime();
     $year = $dt->format('Y');
