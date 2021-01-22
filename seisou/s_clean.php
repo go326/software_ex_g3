@@ -59,13 +59,14 @@ function SCleanMainP(){
 
 //もしかしたら清掃情報と比較をして一致状態は普遍みたいなことをするかも、清掃済状態は５にするかも
 function SCleanChangeP($room_clean){
-    if($room_clean == 0 || $room_clean == 3){
+    if($room_clean == 0){
         $room_clean = 0;
     }else if($room_clean == 1 || $room_clean == 2){
         $room_clean = 1;
+    }else if($room_clean == 3){
+        $room_clean = 3;
     }
     return $room_clean;
-
 }
 
 //チェックイン状態を取り出す。
@@ -83,6 +84,19 @@ function GetChecknP($ID){
     return $checkin;
 }
 
+//清掃状況を更新する
+//部屋番号とその清掃状況を渡して更新する。
+function SCleanUpdateP($room_number, $room_clean){
+    global $pdo;
+    try{
+        $update_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number.";";
+        $stmt = $pdo -> query($update_sql);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        exit;
+    }
+}
+
 //清掃情報確認画面の枠組みに反映
 //清掃情報確認画面の枠組みの清掃状況を取り出し
 //ここで参照する色を決めている
@@ -97,18 +111,5 @@ function SCleanManagemantP($room_number){
         //echo($room_number.",".$room_clean."<br>");
     }
     return $room_clean;
-}
-
-//清掃状況を更新する
-//部屋番号とその清掃状況を渡して更新する。
-function SCleanUpdateP($room_number, $room_clean){
-    global $pdo;
-    try{
-        $update_sql = "UPDATE room SET room_clean = ".$room_clean." WHERE room_number = ".$room_number.";";
-        $stmt = $pdo -> query($update_sql);
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        exit;
-    }
 }
 ?>
