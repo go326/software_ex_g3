@@ -13,11 +13,16 @@ $date = $dt->format("Y-m-d");
 
 global $pdo;
 
-$ID = bool_stay($date, $_POST['room']);
+if(isset($_POST['ID'])){
+    $ID = $_POST['ID'];
+} else if(isset($_POST['room'])){
 
-if ($ID == 0) {
-    $_SESSION['new_res'] = $_POST['room'];
-    header("Location:/software_ex_g3/front/f_reservation/f_restore.php");
+    $ID = bool_stay($date, $_POST['room']);
+
+    if ($ID == 0) {
+        $_SESSION['new_res'] = $_POST['room'];
+        header("Location:/software_ex_g3/front/f_reservation/f_restore.php");
+    }
 }
 
 $sql = "SELECT * FROM customer where  reseravetion_id = ?";
