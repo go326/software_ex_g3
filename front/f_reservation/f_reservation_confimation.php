@@ -10,6 +10,8 @@
 
 <body>
     <?php
+    session_start();
+    $_SESSION['info'] = $_POST;
     if (isset($_POST['reservation'])) {
         $is = 'reservation';
     ?>
