@@ -183,7 +183,7 @@ $day = $dt->format('d');
             </dl>
             <ul>
                 <li><input type="button" onclick="location.href='../room.php'" value="戻る"></li>
-                <li><input type="submit" name="reservation" value="完了" onclick="return check()"></li>
+                <li><input type="submit" name="restore" value="完了" onclick="return check()"></li>
             </ul>
         </form>
         <script src="f_reservation.js"></script>
