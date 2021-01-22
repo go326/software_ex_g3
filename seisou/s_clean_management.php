@@ -65,8 +65,9 @@
                 </button>
             </form>
 
-            <span class = "sample0"><button class = "bg_color0"></button></span>未清掃<br>
+            <span class = "sample0"><button class = "bg_color0"></button></span>予約なし<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
+            <span class = "sample3"><button class = "bg_color0"></button></span>未清掃<br>
             <span class = "sample2"><button class = "bg_color0"></button></span>清掃済<br>
         </header>
 
