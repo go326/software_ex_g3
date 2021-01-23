@@ -25,7 +25,6 @@
             <div class="font-margin">
                 <form  id = "clean_edit" method = “get” action = "s_clean_edit_done.php">
                     <input type = "radio" value="0" name="room_clean" checked="checked">掃除していない<br>
-                    <input type = "radio" value="1" name="room_clean">チェックイン状態<br>
                     <input type = "radio" value="2" name="room_clean">掃除済み<br>
                     <input type = "hidden" value="<?php echo $room_number; ?>" name="room_number">
                 </form>
