@@ -54,9 +54,11 @@
             <div class="right">
                 <!--日付取得-->
                 <?php
-                    $date = date("Y-m-d");
+                    $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+                    $date = $dt->format("Y-m-d");
                     echo ($date."<br>");
-                    $next_date = date("Y-m-d", strtotime("+1 day"));
+                    $next_date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
+                    //$next_date = $dtdate("Y-m-d", strtotime("+1 day"));
                 ?>
             </div>
 
