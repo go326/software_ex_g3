@@ -55,8 +55,11 @@ $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $ID, PDO::PARAM_STR);
 $smt->execute();
 $fee_data = $smt->fetchAll(PDO::FETCH_ASSOC);
-
-var_dump($fee_data);
+foreach ($fee_data as $key => $value) {
+    if (empty($value['remark'])) {
+        $fee_data[$key]['remark'] = 'なし';
+    }
+}
 
 ?>
 
