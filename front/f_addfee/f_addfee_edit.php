@@ -27,8 +27,8 @@
 
     $id = "";
     $date = "";
-    $date = date('Y-m-d H:i:s');
-
+    $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+    $date = $dt->format("Y-m-d");
     // 予約IDの保存
     if (isset($_POST['fee_id'])) {
         $_SESSION['fee_id'] = $_POST['fee_id'];
@@ -67,8 +67,8 @@
     ?>
 
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
     <head>
         <!--文字コードUTF-8-->
@@ -86,7 +86,7 @@
 
         <!--メイン-->
         <div id="main">
-        <h1>追加料金編集画面</h1>
+            <h1>追加料金編集画面</h1>
             <form method="POST" action="f_addfee_confimation.php" id="form1">
                 <dl>
                     <dt>部屋番号</dt>
@@ -112,12 +112,13 @@
                 <li><input type="submit" name="edit" value="確認" onclick="return check()" form="form1"></li>
             </ul>
             <!-- <li><input type="button" onclick="location.href='../f_information/f_information_details.html'" value="戻る"></li> -->
-            <!--<form method="POST" action="../f_information/f_information.php">-->    
-            
+            <!--<form method="POST" action="../f_information/f_information.php">-->
+
             <!--</form>-->
-               
-                
+
+
 
         </div>
     </body>
-</html>
+
+    </html>
