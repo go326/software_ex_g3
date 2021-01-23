@@ -46,7 +46,7 @@
                 if (isset($_POST['restore'])) {
                     break 2;
                 } else  if (bool_stay($date, $_POST['room_number' . $j]) != 0) {
-                    echo "予約が重複しています";
+                    echo "予約が重複しています<br>";
                     $is_submit = 1;
                     break 2;
                 }
@@ -55,7 +55,7 @@
         }
         $sql = 'SELECT room_number FROM room';
         $stmt = $pdo->query($sql);
-        $room = $stmt->fetchAll();
+        $room = $stmt->fetchAll(PDO::FETCH_ASSOC);
         var_dump($room);
         for ($j = 1; $j < 4; $j++) {
             if (empty($_POST['room_number' . $j])) {
@@ -63,10 +63,11 @@
             }
             foreach($room as $value){
                 if(strcmp($value, $_POST['room_number' . $j]) == 0){
-                    break 1;
+                    continue 2;
                 } 
             }
-            echo "$j 個目が存在しない部屋番号です";
+            echo "$j 個目が存在しない部屋番号です<br>";
+            $is_submit = 1;
         }
     }
     foreach ($_POST as $name => $value) {
