@@ -7,7 +7,6 @@ $auth =$_SESSION['auth'];
 $FRONT = 1;
 $SEISOU = 2;
 $RESTAURANT = 3;
-$ARUBAITO = 4;
 $KANRI = 5;
 
 include("i_general_management.php");
@@ -48,9 +47,7 @@ include("i_general_management.php");
                     if(IAuthCheckP($auth, $RESTAURANT)){
                         echo ("<button type=\"button\" class=\"restaurant\" onclick=\"location.href='restaurant/r_information.php'\">レストラン業務機能</button>");
                     }
-                    if(IAuthCheckP($auth, $ARUBAITO)){
-                        echo ("<button type=\"button\" class=\"manual\" onclick=\"location.href='manual/i_mq_top.html'\">マニュアル・質問閲覧</button>");
-                    }
+                    echo ("<button type=\"button\" class=\"manual\" onclick=\"location.href='manual/i_mq_top.html'\">マニュアル・質問閲覧</button>");
                 ?>
             </div>
 
