@@ -1,4 +1,5 @@
 <?php
+session_save_path("/var/tmp/");
 session_start();
 require("k_log_record.php");
 
