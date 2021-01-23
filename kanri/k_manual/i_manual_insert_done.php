@@ -1,6 +1,6 @@
 <?php
     include '../../db_connect.php';
-
+    include '../../i_general_security.php';
     
 
 //phpとして別のファイルにするべき？
@@ -80,6 +80,7 @@ function IManualUploadP(){
         //清掃情報更新
         $manual_number = $_POST["manual_number"];
         $manual_name = $_POST["manual_name"];
+        $manual_name = IFormSecurityP($manual_name);
         //ファイル名がmanual_file_nameになる
         $manual_file_name = IManualUploadP();
 
