@@ -28,7 +28,7 @@ try {
             $fdate = $fdt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
         }
 
-        if (strtotime($fdate) >= strtotime($date)) {
+        if (strtotime($fdate) == strtotime($date)) {
             $rinfo .= "<tr><td>";
             $rinfo .= "<form action='../front/f_information/f_information.php' method='post'>";
             $rinfo .= "<button type='submit' name='ID' value='{$row['reseravetion_id']}'> {$row['customer_name']} </button>";
