@@ -102,6 +102,34 @@ function check(){
     let message = "";//警告で表示するメッセージ
     let send = true;//確認画面へ入力を送るか(false->送信しない、true->送信する)
 
+    //日付のチェック
+    let Cmonth = document.getElementById("month1");
+    let Cday = document.getElementById("day1").value;
+    if((Cmonth.value == 4) || (Cmonth.value == 6) || (Cmonth.value == 9) || (Cmonth.value == 11)){
+        if(Cday == 31){
+            message += "・不正な日付です\n";
+            send = false;
+        }
+    }
+    //2月のチェック
+    let Cyear = document.getElementById("year1").value;
+    let day_leap = 28;
+    if(Cyear % 4 == 0){
+        if(Cyear % 100 == 0){
+            if(Cyear % 400 == 0){
+                day_leap = 29;
+            }else{
+                day_leap = 28;
+            }
+        }else{
+            day_leap = 29;
+        }
+    }
+    if((Cmonth.value == 2) && (Cday > day_leap)){
+        message += "・不正な日付です\n";
+        send = false;
+    }
+
     //氏名の入力チェック
     let name = document.getElementById("name");
     if(name.value == ""){

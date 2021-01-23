@@ -1,5 +1,7 @@
 <?php
     include '../../db_connect.php';
+    include '../../i_general_security.php';
+
 
 //phpとして別のファイルにするべき？
 //よくある質問の内容を変更する,よくある質問一覧画面に戻る
@@ -55,6 +57,8 @@ function IQuestionEditP($question_number,$question_name,$question_result){
         $question_number = $_GET["question_number"];
         $question_name = $_GET["question_name"];
         $question_result = $_GET["question_result"];
+        $question_name = IFormSecurityP($question_name);
+        $question_result = IFormSecurityP($question_result);
         IQuestionEditP($question_number,$question_name,$question_result);
     }
     ?>
