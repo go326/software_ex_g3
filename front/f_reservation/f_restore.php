@@ -16,6 +16,15 @@ if (isset($_POST['add_fee'])) {
 <?php
 }
 
+
+    $array = array();
+    $data = array_pad($array, 18, null);
+$dt = new DateTime();
+$date = $dt->format("Y-m-d");
+
+$year = $dt->format("Y");
+$manth = $dt->format("m");
+$day = $dt->format("d");
 if (isset($_POST['delete'])) {
     delete($_POST['id']);
     header("Location:/software_ex_g3/front/room.php");
@@ -62,8 +71,6 @@ if (isset($_SESSION['info'])){
     $day = $dt->format('d');
 } else if (isset($_SESSION['new_res'])){
 
-    $array = array();
-    $data = array_pad($array, 18, null);
     $data[14] = $_SESSION['new_res'];
     $dt = new DateTime();
     $year = $dt->format('Y');
@@ -71,8 +78,6 @@ if (isset($_SESSION['info'])){
     $day = $dt->format('d');
 }
 
-$dt = new DateTime();
-$date = $dt->format("Y-m-d");
 ?>
 
 <html>
@@ -87,8 +92,8 @@ $date = $dt->format("Y-m-d");
 <body>
     <!--ヘッダー-->
     <?php
-    session_save_path("/var/tmp/");
-    session_start();
+    //session_save_path("/var/tmp/");
+    //session_start();
     if ($_SESSION['is_input'] == 1) {
     ?>
         <!--ヘッダー-->
