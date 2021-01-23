@@ -93,10 +93,19 @@
                             break;
                         }
                         $room_number = $ROOM_DATA[$table][$room_count];
+                        //今日と明日の予約の人数を取得するための予約IDを探す
+                        $today_res_id = bool_stay($date, $room_number);
+                        $next_res_id = bool_stay($next_date, $room_number);
+                        //echo ($today_res_id.",".$next_res_id."<br>");
+                        //今日の宿泊者数を取得
+                        $today_people = SCleanNumber($today_res_id);
+                        //明日の宿泊者数を取得
+                        $next_people = SCleanNumber($next_res_id);
+
                         //1セルの表示開始
                         echo ("<td>");
                         $SCMroom_clean = SCleanManagemantP($room_number);
-                        if($SCMroom_clean == 10){
+                        if($SCMroom_clean == 10 || $next_people == 0){
                             echo ("<button class = \"room_button\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" disabled>");
                         }else{
                             //bg_color0,1,2あるがこれを文字列結合で判断している。
@@ -106,23 +115,15 @@
                         //1行目
                         echo ($room_number);
 
-                        //今日と明日の予約の人数を取得するための予約IDを探す
-                        $today_res_id = bool_stay($date, $room_number);
-                        $next_res_id = bool_stay($next_date, $room_number);
-                        //echo ($today_res_id.",".$next_res_id."<br>");
                         //改行
                         echo ("<br>");
 
                         //2行目
-                        //今日の宿泊者数
-                        $number_people = SCleanNumber($today_res_id);
-                        echo ("本日".$number_people."人");
+                        echo ("本日".$today_people."人");
                         echo ("<br>");
 
                         //３行目
-                        //明日の宿泊者数
-                        $number_people = SCleanNumber($next_res_id);
-                        echo ("明日".$number_people."人");
+                        echo ("明日".$next_people."人");
                         
                         echo ("</button>");
                         echo ("</td>\n");
