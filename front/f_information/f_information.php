@@ -50,7 +50,7 @@ $dt = new DateTime($data['stay_date']);
 $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "day"))->format('Y-m-d');
 
 
-$sql = "SELECT * FROM fee where  reseravetion_id = ?";
+$sql = "SELECT * FROM fee where  fee_id = ?";
 $smt = $pdo->prepare($sql);
 $smt->bindValue(1, $ID, PDO::PARAM_STR);
 $smt->execute();
