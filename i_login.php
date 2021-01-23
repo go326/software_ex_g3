@@ -37,9 +37,11 @@ if (isset($_POST['login']) && !empty($_POST['UserID']) && !empty($_POST['Passwor
                 exit;
             } else {
                 $alert = "<script type='text/javascript'>alert('ログイン認証に失敗しました'); </script>";
+                echo $alert;
             }
         } else {
             $alert = "<script type='text/javascript'>alert('ユーザ認証に失敗しました'); </script>";
+            echo $alert;
         }
     } catch (PDOException $e) {
         var_dump('Error:' . $e->getMessage());
@@ -53,7 +55,6 @@ if (isset(($_POST['logout']))) {
 //  else {
 //     $alert = "<script type='text/javascript'>alert('入力してください'); </script>";
 // }
-echo $alert;
 ?>
 
 <!DOCTYPE html>
