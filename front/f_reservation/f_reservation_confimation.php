@@ -56,13 +56,12 @@
         $sql = 'SELECT room_number FROM room';
         $stmt = $pdo->query($sql);
         $room = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($room);
         for ($j = 1; $j < 4; $j++) {
             if (empty($_POST['room_number' . $j])) {
                 continue;
             }
             foreach($room as $value){
-                if(strcmp($value, $_POST['room_number' . $j]) == 0){
+                if(strcmp($value['room_number'], $_POST['room_number' . $j]) == 0){
                     continue 2;
                 } 
             }
