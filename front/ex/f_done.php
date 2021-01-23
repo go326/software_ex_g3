@@ -8,7 +8,7 @@ if (strcmp($_POST['is'], 'reservation') == 0) {
     db_insert($_POST['cus_info']);
 } elseif (strcmp($_POST['is'], 'restore') == 0) {
     $title = "予約情報編集完了画面";
-	 db_update($_POST['cus_info']);
+    db_update($_POST['cus_info']);
 }
 
 ?>
@@ -33,7 +33,7 @@ if (strcmp($_POST['is'], 'reservation') == 0) {
         <div class="simple-box">
             <h2 class="central-configuration">変更を完了しました</h2>
         </div>
-        <input type="button" onclick="location.href='../f_information/f_information.php'" value="予約情報詳細へ">
+        <input type="button" onclick="location.href='../room.php'" value="フロントTOPへ">
     </div>
     </footer>
 </body>
