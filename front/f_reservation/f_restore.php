@@ -95,6 +95,7 @@ if (isset($_SESSION['info'])){
     //session_save_path("/var/tmp/");
     //session_start();
     if ($_SESSION['is_input'] == 1) {
+	    $is = 'reservation';
     ?>
         <!--ヘッダー-->
         <header>
@@ -102,6 +103,7 @@ if (isset($_SESSION['info'])){
         </header>
     <?php
     } else if ($_SESSION['is_input'] == 2){
+	    $is = 'restore';
     ?>
         <!--ヘッダー-->
         <header>
@@ -232,7 +234,7 @@ if (isset($_SESSION['info'])){
             </dl>
             <ul>
                 <li><input type="button" onclick="location.href='../room.php'" value="戻る"></li>
-                <li><input type="submit" name="restore" value="完了" onclick="return check()"></li>
+		<li><input type="submit" name=<?php echo $is; ?> value="完了" onclick="return check()"></li>
             </ul>
         </form>
         <script src="f_reservation.js"></script>

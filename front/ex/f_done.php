@@ -2,7 +2,6 @@
 <?php
 require("./db.php");
 $title = "";
-//var_dump($_POST);
 if (strcmp($_POST['is'], 'reservation') == 0) {
     $title = "予約情報登録完了画面";
     db_insert($_POST['cus_info']);

@@ -4,9 +4,6 @@ require(dirname(__FILE__) . "/../../db_connect.php");
 
 $stmt;
 global $pdo;
-ini_set('display_errors', "On");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 function db_update($value)
 {
     global $pdo, $stmt;
