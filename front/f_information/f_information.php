@@ -61,6 +61,7 @@ foreach ($fee_data as $key => $value) {
     }
 }
 
+$_SESSION['is_input'] = 2;
 ?>
 
 <html>

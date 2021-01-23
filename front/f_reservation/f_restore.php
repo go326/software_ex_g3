@@ -86,10 +86,25 @@ $date = $dt->format("Y-m-d");
 
 <body>
     <!--ヘッダー-->
-    <header>
-        <h1>予約編集画面</h1>
-    </header>
-
+    <?php
+    session_save_path("/var/tmp/");
+    session_start();
+    if ($_SESSION['is_input'] == 1) {
+    ?>
+        <!--ヘッダー-->
+        <header>
+            <h1>予約登録画面</h1>
+        </header>
+    <?php
+    } else if ($_SESSION['is_input'] == 2){
+    ?>
+        <!--ヘッダー-->
+        <header>
+            <h1>予約編集画面</h1>
+        </header>
+    <?php
+    }
+    ?>
     <!--メイン-->
     <div id="main">
         <form action="f_reservation_confimation.php" method="post">

@@ -14,6 +14,8 @@ $room = array();
 foreach ($data as $value) {
     array_push($room, $value[0]);
 }
+$_SESSION['is_input'] = 1;
+
 ?>
 
 
@@ -36,7 +38,7 @@ foreach ($data as $value) {
         <!--総合TOP、新規入力、-->
         <ul>
             <li><input type="button" onclick="location.href='../i_general_top.html'" value="総合TOPへ戻る">
-            <li><input type="button" onclick="location.href='f_reservation/f_reservation_input.html'" value="新規入力"></li>
+            <li><input type="button" onclick="location.href='f_reservation/f_restore.php'" value="新規入力"></li>
             <li><input type="button" onclick="location.href='f_search/f_search.html'" value="予約検索"></li>
             <li id="view_date"></li>
         </ul>
