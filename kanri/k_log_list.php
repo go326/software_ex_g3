@@ -64,6 +64,9 @@
             text-align: center;
             margin: 0 auto;
             width: 80%;
+            display: block;
+            overflow-x: scroll;
+            white-space: nowrap;
         }
     </style>
     </head>
