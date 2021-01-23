@@ -56,8 +56,8 @@ $smt->bindValue(1, $ID, PDO::PARAM_STR);
 $smt->execute();
 $fee_data = $smt->fetchAll(PDO::FETCH_ASSOC);
 foreach ($fee_data as $key => $value) {
-    if (empty($value['remark'])) {
-        $fee_data[$key]['remark'] = 'なし';
+    if (empty($value['fee_remark'])) {
+        $fee_data[$key]['fee_remark'] = 'なし';
     }
 }
 
