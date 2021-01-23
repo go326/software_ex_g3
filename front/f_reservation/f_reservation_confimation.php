@@ -53,6 +53,21 @@
             }
             $date = $dt->add(DateInterval::createFromDateString("1day"))->format('Y-m-d');
         }
+        $sql = 'SELECT room_number FROM room';
+        $stmt = $pdo->query($sql);
+        $room = $stmt->fetchAll();
+        var_dump($room);
+        for ($j = 1; $j < 4; $j++) {
+            if (empty($_POST['room_number' . $j])) {
+                continue;
+            }
+            foreach($room as $value){
+                if(strcmp($value, $_POST['room_number' . $j]) == 0){
+                    break 1;
+                } 
+            }
+            echo "$j 個目が存在しない部屋番号です";
+        }
     }
     foreach ($_POST as $name => $value) {
         if (empty($value)) {
