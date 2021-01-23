@@ -8,14 +8,14 @@ unset($_SESSION['fee_id']);
 require(dirname(__FILE__) . "/../../db_connect.php");
 require(dirname(__FILE__) . "/../f_customer.php");
 
-$dt = new DateTime();
+$dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
 $date = $dt->format("Y-m-d");
 
 global $pdo;
 
-if(isset($_POST['ID'])){
+if (isset($_POST['ID'])) {
     $ID = $_POST['ID'];
-} else if(isset($_POST['room'])){
+} else if (isset($_POST['room'])) {
 
     $ID = bool_stay($date, $_POST['room']);
 
@@ -61,6 +61,15 @@ foreach ($fee_data as $key => $value) {
     }
 }
 
+if (bool_stay($date, $data['room_1']) == $ID) {
+    $sql = "SELECT * FROM room where room_number = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(1, $data['room_1'], PDO::PARAM_INT);
+    $stmt->execute();
+    $is_clean = $stmt->fetch(PDO::FETCH_ASSOC);
+    var_dump($is_clean);
+}
+
 $_SESSION['is_input'] = 2;
 ?>
 
@@ -77,23 +86,27 @@ $_SESSION['is_input'] = 2;
     <header>
         <h1>予約詳細画面</h1>
         <form action="../f_reservation/f_restore.php" method="post">
-        <?php
-            if(strpos(strval($_SESSION['auth']), strval('1')) !== false){
-        ?>
-            <input type="hidden" name='id' value=<?php echo $ID; ?>>
-            <input type="submit" name='restore' value="編集">
-            <input type="submit" name='delete' value="削除">
-            <input type="submit" name='checkin' value="チェックイン/チェックアウト">
-            <input type="submit" name='isstay' value="外出/帰館">
-        <?php
+            <?php
+
+            if (strpos(strval($_SESSION['auth']), strval('1')) !== false) {
+            ?>
+                <input type="hidden" name='id' value=<?php echo $ID; ?>>
+                <input type="submit" name='restore' value="編集">
+                <input type="submit" name='delete' value="削除">
+                <input type="submit" name='checkin' value="チェックイン/チェックアウト">
+                <input type="submit" name='isstay' value="外出/帰館">
+            <?php
             }
-        ?>
+            ?>
             <input type="button" onclick="location.href='../room.php'" value="戻る">
         </form>
         <form action="../f_addfee/f_addfee_edit.php" method="post">
             <input type="hidden" name='fee_id' value=<?php echo $ID; ?>>
             <input type="submit" name='add_fee' value="追加料金登録">
         </form>
+        <?php
+        echo $text;
+        ?>
     </header>
 
     <div id="info">
@@ -176,30 +189,30 @@ $_SESSION['is_input'] = 2;
             </div>
         </dl>
     </div>
-                
+
     <?php
-    foreach($fee_data as $value){
+    foreach ($fee_data as $value) {
     ?>
-    <div id="fee">
-        <dl>
-        <dt> 場所 </dt>
-            <dd>
-                <?php echo $value['fee_place']; ?>
-            </dd>
-            <dt> 内容 </dt>
-            <dd>
-                <?php echo $value['fee_contents']; ?>
-            </dd>
-            <dt> 料金 </dt>
-            <dd>
-                <?php echo $value['fee_add'];  ?>
-            </dd>
-            <dt> 備考 </dt>
-            <dd>
-                <?php echo $value['fee_remark']; ?>
-            </dd>
-        </dl>
-    </div>
+        <div id="fee">
+            <dl>
+                <dt> 場所 </dt>
+                <dd>
+                    <?php echo $value['fee_place']; ?>
+                </dd>
+                <dt> 内容 </dt>
+                <dd>
+                    <?php echo $value['fee_contents']; ?>
+                </dd>
+                <dt> 料金 </dt>
+                <dd>
+                    <?php echo $value['fee_add'];  ?>
+                </dd>
+                <dt> 備考 </dt>
+                <dd>
+                    <?php echo $value['fee_remark']; ?>
+                </dd>
+            </dl>
+        </div>
     <?php
     }
     ?>

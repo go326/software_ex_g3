@@ -2,7 +2,7 @@
 session_save_path("/var/tmp/");
 session_start();
 require(dirname(__FILE__) . "/../db_connect.php");
-require(dirname(__FILE__) ."/f_customer.php");
+require(dirname(__FILE__) . "/f_customer.php");
 global $pdo;
 
 $sql = "SELECT room_number FROM  room";
@@ -51,15 +51,14 @@ $_SESSION['is_input'] = 1;
         <!--日付取得-->
         <?php
 
-        $dt = new DateTime(); //予約日
-$today = $dt->format('Y-m-d');
-$time = $dt->format('H:i:s');
-echo $time . "<br>";
+        $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo')); //予約日
+        $dt->sub(DateInterval::createFromDateString('13hour'));
+        $today = $dt->format('Y-m-d');
         ?>
-       
-        <span class="sample0"><button class="bg_color0"></button></span>未チェックイン<span>
-        <span class="sample1"><button class="bg_color0"></button></span>在室中<span>
-        <span class="sample2"><button class="bg_color0"></button></span>外泊中<span>
+
+        <span class="sample0"><button class="bg_color0"></button></span>未チェックイン<span></span>
+        <span class="sample1"><button class="bg_color0"></button></span>在室中<span></span>
+        <span class="sample2"><button class="bg_color0"></button></span>外泊中<span></span>
         <span class="sample3"><button class="bg_color0"></button></span>チェックアウト済<br>
     </header>
 
@@ -85,13 +84,13 @@ echo $time . "<br>";
             $color = checkinColor($ID);
             //bg_color0,1,2あるがこれを文字列結合で判断している。
             echo ("<button class = 'room_button bg_color" . $color . " ' type = 'submit' value = '" . $value . "' name = 'room' >");
-            
+
             //1セルの表示名
             //1行目
             echo ($value);
             //改行
             echo ("<br>");
-            if($ID != 0){
+            if ($ID != 0) {
                 echo cus_name($ID) . "<br>";
                 //今日の宿泊者数
                 $number_people = SCleanNumber($ID);
@@ -99,7 +98,7 @@ echo $time . "<br>";
                 echo ("<br>");
                 echo ("</button>");
                 echo ("</td>\n");
-            } 
+            }
             //１セル終了
 
             //セルのカウント
