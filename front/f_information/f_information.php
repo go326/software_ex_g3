@@ -60,15 +60,21 @@ foreach ($fee_data as $key => $value) {
         $fee_data[$key]['fee_remark'] = 'なし';
     }
 }
-
-if (bool_stay($date, $data['room_1']) == $ID) {
-    $sql = "SELECT * FROM room where room_number = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(1, $data['room_1'], PDO::PARAM_INT);
-    $stmt->execute();
-    $is_clean = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($is_clean);
+$text = null;
+for ($i = 1; $i < 4; $i++) {
+    if (bool_stay($date, $data["room_$i"]) == $ID) {
+        $sql = "SELECT * FROM room where room_number = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(1, $data["room_$i"], PDO::PARAM_INT);
+        $stmt->execute();
+        $is_clean = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($is_clean['room_clean'] == 0) {
+            $text .= "  " . $data["room_$i"];
+        }
+    }
+    $text .= "が未清掃です．";
 }
+
 
 $_SESSION['is_input'] = 2;
 ?>
