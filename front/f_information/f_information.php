@@ -46,10 +46,17 @@ foreach ($data as $key => $value) {
         $data[$key] = "無";
     }
 }
-
-
 $dt = new DateTime($data['stay_date']);
 $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "day"))->format('Y-m-d');
+
+
+$sql = "SELECT * FROM fee where  reseravetion_id = ?";
+$smt = $pdo->prepare($sql);
+$smt->bindValue(1, $ID, PDO::PARAM_STR);
+$smt->execute();
+$fee_data = $smt->fetchAll(PDO::FETCH_ASSOC);
+
+var_dump($fee_data);
 
 ?>
 
@@ -165,23 +172,33 @@ $stay_day = $dt->add(DateInterval::createFromDateString($data['stay_count'] . "d
             </div>
         </dl>
     </div>
-
+                
+    <?php
+    foreach($fee_data as $value){
+    ?>
     <div id="fee">
         <dl>
+        <dt> 場所 </dt>
+            <dd>
+                <?php echo $value['fee_place']; ?>
+            </dd>
             <dt> 内容 </dt>
             <dd>
-                <?php echo $data['reservation_date']; ?>
+                <?php echo $value['fee_contents']; ?>
             </dd>
             <dt> 料金 </dt>
             <dd>
-                <?php echo $data['stay_date'] . "~" . $stay_day; ?>
+                <?php echo $value['fee_add'];  ?>
             </dd>
             <dt> 備考 </dt>
             <dd>
-                <?php echo $data['stay_date'] . "~" . $stay_day; ?>
+                <?php echo $value['fee_remark']; ?>
             </dd>
         </dl>
     </div>
+    <?php
+    }
+    ?>
 </body>
 
 </html>
