@@ -97,7 +97,7 @@
                         echo ("<td>");
                         $SCMroom_clean = SCleanManagemantP($room_number);
                         if($SCMroom_clean == 10){
-                            echo ("<button class = \"room_button\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
+                            echo ("<button class = \"room_button\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" disabled>");
                         }else{
                             //bg_color0,1,2あるがこれを文字列結合で判断している。
                             echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
