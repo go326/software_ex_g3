@@ -72,8 +72,8 @@ for ($i = 1; $i < 4; $i++) {
             $text .= "  " . $data["room_$i"];
         }
     }
-    $text .= "が未清掃です．";
 }
+$text .= "が未清掃です．";
 
 
 $_SESSION['is_input'] = 2;
@@ -94,6 +94,7 @@ $_SESSION['is_input'] = 2;
         <form action="../f_reservation/f_restore.php" method="post">
             <?php
 
+            echo $text;
             if (strpos(strval($_SESSION['auth']), strval('1')) !== false) {
             ?>
                 <input type="hidden" name='id' value=<?php echo $ID; ?>>
@@ -110,9 +111,7 @@ $_SESSION['is_input'] = 2;
             <input type="hidden" name='fee_id' value=<?php echo $ID; ?>>
             <input type="submit" name='add_fee' value="追加料金登録">
         </form>
-        <?php
-        echo $text;
-        ?>
+
     </header>
 
     <div id="info">
