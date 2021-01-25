@@ -52,7 +52,7 @@ function SCleanEditP($room_number,$room_clean){
         </header>
     <?php
         //清掃情報更新
-    if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
+    if(isset($_POST["room_number"]) && isset($_POST["room_clean"])){
         $room_number = $_POST["room_number"];
         $room_clean = $_POST["room_clean"];
         SCleanEditP($room_number,$room_clean);
