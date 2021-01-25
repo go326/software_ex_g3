@@ -77,7 +77,7 @@
 
         <!--清掃情報確認画面の枠組みの作成-->
         <!--formがget方式だがpostにする予定最悪このまま-->
-        <form method="get" action = "s_clean_edit.php">
+        <form method="post" action = "s_clean_edit.php">
         <?php
             //３階分テーブルを作成する
             for ($table = 0; $table < $NUM_OF_FLOOR; $table++){
