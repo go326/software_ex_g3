@@ -1,5 +1,5 @@
 <?php
-    $room_number = $_GET['room_number'];
+    $room_number = $_POST['room_number'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
         
             <!--i行目-->
             <div class="font-margin">
-                <form  id = "clean_edit" method = “get” action = "s_clean_edit_done.php">
+                <form  id = "clean_edit" method = “post” action = "s_clean_edit_done.php">
                     <input type = "radio" value="3" name="room_clean" checked="checked">掃除していない<br>
                     <input type = "radio" value="2" name="room_clean">掃除済み<br>
                     <input type = "hidden" value="<?php echo $room_number; ?>" name="room_number">
