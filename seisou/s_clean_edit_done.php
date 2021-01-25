@@ -14,10 +14,8 @@ function SCleanEditP($room_number,$room_clean){
         echo("<div class=\"button-area\">");    //css始まり
         echo ("実行に成功しました。<br>");
         echo ($room_number."号室を");
-        if($room_clean == 0){
+        if($room_clean == 3){
             echo("掃除していない");
-        }else if($room_clean == 1){
-            echo("チェックイン状態");
         }else if($room_clean == 2){
             echo("掃除済み");
         }
@@ -55,8 +53,8 @@ function SCleanEditP($room_number,$room_clean){
     <?php
         //清掃情報更新
     if(isset($_GET["room_number"]) && isset($_GET["room_clean"])){
-        $room_number = $_GET["room_number"];
-        $room_clean = $_GET["room_clean"];
+        $room_number = $_POST["room_number"];
+        $room_clean = $_POST["room_clean"];
         SCleanEditP($room_number,$room_clean);
     }
     ?>
