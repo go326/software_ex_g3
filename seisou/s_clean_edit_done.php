@@ -25,14 +25,6 @@ function SCleanEditP($room_number,$room_clean){
         echo $e->getMessage();
         exit;
     }
-    $back_URL = "s_clean_management.php";
-    echo ("<form action = ".$back_URL.">");
-    echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
-    echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
-    echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
-    echo ("</div>");    //css-submitボタン終わり
-    echo ("</div>");    //css中央揃え終わり
-    echo ("</form>");
 }
 
 ?>
@@ -51,12 +43,23 @@ function SCleanEditP($room_number,$room_clean){
             <h1> 清掃情報編集完了画面</h1>
         </header>
     <?php
+    $room_number = $_POST["room_number"];
+    $room_clean = $_POST["room_clean"];
         //清掃情報更新
-    if(isset($_POST["room_number"]) && isset($_POST["room_clean"])){
-        $room_number = $_POST["room_number"];
-        $room_clean = $_POST["room_clean"];
+    if(isset($room_number) && isset($room_clean)){
         SCleanEditP($room_number,$room_clean);
+    }else{
+        echo ("データの送信に失敗しました。");
     }
+
+    $back_URL = "s_clean_management.php";
+    echo ("<form action = ".$back_URL.">");
+    echo ("<div class=\"button-position-c\"");  //css中央揃え始まり
+    echo ("<div class=\"input#submit_button\">");   //css-submitボタン始まり
+    echo ("<input id=\"submit_button\" type=\"submit\" name=\"submit\" value=\"戻る\">");
+    echo ("</div>");    //css-submitボタン終わり
+    echo ("</div>");    //css中央揃え終わり
+    echo ("</form>");
     ?>
     </body>
 </html>
