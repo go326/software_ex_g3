@@ -9,6 +9,9 @@ if (strcmp($_POST['is'], 'reservation') == 0) {
     $title = "予約情報編集完了画面";
     db_update($_POST['cus_info']);
 }
+session_save_path("/var/tmp/");
+session_start();
+unset($_SESSION['info']);
 
 ?>
 

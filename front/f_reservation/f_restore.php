@@ -45,6 +45,7 @@ if (isset($_SESSION['info'])){
     $manth = $_SESSION['info']['stay_manth'];
     $day = $_SESSION['info']['stay_day'];
     $data = array();
+	  //  var_dump($_SESSION['info']);
     foreach($_SESSION['info'] as $value){
         if(strcmp($value, "有") == 0){
             $set = 1;
@@ -55,6 +56,7 @@ if (isset($_SESSION['info'])){
         }
         array_push($data, $set);
     }
+	  //var_dump($data); 
 } else if (isset($_POST['id'])){
 
     $sql = "SELECT * FROM customer where  reseravetion_id = ?";
@@ -229,7 +231,7 @@ if (isset($_SESSION['info'])){
                 </dd>
                 <dt>備考</dt>
                 <dd>
-                    <textarea id="remark" name="remark" rows="5" cols="40" value='<?php echo $data[18]; ?>'></textarea>
+                    <textarea id="remark" name="remark" rows="5" cols="40" value='<?php echo $data[17]; ?>'></textarea>
                 </dd>
             </dl>
             <ul>

@@ -61,6 +61,7 @@ foreach ($fee_data as $key => $value) {
     }
 }
 $text = null;
+$bool = 0;
 for ($i = 1; $i < 4; $i++) {
     if (bool_stay($date, $data["room_$i"]) == $ID) {
         $sql = "SELECT * FROM room where room_number = ?";
@@ -68,13 +69,15 @@ for ($i = 1; $i < 4; $i++) {
         $stmt->bindValue(1, $data["room_$i"], PDO::PARAM_INT);
         $stmt->execute();
         $is_clean = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($is_clean['room_clean'] == 0) {
+        if ($is_clean['room_clean'] == 2) {
             $text .= "  " . $data["room_$i"];
-        }
+		$bool = 1;
+	}
     }
 }
-$text .= "が未清掃です<br>";
-
+if($bool == 1){
+    $text .= "が未清掃です<br>";
+}
 
 $_SESSION['is_input'] = 2;
 ?>
