@@ -58,7 +58,7 @@ $_SESSION['is_input'] = 1;
 
         <span class="sample0"><button class="bg_color0"></button></span>未チェックイン<span></span>
         <span class="sample1"><button class="bg_color0"></button></span>在室中<span></span>
-        <span class="sample2"><button class="bg_color0"></button></span>外泊中<span></span>
+        <span class="sample2"><button class="bg_color0"></button></span>外出中<span></span>
         <span class="sample3"><button class="bg_color0"></button></span>チェックアウト済<br>
     </header>
 
