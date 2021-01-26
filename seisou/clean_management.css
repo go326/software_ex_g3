@@ -29,7 +29,7 @@ button.bg_color1,.sample1{
     position: relative;*/
 }
 button.bg_color2,.sample2{
-    background: red;/*清掃情報の丸の色*/
+    background: rgba(255,0,0,0.7)/*清掃情報の丸の色*/
     /*border-radius: 50%;
     position: relative;*/
 }
