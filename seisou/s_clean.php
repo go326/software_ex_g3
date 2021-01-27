@@ -88,10 +88,11 @@ function SCleanChangeP($room_clean, $now_clean){
         $room_clean = 1;
     //チェックアウト
     }else if($room_clean == 3){
+        $room_clean = 3;
+        //その後、現在の状態が清掃済であれば、清掃済状態に変更する。
         if($now_clean == 2){
             $room_clean = $now_clean;
         }
-        $room_clean = 3;
     //未チェックイン
     }else if($room_clean == 0){
         $room_clean = 0;
