@@ -7,6 +7,7 @@ $auth =$_SESSION['auth'];
 $FRONT = 1;
 $SEISOU = 2;
 $RESTAURANT = 3;
+$ARU = 4;
 $KANRI = 5;
 
 include("i_general_management.php");
@@ -32,7 +33,7 @@ include("i_general_management.php");
             </center>
             <div class="inner">
                 <?php
-                    if(IAuthCheckP($auth, $FRONT)){
+                    if(IAuthCheckP($auth, $FRONT) || IAuthCheckP($auth, $ARU)){
                         echo ("<button type=\"button\" class=\"flont\" onclick=\"location.href='front/room.php'\">フロント業務機能</button>");
                     }
                     
