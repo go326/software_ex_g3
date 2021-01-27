@@ -21,10 +21,7 @@
     $ALL_ROOM = $NUM_OF_ROOMS * $NUM_OF_FLOOR; //ホテルの全ての部屋数
     $LINE_BREAK = 8; //8個の要素tdで改行
     $LINK_PHP = "s_clean_edit.php"; //phpのURL
-
-    if(isset($_POST['update'])){
-        SCleanMainP();
-    }
+    SCleanMainP();
 ?>
 
 <!DOCTYPE html>
