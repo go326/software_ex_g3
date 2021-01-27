@@ -59,13 +59,6 @@
                 ?>
             </div>
 
-            <!--更新ボタン-->
-            <form action = "s_clean_management.php" method="post">
-                <button type = "submit" name = "update" value = "1">
-                更新    
-                </button>
-            </form>
-
             <span class = "sample0"><button class = "bg_color0"></button></span>お客様がチェックインしていない状態<br>
             <span class = "sample1"><button class = "bg_color0"></button></span>お客様がチェックインしている状態<br>
             <span class = "sample3"><button class = "bg_color0"></button></span>未清掃<br>
@@ -106,7 +99,11 @@
                             echo ("<button class = \"room_button\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" disabled>");
                         }else{
                             //bg_color0,1,2あるがこれを文字列結合で判断している。
-                            echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" >");
+                            echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\"");
+                            if($SCMroom_clean == 2 || $SCMroom_clean == 1){
+                                echo ("disabled");
+                            }
+                            echo (">");
                         }
                         //1セルの表示名
                         //1行目
