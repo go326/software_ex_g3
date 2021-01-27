@@ -100,7 +100,7 @@
                         }else{
                             //bg_color0,1,2あるがこれを文字列結合で判断している。
                             echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\"");
-                            if($SCMroom_clean == 2 || $SCMroom_clean == 1){
+                            if($SCMroom_clean == 0 || $SCMroom_clean == 1){
                                 echo ("disabled");
                             }
                             echo (">");
