@@ -88,7 +88,7 @@ function SCleanChangeP($room_clean, $now_clean){
         $room_clean = 1;
     //チェックアウト
     }else if($room_clean == 3){
-        if($now_clean == 3 || $now_clean == 2){
+        if($now_clean == 2){
             $room_clean = $now_clean;
         }
         $room_clean = 3;
