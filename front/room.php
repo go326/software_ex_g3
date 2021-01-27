@@ -40,7 +40,7 @@ $_SESSION['is_input'] = 1;
         <!--総合TOP、新規入力、-->
         <ul>
         <?php 
-            if(IAuthCheckP($auth, $FRONT)){
+            if(IAuthCheckP($auth, $ARU)){
         ?>
             <li><input type="button" onclick="location.href='../i_general_top.html'" value="総合TOPへ戻る">
             <li><input type="button" onclick="location.href='f_reservation/f_restore.php'" value="新規入力"></li>
