@@ -33,7 +33,7 @@ include("i_general_management.php");
             </center>
             <div class="inner">
                 <?php
-                    if(IAuthCheckP($auth, $FRONT) || IAuthCheckP($auth, $ARU)){
+                    if(IAuthCheckP($auth, $FRONT) ){//|| IAuthCheckP($auth, $ARU)){
                         echo ("<button type=\"button\" class=\"flont\" onclick=\"location.href='front/room.php'\">フロント業務機能</button>");
                     }
                     
