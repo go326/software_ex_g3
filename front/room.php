@@ -3,6 +3,8 @@ session_save_path("/var/tmp/");
 session_start();
 require(dirname(__FILE__) . "/../db_connect.php");
 require(dirname(__FILE__) . "/f_customer.php");
+include("../i_general_management.php");
+$ARU = 4;
 global $pdo;
 
 $sql = "SELECT room_number FROM  room";
@@ -37,10 +39,16 @@ $_SESSION['is_input'] = 1;
         <h1> フロントTOP画面</h1>
         <!--総合TOP、新規入力、-->
         <ul>
+        <?php 
+            if(IAuthCheckP($auth, $FRONT)){
+        ?>
             <li><input type="button" onclick="location.href='../i_general_top.html'" value="総合TOPへ戻る">
             <li><input type="button" onclick="location.href='f_reservation/f_restore.php'" value="新規入力"></li>
             <li><input type="button" onclick="location.href='f_search/f_search.html'" value="予約検索"></li>
             <li id="view_date"></li>
+        <?php
+            }
+        ?>
         </ul>
         <!--今日の日付の表示-->
         <script type="text/javascript">
