@@ -99,6 +99,7 @@
                             echo ("<button class = \"room_button\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\" disabled>");
                         }else{
                             //bg_color0,1,2あるがこれを文字列結合で判断している。
+                            //2,3ならボタン押せる
                             echo ("<button class = \"room_button bg_color".$SCMroom_clean."\" type = \"submit\" value = \"".$room_number."\" name = \"room_number\"");
                             if($SCMroom_clean == 0 || $SCMroom_clean == 1){
                                 echo ("disabled");
