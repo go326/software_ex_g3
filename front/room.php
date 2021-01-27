@@ -5,6 +5,7 @@ require(dirname(__FILE__) . "/../db_connect.php");
 require(dirname(__FILE__) . "/f_customer.php");
 include("../i_general_management.php");
 $ARU = 4;
+$auth =$_SESSION['auth'];
 global $pdo;
 
 $sql = "SELECT room_number FROM  room";
