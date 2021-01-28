@@ -9,6 +9,7 @@ require(dirname(__FILE__) . "/../../db_connect.php");
 require(dirname(__FILE__) . "/../f_customer.php");
 
 $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+$dt->sub(DateInterval::createFromDateString('13hour'));
 $date = $dt->format("Y-m-d");
 
 global $pdo;
@@ -71,11 +72,11 @@ for ($i = 1; $i < 4; $i++) {
         $is_clean = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($is_clean['room_clean'] == 2) {
             $text .= "  " . $data["room_$i"];
-		$bool = 1;
-	}
+            $bool = 1;
+        }
     }
 }
-if($bool == 1){
+if ($bool == 1) {
     $text .= "が未清掃です<br>";
 }
 
